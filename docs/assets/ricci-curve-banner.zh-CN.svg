@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" role="img" aria-labelledby="title description">
+  <title id="title">Ricci 流下曲线的一致估计</title>
+  <desc id="description">长度 · 总曲率 · 一致常数. Abstract nested curves illustrate the theme.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#11223b"/><stop offset="1" stop-color="#162f43"/></linearGradient>
+    <linearGradient id="curve"><stop stop-color="#63d8cb"/><stop offset="1" stop-color="#9bbdff"/></linearGradient>
+  </defs>
+  <rect width="1280" height="320" rx="16" fill="url(#bg)"/>
+  <path d="M60 62h42" stroke="#63d8cb" stroke-width="4" stroke-linecap="round"/>
+  <g font-family="Arial, Helvetica, 'Noto Sans CJK SC', 'PingFang SC', sans-serif">
+    <text x="60" y="126" fill="#f3f7fc" font-size="48" font-weight="700">Ricci 流下曲线的一致估计</text>
+    <text x="61" y="183" fill="#bdccd9" font-size="34">长度 · 总曲率 · 一致常数</text>
+    <text x="62" y="261" fill="#83a8b9" font-size="15" letter-spacing="2">LEAN 形式化 · PERELMAN–MORGAN–TIAN</text>
+  </g>
+  <g fill="none" stroke="url(#curve)" stroke-width="1.7" transform="translate(1040 160)">
+    <path d="M-145-25C-124-114 12-151 111-90S175 56 78 112S-161 100-145-25Z" opacity=".38"/>
+    <path d="M-117-16C-100-89 8-121 90-73S139 48 62 89S-130 80-117-16Z" opacity=".54"/>
+    <path d="M-89-10C-76-68 5-91 66-55S103 37 44 66S-98 58-89-10Z" opacity=".73"/>
+    <path d="M-60-5C-49-45 4-60 43-36S67 25 27 43S-66 37-60-5Z"/>
+    <path d="M-31-2C-25-23 1-30 21-18S33 13 12 22S-34 18-31-2Z" opacity=".8"/>
+    <circle r="3" fill="#a7e9e2" stroke="none"/>
+  </g>
+</svg>
