@@ -1,0 +1,27 @@
+'CurveControl.Geometry.EvolvingConnection.covDerivAlong' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.covDerivAlong_def' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.fderiv_covDerivAlong_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.covDerivAlong_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.covDerivAlong_fderiv_symm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.coefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.covTime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.covSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.curvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.timeVariation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.fderiv_coefficients' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.spatial_slice_fderiv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.time_slice_fderiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.covTime_covSpace_comm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.EvolvingConnection.covTime_spaceVelocity_eq_covSpace_timeVelocity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

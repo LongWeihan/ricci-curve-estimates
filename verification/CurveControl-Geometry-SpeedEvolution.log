@@ -1,0 +1,32 @@
+'CurveControl.Geometry.metricInner_covDeriv_curvature_velocity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.hasDerivAt_time_curveSpeed_of_mixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.exists_mixed_covDeriv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curveSpeed_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_unitTangent_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.curveVelocity_eq_speed_smul_unitTangent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.covDeriv_unitTangent_eq_speed_smul_curvature' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.metricInner_covDeriv_curvature_velocity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.hasDerivAt_time_curveSpeed_of_mixed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.exists_mixed_covDeriv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curveSpeed_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_unitTangent_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

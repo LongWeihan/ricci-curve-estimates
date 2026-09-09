@@ -1,0 +1,811 @@
+{
+  "schema_version": 1,
+  "title": "Ricci 流下的曲线控制：数学蓝图",
+  "language": "zh-CN",
+  "scope": "对 Ricci 流下已有的光滑浸入闭曲线族，形式化证明长度与总曲率的一致估计，并覆盖任意静态一维因子度量。",
+  "dependency_semantics": "图中的边表示组织数学阐述所选取的前置结果。",
+  "notation": {
+    "time": "a <= t <= b 位于给定的 Ricci 流时间集合内；高阶演化公式在时间内点证明。",
+    "space": "x 是周期为一的实参数；D_s = v^{-1}D_x。",
+    "metric": "所有张量范数、内积配对和曲线量均使用实际的 g(t) 或其真实产品度量。",
+    "curvature_sign": "rm 使用上游库的内蕴四阶曲率形式；已显式证明它与符号相反的图册曲率算子之间的转换。",
+    "constants": "B 控制 Ricci 张量，K 控制 Riemann 曲率，D 控制 Ricci 张量的协变导数；A=max(6B+2K,6D)，C=A/2+B。",
+    "regularization": "epsilon > 0；先对 Theta_epsilon 作比较，再令 epsilon 趋于零。"
+  },
+  "references": [
+    {
+      "id": "mt2015",
+      "title": "Morgan–Tian 修正，引理 0.1–0.4",
+      "url": "https://arxiv.org/html/1512.00699",
+      "role": "修正后的数学来源；空间联络路线属于适配。"
+    },
+    {
+      "id": "perelman2003",
+      "title": "Perelman，Finite extinction time，第 2–3 节",
+      "url": "https://arxiv.org/abs/math/0307245",
+      "role": "使用这些曲线估计的有限消失论证。"
+    },
+    {
+      "id": "upstream",
+      "title": "frenzymath/Poincare-Conjecture，固定提交的几何库",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/tree/bb91a091f0b968f8bbe8d861e025a88d82b161be",
+      "role": "复用 DoCarmoLib 和 MorganTianLib 的度量、联络及 Ricci 流基础设施。"
+    },
+    {
+      "id": "target_blueprint",
+      "title": "固定版本的上游曲线收缩估计蓝图",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/bb91a091f0b968f8bbe8d861e025a88d82b161be/PoincareConjecture/blueprint/src/chapters/curve-shrinking-estimates.tex",
+      "role": "曲线估计模块的证明规划。"
+    },
+    {
+      "id": "mathlib",
+      "title": "mathlib，固定提交 520045ab14e26149ee970e2e617ca04b09bde5d6",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/520045ab14e26149ee970e2e617ca04b09bde5d6",
+      "role": "复用分析、线性代数和流形基础设施。"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "flow_input",
+      "title": "实际 Ricci 流与浸入闭曲线流",
+      "kind": "definition",
+      "math_statement": "g_t=-2\\operatorname{Ric}_{g(t)},\\qquad c_t=H,\\qquad c(t,x+1)=c(t,x),\\quad c_x\\ne0.",
+      "explanation": "输入为光滑度量族和联合光滑的浸入周期曲线族。时间方程采用给定时间集合内的导数。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.Flow",
+          "file": "CurveControl/Geometry/Flow.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "source_references": [
+        "upstream",
+        "mt2015"
+      ],
+      "contribution": {
+        "category": "adapted",
+        "detail": "复用上游 Ricci 流谓词，新增实际周期曲线流接口。"
+      },
+      "scope_caveats": [
+        "以已有光滑流为输入；存在与延拓由外围理论提供。",
+        "高阶演化恒等式在时间内点成立。"
+      ]
+    },
+    {
+      "id": "curve_geometry",
+      "title": "内蕴曲线几何与移动测度",
+      "kind": "definition",
+      "math_statement": "X=c_x,\\quad v=|X|_g,\\quad S=v^{-1}X,\\quad H=D_sS,\\quad q=|H|_g^2,\\quad ds=v\\,dx.\\qquad L=\\int_0^1v\\,dx,\\quad\\Theta=\\int_0^1\\sqrt q\\,v\\,dx.",
+      "explanation": "协变导数在固定有效图册中读取沿曲线移动的切向量场。长度和张量缩并使用演化度量。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.Basic",
+          "file": "CurveControl/Geometry/Basic.lean",
+          "declarations": [
+            "CurveControl.Geometry.curveSpeed",
+            "CurveControl.Geometry.unitTangent",
+            "CurveControl.Geometry.covDerivAlong",
+            "CurveControl.Geometry.curvatureVector",
+            "CurveControl.Geometry.curvatureSq",
+            "CurveControl.Geometry.curveLength",
+            "CurveControl.Geometry.totalCurvature",
+            "CurveControl.Geometry.regularizedTotalCurvature",
+            "CurveControl.Geometry.curvatureEnergy"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input"
+      ],
+      "source_references": [
+        "upstream",
+        "mt2015"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "定义本项目使用的几何量和积分密度。"
+      },
+      "scope_caveats": [
+        "闭曲线用周期为一的实参数化表示，允许自交。"
+      ]
+    },
+    {
+      "id": "speed_evolution",
+      "title": "速度与单位切向量的演化",
+      "kind": "theorem",
+      "math_statement": "v_t=-(q+\\operatorname{Ric}(S,S))v,\\qquad D_tS=D_sH+(q+\\operatorname{Ric}(S,S))S.",
+      "explanation": "流方程给出混合协变导数恒等式，进而推出速度演化律。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.SpeedEvolution",
+          "file": "CurveControl/Geometry/SpeedEvolution.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curveSpeed_time",
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_unitTangent_time"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input",
+        "curve_geometry"
+      ],
+      "source_references": [
+        "mt2015",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "由混合导数和度量变分推导速度及切向量演化。"
+      },
+      "scope_caveats": [
+        "经典时间导数的结论在时间内点给出。"
+      ]
+    },
+    {
+      "id": "connection_variation",
+      "title": "Levi-Civita 联络的时间变分",
+      "kind": "theorem",
+      "math_statement": "\\langle (\\partial_t\\nabla)(U,V),W\\rangle=- (\\nabla_U\\operatorname{Ric})(V,W)-(\\nabla_V\\operatorname{Ric})(U,W)+(\\nabla_W\\operatorname{Ric})(U,V).",
+      "explanation": "在固定空间图册坐标点对 Christoffel 符号作时间微分，再用 g(t) 降指标。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.RicciConnectionVariation",
+          "file": "CurveControl/Geometry/RicciConnectionVariation.lean",
+          "declarations": [
+            "CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffelBilin_lower_intrinsic"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input"
+      ],
+      "source_references": [
+        "mt2015",
+        "upstream"
+      ],
+      "contribution": {
+        "category": "adapted",
+        "detail": "将时空计算适配为随时间变化的空间联络计算。"
+      },
+      "scope_caveats": [
+        "降指标指用 g(t) 作用于联络的时间导数；度量变分项另行处理。"
+      ]
+    },
+    {
+      "id": "curvature_evolution",
+      "title": "修正后的曲率平方演化",
+      "kind": "theorem",
+      "math_statement": "P=D_sH+qS,\\quad q_t=q_{ss}-2|P|^2+2q^2+4q\\operatorname{Ric}(S,S)-2\\operatorname{Ric}(H,H)+2\\mathrm{rm}(H,S,H,S)-4(\\nabla_S\\operatorname{Ric})(S,H)+2(\\nabla_H\\operatorname{Ric})(S,S).",
+      "explanation": "由给定流推导曲率向量演化、所需协变正则性、联络降指标公式及曲率符号转换。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.CurvatureEvolution",
+          "file": "CurveControl/Geometry/CurvatureEvolution.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curvatureSq_time",
+            "CurveControl.Geometry.chartCurvature_pairing_canonical"
+          ]
+        }
+      ],
+      "dependencies": [
+        "curve_geometry",
+        "speed_evolution",
+        "connection_variation"
+      ],
+      "source_references": [
+        "mt2015",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "adapted",
+        "detail": "通过等价的纯空间联络计算，形式化修正后的演化公式。"
+      },
+      "scope_caveats": [
+        "P 是空间法向投影；时空法向投影还包含额外分量。",
+        "曲率平方的偏微分方程由流输入推导。"
+      ]
+    },
+    {
+      "id": "spatial_kato",
+      "title": "空间 Kato 不等式",
+      "kind": "theorem",
+      "math_statement": "(D_sq)^2\\le4q|P|^2,\\qquad |D_sH|^2=|P|^2+q^2.",
+      "explanation": "度量下的 Cauchy–Schwarz 不等式与协变可微性，给出曲率零点处的梯度控制。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.CurvatureGradient",
+          "file": "CurveControl/Geometry/CurvatureGradient.lean",
+          "declarations": [
+            "CurveControl.Geometry.curvatureGradient_norm_decomposition"
+          ]
+        },
+        {
+          "module": "CurveControl.Geometry.CurveEstimates",
+          "file": "CurveControl/Geometry/CurveEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_kato_closed"
+          ]
+        }
+      ],
+      "dependencies": [
+        "curve_geometry",
+        "flow_input"
+      ],
+      "source_references": [
+        "mt2015"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "证明度量梯度恒等式，并由流条件得到所需正则性。"
+      },
+      "scope_caveats": [
+        "论证使用 q 及其导数，涵盖 q=0 的情形。"
+      ]
+    },
+    {
+      "id": "ambient_error",
+      "title": "一致的环境误差系数",
+      "kind": "theorem",
+      "math_statement": "|\\mathrm{Err}|\\le(6B+2K)q+6D\\sqrt q\\le A(q+\\sqrt q),\\qquad A=\\max(6B+2K,6D).",
+      "explanation": "B、K、D 分别控制 Ricci 张量、Riemann 曲率和 Ricci 协变导数的评估，界采用度量范数。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.AmbientBounds",
+          "file": "CurveControl/Geometry/AmbientBounds.lean",
+          "declarations": [
+            "CurveControl.Geometry.AmbientBounds.TensorBoundsAt",
+            "CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn",
+            "CurveControl.Geometry.AmbientBounds.curve_ambient_error"
+          ]
+        },
+        {
+          "module": "CurveControl.Geometry.CurveEstimates",
+          "file": "CurveControl/Geometry/CurveEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.curve_ambient_error_le_max",
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_time_le"
+          ]
+        }
+      ],
+      "dependencies": [
+        "curvature_evolution"
+      ],
+      "source_references": [
+        "mt2015",
+        "perelman2003"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "从每个修正项中提取仅依赖环境几何的显式系数。"
+      },
+      "scope_caveats": [
+        "这一层以张量界为输入；后续由紧致性给出这些界。"
+      ]
+    },
+    {
+      "id": "regularized_pde",
+      "title": "正参数正则化与标量偏微分不等式",
+      "kind": "theorem",
+      "math_statement": "h_\\varepsilon=\\sqrt{q+\\varepsilon^2},\\quad\\varepsilon>0,\\qquad \\partial_th_\\varepsilon\\le D_s^2h_\\varepsilon+q^{3/2}+\\frac A2(h_\\varepsilon+1).",
+      "explanation": "链式法则和 Kato 消去保留曲率的一次误差项，正则化处理 q=0 的情形。",
+      "lean": [
+        {
+          "module": "CurveControl.Analysis.RegularizedPDE",
+          "file": "CurveControl/Analysis/RegularizedPDE.lean",
+          "declarations": [
+            "CurveControl.Analysis.deriv_regularizedNorm_le"
+          ]
+        }
+      ],
+      "dependencies": [
+        "spatial_kato",
+        "ambient_error"
+      ],
+      "source_references": [
+        "mt2015"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "证明正则化分析不等式，并将其用于几何偏微分方程。"
+      },
+      "scope_caveats": [
+        "局部分析引理以标量偏微分方程和可微性为假设；几何定理证明这些输入。"
+      ]
+    },
+    {
+      "id": "moving_integrals",
+      "title": "移动弧长积分与周期项消去",
+      "kind": "theorem",
+      "math_statement": "\\Theta_\\varepsilon=\\int_0^1h_\\varepsilon v\\,dx,\\qquad L\\prime\\le BL-\\int q\\,ds,\\qquad \\Theta_\\varepsilon\\prime\\le(A/2+B)\\Theta_\\varepsilon+(A/2)L.",
+      "explanation": "联合光滑性保证含参数积分可微。周期性消去弧长扩散项的积分通量；移动密度吸收曲率三次项。",
+      "lean": [
+        {
+          "module": "CurveControl.Analysis.IntegralEstimates",
+          "file": "CurveControl/Analysis/IntegralEstimates.lean",
+          "declarations": [
+            "CurveControl.Analysis.deriv_length_le",
+            "CurveControl.Analysis.deriv_regularizedTotal_le"
+          ]
+        },
+        {
+          "module": "CurveControl.Analysis.CurveEstimateAssembly",
+          "file": "CurveControl/Analysis/CurveEstimateAssembly.lean",
+          "declarations": [
+            "CurveControl.Analysis.ScalarCurveHypotheses.regularized_deriv_le"
+          ]
+        }
+      ],
+      "dependencies": [
+        "regularized_pde",
+        "speed_evolution"
+      ],
+      "source_references": [
+        "mt2015",
+        "mathlib"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "将含参数积分和微积分基本定理用于密度 v，并在整合证明中建立所需正则性。"
+      },
+      "scope_caveats": [
+        "固定 epsilon 的控制函数可以依赖 epsilon；比较系数对 epsilon 一致。",
+        "时间微分用于 L 和正则化总曲率；Theta 的几乎处处导数接口还需另行证明。"
+      ]
+    },
+    {
+      "id": "interior_comparison",
+      "title": "由内点导数与闭区间连续性得到比较",
+      "kind": "theorem",
+      "math_statement": "L(t)\\le L(a)e^{B(t-a)},\\qquad \\Theta_\\varepsilon(t)+L(t)\\le(\\Theta_\\varepsilon(a)+L(a))e^{C(t-a)},\\quad C=A/2+B.",
+      "explanation": "内点导数比较与闭区间连续性将初始界传递至两个时间端点。",
+      "lean": [
+        {
+          "module": "CurveControl.Analysis.InteriorComparison",
+          "file": "CurveControl/Analysis/InteriorComparison.lean",
+          "declarations": [
+            "CurveControl.Analysis.coupled_exp_comparison_interior_on"
+          ]
+        },
+        {
+          "module": "CurveControl.Analysis.CurveEstimateAssembly",
+          "file": "CurveControl/Analysis/CurveEstimateAssembly.lean",
+          "declarations": [
+            "CurveControl.Analysis.ScalarCurveHypotheses.regularized_comparison"
+          ]
+        }
+      ],
+      "dependencies": [
+        "moving_integrals"
+      ],
+      "source_references": [
+        "mathlib",
+        "mt2015"
+      ],
+      "contribution": {
+        "category": "adapted",
+        "detail": "将蓝图中的绝对连续及几乎处处导数比较，适配为内点导数与闭区间连续性路线。"
+      },
+      "scope_caveats": [
+        "初始端点处的连续性已足够，无需初始导数或向负时间延拓。"
+      ]
+    },
+    {
+      "id": "epsilon_limit",
+      "title": "比较之后去除正则化",
+      "kind": "theorem",
+      "math_statement": "0\\le\\Theta_\\varepsilon(t)-\\Theta(t)\\le\\varepsilon L(t),\\qquad\\Theta_\\varepsilon(t)\\longrightarrow\\Theta(t)\\quad(\\varepsilon\\downarrow0).",
+      "explanation": "在已经证明的比较不等式两端取极限。",
+      "lean": [
+        {
+          "module": "CurveControl.Analysis.RegularizedIntegral",
+          "file": "CurveControl/Analysis/RegularizedIntegral.lean",
+          "declarations": [
+            "CurveControl.regularizedWeightedCurvature_sub_bounds",
+            "CurveControl.tendsto_regularizedWeightedCurvature",
+            "CurveControl.weightedCurvature_exp_bound"
+          ]
+        }
+      ],
+      "dependencies": [
+        "curve_geometry",
+        "interior_comparison"
+      ],
+      "source_references": [
+        "mt2015",
+        "mathlib"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "给出定量积分误差，以及比较不等式的极限传递接口。"
+      },
+      "scope_caveats": [
+        "在端点比较不等式中取极限；Theta 的局部绝对连续性仍需作为单独结论证明。"
+      ]
+    },
+    {
+      "id": "actual_curve_estimate",
+      "title": "实际几何中的长度与总曲率界",
+      "kind": "theorem",
+      "math_statement": "L(t)\\le L(a)e^{B(t-a)},\\qquad\\Theta(t)+L(t)\\le(\\Theta(a)+L(a))e^{(\\max(6B+2K,6D)/2+B)(t-a)}.",
+      "explanation": "流方程和环境界给出分析比较所需的全部标量假设。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.CurveEstimates",
+          "file": "CurveControl/Geometry/CurveEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.curve_estimate",
+            "CurveControl.Geometry.curve_family_uniform_estimate"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input",
+        "ambient_error",
+        "epsilon_limit",
+        "spatial_kato",
+        "speed_evolution"
+      ],
+      "source_references": [
+        "target_blueprint",
+        "perelman2003"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "结合几何与分析，将初值界传递到任意曲线索引族。"
+      },
+      "scope_caveats": [
+        "输入为流和环境张量界；微分与积分估计由这些输入推出。"
+      ]
+    },
+    {
+      "id": "length_energy",
+      "title": "加权曲率能量控制",
+      "kind": "theorem",
+      "math_statement": "\\mathcal E(t)=\\int q\\,ds,\\qquad\\int_a^b e^{-B(t-a)}\\mathcal E(t)\\,dt\\le L(a)-e^{-B(b-a)}L(b).\\quad B\\ge0\\Rightarrow\\int_a^b\\mathcal E(t)\\,dt\\le e^{B(b-a)}L(a)-L(b).",
+      "explanation": "长度导数中的负曲率能量项给出指数加权积分估计，可用于下游选取合适时刻。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.LengthEstimates",
+          "file": "CurveControl/Geometry/LengthEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.weighted_curvatureEnergy_integral_le",
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureEnergy_integral_le"
+          ]
+        }
+      ],
+      "dependencies": [
+        "curve_geometry",
+        "speed_evolution",
+        "interior_comparison"
+      ],
+      "source_references": [
+        "perelman2003",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "证明实际曲线流的加权及不加权能量估计。"
+      },
+      "scope_caveats": [
+        "根定理假设在 [a,b] 上，对环境中每个点的所有单位向量都有同一个 Ricci 下界。无需 Ricci 上界、Riemann 曲率界或 Ricci 协变导数界。不加权版本要求 B >= 0。"
+      ]
+    },
+    {
+      "id": "compact_tensor_bounds",
+      "title": "由紧致基底几何得到环境界",
+      "kind": "theorem",
+      "math_statement": "M\\text{ compact},\\ g(t)\\text{ jointly smooth on }[a,b]\\quad\\Longrightarrow\\quad\\exists B,K,D\\ge0:\\ |\\mathrm{Ric}|\\le B,\\ |\\mathrm{Rm}|\\le K,\\ |\\nabla\\mathrm{Ric}|\\le D.",
+      "explanation": "有限紧致图册覆盖、系数连续性、逆 Gram 矩阵控制与张量展开，共同给出实际度量范数下的界。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.CompactAmbientBounds",
+          "file": "CurveControl/Geometry/CompactAmbientBounds.lean",
+          "declarations": [
+            "CurveControl.Geometry.CompactAmbientBounds.exists_uniformTensorBoundsOn"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input"
+      ],
+      "source_references": [
+        "upstream",
+        "mathlib"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "构造紧致基底定理使用的一致常数。"
+      },
+      "scope_caveats": [
+        "这些是多线性张量评估界。基底流形紧致；静态因子可以非紧致。"
+      ]
+    },
+    {
+      "id": "product_metric",
+      "title": "Hilbert 模型中的真实产品度量",
+      "kind": "definition",
+      "math_statement": "G=g\\oplus h,\\qquad G((u_1,u_2),(v_1,v_2))=g(u_1,v_1)+h(u_2,v_2),\\qquad |u_1|_g\\le |u|_G.",
+      "explanation": "通过点集上为恒等的模型变换，将产品度量运输到 WithLp 2，并保持纤维度量。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.ProductMetric",
+          "file": "CurveControl/Geometry/ProductMetric.lean",
+          "declarations": [
+            "CurveControl.Geometry.productMetric",
+            "CurveControl.Geometry.productMetric_inner"
+          ]
+        },
+        {
+          "module": "CurveControl.Geometry.ProductModel",
+          "file": "CurveControl/Geometry/ProductModel.lean",
+          "declarations": [
+            "CurveControl.Geometry.productL2Model",
+            "CurveControl.Geometry.productL2Metric"
+          ]
+        },
+        {
+          "module": "CurveControl.Geometry.ProductIntrinsicCurvature",
+          "file": "CurveControl/Geometry/ProductIntrinsicCurvature.lean",
+          "declarations": [
+            "CurveControl.Geometry.productTangentIsometry"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "source_references": [
+        "upstream",
+        "mathlib"
+      ],
+      "contribution": {
+        "category": "adapted",
+        "detail": "复用 DCProductMetric，证明 Hilbert 模型运输和度量纤维等距性。"
+      },
+      "scope_caveats": [
+        "Hilbert 模型采用 WithLp 2；普通产品保留最大范数。几何配对使用 g 和 h。"
+      ]
+    },
+    {
+      "id": "one_dimensional_flatness",
+      "title": "每个真实一维因子都是平坦的",
+      "kind": "theorem",
+      "math_statement": "\\dim N=1\\quad\\Longrightarrow\\quad\\mathrm{Rm}_h=0,\\qquad\\mathrm{Ric}_h=0,\\qquad\\nabla^h\\mathrm{Ric}_h=0.",
+      "explanation": "交替性与一维线性相关性使曲率为零。先证明 Ricci 张量作为场恒为零，再求其协变导数。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.OneDimensionalCurvature",
+          "file": "CurveControl/Geometry/OneDimensionalCurvature.lean",
+          "declarations": [
+            "CurveControl.Geometry.canonicalCurvatureFormAt_eq_zero_of_finrank_one",
+            "CurveControl.Geometry.ricciTensorAt_eq_zero_of_finrank_one",
+            "CurveControl.Geometry.covRicciAt_eq_zero_of_finrank_one"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "source_references": [
+        "upstream"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "对每个光滑 Riemannian 度量推导一维平坦性。"
+      },
+      "scope_caveats": [
+        "本结论适用于给定的一维几何；圆图册及具体缩放度量另行处理。"
+      ]
+    },
+    {
+      "id": "product_curvature_ricci",
+      "title": "实际产品曲率与 Ricci 张量的分裂",
+      "kind": "theorem",
+      "math_statement": "\\mathrm{Rm}_{g\\oplus h}(U,V,W,Z)=\\mathrm{Rm}_g(U_1,V_1,W_1,Z_1)+\\mathrm{Rm}_h(U_2,V_2,W_2,Z_2),\\qquad\\mathrm{Ric}_{g\\oplus h}(U,V)=\\mathrm{Ric}_g(U_1,V_1)+\\mathrm{Ric}_h(U_2,V_2).",
+      "explanation": "Christoffel 系数及其空间导数在开放图册目标域上分裂。随后通过带符号的内蕴曲率转换和度量纤维等距映射，得到曲率及 Ricci 张量分裂。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.ProductL2Connection",
+          "file": "CurveControl/Geometry/ProductL2Connection.lean",
+          "declarations": [
+            "CurveControl.Geometry.chartChristoffelContraction_productL2",
+            "CurveControl.Geometry.chartCurvature_productL2"
+          ]
+        },
+        {
+          "module": "CurveControl.Geometry.ProductIntrinsicCurvature",
+          "file": "CurveControl/Geometry/ProductIntrinsicCurvature.lean",
+          "declarations": [
+            "CurveControl.Geometry.canonicalCurvatureFormAt_productL2",
+            "CurveControl.Geometry.ricciTensorAt_productL2"
+          ]
+        }
+      ],
+      "dependencies": [
+        "product_metric"
+      ],
+      "source_references": [
+        "upstream",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "由产品度量推导联络、图册曲率、内蕴曲率及 Ricci 张量分裂。"
+      },
+      "scope_caveats": [
+        "U_j 表示已证明的切空间投影，各纤维使用指定度量。"
+      ]
+    },
+    {
+      "id": "product_covricci",
+      "title": "实际 Ricci 协变导数的分裂",
+      "kind": "theorem",
+      "math_statement": "(\\nabla\\mathrm{Ric})_{g\\oplus h}(U,V,W)=(\\nabla\\mathrm{Ric})_g(U_1,V_1,W_1)+(\\nabla\\mathrm{Ric})_h(U_2,V_2,W_2).",
+      "explanation": "在有效图册的函数芽上对 Ricci 系数分裂公式求导，加上两个 Christoffel 修正项，再在任意向量上识别内蕴张量。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.ProductCovRicci",
+          "file": "CurveControl/Geometry/ProductCovRicci.lean",
+          "declarations": [
+            "CurveControl.Geometry.ProductCovRicci.covRic_productL2"
+          ]
+        }
+      ],
+      "dependencies": [
+        "product_curvature_ricci",
+        "product_metric"
+      ],
+      "source_references": [
+        "upstream"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "通过 Fréchet 微分和三线性张量恒等式证明 Ricci 协变导数分裂。"
+      },
+      "scope_caveats": [
+        "系数分裂和协变导数分裂均由几何证明得到。"
+      ]
+    },
+    {
+      "id": "product_ricci_flow",
+      "title": "与静态一维因子的产品满足 Ricci 流",
+      "kind": "theorem",
+      "math_statement": "g_t=-2\\mathrm{Ric}_g,\\quad\\dim N=1,\\quad\\partial_th=0\\quad\\Longrightarrow\\quad\\partial_t(g\\oplus h)=-2\\mathrm{Ric}_{g\\oplus h}.",
+      "explanation": "拉回和求和给出时间集合内的联合光滑性。固定向量的时间微分使用基底方程和静态因子。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.ProductFlow",
+          "file": "CurveControl/Geometry/ProductFlow.lean",
+          "declarations": [
+            "CurveControl.Geometry.isSmoothMetricFamilyOn_productL2",
+            "CurveControl.Geometry.isRicciFlowOn_productL2_oneDimensional"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input",
+        "product_metric",
+        "product_curvature_ricci",
+        "one_dimensional_flatness"
+      ],
+      "source_references": [
+        "upstream",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "证明产品 Ricci 流方程，涵盖时间端点处的集合内导数。"
+      },
+      "scope_caveats": [
+        "h 可以随外部索引变化，但在 Ricci 流时间中保持不变。"
+      ]
+    },
+    {
+      "id": "product_tensor_bounds",
+      "title": "任意静态因子度量均保留基底系数",
+      "kind": "theorem",
+      "math_statement": "(B,K,D)\\text{ bound }g(t),\\ \\dim N=1\\quad\\Longrightarrow\\quad(B,K,D)\\text{ also bound }g(t)\\oplus h\\text{ for every }h.",
+      "explanation": "一维消零结论去掉因子张量项；基底投影不增加度量长度，因此保留同一组常数。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.UniformProductEstimates",
+          "file": "CurveControl/Geometry/UniformProductEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.productL2_tensorBounds_of_finrank_one",
+            "CurveControl.Geometry.uniformTensorBoundsOn_productL2_oneDimensional"
+          ]
+        }
+      ],
+      "dependencies": [
+        "compact_tensor_bounds",
+        "product_curvature_ricci",
+        "product_covricci",
+        "one_dimensional_flatness",
+        "product_metric"
+      ],
+      "source_references": [
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "保留全部三个环境系数，且不依赖因子尺度或单射半径。"
+      },
+      "scope_caveats": [
+        "常数保持定理本身从给定基底界出发；最终根定理通过紧致性构造这些界。"
+      ]
+    },
+    {
+      "id": "uniform_product_estimate",
+      "title": "紧致基底上的一致产品估计：覆盖所有正尺度",
+      "kind": "theorem",
+      "math_statement": "\\exists B,C\\ge0\\ \\forall(h_\\lambda)_\\lambda\\ \\forall(c_{\\lambda,i})_{\\lambda,i}:\\quad L_{\\lambda,i}(a)\\le L_0,\\ \\Theta_{\\lambda,i}(a)\\le\\Theta_0\\ \\Longrightarrow\\ \\begin{cases}L_{\\lambda,i}(t)\\le L_0e^{B(t-a)},\\\\\\Theta_{\\lambda,i}(t)\\le(\\Theta_0+L_0)e^{C(t-a)}.\\end{cases}",
+      "explanation": "对 [a,b] 上的紧致基底 Ricci 流，先选常数，再量化所有静态一维因子度量、曲线族和初值界。曲线以已有光滑浸入周期解给出。正尺度推论允许由 lambda > 0 索引的任意度量族。",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.UniformProductEstimates",
+          "file": "CurveControl/Geometry/UniformProductEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.exists_uniform_static_product_family_estimate",
+            "CurveControl.Geometry.exists_uniform_positive_scale_product_estimate"
+          ]
+        }
+      ],
+      "dependencies": [
+        "actual_curve_estimate",
+        "compact_tensor_bounds",
+        "product_tensor_bounds",
+        "product_ricci_flow"
+      ],
+      "source_references": [
+        "mt2015",
+        "perelman2003",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "结合紧致环境界、产品几何和修正后的比较，得到一致估计。"
+      },
+      "scope_caveats": [
+        "常数独立于整个度量族，涵盖任意小的正尺度；无需尺度正则性。",
+        "具体 AddCircle 图册、ramp 的存在、Theta 的局部绝对连续及几乎处处导数接口，以及后续有限消失论证，仍需续接相应输入或结论。",
+        "统一初始长度与总曲率界为输入。"
+      ]
+    },
+    {
+      "id": "scaled_factor_application",
+      "title": "构造缩放度量及其全时间区间应用",
+      "kind": "application",
+      "math_statement": "h_\\lambda=\\lambda^2h_*,\\quad |V|_{h_\\lambda}=\\lambda|V|_{h_*},\\qquad L_{\\lambda,i}(t)\\le L_0e^{B(b-a)},\\quad\\Theta_{\\lambda,i}(t)\\le(\\Theta_0+L_0)e^{C(b-a)}.",
+      "explanation": "构造缩放 Riemannian 度量，利用指数单调性得到对正尺度、曲线索引和时间一致的界。",
+      "lean": [
+        {
+          "module": "CurveControl.Examples.StaticFactorApplication",
+          "file": "CurveControl/Examples/StaticFactorApplication.lean",
+          "declarations": [
+            "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric",
+            "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_inner",
+            "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_norm",
+            "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_static",
+            "CurveControl.Examples.StaticFactorApplication.scaledProduct_isRicciFlow",
+            "CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_curve_bounds",
+            "CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_fullInterval_bounds"
+          ]
+        }
+      ],
+      "dependencies": [
+        "uniform_product_estimate"
+      ],
+      "source_references": [
+        "mt2015",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "构造度量缩放，并将一致估计用于完整时间区间。"
+      },
+      "scope_caveats": [
+        "输入为一维流形、初始度量、已有光滑曲线流和统一初值界。",
+        "构造适用于正尺度。具体 AddCircle 图册、ramp 和解的存在由外围应用提供；尺度零处不构造度量。"
+      ]
+    }
+  ]
+}

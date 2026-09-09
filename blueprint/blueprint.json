@@ -1,0 +1,811 @@
+{
+  "schema_version": 1,
+  "title": "Ricci-flow curve control: mathematical blueprint",
+  "language": "en",
+  "scope": "A Lean formalization of uniform length and total-curvature estimates along existing smooth immersed closed curve flows, including arbitrary static one-dimensional factor metrics.",
+  "dependency_semantics": "Edges record selected mathematical prerequisites used to organize the exposition.",
+  "notation": {
+    "time": "a <= t <= b inside the supplied Ricci-flow time set; high-order evolution is proved at interior times.",
+    "space": "x is a period-one real parameter; D_s = v^{-1}D_x.",
+    "metric": "All tensor norms, pairings and curve quantities use the actual g(t) or its genuine product metric.",
+    "curvature_sign": "rm uses the upstream intrinsic four-form; its conversion from the opposite-sign chart curvature operator is explicitly proved.",
+    "constants": "B bounds Ricci, K bounds Riemann curvature, D bounds covariant Ricci; A=max(6B+2K,6D), C=A/2+B.",
+    "regularization": "epsilon > 0; Theta_epsilon is compared first and epsilon tends to zero afterwards."
+  },
+  "references": [
+    {
+      "id": "mt2015",
+      "title": "Morgan–Tian correction, Lemmas 0.1–0.4",
+      "url": "https://arxiv.org/html/1512.00699",
+      "role": "Corrected mathematical source; spatial connection route is an adaptation."
+    },
+    {
+      "id": "perelman2003",
+      "title": "Perelman, Finite extinction time, sections 2–3",
+      "url": "https://arxiv.org/abs/math/0307245",
+      "role": "The finite-extinction argument in which these curve estimates are used."
+    },
+    {
+      "id": "upstream",
+      "title": "frenzymath/Poincare-Conjecture, pinned geometric libraries",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/tree/bb91a091f0b968f8bbe8d861e025a88d82b161be",
+      "role": "Reused DoCarmoLib and MorganTianLib metric, connection and Ricci-flow infrastructure."
+    },
+    {
+      "id": "target_blueprint",
+      "title": "Frozen upstream curve-shrinking-estimates blueprint",
+      "url": "https://github.com/frenzymath/Poincare-Conjecture/blob/bb91a091f0b968f8bbe8d861e025a88d82b161be/PoincareConjecture/blueprint/src/chapters/curve-shrinking-estimates.tex",
+      "role": "Proof plan for the curve-estimate module."
+    },
+    {
+      "id": "mathlib",
+      "title": "mathlib, pinned commit 520045ab14e26149ee970e2e617ca04b09bde5d6",
+      "url": "https://github.com/leanprover-community/mathlib4/tree/520045ab14e26149ee970e2e617ca04b09bde5d6",
+      "role": "Reused analysis, linear algebra and manifold infrastructure."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "flow_input",
+      "title": "Actual Ricci flow and immersed closed curve flow",
+      "kind": "definition",
+      "math_statement": "g_t=-2\\operatorname{Ric}_{g(t)},\\qquad c_t=H,\\qquad c(t,x+1)=c(t,x),\\quad c_x\\ne0.",
+      "explanation": "Assume a smooth metric family and a jointly smooth immersed periodic curve family. The time equations use derivatives within the given time set.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.Flow",
+          "file": "CurveControl/Geometry/Flow.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "source_references": [
+        "upstream",
+        "mt2015"
+      ],
+      "contribution": {
+        "category": "adapted",
+        "detail": "Reuses the upstream Ricci-flow predicate and adds the actual periodic curve-flow interface."
+      },
+      "scope_caveats": [
+        "Existing smooth flows are inputs; existence and continuation belong to the surrounding theory.",
+        "Higher evolution identities hold at interior times."
+      ]
+    },
+    {
+      "id": "curve_geometry",
+      "title": "Intrinsic curve geometry and moving measure",
+      "kind": "definition",
+      "math_statement": "X=c_x,\\quad v=|X|_g,\\quad S=v^{-1}X,\\quad H=D_sS,\\quad q=|H|_g^2,\\quad ds=v\\,dx.\\qquad L=\\int_0^1v\\,dx,\\quad\\Theta=\\int_0^1\\sqrt q\\,v\\,dx.",
+      "explanation": "Covariant derivatives use moving tangent fields in a fixed valid chart. Lengths and contractions use the evolving metric.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.Basic",
+          "file": "CurveControl/Geometry/Basic.lean",
+          "declarations": [
+            "CurveControl.Geometry.curveSpeed",
+            "CurveControl.Geometry.unitTangent",
+            "CurveControl.Geometry.covDerivAlong",
+            "CurveControl.Geometry.curvatureVector",
+            "CurveControl.Geometry.curvatureSq",
+            "CurveControl.Geometry.curveLength",
+            "CurveControl.Geometry.totalCurvature",
+            "CurveControl.Geometry.regularizedTotalCurvature",
+            "CurveControl.Geometry.curvatureEnergy"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input"
+      ],
+      "source_references": [
+        "upstream",
+        "mt2015"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Defines the geometric quantities and integral densities used by the project."
+      },
+      "scope_caveats": [
+        "Closed curves are represented by period-one real parametrizations; self-intersections are allowed."
+      ]
+    },
+    {
+      "id": "speed_evolution",
+      "title": "Speed and unit-tangent evolution",
+      "kind": "theorem",
+      "math_statement": "v_t=-(q+\\operatorname{Ric}(S,S))v,\\qquad D_tS=D_sH+(q+\\operatorname{Ric}(S,S))S.",
+      "explanation": "The flow equations imply the mixed covariant derivative identity and hence the speed law.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.SpeedEvolution",
+          "file": "CurveControl/Geometry/SpeedEvolution.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curveSpeed_time",
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_unitTangent_time"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input",
+        "curve_geometry"
+      ],
+      "source_references": [
+        "mt2015",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Derives speed and tangent evolution from mixed derivatives and metric variation."
+      },
+      "scope_caveats": [
+        "Classical time derivatives are asserted at interior times."
+      ]
+    },
+    {
+      "id": "connection_variation",
+      "title": "Time variation of the Levi-Civita connection",
+      "kind": "theorem",
+      "math_statement": "\\langle (\\partial_t\\nabla)(U,V),W\\rangle=- (\\nabla_U\\operatorname{Ric})(V,W)-(\\nabla_V\\operatorname{Ric})(U,W)+(\\nabla_W\\operatorname{Ric})(U,V).",
+      "explanation": "Differentiate Christoffel symbols in time at a fixed spatial chart point, then lower the index using g(t).",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.RicciConnectionVariation",
+          "file": "CurveControl/Geometry/RicciConnectionVariation.lean",
+          "declarations": [
+            "CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffelBilin_lower_intrinsic"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input"
+      ],
+      "source_references": [
+        "mt2015",
+        "upstream"
+      ],
+      "contribution": {
+        "category": "adapted",
+        "detail": "Adapts the spacetime calculation to the time-varying spatial connection."
+      },
+      "scope_caveats": [
+        "Lowering means g(t) applied to the connection derivative. The metric-variation term is handled separately."
+      ]
+    },
+    {
+      "id": "curvature_evolution",
+      "title": "Corrected squared-curvature evolution",
+      "kind": "theorem",
+      "math_statement": "P=D_sH+qS,\\quad q_t=q_{ss}-2|P|^2+2q^2+4q\\operatorname{Ric}(S,S)-2\\operatorname{Ric}(H,H)+2\\mathrm{rm}(H,S,H,S)-4(\\nabla_S\\operatorname{Ric})(S,H)+2(\\nabla_H\\operatorname{Ric})(S,S).",
+      "explanation": "The given flows determine curvature-vector evolution, the required covariant regularity, connection lowering and curvature-sign conversion.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.CurvatureEvolution",
+          "file": "CurveControl/Geometry/CurvatureEvolution.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curvatureSq_time",
+            "CurveControl.Geometry.chartCurvature_pairing_canonical"
+          ]
+        }
+      ],
+      "dependencies": [
+        "curve_geometry",
+        "speed_evolution",
+        "connection_variation"
+      ],
+      "source_references": [
+        "mt2015",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "adapted",
+        "detail": "Formalizes the corrected evolution through an equivalent purely spatial connection calculation."
+      },
+      "scope_caveats": [
+        "P is the spatial normal projection; the spacetime projection has an additional component.",
+        "The squared-curvature PDE is derived from the flow inputs."
+      ]
+    },
+    {
+      "id": "spatial_kato",
+      "title": "Spatial Kato inequality",
+      "kind": "theorem",
+      "math_statement": "(D_sq)^2\\le4q|P|^2,\\qquad |D_sH|^2=|P|^2+q^2.",
+      "explanation": "Metric Cauchy–Schwarz and covariant differentiability give gradient control at curvature zeros.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.CurvatureGradient",
+          "file": "CurveControl/Geometry/CurvatureGradient.lean",
+          "declarations": [
+            "CurveControl.Geometry.curvatureGradient_norm_decomposition"
+          ]
+        },
+        {
+          "module": "CurveControl.Geometry.CurveEstimates",
+          "file": "CurveControl/Geometry/CurveEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_kato_closed"
+          ]
+        }
+      ],
+      "dependencies": [
+        "curve_geometry",
+        "flow_input"
+      ],
+      "source_references": [
+        "mt2015"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Proves the metric gradient identities and derives their regularity from the flow."
+      },
+      "scope_caveats": [
+        "The argument uses q and its derivatives, including at q=0."
+      ]
+    },
+    {
+      "id": "ambient_error",
+      "title": "Uniform ambient error coefficients",
+      "kind": "theorem",
+      "math_statement": "|\\mathrm{Err}|\\le(6B+2K)q+6D\\sqrt q\\le A(q+\\sqrt q),\\qquad A=\\max(6B+2K,6D).",
+      "explanation": "B, K and D bound Ricci, Riemann curvature and covariant Ricci evaluations in metric norms.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.AmbientBounds",
+          "file": "CurveControl/Geometry/AmbientBounds.lean",
+          "declarations": [
+            "CurveControl.Geometry.AmbientBounds.TensorBoundsAt",
+            "CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn",
+            "CurveControl.Geometry.AmbientBounds.curve_ambient_error"
+          ]
+        },
+        {
+          "module": "CurveControl.Geometry.CurveEstimates",
+          "file": "CurveControl/Geometry/CurveEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.curve_ambient_error_le_max",
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_time_le"
+          ]
+        }
+      ],
+      "dependencies": [
+        "curvature_evolution"
+      ],
+      "source_references": [
+        "mt2015",
+        "perelman2003"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Extracts explicit ambient-only coefficients from every corrected term."
+      },
+      "scope_caveats": [
+        "This layer takes tensor bounds as inputs; compactness later supplies them."
+      ]
+    },
+    {
+      "id": "regularized_pde",
+      "title": "Positive regularization and scalar PDE",
+      "kind": "theorem",
+      "math_statement": "h_\\varepsilon=\\sqrt{q+\\varepsilon^2},\\quad\\varepsilon>0,\\qquad \\partial_th_\\varepsilon\\le D_s^2h_\\varepsilon+q^{3/2}+\\frac A2(h_\\varepsilon+1).",
+      "explanation": "The chain rule and Kato cancellation retain the linear-curvature error while regularization handles q=0.",
+      "lean": [
+        {
+          "module": "CurveControl.Analysis.RegularizedPDE",
+          "file": "CurveControl/Analysis/RegularizedPDE.lean",
+          "declarations": [
+            "CurveControl.Analysis.deriv_regularizedNorm_le"
+          ]
+        }
+      ],
+      "dependencies": [
+        "spatial_kato",
+        "ambient_error"
+      ],
+      "source_references": [
+        "mt2015"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Proves the regularized analytic inequality and applies it to the geometric PDE."
+      },
+      "scope_caveats": [
+        "The local analytic lemma takes a scalar PDE and differentiability hypotheses; the geometric theorem proves these inputs."
+      ]
+    },
+    {
+      "id": "moving_integrals",
+      "title": "Moving arclength integrals and periodic cancellation",
+      "kind": "theorem",
+      "math_statement": "\\Theta_\\varepsilon=\\int_0^1h_\\varepsilon v\\,dx,\\qquad L\\prime\\le BL-\\int q\\,ds,\\qquad \\Theta_\\varepsilon\\prime\\le(A/2+B)\\Theta_\\varepsilon+(A/2)L.",
+      "explanation": "Joint smoothness supplies parameter-integral differentiability. Periodicity cancels the integrated arclength diffusion; the cubic term is absorbed by the moving density.",
+      "lean": [
+        {
+          "module": "CurveControl.Analysis.IntegralEstimates",
+          "file": "CurveControl/Analysis/IntegralEstimates.lean",
+          "declarations": [
+            "CurveControl.Analysis.deriv_length_le",
+            "CurveControl.Analysis.deriv_regularizedTotal_le"
+          ]
+        },
+        {
+          "module": "CurveControl.Analysis.CurveEstimateAssembly",
+          "file": "CurveControl/Analysis/CurveEstimateAssembly.lean",
+          "declarations": [
+            "CurveControl.Analysis.ScalarCurveHypotheses.regularized_deriv_le"
+          ]
+        }
+      ],
+      "dependencies": [
+        "regularized_pde",
+        "speed_evolution"
+      ],
+      "source_references": [
+        "mt2015",
+        "mathlib"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Applies parameter integration and FTC to the density v, with the needed regularity proved in the assembly."
+      },
+      "scope_caveats": [
+        "Domination for fixed epsilon may depend on epsilon; the comparison coefficients are uniform in epsilon.",
+        "Time differentiation applies to L and regularized total curvature. An a.e. derivative interface for Theta requires a further theorem."
+      ]
+    },
+    {
+      "id": "interior_comparison",
+      "title": "Comparison from interior derivatives and closed continuity",
+      "kind": "theorem",
+      "math_statement": "L(t)\\le L(a)e^{B(t-a)},\\qquad \\Theta_\\varepsilon(t)+L(t)\\le(\\Theta_\\varepsilon(a)+L(a))e^{C(t-a)},\\quad C=A/2+B.",
+      "explanation": "Interior derivative comparison and closed-interval continuity carry the initial bound to both time endpoints.",
+      "lean": [
+        {
+          "module": "CurveControl.Analysis.InteriorComparison",
+          "file": "CurveControl/Analysis/InteriorComparison.lean",
+          "declarations": [
+            "CurveControl.Analysis.coupled_exp_comparison_interior_on"
+          ]
+        },
+        {
+          "module": "CurveControl.Analysis.CurveEstimateAssembly",
+          "file": "CurveControl/Analysis/CurveEstimateAssembly.lean",
+          "declarations": [
+            "CurveControl.Analysis.ScalarCurveHypotheses.regularized_comparison"
+          ]
+        }
+      ],
+      "dependencies": [
+        "moving_integrals"
+      ],
+      "source_references": [
+        "mathlib",
+        "mt2015"
+      ],
+      "contribution": {
+        "category": "adapted",
+        "detail": "Adapts the blueprint’s AC/a.e. comparison to interior derivatives and closed continuity."
+      },
+      "scope_caveats": [
+        "Initial-endpoint continuity suffices; an initial derivative or negative-time extension is unnecessary."
+      ]
+    },
+    {
+      "id": "epsilon_limit",
+      "title": "Remove regularization after comparison",
+      "kind": "theorem",
+      "math_statement": "0\\le\\Theta_\\varepsilon(t)-\\Theta(t)\\le\\varepsilon L(t),\\qquad\\Theta_\\varepsilon(t)\\longrightarrow\\Theta(t)\\quad(\\varepsilon\\downarrow0).",
+      "explanation": "The already-proved comparison passes to the limit at its two endpoints.",
+      "lean": [
+        {
+          "module": "CurveControl.Analysis.RegularizedIntegral",
+          "file": "CurveControl/Analysis/RegularizedIntegral.lean",
+          "declarations": [
+            "CurveControl.regularizedWeightedCurvature_sub_bounds",
+            "CurveControl.tendsto_regularizedWeightedCurvature",
+            "CurveControl.weightedCurvature_exp_bound"
+          ]
+        }
+      ],
+      "dependencies": [
+        "curve_geometry",
+        "interior_comparison"
+      ],
+      "source_references": [
+        "mt2015",
+        "mathlib"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Provides quantitative integral error and a limit interface for the comparison."
+      },
+      "scope_caveats": [
+        "Limits are taken in the endpoint comparison. Local absolute continuity of Theta remains a separate result."
+      ]
+    },
+    {
+      "id": "actual_curve_estimate",
+      "title": "Actual geometric length and total-curvature bound",
+      "kind": "theorem",
+      "math_statement": "L(t)\\le L(a)e^{B(t-a)},\\qquad\\Theta(t)+L(t)\\le(\\Theta(a)+L(a))e^{(\\max(6B+2K,6D)/2+B)(t-a)}.",
+      "explanation": "The flows and ambient bounds supply every scalar hypothesis in the analytic comparison.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.CurveEstimates",
+          "file": "CurveControl/Geometry/CurveEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.curve_estimate",
+            "CurveControl.Geometry.curve_family_uniform_estimate"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input",
+        "ambient_error",
+        "epsilon_limit",
+        "spatial_kato",
+        "speed_evolution"
+      ],
+      "source_references": [
+        "target_blueprint",
+        "perelman2003"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Combines geometry and analysis to propagate initial bounds over arbitrary curve indices."
+      },
+      "scope_caveats": [
+        "Inputs are the flows and ambient tensor bounds; the differential and integral estimates follow from them."
+      ]
+    },
+    {
+      "id": "length_energy",
+      "title": "Weighted curvature-energy control",
+      "kind": "theorem",
+      "math_statement": "\\mathcal E(t)=\\int q\\,ds,\\qquad\\int_a^b e^{-B(t-a)}\\mathcal E(t)\\,dt\\le L(a)-e^{-B(b-a)}L(b).\\quad B\\ge0\\Rightarrow\\int_a^b\\mathcal E(t)\\,dt\\le e^{B(b-a)}L(a)-L(b).",
+      "explanation": "The negative curvature-energy term in the length derivative yields an exponential-weighted integral estimate for downstream good-time selection.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.LengthEstimates",
+          "file": "CurveControl/Geometry/LengthEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.weighted_curvatureEnergy_integral_le",
+            "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureEnergy_integral_le"
+          ]
+        }
+      ],
+      "dependencies": [
+        "curve_geometry",
+        "speed_evolution",
+        "interior_comparison"
+      ],
+      "source_references": [
+        "perelman2003",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Proves weighted and unweighted energy estimates for the actual curve flow."
+      },
+      "scope_caveats": [
+        "The roots assume one lower Ricci bound for all ambient unit vectors over [a,b]. Upper Ricci, Riemann and covariant Ricci bounds are unnecessary. The unweighted version requires B >= 0."
+      ]
+    },
+    {
+      "id": "compact_tensor_bounds",
+      "title": "Ambient bounds from compact base geometry",
+      "kind": "theorem",
+      "math_statement": "M\\text{ compact},\\ g(t)\\text{ jointly smooth on }[a,b]\\quad\\Longrightarrow\\quad\\exists B,K,D\\ge0:\\ |\\mathrm{Ric}|\\le B,\\ |\\mathrm{Rm}|\\le K,\\ |\\nabla\\mathrm{Ric}|\\le D.",
+      "explanation": "Finite compact chart covers, coefficient continuity, inverse-Gram control and tensor expansion yield bounds in actual metric norms.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.CompactAmbientBounds",
+          "file": "CurveControl/Geometry/CompactAmbientBounds.lean",
+          "declarations": [
+            "CurveControl.Geometry.CompactAmbientBounds.exists_uniformTensorBoundsOn"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input"
+      ],
+      "source_references": [
+        "upstream",
+        "mathlib"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Constructs the uniform constants used by the compact-base theorem."
+      },
+      "scope_caveats": [
+        "These are multilinear evaluation bounds. The base manifold is compact; the static factor may be noncompact."
+      ]
+    },
+    {
+      "id": "product_metric",
+      "title": "Genuine product metric in a Hilbert model",
+      "kind": "definition",
+      "math_statement": "G=g\\oplus h,\\qquad G((u_1,u_2),(v_1,v_2))=g(u_1,v_1)+h(u_2,v_2),\\qquad |u_1|_g\\le |u|_G.",
+      "explanation": "An identity-on-points model change transports the product metric to WithLp 2 and preserves the fiber metric.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.ProductMetric",
+          "file": "CurveControl/Geometry/ProductMetric.lean",
+          "declarations": [
+            "CurveControl.Geometry.productMetric",
+            "CurveControl.Geometry.productMetric_inner"
+          ]
+        },
+        {
+          "module": "CurveControl.Geometry.ProductModel",
+          "file": "CurveControl/Geometry/ProductModel.lean",
+          "declarations": [
+            "CurveControl.Geometry.productL2Model",
+            "CurveControl.Geometry.productL2Metric"
+          ]
+        },
+        {
+          "module": "CurveControl.Geometry.ProductIntrinsicCurvature",
+          "file": "CurveControl/Geometry/ProductIntrinsicCurvature.lean",
+          "declarations": [
+            "CurveControl.Geometry.productTangentIsometry"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "source_references": [
+        "upstream",
+        "mathlib"
+      ],
+      "contribution": {
+        "category": "adapted",
+        "detail": "Reuses DCProductMetric and proves Hilbert-model transport and metric fiber isometry."
+      },
+      "scope_caveats": [
+        "The Hilbert model is WithLp 2; the ordinary product retains its max norm. Geometric pairings use g and h."
+      ]
+    },
+    {
+      "id": "one_dimensional_flatness",
+      "title": "Every genuine one-dimensional factor is flat",
+      "kind": "theorem",
+      "math_statement": "\\dim N=1\\quad\\Longrightarrow\\quad\\mathrm{Rm}_h=0,\\qquad\\mathrm{Ric}_h=0,\\qquad\\nabla^h\\mathrm{Ric}_h=0.",
+      "explanation": "Alternation and one-dimensional linear dependence annihilate curvature. Ricci vanishes as a field before taking its covariant derivative.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.OneDimensionalCurvature",
+          "file": "CurveControl/Geometry/OneDimensionalCurvature.lean",
+          "declarations": [
+            "CurveControl.Geometry.canonicalCurvatureFormAt_eq_zero_of_finrank_one",
+            "CurveControl.Geometry.ricciTensorAt_eq_zero_of_finrank_one",
+            "CurveControl.Geometry.covRicciAt_eq_zero_of_finrank_one"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "source_references": [
+        "upstream"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Derives one-dimensional flatness for every smooth Riemannian metric."
+      },
+      "scope_caveats": [
+        "This result applies to supplied one-dimensional geometry; circle atlases and specific scaled metrics are handled separately."
+      ]
+    },
+    {
+      "id": "product_curvature_ricci",
+      "title": "Actual product curvature and Ricci splitting",
+      "kind": "theorem",
+      "math_statement": "\\mathrm{Rm}_{g\\oplus h}(U,V,W,Z)=\\mathrm{Rm}_g(U_1,V_1,W_1,Z_1)+\\mathrm{Rm}_h(U_2,V_2,W_2,Z_2),\\qquad\\mathrm{Ric}_{g\\oplus h}(U,V)=\\mathrm{Ric}_g(U_1,V_1)+\\mathrm{Ric}_h(U_2,V_2).",
+      "explanation": "Christoffel coefficients and their spatial derivatives split on open chart targets. The signed intrinsic curvature bridge and the metric fiber isometry then give curvature and Ricci splitting.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.ProductL2Connection",
+          "file": "CurveControl/Geometry/ProductL2Connection.lean",
+          "declarations": [
+            "CurveControl.Geometry.chartChristoffelContraction_productL2",
+            "CurveControl.Geometry.chartCurvature_productL2"
+          ]
+        },
+        {
+          "module": "CurveControl.Geometry.ProductIntrinsicCurvature",
+          "file": "CurveControl/Geometry/ProductIntrinsicCurvature.lean",
+          "declarations": [
+            "CurveControl.Geometry.canonicalCurvatureFormAt_productL2",
+            "CurveControl.Geometry.ricciTensorAt_productL2"
+          ]
+        }
+      ],
+      "dependencies": [
+        "product_metric"
+      ],
+      "source_references": [
+        "upstream",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Derives connection, chart curvature, intrinsic curvature and Ricci splitting from the product metric."
+      },
+      "scope_caveats": [
+        "U_j denotes the proved tangent projection with its specified fiber metric."
+      ]
+    },
+    {
+      "id": "product_covricci",
+      "title": "Actual covariant Ricci splitting",
+      "kind": "theorem",
+      "math_statement": "(\\nabla\\mathrm{Ric})_{g\\oplus h}(U,V,W)=(\\nabla\\mathrm{Ric})_g(U_1,V_1,W_1)+(\\nabla\\mathrm{Ric})_h(U_2,V_2,W_2).",
+      "explanation": "Differentiate the Ricci coefficient splitting on a valid chart germ, add both Christoffel corrections, and identify the intrinsic tensor on arbitrary vectors.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.ProductCovRicci",
+          "file": "CurveControl/Geometry/ProductCovRicci.lean",
+          "declarations": [
+            "CurveControl.Geometry.ProductCovRicci.covRic_productL2"
+          ]
+        }
+      ],
+      "dependencies": [
+        "product_curvature_ricci",
+        "product_metric"
+      ],
+      "source_references": [
+        "upstream"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Proves covariant Ricci splitting through Fréchet differentiation and trilinear tensor identities."
+      },
+      "scope_caveats": [
+        "Coefficient and covariant-derivative splitting are conclusions of the geometric proof."
+      ]
+    },
+    {
+      "id": "product_ricci_flow",
+      "title": "Static one-dimensional products solve Ricci flow",
+      "kind": "theorem",
+      "math_statement": "g_t=-2\\mathrm{Ric}_g,\\quad\\dim N=1,\\quad\\partial_th=0\\quad\\Longrightarrow\\quad\\partial_t(g\\oplus h)=-2\\mathrm{Ric}_{g\\oplus h}.",
+      "explanation": "Pullbacks and sums give joint within smoothness. Fixed-vector time differentiation uses the base equation and the static factor.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.ProductFlow",
+          "file": "CurveControl/Geometry/ProductFlow.lean",
+          "declarations": [
+            "CurveControl.Geometry.isSmoothMetricFamilyOn_productL2",
+            "CurveControl.Geometry.isRicciFlowOn_productL2_oneDimensional"
+          ]
+        }
+      ],
+      "dependencies": [
+        "flow_input",
+        "product_metric",
+        "product_curvature_ricci",
+        "one_dimensional_flatness"
+      ],
+      "source_references": [
+        "upstream",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Proves the product Ricci-flow equation, including within derivatives at time endpoints."
+      },
+      "scope_caveats": [
+        "h may vary with an external index, but is static in Ricci-flow time."
+      ]
+    },
+    {
+      "id": "product_tensor_bounds",
+      "title": "Unchanged base coefficients for every static factor metric",
+      "kind": "theorem",
+      "math_statement": "(B,K,D)\\text{ bound }g(t),\\ \\dim N=1\\quad\\Longrightarrow\\quad(B,K,D)\\text{ also bound }g(t)\\oplus h\\text{ for every }h.",
+      "explanation": "One-dimensional vanishing removes the factor tensor terms. The base projection decreases metric length, preserving the same constants.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.UniformProductEstimates",
+          "file": "CurveControl/Geometry/UniformProductEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.productL2_tensorBounds_of_finrank_one",
+            "CurveControl.Geometry.uniformTensorBoundsOn_productL2_oneDimensional"
+          ]
+        }
+      ],
+      "dependencies": [
+        "compact_tensor_bounds",
+        "product_curvature_ricci",
+        "product_covricci",
+        "one_dimensional_flatness",
+        "product_metric"
+      ],
+      "source_references": [
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Preserves all three ambient coefficients independently of factor scale or injectivity radius."
+      },
+      "scope_caveats": [
+        "The constant-preservation theorem itself works from supplied base bounds; compactness constructs them for the final root."
+      ]
+    },
+    {
+      "id": "uniform_product_estimate",
+      "title": "Compact-base uniform estimates, including every positive scale",
+      "kind": "theorem",
+      "math_statement": "\\exists B,C\\ge0\\ \\forall(h_\\lambda)_\\lambda\\ \\forall(c_{\\lambda,i})_{\\lambda,i}:\\quad L_{\\lambda,i}(a)\\le L_0,\\ \\Theta_{\\lambda,i}(a)\\le\\Theta_0\\ \\Longrightarrow\\ \\begin{cases}L_{\\lambda,i}(t)\\le L_0e^{B(t-a)},\\\\\\Theta_{\\lambda,i}(t)\\le(\\Theta_0+L_0)e^{C(t-a)}.\\end{cases}",
+      "explanation": "For a compact base Ricci flow on [a,b], choose constants before all static one-dimensional factor metrics, curve families and initial bounds. Curves are existing smooth immersed periodic solutions. The positive-scale corollary permits arbitrary metrics indexed by lambda > 0.",
+      "lean": [
+        {
+          "module": "CurveControl.Geometry.UniformProductEstimates",
+          "file": "CurveControl/Geometry/UniformProductEstimates.lean",
+          "declarations": [
+            "CurveControl.Geometry.exists_uniform_static_product_family_estimate",
+            "CurveControl.Geometry.exists_uniform_positive_scale_product_estimate"
+          ]
+        }
+      ],
+      "dependencies": [
+        "actual_curve_estimate",
+        "compact_tensor_bounds",
+        "product_tensor_bounds",
+        "product_ricci_flow"
+      ],
+      "source_references": [
+        "mt2015",
+        "perelman2003",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Combines compact ambient bounds, product geometry and corrected comparison into the uniform estimate."
+      },
+      "scope_caveats": [
+        "Constants are independent of the entire metric family, including arbitrarily small positive scales; scale regularity is unnecessary.",
+        "Concrete AddCircle atlases, ramp existence, a local-AC/a.e. interface for Theta, and the remaining finite-extinction argument require further input or results.",
+        "Uniform initial length and total-curvature bounds are inputs."
+      ]
+    },
+    {
+      "id": "scaled_factor_application",
+      "title": "Constructed scaled metrics and a full-interval application",
+      "kind": "application",
+      "math_statement": "h_\\lambda=\\lambda^2h_*,\\quad |V|_{h_\\lambda}=\\lambda|V|_{h_*},\\qquad L_{\\lambda,i}(t)\\le L_0e^{B(b-a)},\\quad\\Theta_{\\lambda,i}(t)\\le(\\Theta_0+L_0)e^{C(b-a)}.",
+      "explanation": "Construct the scaled Riemannian metric and apply exponential monotonicity to obtain bounds uniform in positive scale, curve index and time.",
+      "lean": [
+        {
+          "module": "CurveControl.Examples.StaticFactorApplication",
+          "file": "CurveControl/Examples/StaticFactorApplication.lean",
+          "declarations": [
+            "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric",
+            "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_inner",
+            "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_norm",
+            "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_static",
+            "CurveControl.Examples.StaticFactorApplication.scaledProduct_isRicciFlow",
+            "CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_curve_bounds",
+            "CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_fullInterval_bounds"
+          ]
+        }
+      ],
+      "dependencies": [
+        "uniform_product_estimate"
+      ],
+      "source_references": [
+        "mt2015",
+        "target_blueprint"
+      ],
+      "contribution": {
+        "category": "new formalization",
+        "detail": "Constructs metric scaling and applies the uniform estimate over the full time interval."
+      },
+      "scope_caveats": [
+        "Inputs are the one-dimensional manifold, its starting metric, existing smooth curve flows and uniform initial bounds.",
+        "The construction uses positive scales. A concrete AddCircle atlas, ramps and solution existence belong to the surrounding application; no metric at scale zero is constructed."
+      ]
+    }
+  ]
+}

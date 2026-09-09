@@ -1,0 +1,46 @@
+{
+  "source": "CurveControl/Analysis/CurvatureError.lean",
+  "source_sha256": "ed04cea0ffb12322e7d30de477f800969a1c538a16dd52786998c4ee14211a09",
+  "checked_at": "2026-09-09T08:53:41+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 5,
+  "printed_declarations": 5,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Analysis.curvatureErrorCoefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.curvatureErrorCoefficient_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.corrected_curvature_error_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.corrected_curvature_error_abs_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.corrected_curvature_error_le_coefficient": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

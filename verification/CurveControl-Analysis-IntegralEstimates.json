@@ -1,0 +1,60 @@
+{
+  "source": "CurveControl/Analysis/IntegralEstimates.lean",
+  "source_sha256": "e43d4c71e0c0b5c0b0daae52934f7cc75a76ed8c014fec88377ac8e95a7a6b22",
+  "checked_at": "2026-09-09T08:34:45+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "compile_exit_code": 0,
+  "public_declarations": 9,
+  "printed_declarations": 9,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Analysis.MovingWeightData": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.MovingWeightData.hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.sqrt_cube_sub_regularized_mul_nonpos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.regularized_density_pointwise_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.integral_density_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.integral_regularized_density_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.hasDerivAt_length": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.deriv_length_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.deriv_regularizedTotal_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

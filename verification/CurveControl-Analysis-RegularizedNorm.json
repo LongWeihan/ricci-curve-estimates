@@ -1,0 +1,90 @@
+{
+  "source": "CurveControl/Analysis/RegularizedNorm.lean",
+  "source_sha256": "c5460d42e519d0cfee01fa8083df89d2ba61a7bd7bf915ccf13862167f9a9b2c",
+  "checked_at": "2026-09-09T08:33:32+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "compile_exit_code": 0,
+  "public_declarations": 15,
+  "printed_declarations": 15,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.regularizedNorm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.regularizedNorm_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.regularizedNorm_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.regularizedNorm_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.sqrt_le_regularizedNorm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.regularizedNorm_le_sqrt_add": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.regularizedNorm_sub_sqrt_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.sq_div_regularizedNorm_le_sqrt_cube": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.div_regularizedNorm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.sqrt_div_regularizedNorm_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.hasDerivAt_regularizedNorm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.continuous_regularizedNorm_parameter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.tendsto_regularizedNorm_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.abs_regularizedNorm_sub_sqrt_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.tendsto_regularizedNorm_error_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

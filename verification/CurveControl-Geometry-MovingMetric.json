@@ -1,0 +1,35 @@
+{
+  "source": "CurveControl/Geometry/MovingMetric.lean",
+  "source_sha256": "5b3df85812ad95884569265dbdc04c15dbfe8049c755d172ca2b3bb504bd4866",
+  "checked_at": "2026-09-09T08:36:57+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "compile_exit_code": 0,
+  "public_declarations": 4,
+  "printed_declarations": 4,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.hasDerivAt_diagonal_of_slices": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.differentiableAt_metricInner_time_curve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.hasDerivAt_movingMetricInner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.hasDerivAt_ricciFlow_field_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

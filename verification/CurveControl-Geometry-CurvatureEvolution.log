@@ -1,0 +1,77 @@
+'CurveControl.Geometry.chartFieldCoord_eq_tangentCoordChange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.covDerivAlong_eq_riemannian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartFieldCoord_covDerivAlong' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.hasCovDerivAlongAt_of_chartDifferentiable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.curveSpeedDecay' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartMetricInner_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartCurvature_pairing_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.tangentReadback_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.timeVariation_pairing_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chartUnitTangent_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.eventually_interior_chart_at' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chart_covSpace_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chartCurvature_eq_normal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_chartCurvatureField' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_curvature_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_curvature_space' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.fderiv_curveSpeed_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.differentiableAt_curveSpeedDecay' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curvatureSq_time_covariant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.normal_evolution_in_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chart_covTime_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chart_covArc_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_normal_in_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chart_covArcCurvature_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_covArcNormal_in_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chart_covArc_covArcCurvature_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_chartCovArcCurvatureField' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_covArcCurvature_space' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.arcDeriv_arcDeriv_curvatureSq_closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureVector_evolution_canonicalChart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curvatureSq_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

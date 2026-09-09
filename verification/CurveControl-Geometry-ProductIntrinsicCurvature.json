@@ -1,0 +1,66 @@
+{
+  "source": "CurveControl/Geometry/ProductIntrinsicCurvature.lean",
+  "source_sha256": "9ca3f8637ead329026f92bf5195b3fdffbe9aa02e2598cfaf6ade9c236e744a7",
+  "checked_at": "2026-09-09T09:29:31+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 9,
+  "printed_declarations": 9,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.canonicalCurvatureFormAt_eq_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.canonicalCurvatureFormAt_eq_metric_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2_finrank_neZero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productTangentEquiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productTangentEquiv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2Metric_metricInner_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productTangentIsometry": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.canonicalCurvatureFormAt_productL2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ricciTensorAt_productL2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

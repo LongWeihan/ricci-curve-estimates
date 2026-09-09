@@ -1,0 +1,25 @@
+{
+  "source": "CurveControl/Analysis/EnergyIntegral.lean",
+  "source_sha256": "1c6b1aadd47d684a0dcc481c6d12bf03a3e1d260323f4b0dbabfc861eb0eccaf",
+  "checked_at": "2026-09-09T08:34:06+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "compile_exit_code": 0,
+  "public_declarations": 2,
+  "printed_declarations": 2,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Analysis.weighted_energy_integral_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.energy_integral_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

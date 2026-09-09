@@ -1,0 +1,2 @@
+'CurveControl.Geometry.ricciForm_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ricciForm_product' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,24 @@
+{
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "geometry_commit": "bb91a091f0b968f8bbe8d861e025a88d82b161be",
+  "algorithm": "SHA256 of sorted UTF8 relative path, NUL, binary SHA256(file), for all nonhidden *.lean source files",
+  "sources": {
+    "mathlib": {
+      "lean_source_files": 8795,
+      "lean_source_tree_sha256": "78d1978dfd1ba19dce086a67880c8511edc029c46db676358fb508867c2ce674"
+    },
+    "MorganTianLib": {
+      "lean_source_files": 573,
+      "lean_source_tree_sha256": "0668ca43cdaad3a0f852e4652160e4afd4ed8fd08de49ad73f55431eb5a5ae48"
+    },
+    "DoCarmoLib": {
+      "lean_source_files": 293,
+      "lean_source_tree_sha256": "a64207d2658fb8a9532d469f88028629cc4f88c01ac91df7c18a82879b1e0049"
+    },
+    "Shared": {
+      "lean_source_files": 12,
+      "lean_source_tree_sha256": "a41829b98800b1d2836546b0f056364290276a0e07cde4b7c8f3bb4b7f0b018a"
+    }
+  }
+}

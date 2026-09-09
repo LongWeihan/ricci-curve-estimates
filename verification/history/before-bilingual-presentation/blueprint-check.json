@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "node_count": 22,
+  "declaration_count": 62,
+  "paper_reference_count": 21,
+  "acyclic": true,
+  "scope": "Declaration/type correspondence and curated graph integrity; not semantic peer review.",
+  "sha256": {
+    "blueprint/blueprint.json": "a50e6ca7f6cef9a042b062fef4e11ad8d646fde766e9053bd6aec2d30bce6e84",
+    "verification/blueprint-declarations.json": "6bde2b1e36866c42f9f8c9fad011aedb589e0a1bcb9f708bcbe001bf4c54dcf5",
+    "paper/curve-estimates.tex": "67102496624ce37882d1c43f16b61094b152a7b55ed06fa35d944b7501257020",
+    "BlueprintAudit.lean": "59bf94255af994913118b36d82289c2023cd6b11687ff3088f252b85f58074c2"
+  }
+}

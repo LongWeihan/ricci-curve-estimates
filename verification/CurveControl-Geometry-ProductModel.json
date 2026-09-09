@@ -1,0 +1,66 @@
+{
+  "source": "CurveControl/Geometry/ProductModel.lean",
+  "source_sha256": "d6b38166051d3dd77b9a5a0ae05a33d1aedf0e4ccca39ba9649bc53059d05328",
+  "checked_at": "2026-09-09T09:28:56+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 9,
+  "printed_declarations": 9,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.productL2Equiv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2Model": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2_boundaryless": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2_isManifold": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productModelDiffeomorph": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productModelDiffeomorph_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productModelInverse_immersion": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2Metric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2Metric_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

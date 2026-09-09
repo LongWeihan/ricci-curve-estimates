@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "baseline_git_commit": "2b53f09ed55153e2da9fd13e3409f56c8f5caf52",
+  "check": "Exact TeX comparison: abstract through pre-AI-disclosure content, and limitations through end, unchanged. Differences restricted to font support, author/date front matter and AI disclosure.",
+  "sha256": {
+    "paper/curve-estimates.tex": "23b79bc2ef76de978412ab43fc70620013f38959430e195c425b79492f055bc8"
+  },
+  "unchanged_portion_sha256": [
+    "bd74e4c1bc24c876aba7b10400c11310a9f67a1e4a4ba4ee426124eb7b9bad35",
+    "7d10e06b822215ed41b0de52b015788252520463c3a9de6e52c73f5bcaf3da8d"
+  ]
+}

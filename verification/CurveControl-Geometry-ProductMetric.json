@@ -1,0 +1,71 @@
+{
+  "source": "CurveControl/Geometry/ProductMetric.lean",
+  "source_sha256": "606f102ed53c58ec5a2fb672a761b8e3242add8fa70d3004b711d79d574f76a5",
+  "checked_at": "2026-09-09T08:54:14+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 10,
+  "printed_declarations": 10,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.metricVectorLength": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.metricVectorLength_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.metricVectorLength_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productMetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productMetric_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productMetric_length_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productMetric_fst_length_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productMetric_snd_length_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productMetric_mfderiv_fst_length_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productMetric_mfderiv_snd_length_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

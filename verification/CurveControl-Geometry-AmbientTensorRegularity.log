@@ -1,0 +1,60 @@
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorRegularity.lean:15:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Spatial differentiation preserves joint …")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorRegularity.lean:52:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.AmbientTensorRegularity.contDiffOn_chartCovRicciOnE_timeSpace`:
+  [NeZero (Module.finrank ℝ E)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero (Module.finrank ℝ E)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorRegularity.lean:51:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Covariant Ricci coefficients are jointly…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorRegularity.lean:72:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Coordinate coefficients of ∇Ric are cont…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorRegularity.lean:85:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Canonical intrinsic covariant derivative…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorRegularity.lean:93:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Actual ∇Ric evaluated on the fixed chart…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorRegularity.lean:106:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Joint smoothness is a property of the ac…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorRegularity.lean:117:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Actual Ricci evaluated on a fixed chart …")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorRegularity.lean:133:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Continuous intrinsic ∇Ric chart coeffici…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+'CurveControl.Geometry.AmbientTensorRegularity.contDiffOn_spatialFDeriv_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorRegularity.contDiffOn_chartCovRicciOnE_timeSpace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorRegularity.continuousOn_chartCovRicciOnE_timeSpace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorRegularity.actualCovRicci' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorRegularity.actualCovRicciChartCoef' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorRegularity.actualCovRicciChartCoef_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorRegularity.contDiffOn_actualCovRicciChartCoef' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorRegularity.actualRicciChartCoef' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorRegularity.contDiffOn_actualRicciChartCoef' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorRegularity.continuousOn_actualCovRicciChartCoef' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

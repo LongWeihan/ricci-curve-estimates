@@ -1,0 +1,17 @@
+{
+  "name": "KaTeX",
+  "version": "0.16.22",
+  "purpose": "Build-time LaTeX to MathML conversion; the generated pages do not require remote scripts.",
+  "files": {
+    "katex.min.js": {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js",
+      "bytes": 276701,
+      "sha256": "e8d885505949f3a5f4abdd5dd0d53696bd1371ad26ffbf4f310dcd77c8cdae89"
+    },
+    "LICENSE": {
+      "url": "https://cdn.jsdelivr.net/npm/katex@0.16.22/LICENSE",
+      "bytes": 1107,
+      "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3"
+    }
+  }
+}

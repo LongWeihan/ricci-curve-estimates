@@ -1,0 +1,51 @@
+{
+  "source": "CurveControl/Geometry/ProductAmbientBounds.lean",
+  "source_sha256": "c31c78db179ba1c35c28a743a92fbd77c1b361015545f0332036f86b763055e9",
+  "checked_at": "2026-09-09T09:28:10+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 6,
+  "printed_declarations": 6,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.ambientRm_eq_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2_metricNorm_fst_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2_metricNorm_snd_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ambientRm_productL2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2_ricci_bound_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.productL2_curvature_bound_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

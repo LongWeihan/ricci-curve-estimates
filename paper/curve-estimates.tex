@@ -1,0 +1,474 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\emergencystretch=2em
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Ric}{\operatorname{Ric}}
+\newcommand{\Rm}{\operatorname{Rm}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\leanref}[2]{\par\smallskip\noindent{\small\textit{Lean declaration.}\ \path{#1}\par\noindent\textit{Module.}\ \path{#2}}\par\smallskip}
+\title{A Lean Formalization of Uniform Curve Estimates under Ricci Flow\\[0.5em]
+\large A module for the Perelman--Morgan--Tian finite extinction argument}
+\author{GPT-6 Astra \and Juii-hang Leung}
+\date{September 9, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We describe a Lean formalization of length and total-curvature estimates for
+smooth immersed closed curves evolving by curve shortening in an ambient Ricci
+flow. The development derives the corrected curvature evolution from actual
+geometric definitions, treats curvature zeros by regularization, and integrates
+against the moving arclength measure. For a compact base Ricci flow it constructs
+finite ambient tensor bounds and proves that the same coefficients apply to
+products with every supplied static one-dimensional Riemannian metric. The
+constants are chosen before the factor metrics, curve families, and initial
+bounds. The result is an interface for the finite extinction argument, conditional
+on existence of the smooth flows and on uniform initial data. It does not prove
+flow existence or finite extinction. We explain the relation to the 2015
+Morgan--Tian correction, the use of a spatial time-dependent connection, the
+precise library interfaces, and the scope of the checked artifact.
+\end{abstract}
+
+\section{Scope and mathematical setting}
+Perelman's finite extinction argument uses controlled curve families in an
+ambient Ricci flow \cite{perelman2003}. The relevant estimates were developed in
+Chapter 19 of Morgan and Tian's account \cite{morgantian2007}; their correction
+\cite{morgantian2015} changes the curvature evolution and the dependence on initial
+data. The formalization reported here concerns this estimate module. It supplies
+neither the surrounding topological argument nor the analytic existence theory.
+
+All metrics and connections below are genuine smooth Riemannian objects. Curves
+are represented by maps $c(t,x)$ with $x\in\R$ and period one; integration over
+$[0,1]$ therefore represents integration over the parameter circle. An immersion
+means $c_x(t,x)\ne0$. Write
+\[
+ X=c_x,\qquad v=|X|_{g(t)},\qquad S=v^{-1}X,\qquad
+ H=D_sS,\qquad q=|H|_{g(t)}^2,\qquad k=\sqrt q,
+\]
+where $D_s=v^{-1}D_x$ is the spatial Levi--Civita derivative along the curve. The
+curve-shortening equation is $c_t=H$, while the ambient equation is
+$\partial_tg=-2\Ric_g$. The geometric quantities controlled are
+\[
+ L(t)=\int_0^1v(t,x)\,dx,\quad
+ \Theta(t)=\int_0^1 k(t,x)v(t,x)\,dx,\quad
+ E(t)=\int_0^1q(t,x)v(t,x)\,dx.
+\]
+These definitions use the evolving metric, rather than the fixed norm of a chart
+model. No global chart containing the curve is assumed; self-intersections are
+allowed.
+
+The finite-dimensional manifolds are smooth, boundaryless, Hausdorff, and
+sigma-compact; their models are real inner-product spaces of positive dimension.
+The principal ambient manifold is compact. Precise Lean typeclass assumptions,
+including the time-set convention, are recorded in Appendix~\ref{app:interfaces}.
+The metrics are jointly smooth on the specified closed time interval in the
+library's within-smoothness sense. The supplied curve flows are jointly smooth,
+closed, immersed, and satisfy the actual within-derivative flow equation. These
+conditions express an existing solution, not a promise to construct one.
+
+\section{Uniform statement and the order of quantifiers}
+\begin{theorem}[Uniform products with a static one-dimensional factor]
+\label{thm:main}
+Let $M$ be a compact manifold with the hypotheses above, and let $g(t)$ be a
+smooth Ricci flow on a nondegenerate closed interval $[a,b]$. Let $N$ be a
+supplied smooth boundaryless Hausdorff sigma-compact one-dimensional manifold.
+There exist $B,C\ge0$ with the following property. For every pair of index types
+$\Lambda,\mathcal I$, every family of smooth Riemannian metrics
+$h_\ell$ on $N$, and every family of smooth immersed closed curve-shortening
+flows $c_{\ell,i}$ in $(M\times N,g(t)\oplus h_\ell)$, the following holds.
+For every $L_0,\Theta_0\in\R$, if
+\[
+ \forall\ell,i,\qquad L_{\ell,i}(a)\le L_0,
+ \qquad\Theta_{\ell,i}(a)\le\Theta_0,
+\]
+then, for all $\ell,i$ and all $t\in[a,b]$,
+\begin{equation}\label{eq:main}
+ L_{\ell,i}(t)\le L_0e^{B(t-a)},\qquad
+ \Theta_{\ell,i}(t)\le(\Theta_0+L_0)e^{C(t-a)}.
+\end{equation}
+Each $h_\ell$ is independent of Ricci-flow time. No regularity in either index,
+and no compactness of $N$, is required.
+\end{theorem}
+\leanref{CurveControl.Geometry.exists_uniform_static_product_family_estimate}{CurveControl/Geometry/UniformProductEstimates.lean}
+
+The constants are selected before $\Lambda,\mathcal I,h,c,L_0,\Theta_0$. The
+proof obtains them from the compact base metric family and the time interval;
+it does not inspect the factor metric or the curves when choosing witnesses.
+The fixed factor manifold and model are parameters of the Lean context. The
+witness construction itself uses only the base. Initial bounds remain explicit
+inputs; they are not extracted from a compact parameter family by this module.
+
+\begin{corollary}[Positive-scale families]\label{cor:scale}
+Theorem~\ref{thm:main} holds with $\Lambda=(0,\infty)$ and arbitrary supplied
+static metrics $h_\lambda$. The coefficients do not require a positive lower
+bound on $\lambda$, nor continuity or differentiability of $h_\lambda$ in
+$\lambda$.
+\end{corollary}
+\leanref{CurveControl.Geometry.exists_uniform_positive_scale_product_estimate}{CurveControl/Geometry/UniformProductEstimates.lean}
+
+The supplied one-dimensional manifold may in particular be a smooth circle.
+The example module constructs the genuine metric $h_\lambda=\lambda^2h_*$ from
+any supplied smooth Riemannian metric $h_*$, proves
+$|V|_{h_\lambda}=\lambda|V|_{h_*}$, and instantiates the uniform theorem for all
+positive scales. A particular \path{AddCircle} atlas and its starting metric
+remain caller inputs. The same example gives bounds uniform over the entire
+time interval, with right sides $L_0e^{B(b-a)}$ and
+$(\Theta_0+L_0)e^{C(b-a)}$.
+\leanref{CurveControl.Examples.StaticFactorApplication.scaledFactorMetric}{CurveControl/Examples/StaticFactorApplication.lean}
+\leanref{CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_fullInterval_bounds}{CurveControl/Examples/StaticFactorApplication.lean}
+The proof of Theorem~\ref{thm:main} is the combination of the following sections.
+
+\section{The corrected local evolution}
+The correction of Morgan and Tian identifies the omitted time variation of the
+ambient connection. It produces an error linear in $k$, as well as quadratic
+terms, and consequently a total-curvature estimate involving initial length
+\cite{morgantian2015}. The implementation retains this contribution but uses a
+spatial formulation instead of constructing the full space-time metric.
+
+Fix a valid spatial chart near the point of computation. For a vector field
+along $c$, use
+\[
+ D_tW=\partial_tW+\Gamma_{g(t)}(H,W),\qquad
+ D_xW=\partial_xW+\Gamma_{g(t)}(X,W).
+\]
+In particular $D_t$ is not the metric-compatible derivative of $g(t)+dt^2$.
+Its product rule contains the ambient metric variation:
+\begin{equation}\label{eq:moving}
+ \partial_t\ip VW=-2\Ric(V,W)+\ip{D_tV}W+\ip V{D_tW}.
+\end{equation}
+Let $A=\partial_t\nabla^{g(t)}$, with the spatial coordinate held fixed. The
+actual connection variation theorem gives
+\begin{equation}\label{eq:A}
+ \ip{A(U,V)}W=-(\nabla_U\Ric)(V,W)
+ -(\nabla_V\Ric)(U,W)+(\nabla_W\Ric)(U,V).
+\end{equation}
+This is the lowering of $\partial_t\Gamma$, not the derivative of a lowered
+Christoffel symbol. Equation~\eqref{eq:moving} supplies the separate derivative
+of the metric.
+
+For signs, let $R^+(U,V)W=D_UD_VW-D_VD_UW-D_{[U,V]}W$.
+The upstream do Carmo convention is $R^-=-R^+$. In the evolution formula write
+\[
+ \operatorname{rm}(U,V,W,Z)=\ip{R^-(U,V)W}Z.
+\]
+The last-slot antisymmetry yields
+$\operatorname{rm}(H,S,H,S)=\ip{R^+(H,S)S}H$.
+The coordinate-to-intrinsic bridge proves this equality with its signs; it does
+not identify the two curvature operators.
+
+Put $\alpha=q+\Ric(S,S)$ and $P=D_sH+qS$. The velocity and connection
+commutators give
+\[
+ v_t=-\alpha v,\quad D_tS=D_sH+\alpha S,\quad
+ D_tH=D_s^2H+2\alpha H+(D_s\alpha)S+R^+(H,S)S+A(S,S).
+\]
+Since $\ip HS=0$ and $\ip{D_sH}S=-q$, $P$ is the spatial normal component of
+$D_sH$, and $|D_sH|^2=|P|^2+q^2$.
+
+\begin{proposition}[Actual squared-curvature evolution]\label{prop:q}
+For an existing smooth immersed closed curve-shortening flow in a smooth
+ambient Ricci flow on a time interval $J$, at each $t\in\operatorname{interior}J$
+and each parameter $x$, one has
+\begin{align}\label{eq:q}
+ q_t={}&D_s^2q-2|P|^2+2q^2+4q\Ric(S,S)-2\Ric(H,H)\notag\\
+ &+2\operatorname{rm}(H,S,H,S)
+ -4(\nabla_S\Ric)(S,H)+2(\nabla_H\Ric)(S,S).
+\end{align}
+\end{proposition}
+\leanref{CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curvatureSq_time}{CurveControl/Geometry/CurvatureEvolution.lean}
+
+The hypotheses of this declaration include the actual two flows, the geometric
+context in Appendix~\ref{app:interfaces}, an interior time, and a parameter.
+They do not include a proposed curvature PDE, a Kato inequality, a connection
+variation identity, or differentiability of $H$ as additional assumptions.
+The latter facts are derived using fixed-chart neighborhoods and equality of
+function germs. Choosing the chart centered at the current point occurs only
+after the differentiated identities have been established.
+
+The relation to the space-time projection can be checked explicitly. If
+$T=\partial_t$ and $\beta=\Ric(S,H)$, that projection is
+$\widehat P=P+\beta T$. Its squared norm contains $\beta^2$, absent from the
+spatial $P$. The corresponding space-time curvature terms cancel this extra
+square and the mixed quadratic Ricci term; the remaining connection derivatives
+are precisely the last two terms of \eqref{eq:q}. This explains why copying a
+space-time projection into a spatial formula would be incorrect.
+
+\section{Regularization and the moving integral}
+Let $B,K,D\ge0$ bound the ambient Ricci tensor, curvature tensor and covariant
+derivative of Ricci, respectively, in the evolving metric.
+A bound is an estimate on evaluation on arbitrary vectors, by the product
+of their metric norms; it is not a bound on unrelated chart coordinates.
+Because $|S|=1$ and $|H|=k$, the last five terms of \eqref{eq:q} have absolute
+value at most
+\[
+ (6B+2K)q+6D\sqrt q\le A_0(q+\sqrt q),\qquad
+ A_0=\max(6B+2K,6D).
+\]
+The geometric Kato estimate is $(D_sq)^2\le4q|P|^2$.
+For $\varepsilon>0$, define $h_\varepsilon=\sqrt{q+\varepsilon^2}$.
+Differentiation, the Kato estimate, and the nonpositive dissipation term give
+\begin{equation}\label{eq:reg}
+ (h_\varepsilon)_t\le D_s^2h_\varepsilon+k^3+
+ \frac{A_0}{2}(h_\varepsilon+1).
+\end{equation}
+There is no differentiation of $k$ at a zero of $q$.
+\leanref{CurveControl.Analysis.deriv_regularizedNorm_le}{CurveControl/Analysis/RegularizedPDE.lean}
+
+Let $r=\Ric(S,S)$ and
+$\Theta_\varepsilon=\int_0^1 h_\varepsilon v\,dx$.
+The true density equation is $v_t=-(q+r)v$. Inserting it in the differentiated
+integral, using periodicity to eliminate the diffusion flux, and using
+$k^3-h_\varepsilon q\le0$ yields
+\[
+ L'\le BL-E,\qquad
+ \Theta_\varepsilon'\le(A_0/2+B)\Theta_\varepsilon+(A_0/2)L.
+\]
+Thus $C=A_0/2+B$ controls $\Theta_\varepsilon+L$. Parameter differentiation,
+continuity, integrability, and the periodic endpoint equality are constructed
+from the actual smooth functions. The geometric caller does not supply them.
+\leanref{CurveControl.Analysis.ScalarCurveHypotheses.regularized_comparison}{CurveControl/Analysis/CurveEstimateAssembly.lean}
+
+The comparison argument uses derivatives only at interior times and continuity
+on the closed time interval. In particular it does not claim a two-sided time
+derivative at the initial endpoint. For each fixed time,
+\[
+ 0\le\Theta_\varepsilon-\Theta\le\varepsilon L.
+\]
+Taking limits in the already established comparison, at both its initial and
+final times, avoids exchanging a limit with a time derivative.
+\leanref{CurveControl.regularizedWeightedCurvature_sub_bounds}{CurveControl/Analysis/RegularizedIntegral.lean}
+
+\begin{theorem}[Geometric estimate with explicit ambient bounds]\label{thm:base}
+Let $g,c$ be the actual flows described above on $J$. Let $a\le b$ and
+$[a,b]\subseteq J$, and suppose the actual nonnegative ambient tensor bounds $B,K,D$ hold
+at every point and time of $J$. With $C=\max(6B+2K,6D)/2+B$, for all
+$t\in[a,b]$,
+\[
+ L(t)\le L(a)e^{B(t-a)},\qquad
+ \Theta(t)+L(t)\le(\Theta(a)+L(a))e^{C(t-a)}.
+\]
+\end{theorem}
+\leanref{CurveControl.Geometry.IsCurveShorteningFlowOn.curve_estimate}{CurveControl/Geometry/CurveEstimates.lean}
+
+The intermediate structure \path{CurveControl.Analysis.ScalarCurveHypotheses} is an
+explicit conditional analysis interface containing a squared-curvature PDE,
+Kato, and density assumptions. The geometric theorem proves its fields from
+the same $g,c$; passing that structure alone is not the geometric result.
+
+\begin{proposition}[Accumulated curvature energy]\label{prop:energy}
+Under the same flow and interval hypotheses, it is enough to assume
+$\Ric(V,V)\ge-B$ for every unit vector ($g(t)(V,V)=1$), at every point and time of $[a,b]$,
+to obtain
+\[
+ \int_a^b e^{-B(t-a)}E(t)\,dt
+ \le L(a)-e^{-B(b-a)}L(b).
+\]
+If also $B\ge0$, then
+$\int_a^b E(t)\,dt\le e^{B(b-a)}L(a)-L(b)$.
+\end{proposition}
+\leanref{CurveControl.Geometry.IsCurveShorteningFlowOn.weighted_curvatureEnergy_integral_le}{CurveControl/Geometry/LengthEstimates.lean}
+\leanref{CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureEnergy_integral_le}{CurveControl/Geometry/LengthEstimates.lean}
+
+The blueprint's integral-evolution node additionally states local absolute
+continuity of unregularized $\Theta$ and an almost-everywhere differential
+inequality. Those statements have not been implemented literally here. The
+regularized comparison followed by a limit is a sufficient alternative for
+Theorem~\ref{thm:base}. A downstream argument requiring that AC/a.e. interface
+would need a further theorem.
+
+\section{Ambient constants from compactness}
+\begin{proposition}[Finite actual tensor bounds]\label{prop:compact}
+Let $M$ be compact with the geometric context of
+Appendix~\ref{app:interfaces}, and let $g$ be a jointly smooth metric family on
+a time set $J$. For $[a,b]\subseteq J$ there exist $B,K,D\ge0$ bounding the
+actual $\Ric$, $\operatorname{rm}$ and $\nabla\Ric$ everywhere on
+$M\times[a,b]$, in the multilinear metric-norm sense used above.
+No Ricci-flow equation is needed for this proposition.
+\end{proposition}
+\leanref{CurveControl.Geometry.CompactAmbientBounds.exists_uniformTensorBoundsOn}{CurveControl/Geometry/CompactAmbientBounds.lean}
+
+The proof passes through finitely many compact chart pieces. Joint smoothness
+provides continuity of the relevant tensor coefficients and the inverse Gram
+matrix. On each compact piece, finite coefficient families are bounded. Metric
+norm control of the coordinates converts these coefficient bounds into intrinsic
+multilinear estimates. A finite cover combines the local nonnegative constants
+into global ones. This step avoids assuming an unproved globally continuous
+operator-norm bundle section. All coefficients in the construction are those of
+the canonical geometric tensors; no surrogate curvature field is supplied.
+
+Applying this proposition to the base Ricci flow fixes $B,K,D$ independently
+of every later auxiliary metric. What remains is to preserve the same constants
+when passing to a product, without dependence on the geometry of the small
+factor. Compactness of the product, or a uniform lower injectivity-radius bound,
+is not used for this purpose.
+
+\section{The genuine product and one-dimensional uniformity}
+The product construction starts with the upstream metric
+\path{DCProductMetric}. A technical distinction matters: the ordinary norm on
+$E\times F$ is a maximum norm, whereas the canonical intrinsic interfaces
+require an inner-product model. The development uses the continuous linear
+equivalence to the L$^2$ type \path{WithLp 2} on $E\times F$ and transports the model with corners.
+It constructs the induced genuine metric on the same product manifold.
+
+This is not an assertion that the maximum norm is Hilbertian. Extended charts,
+tangent-coordinate changes, and the chart Gram pairing are transported
+explicitly. Differentiating the Gram identity and applying the algebraic
+uniqueness of a symmetric metric-compatible connection proves the actual
+Christoffel formula. Differentiating that formula on an open chart target
+then proves the curvature formula.
+\leanref{CurveControl.Geometry.chartChristoffelContraction_productL2}{CurveControl/Geometry/ProductL2Connection.lean}
+\leanref{CurveControl.Geometry.chartCurvature_productL2}{CurveControl/Geometry/ProductL2Connection.lean}
+
+For intrinsic curvature, an isometry is built from the actual tangent-fiber
+metrics, not from model-space norms. The four-tensor splits into the sum of
+the two factor tensors. Ricci splitting follows by tracing in orthonormal
+bases under this actual isometry. Finally the covariant Ricci derivative is
+identified with $\partial\Ric-\Gamma\Ric-\Gamma\Ric$ in coordinates;
+the derivative of the lower-order splitting is justified on a neighborhood.
+\leanref{CurveControl.Geometry.canonicalCurvatureFormAt_productL2}{CurveControl/Geometry/ProductIntrinsicCurvature.lean}
+\leanref{CurveControl.Geometry.ricciTensorAt_productL2}{CurveControl/Geometry/ProductIntrinsicCurvature.lean}
+\leanref{CurveControl.Geometry.ProductCovRicci.covRic_productL2}{CurveControl/Geometry/ProductCovRicci.lean}
+
+\begin{proposition}[Preservation of the base constants]\label{prop:product}
+Let $g$ and $h$ be genuine smooth metrics on the manifolds $M,N$ above, with
+$\dim N=1$. If $B,K,D$ bound the three actual base tensors at $p\in M$,
+the same constants bound the product tensors at every $(p,z)$.
+For a base Ricci flow and static $h$, $g(t)\oplus h$ is itself a Ricci flow
+on the same time interval.
+\end{proposition}
+\leanref{CurveControl.Geometry.productL2_tensorBounds_of_finrank_one}{CurveControl/Geometry/UniformProductEstimates.lean}
+\leanref{CurveControl.Geometry.isRicciFlowOn_productL2_oneDimensional}{CurveControl/Geometry/ProductFlow.lean}
+
+Indeed, antisymmetry of the algebraic curvature tensor and collinearity of all
+vectors in dimension one give zero canonical curvature. Consequently the
+actual Ricci field vanishes identically; differentiating this field gives zero
+covariant Ricci. It would not suffice to infer a derivative from vanishing at a
+single point. The second-factor terms in all product splittings therefore
+vanish. Each projection decreases the actual metric norm, so the base constants
+are unchanged.
+\leanref{CurveControl.Geometry.canonicalCurvatureFormAt_eq_zero_of_finrank_one}{CurveControl/Geometry/OneDimensionalCurvature.lean}
+\leanref{CurveControl.Geometry.covRicciAt_eq_zero_of_finrank_one}{CurveControl/Geometry/OneDimensionalCurvature.lean}
+
+For the time-dependent statement, joint within-smoothness of the product metric
+is proved by pulling back the base family and the static factor form along the
+two projections and adding them. The within-time derivative has no factor
+contribution. Actual Ricci splitting identifies the resulting derivative with
+$-2\Ric$ of the product. Thus product flow status is a conclusion.
+Combining Propositions~\ref{prop:compact} and~\ref{prop:product} with
+Theorem~\ref{thm:base} proves Theorem~\ref{thm:main}; the initial bound for
+$\Theta+L$ is $\Theta_0+L_0$, and $L(t)\ge0$ yields \eqref{eq:main}.
+
+\section{Implementation, provenance, and limits}
+The dependency base is mathlib at commit
+\path{520045ab14e26149ee970e2e617ca04b09bde5d6} and the frenzymath source tree
+at commit \path{bb91a091f0b968f8bbe8d861e025a88d82b161be}
+\cite{mathlib,frenzymath}. The project directly imports MorganTianLib, which
+in turn imports DoCarmoLib. These libraries provide the smooth Riemannian
+metric, canonical Levi--Civita connection, chart tensor, and Ricci-flow
+infrastructure. mathlib provides the general manifold, calculus, linear
+algebra, and integration framework. The newly supplied development consists
+of the curve-specific definitions and bridges, spatial evolution proof,
+regularized integral chain, compact tensor bounds, product transport and
+splitting, and final quantified integration of these parts. We make no claim
+of a new mathematical estimate or of priority for its formalization.
+
+The frozen blueprint's labels
+\path{thm:curve-flow-curvature-evolution},
+\path{lem:regularized-curve-curvature-inequality}, and
+\path{thm:curve-flow-length-total-curvature-bounds} describe the corresponding
+mathematical goals. The time-space connection and AC/a.e. intermediate nodes
+are handled by the alternatives explained above; a matching final conclusion
+should not be confused with literal implementation of every blueprint node.
+
+The release record reports a successful complete target build with Lean 4.32.1
+and an environment-level reachable-axiom check of the project declarations.
+The reachable axioms were only \path{propext}, \path{Classical.choice}, and
+\path{Quot.sound}; no \path{sorryAx} or additional axiom was found. Dependency
+fingerprints and source hashes are bound to the release record. The build reused
+dependency caches, so it is not a claim of reproduction on a clean machine.
+The machine check establishes correctness relative to the definitions and
+axioms; matching the mathematical specification also requires semantic review.
+
+AI assistance was used in development. Separate Astra agents reviewed proofs
+they had not authored; these reviews were not external human peer review.
+
+The principal limitations are explicit inputs and omitted neighboring modules:
+existence and continuation of the smooth Ricci and curve flows; construction
+of concrete circle atlases and their starting metrics; construction of ramps
+and their uniform initial bounds; and the remaining geometric and topological
+steps of finite extinction. No acceptance by an external mathematical team is
+asserted. The delivered interface can be used once those objects and hypotheses
+have been supplied.
+
+\appendix
+\section{Exact interface assumptions}\label{app:interfaces}
+All declaration names in this report are fully qualified. The main product
+roots use the following context; symbols are printed in ASCII to keep the
+inventory independent of a Lean font setup.
+\begin{quote}\small\ttfamily
+E, F : Type*; H, K, M, N : Type*\\
+NormedAddCommGroup E; InnerProductSpace Real E\\
+NormedAddCommGroup F; InnerProductSpace Real F\\
+FiniteDimensional Real E; FiniteDimensional Real F\\
+NeZero (Module.finrank Real E)\\
+NeZero (Module.finrank Real F)\\
+TopologicalSpace H; TopologicalSpace K\\
+I : ModelWithCorners Real E H\\
+J : ModelWithCorners Real F K\\
+I.Boundaryless; J.Boundaryless\\
+TopologicalSpace M; ChartedSpace H M; IsManifold I infinity M\\
+TopologicalSpace N; ChartedSpace K N; IsManifold J infinity N\\
+SigmaCompactSpace M; T2Space M\\
+SigmaCompactSpace N; T2Space N; CompactSpace M
+\end{quote}
+The explicit arguments are a metric family $g$ of type
+\path{Real -> Riemannian.RiemannianMetric I M},
+$a,b:\R$, \path{MorganTianLib.IsRicciFlowOn g (Set.Icc a b)}, $a\le b$, and
+\path{Module.finrank Real F = 1}. In the inventory, \texttt{Real} and
+\texttt{infinity} stand for Lean's real type and smoothness order $\infty$.
+The base estimate uses only the $E,H,I,M$ part of the context, without
+\path{CompactSpace M}, and takes actual uniform tensor bounds as input.
+The compact-bound theorem also lists \path{CompleteSpace E}; this instance
+is available from finite dimensionality over the complete real field, and is
+inferred when the final product root calls it.
+
+\path{MorganTianLib.IsRicciFlowOn} has four fields: order-connectedness and
+nontriviality of the time set, joint smoothness of the metric as a horizontal
+bilinear-form section, and the within-time equation evaluated on every point
+and pair of tangent vectors. Hence its specialization to $[a,b]$ rules out a
+singleton interval even though the root also lists $a\le b$.
+
+\path{CurveControl.Geometry.IsCurveShorteningFlowOn} requires joint
+\path{ContMDiffOn} smoothness on the time set times $\R$, period one at each
+time in that set, nonzero actual velocity at every such time and parameter,
+and a \path{HasDerivWithinAt} equation for the local time curve whose derivative
+is the actual curvature vector. These are the complete substantive flow
+conditions; no target inequality is a field.
+
+The final quantifier order, suppressing only this fixed context, is
+\[
+ \begin{gathered}
+ \exists B,C\ge0\quad\forall\Lambda,\mathcal I,h,c,\\
+ \bigl(\text{actual curve flows}\bigr)\ \Longrightarrow
+ \forall L_0,\Theta_0,\\
+ \bigl(\text{initial bounds}\bigr)\ \Longrightarrow
+ \forall\ell\in\Lambda\;\forall i\in\mathcal I\;\forall t\in[a,b]\quad\eqref{eq:main}.
+ \end{gathered}
+\]
+The types $\Lambda,\mathcal I$ are arbitrary; an empty family is allowed.
+The positive-scale root fixes $\Lambda$ to the subtype
+$\{\lambda:\R\mid0<\lambda\}$ before quantifying over the supplied metric
+family. The factor metric has no time argument. Neither a curvature-splitting
+hypothesis nor a product Ricci-flow hypothesis appears in either final root.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

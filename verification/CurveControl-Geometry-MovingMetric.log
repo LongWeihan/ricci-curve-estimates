@@ -1,0 +1,12 @@
+'CurveControl.Geometry.hasDerivAt_diagonal_of_slices' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.differentiableAt_metricInner_time_curve' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.hasDerivAt_movingMetricInner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.hasDerivAt_ricciFlow_field_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.hasDerivAt_diagonal_of_slices' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.differentiableAt_metricInner_time_curve' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.hasDerivAt_movingMetricInner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.hasDerivAt_ricciFlow_field_sq' depends on axioms: [propext, Classical.choice, Quot.sound]

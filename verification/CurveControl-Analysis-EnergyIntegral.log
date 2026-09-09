@@ -1,0 +1,4 @@
+'CurveControl.Analysis.weighted_energy_integral_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.energy_integral_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.weighted_energy_integral_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.energy_integral_le' depends on axioms: [propext, Classical.choice, Quot.sound]

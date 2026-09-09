@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "blueprint_nodes": 22,
+  "declarations": 62,
+  "source_files": 45,
+  "mathml_formulas": 22,
+  "html_pages": 98,
+  "checked_local_links": 17790,
+  "languages": [
+    "en",
+    "zh-CN"
+  ],
+  "pages_per_language": 49,
+  "checked_translated_fields": 103,
+  "language_structure_identical": true,
+  "language_anchors_identical": true,
+  "lean_signatures_identical": true,
+  "authors": "GPT-6 Astra \u00b7 Juii-hang Leung\uff08\u9f99\u7ef4\u6c49\uff09",
+  "chinese_blueprint_sha256": "d0ff17b00497866bde3c63af1665e1ae42a60bb36762eae2be41ca756e7f7822",
+  "ui_sha256": "a5a08903441026436364e5428677c22c42481e2a096097b94907e08519ba9bb3",
+  "checked_declarations": 62,
+  "blueprint_sha256": "a50e6ca7f6cef9a042b062fef4e11ad8d646fde766e9053bd6aec2d30bce6e84",
+  "metadata_sha256": "6bde2b1e36866c42f9f8c9fad011aedb589e0a1bcb9f708bcbe001bf4c54dcf5",
+  "math_renderer": "KaTeX 0.16.22; build-time MathML; strict errors",
+  "pdf_included": true
+}

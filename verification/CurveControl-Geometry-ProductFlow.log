@@ -1,0 +1,18 @@
+'CurveControl.Geometry.productBaseTangent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productFactorTangent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2Metric_inner_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.horizontal_inCoordinates_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.isSmoothMetricFamilyOn_const' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.metricFamily_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.contMDiffOn_timePullbackForm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.contMDiff_productL2_fst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.contMDiff_productL2_snd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productBaseTangent_eq_mfderiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productFactorTangent_eq_mfderiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.isSmoothMetricFamilyOn_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.hasDerivWithinAt_productL2Metric_of_ricciFlow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.isRicciFlowOn_productL2_oneDimensional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

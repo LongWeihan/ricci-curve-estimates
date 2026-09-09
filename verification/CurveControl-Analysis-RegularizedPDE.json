@@ -1,0 +1,40 @@
+{
+  "source": "CurveControl/Analysis/RegularizedPDE.lean",
+  "source_sha256": "46950b243b4bbca7165efe3afda60526fb9ac0d99333b1b6e1ad9fd22eadeb2e",
+  "checked_at": "2026-09-09T08:34:27+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "compile_exit_code": 0,
+  "public_declarations": 5,
+  "printed_declarations": 5,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Analysis.arcDeriv_regularizedNorm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.arcDeriv_arcDeriv_regularizedNorm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.regularized_kato_cancellation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.regularized_pde_algebra": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.deriv_regularizedNorm_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

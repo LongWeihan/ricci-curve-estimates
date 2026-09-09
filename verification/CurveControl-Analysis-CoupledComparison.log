@@ -1,0 +1,8 @@
+'CurveControl.Analysis.le_exp_of_deriv_right_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.coupled_exp_comparison_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.coupled_exp_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.family_coupled_exp_comparison_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.le_exp_of_deriv_right_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.coupled_exp_comparison_right' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.coupled_exp_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.family_coupled_exp_comparison_right' depends on axioms: [propext, Classical.choice, Quot.sound]

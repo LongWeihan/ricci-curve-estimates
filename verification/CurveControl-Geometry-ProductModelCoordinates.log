@@ -1,0 +1,7 @@
+'CurveControl.Geometry.productL2_extChartAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_extChartAt_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productModelInverse_mfderiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_tangentCoordChange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2Metric_inner_coordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_chartMetricInner' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_chartMetricInner_on_target' depends on axioms: [propext, Classical.choice, Quot.sound]

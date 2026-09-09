@@ -1,0 +1,186 @@
+{
+  "source": "CurveControl/Geometry/CurveRegularity.lean",
+  "source_sha256": "f601fdfdf3e5e1eba5f439306914f33d9abfdaa01047d1bfcbaa80c8104d6003",
+  "checked_at": "2026-09-09T08:53:57+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 33,
+  "printed_declarations": 33,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.chartDirectionalNormSq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.periodic_deriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.curveVelocity_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.curveSpeed_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.unitTangent_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.covDerivAlong_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.curvatureVector_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.curvatureSq_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.regularizedCurvature_periodic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.chartDirectionalNormSqWithin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.uniqueDiffOn_ricciTime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_chartDirectionalNormSq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.curveSpeed_sq_eq_chartDirectionalNormSq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_eq_chartDirectionalNormSq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.eventually_interior_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_curveSpeed_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_curveSpeed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_curvatureSq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_regularizedCurvature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_chartCurveFamily": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_chartDirectionalNormSqWithin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chartVelocity_eq_spatialFDerivWithin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivWithinAt_timeChart_in_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chartCurvature_eq_timeFDerivWithin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.curveSpeed_sq_eq_chartDirectionalNormSqWithin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_eq_chartDirectionalNormSqWithin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.eventually_within_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_curveSpeed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_curvatureSq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_regularizedCurvature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.continuousOn_curveSpeed_rectangle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.continuousOn_curvatureSq_rectangle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.continuousOn_regularizedCurvature_rectangle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

@@ -1,0 +1,61 @@
+name: Verify Lean release
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      MATHLIB_NO_CACHE_ON_UPDATE: "1"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Fetch only missing pinned source archives and configure paths
+        run: python3 scripts/prepare_dependencies.py --mode fetch --configure-only
+      - name: Set up Lean from lean-toolchain
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
+        with:
+          auto-config: "false"
+          build: "false"
+          test: "false"
+          lint: "false"
+          use-mathlib-cache: "false"
+          use-github-cache: "false"
+      - name: Resolve Lake dependencies with the installed toolchain
+        run: python3 scripts/prepare_dependencies.py --mode reuse
+      - name: Obtain matching mathlib cache
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+          roots = [Path('CurveControl'), Path('.dependencies/Poincare-Conjecture')]
+          modules = set()
+          pattern = re.compile(r'^\s*(?:public\s+)?import\s+(Mathlib(?:\.[\w\x27]+)*)', re.M)
+          for root in roots:
+              for source in root.rglob('*.lean'):
+                  if not any(part.startswith('.') for part in source.relative_to(root).parts):
+                      modules.update(pattern.findall(source.read_text()))
+          if not modules:
+              raise SystemExit('No Mathlib imports discovered')
+          subprocess.run(['lake', 'exe', 'cache', 'get', *sorted(modules)], check=True)
+          PY
+      - name: Build every module and audit reachable axioms
+        run: python3 scripts/verify.py
+      - name: Build offline mathematical reference and check local links
+        run: python3 scripts/build_site.py
+      - name: Preserve verification logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: lean-verification
+          path: verification/
+          if-no-files-found: warn

@@ -1,0 +1,63 @@
+'CurveControl.Geometry.RicciConnectionVariation.hasDerivAt_chartChristoffel_ricci' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.hasDerivAt_chartChristoffelBilin_ricci' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.hasDerivAt_chartChristoffelContraction_ricci' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffelBilin_lower_intrinsic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.contDiffAt_chartChristoffelBilin_timeSpace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.contDiffAt_two_chartChristoffelBilin_timeSpace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.ricciVariationCoef' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.hasDerivAt_chartChristoffel_ricci' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.coordinateBilin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.ricciVariationBilin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.contDiffOn_chartChristoffelBilin_timeSpace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.contDiffAt_chartChristoffelBilin_timeSpace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.contDiffAt_two_chartChristoffelBilin_timeSpace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.hasDerivAt_chartChristoffelBilin_ricci' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffelBilin_ricci' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.hasDerivAt_chartChristoffelContraction_ricci' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.ricciVariationBilin_basis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.ricciVariationCoef_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.ricciVariationBilin_lower_basis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffel_lower_intrinsic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffelBilin_lower_intrinsic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

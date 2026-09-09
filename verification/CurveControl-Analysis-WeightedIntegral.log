@@ -1,0 +1,17 @@
+'CurveControl.Analysis.hasDerivAt_weightedIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.hasDerivAt_weightedIntegral_of_densityEvolution' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.continuousOn_weightedIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.hasDerivAt_weightedIntegral_interior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.integral_deriv_eq_zero_of_endpoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.integral_arcDeriv_arcDeriv_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.hasDerivAt_weightedIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.hasDerivAt_weightedIntegral_of_densityEvolution' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.continuousOn_weightedIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.hasDerivAt_weightedIntegral_interior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.arcDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.integral_deriv_eq_zero_of_endpoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.integral_arcDeriv_arcDeriv_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]

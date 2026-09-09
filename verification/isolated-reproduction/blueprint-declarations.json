@@ -1,0 +1,510 @@
+{"records":
+ [{"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : InnerProductSpace ℝ E] →\n      [FiniteDimensional ℝ E] →\n        {H : Type u_2} →\n          [inst_3 : TopologicalSpace H] →\n            {I : ModelWithCorners ℝ E H} →\n              {M : Type u_3} →\n                [inst_4 : TopologicalSpace M] →\n                  [inst_5 : ChartedSpace H M] →\n                    [inst_6 : IsManifold I (↑⊤) M] → (ℝ → Riemannian.RiemannianMetric I M) → (ℝ → ℝ → M) → Set ℝ → Prop",
+   "module": "CurveControl.Geometry.Flow",
+   "line": 30,
+   "docstring":
+   "A genuine smooth immersed closed curve-shortening flow in a metric family.\nThe Ricci-flow equation for the metric is a separate upstream predicate. ",
+   "declaration": "CurveControl.Geometry.IsCurveShorteningFlowOn",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℝ E] →\n      {H : Type u_2} →\n        [inst_2 : TopologicalSpace H] →\n          {I : ModelWithCorners ℝ E H} →\n            {M : Type u_3} →\n              [inst_3 : TopologicalSpace M] →\n                [inst_4 : ChartedSpace H M] →\n                  [inst_5 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ → ℝ",
+   "module": "CurveControl.Geometry.Basic",
+   "line": 31,
+   "docstring":
+   "Speed for the actual Riemannian metric and intrinsic curve velocity. ",
+   "declaration": "CurveControl.Geometry.curveSpeed",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℝ E] →\n      {H : Type u_2} →\n        [inst_2 : TopologicalSpace H] →\n          {I : ModelWithCorners ℝ E H} →\n            {M : Type u_3} →\n              [inst_3 : TopologicalSpace M] →\n                [inst_4 : ChartedSpace H M] →\n                  [inst_5 : IsManifold I (↑⊤) M] →\n                    Riemannian.RiemannianMetric I M → (γ : ℝ → M) → (x : ℝ) → TangentSpace I (γ x)",
+   "module": "CurveControl.Geometry.Basic",
+   "line": 36,
+   "docstring":
+   "Unit spatial tangent, meaningful when the spatial velocity is nonzero. ",
+   "declaration": "CurveControl.Geometry.unitTangent",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℝ E] →\n      [FiniteDimensional ℝ E] →\n        {H : Type u_2} →\n          [inst_3 : TopologicalSpace H] →\n            {I : ModelWithCorners ℝ E H} →\n              {M : Type u_3} →\n                [inst_4 : TopologicalSpace M] →\n                  [inst_5 : ChartedSpace H M] →\n                    [inst_6 : IsManifold I (↑⊤) M] →\n                      Riemannian.RiemannianMetric I M →\n                        (γ : ℝ → M) → ((x : ℝ) → TangentSpace I (γ x)) → (x : ℝ) → TangentSpace I (γ x)",
+   "module": "CurveControl.Geometry.Basic",
+   "line": 41,
+   "docstring": "Actual covariant derivative in the moving-foot chart. ",
+   "declaration": "CurveControl.Geometry.covDerivAlong",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℝ E] →\n      [FiniteDimensional ℝ E] →\n        {H : Type u_2} →\n          [inst_3 : TopologicalSpace H] →\n            {I : ModelWithCorners ℝ E H} →\n              {M : Type u_3} →\n                [inst_4 : TopologicalSpace M] →\n                  [inst_5 : ChartedSpace H M] →\n                    [inst_6 : IsManifold I (↑⊤) M] →\n                      Riemannian.RiemannianMetric I M → (γ : ℝ → M) → (x : ℝ) → TangentSpace I (γ x)",
+   "module": "CurveControl.Geometry.Basic",
+   "line": 59,
+   "docstring": "Curvature vector `∇ₛS = speed⁻¹ ∇ₓS`. ",
+   "declaration": "CurveControl.Geometry.curvatureVector",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℝ E] →\n      [FiniteDimensional ℝ E] →\n        {H : Type u_2} →\n          [inst_3 : TopologicalSpace H] →\n            {I : ModelWithCorners ℝ E H} →\n              {M : Type u_3} →\n                [inst_4 : TopologicalSpace M] →\n                  [inst_5 : ChartedSpace H M] →\n                    [inst_6 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ → ℝ",
+   "module": "CurveControl.Geometry.Basic",
+   "line": 64,
+   "docstring": "Squared norm of the curvature vector. ",
+   "declaration": "CurveControl.Geometry.curvatureSq",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℝ E] →\n      {H : Type u_2} →\n        [inst_2 : TopologicalSpace H] →\n          {I : ModelWithCorners ℝ E H} →\n            {M : Type u_3} →\n              [inst_3 : TopologicalSpace M] →\n                [inst_4 : ChartedSpace H M] →\n                  [inst_5 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ",
+   "module": "CurveControl.Geometry.Basic",
+   "line": 75,
+   "docstring":
+   "Length over one parameter period; integrability follows later from smoothness. ",
+   "declaration": "CurveControl.Geometry.curveLength",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℝ E] →\n      [FiniteDimensional ℝ E] →\n        {H : Type u_2} →\n          [inst_3 : TopologicalSpace H] →\n            {I : ModelWithCorners ℝ E H} →\n              {M : Type u_3} →\n                [inst_4 : TopologicalSpace M] →\n                  [inst_5 : ChartedSpace H M] →\n                    [inst_6 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ",
+   "module": "CurveControl.Geometry.Basic",
+   "line": 79,
+   "docstring": "Total curvature with the actual arc-length density. ",
+   "declaration": "CurveControl.Geometry.totalCurvature",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℝ E] →\n      [FiniteDimensional ℝ E] →\n        {H : Type u_2} →\n          [inst_3 : TopologicalSpace H] →\n            {I : ModelWithCorners ℝ E H} →\n              {M : Type u_3} →\n                [inst_4 : TopologicalSpace M] →\n                  [inst_5 : ChartedSpace H M] →\n                    [inst_6 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ → ℝ",
+   "module": "CurveControl.Geometry.Basic",
+   "line": 83,
+   "docstring":
+   "Regularized total curvature with the actual arc-length density. ",
+   "declaration": "CurveControl.Geometry.regularizedTotalCurvature",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℝ E] →\n      [FiniteDimensional ℝ E] →\n        {H : Type u_2} →\n          [inst_3 : TopologicalSpace H] →\n            {I : ModelWithCorners ℝ E H} →\n              {M : Type u_3} →\n                [inst_4 : TopologicalSpace M] →\n                  [inst_5 : ChartedSpace H M] →\n                    [inst_6 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ",
+   "module": "CurveControl.Geometry.Basic",
+   "line": 88,
+   "docstring": "Integral of squared curvature against arc length. ",
+   "declaration": "CurveControl.Geometry.curvatureEnergy",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},\n  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →\n    MorganTianLib.IsRicciFlowOn g J →\n      ∀ {t : ℝ},\n        t ∈ interior J →\n          ∀ (x : ℝ),\n            HasDerivAt (fun s => CurveControl.Geometry.curveSpeed (g s) (c s) x)\n              (-(CurveControl.Geometry.curvatureSq (g t) (c t) x +\n                    ((MorganTianLib.ricciTensorAt (g t) (c t x)) (CurveControl.Geometry.unitTangent (g t) (c t) x))\n                      (CurveControl.Geometry.unitTangent (g t) (c t) x)) *\n                CurveControl.Geometry.curveSpeed (g t) (c t) x)\n              t",
+   "module": "CurveControl.Geometry.SpeedEvolution",
+   "line": 124,
+   "docstring":
+   "**Math.** Arc-length density evolution for an actual smooth immersed\ncurve-shortening flow in an actual Ricci flow. Mixed covariant derivatives are\nproved equal through a fixed local chart; no speed evolution is an input. ",
+   "declaration":
+   "CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curveSpeed_time",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},\n  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →\n    MorganTianLib.IsRicciFlowOn g J →\n      ∀ {t : ℝ},\n        t ∈ interior J →\n          ∀ (x : ℝ),\n            MorganTianLib.HasCovDerivAlongAt (g t) (fun s => c s x)\n              (fun s => CurveControl.Geometry.unitTangent (g s) (c s) x) t\n              ((CurveControl.Geometry.curveSpeed (g t) (c t) x)⁻¹ •\n                  CurveControl.Geometry.covDerivAlong (g t) (c t) (CurveControl.Geometry.curvatureVector (g t) (c t))\n                    x +\n                (CurveControl.Geometry.curvatureSq (g t) (c t) x +\n                    ((MorganTianLib.ricciTensorAt (g t) (c t x)) (CurveControl.Geometry.unitTangent (g t) (c t) x))\n                      (CurveControl.Geometry.unitTangent (g t) (c t) x)) •\n                  CurveControl.Geometry.unitTangent (g t) (c t) x)",
+   "module": "CurveControl.Geometry.SpeedEvolution",
+   "line": 141,
+   "docstring":
+   "**Math.** Actual unit-tangent time evolution under curve shortening and\nRicci flow, obtained by differentiating speed inverse times spatial velocity. ",
+   "declaration":
+   "CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_unitTangent_time",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : CompleteSpace E]\n  [inst_3 : FiniteDimensional ℝ E] [inst_4 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]\n  {I : ModelWithCorners ℝ E H} [inst_6 : I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M]\n  [inst_8 : ChartedSpace H M] [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {J : Set ℝ},\n  MorganTianLib.IsRicciFlowOn g J →\n    ∀ (α : M) (U V W : E) {t : ℝ},\n      t ∈ interior J →\n        ∀ {y : E},\n          y ∈ (extChartAt I α).target →\n            have p := ↑(extChartAt I α).symm y;\n            have R := (trivializationAt E (TangentSpace I) α).symm p;\n            have A := deriv (fun s => MorganTianLib.chartChristoffelBilin (g s) α y) t;\n            have hLC :=\n              Riemannian.AffineConnection.isLeviCivita_of_koszulDual (g t) (g t).leviCivitaConnection fun X Y W q =>\n                Riemannian.RiemannianMetric.koszulDualSection_dual (g t) X Y W q;\n            (g t).metricInner p (R ((A U) V)) (R W) =\n              -MorganTianLib.covRicciAt (g t) (g t).leviCivitaConnection hLC p (R U) (R V) (R W) -\n                  MorganTianLib.covRicciAt (g t) (g t).leviCivitaConnection hLC p (R V) (R U) (R W) +\n                MorganTianLib.covRicciAt (g t) (g t).leviCivitaConnection hLC p (R W) (R U) (R V)",
+   "module": "CurveControl.Geometry.RicciConnectionVariation",
+   "line": 256,
+   "docstring":
+   "**Math.** Arbitrary-vector intrinsic metric lowering of the actual time derivative of\nLevi-Civita's bilinear coefficient field, using the fixed chart readback. ",
+   "declaration":
+   "CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffelBilin_lower_intrinsic",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},\n  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →\n    ∀ [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M],\n      MorganTianLib.IsRicciFlowOn g J →\n        ∀ {t : ℝ},\n          t ∈ interior J →\n            ∀ (x : ℝ),\n              have S := CurveControl.Geometry.unitTangent (g t) (c t) x;\n              have N := CurveControl.Geometry.curvatureVector (g t) (c t) x;\n              have P := CurveControl.Geometry.normalCurvatureGradient (g t) (c t) x;\n              HasDerivAt (fun s => CurveControl.Geometry.curvatureSq (g s) (c s) x)\n                (CurveControl.Analysis.arcDeriv (CurveControl.Geometry.curveSpeed (g t) (c t))\n                        (CurveControl.Analysis.arcDeriv (CurveControl.Geometry.curveSpeed (g t) (c t))\n                          (CurveControl.Geometry.curvatureSq (g t) (c t)))\n                        x -\n                      2 * (g t).metricInner (c t x) P P +\n                    2 * CurveControl.Geometry.curvatureSq (g t) (c t) x ^ 2 +\n                  (4 * CurveControl.Geometry.curvatureSq (g t) (c t) x *\n                          ((MorganTianLib.ricciTensorAt (g t) (c t x)) S) S -\n                        2 * ((MorganTianLib.ricciTensorAt (g t) (c t x)) N) N +\n                      2 * CurveControl.Geometry.AmbientBounds.rm (g t) (c t x) N S N S +\n                    (-4 * CurveControl.Geometry.AmbientBounds.covRic (g t) (c t x) S S N +\n                      2 * CurveControl.Geometry.AmbientBounds.covRic (g t) (c t x) N S S)))\n                t",
+   "module": "CurveControl.Geometry.CurvatureEvolution",
+   "line": 555,
+   "docstring":
+   "**Math.** The full intrinsic squared-curvature evolution for genuine curve\nshortening in a genuine Ricci flow. No scalar or vector evolution equation,\nconnection variation, mixed-derivative identity or curvature-gradient identity\nis assumed as extra input. The normal projection is the spatial one. ",
+   "declaration":
+   "CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curvatureSq_time",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]\n  (g : Riemannian.RiemannianMetric I M) (p : M) (U V : E),\n  g.metricInner p (MorganTianLib.chartCurvature g p (↑(extChartAt I p) p) U V V) U =\n    MorganTianLib.curvatureFormAt g g.leviCivitaConnection p U V U V",
+   "module": "CurveControl.Geometry.CurvatureEvolution",
+   "line": 83,
+   "docstring":
+   "**Math.** The intrinsic curvature term with the Morgan–Tian slot convention;\nthe do Carmo coordinate sign is canceled by antisymmetry in the last pair. ",
+   "declaration": "CurveControl.Geometry.chartCurvature_pairing_canonical",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H} {M : Type u_3}\n  [inst_5 : TopologicalSpace M] [inst_6 : ChartedSpace H M] [inst_7 : IsManifold I (↑⊤) M] [I.Boundaryless]\n  (g : Riemannian.RiemannianMetric I M) (γ : ℝ → M),\n  ContMDiff (modelWithCornersSelf ℝ ℝ) I (↑⊤) γ →\n    (∀ (y : ℝ), MorganTianLib.curveVelocity γ y ≠ 0) →\n      ∀ (x : ℝ),\n        MorganTianLib.HasCovDerivAlongAt g γ (CurveControl.Geometry.curvatureVector g γ) x\n            (CurveControl.Geometry.covDerivAlong g γ (CurveControl.Geometry.curvatureVector g γ) x) →\n          g.metricInner (γ x) (CurveControl.Geometry.covArcDeriv g γ (CurveControl.Geometry.curvatureVector g γ) x)\n              (CurveControl.Geometry.covArcDeriv g γ (CurveControl.Geometry.curvatureVector g γ) x) =\n            g.metricInner (γ x) (CurveControl.Geometry.normalCurvatureGradient g γ x)\n                (CurveControl.Geometry.normalCurvatureGradient g γ x) +\n              CurveControl.Geometry.curvatureSq g γ x ^ 2",
+   "module": "CurveControl.Geometry.CurvatureGradient",
+   "line": 136,
+   "docstring": "",
+   "declaration": "CurveControl.Geometry.curvatureGradient_norm_decomposition",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},\n  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →\n    ∀ {t : ℝ},\n      t ∈ interior J →\n        ∀ (x : ℝ),\n          CurveControl.Analysis.arcDeriv (CurveControl.Geometry.curveSpeed (g t) (c t))\n                (CurveControl.Geometry.curvatureSq (g t) (c t)) x ^\n              2 ≤\n            4 * CurveControl.Geometry.curvatureSq (g t) (c t) x *\n              CurveControl.Geometry.normalCurvatureGradientNorm (g t) (c t) x ^ 2",
+   "module": "CurveControl.Geometry.CurveEstimates",
+   "line": 57,
+   "docstring":
+   "**Math.** Genuine Kato inequality from the actual smooth immersed flow.\nThe mixed-derivative theorem supplies the required covariant differentiability. ",
+   "declaration":
+   "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_kato_closed",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : InnerProductSpace ℝ E] →\n      [CompleteSpace E] →\n        [FiniteDimensional ℝ E] →\n          [NeZero (Module.finrank ℝ E)] →\n            {H : Type u_2} →\n              [inst_5 : TopologicalSpace H] →\n                {I : ModelWithCorners ℝ E H} →\n                  [I.Boundaryless] →\n                    {M : Type u_3} →\n                      [inst_7 : TopologicalSpace M] →\n                        [inst_8 : ChartedSpace H M] →\n                          [inst_9 : IsManifold I (↑⊤) M] →\n                            [SigmaCompactSpace M] → [T2Space M] → Riemannian.RiemannianMetric I M → M → ℝ → ℝ → ℝ → Prop",
+   "module": "CurveControl.Geometry.AmbientBounds",
+   "line": 53,
+   "docstring":
+   "**Math.** Intrinsic multilinear tensor evaluation bounds at one point.\nEvery slot is measured with `g`, not with the model inner product. These are\nambient hypotheses only; none of the curve evolution conclusions is a field. ",
+   "declaration": "CurveControl.Geometry.AmbientBounds.TensorBoundsAt",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : InnerProductSpace ℝ E] →\n      [CompleteSpace E] →\n        [FiniteDimensional ℝ E] →\n          [NeZero (Module.finrank ℝ E)] →\n            {H : Type u_2} →\n              [inst_5 : TopologicalSpace H] →\n                {I : ModelWithCorners ℝ E H} →\n                  [I.Boundaryless] →\n                    {M : Type u_3} →\n                      [inst_7 : TopologicalSpace M] →\n                        [inst_8 : ChartedSpace H M] →\n                          [inst_9 : IsManifold I (↑⊤) M] →\n                            [SigmaCompactSpace M] →\n                              [T2Space M] → (ℝ → Riemannian.RiemannianMetric I M) → Set ℝ → ℝ → ℝ → ℝ → Prop",
+   "module": "CurveControl.Geometry.AmbientBounds",
+   "line": 70,
+   "docstring":
+   "**Math.** A single set of constants controls all spatial points and times. ",
+   "declaration": "CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : CompleteSpace E]\n  [inst_3 : FiniteDimensional ℝ E] [inst_4 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]\n  {I : ModelWithCorners ℝ E H} [inst_6 : I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M]\n  [inst_8 : ChartedSpace H M] [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M]\n  {g : Riemannian.RiemannianMetric I M} (γ : ℝ → M) (x : ℝ) {B K D : ℝ},\n  CurveControl.Geometry.AmbientBounds.TensorBoundsAt g (γ x) B K D →\n    MorganTianLib.curveVelocity γ x ≠ 0 →\n      have S := CurveControl.Geometry.unitTangent g γ x;\n      have V := CurveControl.Geometry.curvatureVector g γ x;\n      |4 * CurveControl.Geometry.curvatureSq g γ x * ((MorganTianLib.ricciTensorAt g (γ x)) S) S -\n                2 * ((MorganTianLib.ricciTensorAt g (γ x)) V) V +\n              2 * CurveControl.Geometry.AmbientBounds.rm g (γ x) V S V S +\n            (-4 * CurveControl.Geometry.AmbientBounds.covRic g (γ x) S S V +\n              2 * CurveControl.Geometry.AmbientBounds.covRic g (γ x) V S S)| ≤\n        (6 * B + 2 * K) * CurveControl.Geometry.curvatureSq g γ x + 6 * D * CurveControl.Geometry.curvature g γ x",
+   "module": "CurveControl.Geometry.AmbientBounds",
+   "line": 168,
+   "docstring":
+   "**Math.** The actual curve's ambient q-evolution error, with constants\nindependent of the selected curve whenever the ambient tensor bounds are. ",
+   "declaration": "CurveControl.Geometry.AmbientBounds.curve_ambient_error",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]\n  {g : Riemannian.RiemannianMetric I M} (γ : ℝ → M) (x : ℝ) {B K D : ℝ},\n  CurveControl.Geometry.AmbientBounds.TensorBoundsAt g (γ x) B K D →\n    MorganTianLib.curveVelocity γ x ≠ 0 →\n      have S := CurveControl.Geometry.unitTangent g γ x;\n      have V := CurveControl.Geometry.curvatureVector g γ x;\n      4 * CurveControl.Geometry.curvatureSq g γ x * ((MorganTianLib.ricciTensorAt g (γ x)) S) S -\n              2 * ((MorganTianLib.ricciTensorAt g (γ x)) V) V +\n            2 * CurveControl.Geometry.AmbientBounds.rm g (γ x) V S V S +\n          (-4 * CurveControl.Geometry.AmbientBounds.covRic g (γ x) S S V +\n            2 * CurveControl.Geometry.AmbientBounds.covRic g (γ x) V S S) ≤\n        max (6 * B + 2 * K) (6 * D) *\n          (CurveControl.Geometry.curvatureSq g γ x + √(CurveControl.Geometry.curvatureSq g γ x))",
+   "module": "CurveControl.Geometry.CurveEstimates",
+   "line": 29,
+   "docstring":
+   "**Math.** The corrected ambient contribution admits one coefficient\nmultiplying q plus square root q; that coefficient is independent of the curve. ",
+   "declaration": "CurveControl.Geometry.curve_ambient_error_le_max",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},\n  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →\n    MorganTianLib.IsRicciFlowOn g J →\n      ∀ {B K D : ℝ},\n        CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn g J B K D →\n          ∀ {t : ℝ},\n            t ∈ interior J →\n              ∀ (x : ℝ),\n                deriv (fun u => CurveControl.Geometry.curvatureSq (g u) (c u) x) t ≤\n                  CurveControl.Analysis.arcDeriv (CurveControl.Geometry.curveSpeed (g t) (c t))\n                          (CurveControl.Analysis.arcDeriv (CurveControl.Geometry.curveSpeed (g t) (c t))\n                            (CurveControl.Geometry.curvatureSq (g t) (c t)))\n                          x -\n                        2 * CurveControl.Geometry.normalCurvatureGradientNorm (g t) (c t) x ^ 2 +\n                      2 * CurveControl.Geometry.curvatureSq (g t) (c t) x ^ 2 +\n                    max (6 * B + 2 * K) (6 * D) *\n                      (CurveControl.Geometry.curvatureSq (g t) (c t) x +\n                        √(CurveControl.Geometry.curvatureSq (g t) (c t) x))",
+   "module": "CurveControl.Geometry.CurveEstimates",
+   "line": 114,
+   "docstring":
+   "**Math.** The actual squared-curvature PDE with a uniform ambient\ncoefficient. Its evolution, normal-gradient dissipation, and tensor error all\ncome from proved geometric identities. ",
+   "declaration":
+   "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_time_le",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {q : ℝ → ℝ → ℝ} {v : ℝ → ℝ} {t x ε P A : ℝ},\n  DifferentiableAt ℝ (fun u => q u x) t →\n    Differentiable ℝ (q t) →\n      DifferentiableAt ℝ (deriv (q t)) x →\n        DifferentiableAt ℝ v x →\n          0 < v x →\n            (∀ (y : ℝ), 0 ≤ q t y) →\n              0 < ε →\n                0 ≤ A →\n                  CurveControl.Analysis.arcDeriv v (q t) x ^ 2 ≤ 4 * q t x * P ^ 2 →\n                    deriv (fun u => q u x) t ≤\n                        CurveControl.Analysis.arcDeriv v (CurveControl.Analysis.arcDeriv v (q t)) x - 2 * P ^ 2 +\n                            2 * q t x ^ 2 +\n                          A * (q t x + √(q t x)) →\n                      deriv (fun u => CurveControl.regularizedNorm (q u x) ε) t ≤\n                        CurveControl.Analysis.arcDeriv v\n                              (CurveControl.Analysis.arcDeriv v fun y => CurveControl.regularizedNorm (q t y) ε) x +\n                            √(q t x) ^ 3 +\n                          A / 2 * (CurveControl.regularizedNorm (q t x) ε + 1)",
+   "module": "CurveControl.Analysis.RegularizedPDE",
+   "line": 90,
+   "docstring":
+   "Actual time differentiation followed by the scalar comparison. The\nspatial chain rule is already proved above; the PDE and Kato inputs must be\ndischarged by the geometry layer. ",
+   "declaration": "CurveControl.Analysis.deriv_regularizedNorm_le",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {q r v vt : ℝ → ℝ → ℝ} {t B : ℝ}\n  (D : CurveControl.Analysis.MovingWeightData (fun x x_1 => 1) v (fun x x_1 => 0) vt t),\n  (∀ x ∈ Set.Icc 0 1, vt t x = -(q t x + r t x) * v t x) →\n    (∀ x ∈ Set.Icc 0 1, 0 ≤ v t x) →\n      (∀ x ∈ Set.Icc 0 1, |r t x| ≤ B) →\n        IntervalIntegrable (fun x => -(q t x + r t x) * v t x) MeasureTheory.volume 0 1 →\n          IntervalIntegrable (v t) MeasureTheory.volume 0 1 →\n            IntervalIntegrable (fun x => q t x * v t x) MeasureTheory.volume 0 1 →\n              deriv (fun u => ∫ (x : ℝ) in 0..1, v u x) t ≤\n                (B * ∫ (x : ℝ) in 0..1, v t x) - ∫ (x : ℝ) in 0..1, q t x * v t x",
+   "module": "CurveControl.Analysis.IntegralEstimates",
+   "line": 125,
+   "docstring": "",
+   "declaration": "CurveControl.Analysis.deriv_length_le",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {q r v ht vt : ℝ → ℝ → ℝ} {t ε B C : ℝ}\n  (D : CurveControl.Analysis.MovingWeightData (fun u x => CurveControl.regularizedNorm (q u x) ε) v ht vt t),\n  (∀ x ∈ Set.Icc 0 1, vt t x = -(q t x + r t x) * v t x) →\n    (∀ x ∈ Set.Icc 0 1, 0 ≤ q t x) →\n      (∀ x ∈ Set.Icc 0 1, 0 < v t x) →\n        (∀ x ∈ Set.Icc 0 1, |r t x| ≤ B) →\n          (∀ x ∈ Set.Icc 0 1,\n              ht t x ≤\n                CurveControl.Analysis.arcDeriv (v t)\n                      (CurveControl.Analysis.arcDeriv (v t) fun y => CurveControl.regularizedNorm (q t y) ε) x +\n                    √(q t x) ^ 3 +\n                  C * (CurveControl.regularizedNorm (q t x) ε + 1)) →\n            IntervalIntegrable (fun x => (ht t x - CurveControl.regularizedNorm (q t x) ε * (q t x + r t x)) * v t x)\n                MeasureTheory.volume 0 1 →\n              IntervalIntegrable\n                  (fun x =>\n                    CurveControl.Analysis.arcDeriv (v t)\n                        (CurveControl.Analysis.arcDeriv (v t) fun y => CurveControl.regularizedNorm (q t y) ε) x *\n                      v t x)\n                  MeasureTheory.volume 0 1 →\n                IntervalIntegrable (fun x => CurveControl.regularizedNorm (q t x) ε * v t x) MeasureTheory.volume 0 1 →\n                  IntervalIntegrable (v t) MeasureTheory.volume 0 1 →\n                    (∀ x ∈ Set.Icc 0 1,\n                        DifferentiableAt ℝ\n                          (CurveControl.Analysis.arcDeriv (v t) fun y => CurveControl.regularizedNorm (q t y) ε) x) →\n                      IntervalIntegrable\n                          (deriv (CurveControl.Analysis.arcDeriv (v t) fun y => CurveControl.regularizedNorm (q t y) ε))\n                          MeasureTheory.volume 0 1 →\n                        CurveControl.Analysis.arcDeriv (v t) (fun y => CurveControl.regularizedNorm (q t y) ε) 1 =\n                            CurveControl.Analysis.arcDeriv (v t) (fun y => CurveControl.regularizedNorm (q t y) ε) 0 →\n                          deriv (fun u => ∫ (x : ℝ) in 0..1, CurveControl.regularizedNorm (q u x) ε * v u x) t ≤\n                            ((C + B) * ∫ (x : ℝ) in 0..1, CurveControl.regularizedNorm (q t x) ε * v t x) +\n                              C * ∫ (x : ℝ) in 0..1, v t x",
+   "module": "CurveControl.Analysis.IntegralEstimates",
+   "line": 138,
+   "docstring":
+   "A genuine derivative inequality for the regularized weighted integral.\nIts derivative is obtained from local time derivatives, and its diffusion\nterm is removed using the actual periodic first arclength derivative. ",
+   "declaration": "CurveControl.Analysis.deriv_regularizedTotal_le",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {q v r P : ℝ → ℝ → ℝ} {a b A B t ε : ℝ},\n  CurveControl.Analysis.ScalarCurveHypotheses q v r P a b A B →\n    t ∈ Set.Ioo a b →\n      0 < ε →\n        deriv (fun u => CurveControl.regularizedWeightedCurvature (q u) (v u) ε) t ≤\n          (A / 2 + B) * CurveControl.regularizedWeightedCurvature (q t) (v t) ε + A / 2 * ∫ (x : ℝ) in 0..1, v t x",
+   "module": "CurveControl.Analysis.CurveEstimateAssembly",
+   "line": 113,
+   "docstring": "",
+   "declaration":
+   "CurveControl.Analysis.ScalarCurveHypotheses.regularized_deriv_le",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {L Q L' Q' : ℝ → ℝ} {a b c₁ c₂ : ℝ},\n  ContinuousOn L (Set.Icc a b) →\n    ContinuousOn Q (Set.Icc a b) →\n      (∀ t ∈ Set.Ioo a b, HasDerivWithinAt L (L' t) (Set.Ioi t) t) →\n        (∀ t ∈ Set.Ioo a b, HasDerivWithinAt Q (Q' t) (Set.Ioi t) t) →\n          (∀ t ∈ Set.Ioo a b, L' t ≤ c₂ * L t) →\n            (∀ t ∈ Set.Ioo a b, Q' t ≤ (c₁ + c₂) * Q t + c₁ * L t) →\n              ∀ t ∈ Set.Icc a b,\n                L t ≤ L a * Real.exp (c₂ * (t - a)) ∧ Q t + L t ≤ (Q a + L a) * Real.exp ((c₁ + c₂) * (t - a))",
+   "module": "CurveControl.Analysis.InteriorComparison",
+   "line": 57,
+   "docstring": "",
+   "declaration": "CurveControl.Analysis.coupled_exp_comparison_interior_on",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {q v r P : ℝ → ℝ → ℝ} {a b A B ε : ℝ},\n  CurveControl.Analysis.ScalarCurveHypotheses q v r P a b A B →\n    0 < ε →\n      ∀ t ∈ Set.Icc a b,\n        ∫ (x : ℝ) in 0..1, v t x ≤ (∫ (x : ℝ) in 0..1, v a x) * Real.exp (B * (t - a)) ∧\n          CurveControl.regularizedWeightedCurvature (q t) (v t) ε + ∫ (x : ℝ) in 0..1, v t x ≤\n            (CurveControl.regularizedWeightedCurvature (q a) (v a) ε + ∫ (x : ℝ) in 0..1, v a x) *\n              Real.exp ((A / 2 + B) * (t - a))",
+   "module": "CurveControl.Analysis.CurveEstimateAssembly",
+   "line": 172,
+   "docstring": "",
+   "declaration":
+   "CurveControl.Analysis.ScalarCurveHypotheses.regularized_comparison",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {q v : ℝ → ℝ} {ε : ℝ},\n  ContinuousOn q (Set.Icc 0 1) →\n    ContinuousOn v (Set.Icc 0 1) →\n      (∀ s ∈ Set.Icc 0 1, 0 ≤ q s) →\n        (∀ s ∈ Set.Icc 0 1, 0 ≤ v s) →\n          0 ≤ ε →\n            0 ≤ CurveControl.regularizedWeightedCurvature q v ε - CurveControl.weightedCurvature q v ∧\n              CurveControl.regularizedWeightedCurvature q v ε - CurveControl.weightedCurvature q v ≤\n                ε * ∫ (s : ℝ) in 0..1, v s",
+   "module": "CurveControl.Analysis.RegularizedIntegral",
+   "line": 25,
+   "docstring": "",
+   "declaration": "CurveControl.regularizedWeightedCurvature_sub_bounds",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {q v : ℝ → ℝ},\n  ContinuousOn q (Set.Icc 0 1) →\n    ContinuousOn v (Set.Icc 0 1) →\n      (∀ s ∈ Set.Icc 0 1, 0 ≤ q s) →\n        (∀ s ∈ Set.Icc 0 1, 0 ≤ v s) →\n          Filter.Tendsto (CurveControl.regularizedWeightedCurvature q v) (nhdsWithin 0 (Set.Ioi 0))\n            (nhds (CurveControl.weightedCurvature q v))",
+   "module": "CurveControl.Analysis.RegularizedIntegral",
+   "line": 56,
+   "docstring": "",
+   "declaration": "CurveControl.tendsto_regularizedWeightedCurvature",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {q v q₀ v₀ : ℝ → ℝ} {C t : ℝ},\n  ContinuousOn q (Set.Icc 0 1) →\n    ContinuousOn v (Set.Icc 0 1) →\n      (∀ s ∈ Set.Icc 0 1, 0 ≤ q s) →\n        (∀ s ∈ Set.Icc 0 1, 0 ≤ v s) →\n          ContinuousOn q₀ (Set.Icc 0 1) →\n            ContinuousOn v₀ (Set.Icc 0 1) →\n              (∀ s ∈ Set.Icc 0 1, 0 ≤ q₀ s) →\n                (∀ s ∈ Set.Icc 0 1, 0 ≤ v₀ s) →\n                  (∀ ε > 0,\n                      CurveControl.regularizedWeightedCurvature q v ε + ∫ (s : ℝ) in 0..1, v s ≤\n                        (CurveControl.regularizedWeightedCurvature q₀ v₀ ε + ∫ (s : ℝ) in 0..1, v₀ s) *\n                          Real.exp (C * t)) →\n                    CurveControl.weightedCurvature q v + ∫ (s : ℝ) in 0..1, v s ≤\n                      (CurveControl.weightedCurvature q₀ v₀ + ∫ (s : ℝ) in 0..1, v₀ s) * Real.exp (C * t)",
+   "module": "CurveControl.Analysis.RegularizedIntegral",
+   "line": 85,
+   "docstring": "",
+   "declaration": "CurveControl.weightedCurvature_exp_bound",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},\n  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →\n    MorganTianLib.IsRicciFlowOn g J →\n      ∀ {a b B K D : ℝ},\n        a ≤ b →\n          Set.Icc a b ⊆ J →\n            CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn g J B K D →\n              ∀ t ∈ Set.Icc a b,\n                CurveControl.Geometry.curveLength (g t) (c t) ≤\n                    CurveControl.Geometry.curveLength (g a) (c a) * Real.exp (B * (t - a)) ∧\n                  CurveControl.Geometry.totalCurvature (g t) (c t) + CurveControl.Geometry.curveLength (g t) (c t) ≤\n                    (CurveControl.Geometry.totalCurvature (g a) (c a) + CurveControl.Geometry.curveLength (g a) (c a)) *\n                      Real.exp ((max (6 * B + 2 * K) (6 * D) / 2 + B) * (t - a))",
+   "module": "CurveControl.Geometry.CurveEstimates",
+   "line": 136,
+   "docstring":
+   "**Math.** The complete actual length and total-curvature estimate. The\nsame ambient constants work for every immersed closed curve-shortening flow.\nOnly smooth existence, the Ricci/curve-flow equations and ambient tensor bounds\nare inputs; there are no curvature-PDE, Kato, regularization or integral inputs. ",
+   "declaration":
+   "CurveControl.Geometry.IsCurveShorteningFlowOn.curve_estimate",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M] {ι : Type u_4}\n  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ι → ℝ → ℝ → M} {J : Set ℝ},\n  (∀ (i : ι), CurveControl.Geometry.IsCurveShorteningFlowOn g (c i) J) →\n    MorganTianLib.IsRicciFlowOn g J →\n      ∀ {a b B K D L₀ Q₀ : ℝ},\n        a ≤ b →\n          Set.Icc a b ⊆ J →\n            CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn g J B K D →\n              (∀ (i : ι), CurveControl.Geometry.curveLength (g a) (c i a) ≤ L₀) →\n                (∀ (i : ι),\n                    CurveControl.Geometry.totalCurvature (g a) (c i a) +\n                        CurveControl.Geometry.curveLength (g a) (c i a) ≤\n                      Q₀) →\n                  ∀ (i : ι),\n                    ∀ t ∈ Set.Icc a b,\n                      CurveControl.Geometry.curveLength (g t) (c i t) ≤ L₀ * Real.exp (B * (t - a)) ∧\n                        CurveControl.Geometry.totalCurvature (g t) (c i t) +\n                            CurveControl.Geometry.curveLength (g t) (c i t) ≤\n                          Q₀ * Real.exp ((max (6 * B + 2 * K) (6 * D) / 2 + B) * (t - a))",
+   "module": "CurveControl.Geometry.CurveEstimates",
+   "line": 170,
+   "docstring":
+   "**Math.** Uniform initial length and total-curvature bounds propagate\nuniformly across the family with coefficients depending only on the ambient\nmetric bounds. ",
+   "declaration": "CurveControl.Geometry.curve_family_uniform_estimate",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},\n  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →\n    MorganTianLib.IsRicciFlowOn g J →\n      ∀ {a b B : ℝ},\n        a ≤ b →\n          Set.Icc a b ⊆ J →\n            (∀ t ∈ Set.Icc a b,\n                ∀ (p : M) (V : TangentSpace I p),\n                  (g t).metricInner p V V = 1 → -B ≤ ((MorganTianLib.ricciTensorAt (g t) p) V) V) →\n              ∫ (t : ℝ) in a..b, Real.exp (-B * (t - a)) * CurveControl.Geometry.curvatureEnergy (g t) (c t) ≤\n                CurveControl.Geometry.curveLength (g a) (c a) -\n                  Real.exp (-B * (b - a)) * CurveControl.Geometry.curveLength (g b) (c b)",
+   "module": "CurveControl.Geometry.LengthEstimates",
+   "line": 144,
+   "docstring":
+   "**Math.** The weighted time integral of the actual curvature energy is\nbounded by the integrating-factor loss of actual curve length. ",
+   "declaration":
+   "CurveControl.Geometry.IsCurveShorteningFlowOn.weighted_curvatureEnergy_integral_le",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},\n  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →\n    MorganTianLib.IsRicciFlowOn g J →\n      ∀ {a b B : ℝ},\n        a ≤ b →\n          0 ≤ B →\n            Set.Icc a b ⊆ J →\n              (∀ t ∈ Set.Icc a b,\n                  ∀ (p : M) (V : TangentSpace I p),\n                    (g t).metricInner p V V = 1 → -B ≤ ((MorganTianLib.ricciTensorAt (g t) p) V) V) →\n                ∫ (t : ℝ) in a..b, CurveControl.Geometry.curvatureEnergy (g t) (c t) ≤\n                  Real.exp (B * (b - a)) * CurveControl.Geometry.curveLength (g a) (c a) -\n                    CurveControl.Geometry.curveLength (g b) (c b)",
+   "module": "CurveControl.Geometry.LengthEstimates",
+   "line": 162,
+   "docstring":
+   "**Math.** Unweighted accumulated curvature energy under a nonnegative\nambient Ricci-bound constant. All integrability follows from smooth flow. ",
+   "declaration":
+   "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureEnergy_integral_le",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : CompleteSpace E]\n  [inst_3 : FiniteDimensional ℝ E] [inst_4 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]\n  {I : ModelWithCorners ℝ E H} [inst_6 : I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M]\n  [inst_8 : ChartedSpace H M] [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M]\n  [CompactSpace M] {g : ℝ → Riemannian.RiemannianMetric I M} {J : Set ℝ},\n  MorganTianLib.IsSmoothMetricFamilyOn g J →\n    ∀ {a b : ℝ},\n      Set.Icc a b ⊆ J →\n        ∃ B K D, 0 ≤ B ∧ 0 ≤ K ∧ 0 ≤ D ∧ CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn g (Set.Icc a b) B K D",
+   "module": "CurveControl.Geometry.CompactAmbientBounds",
+   "line": 339,
+   "docstring":
+   "**Math.** Smoothness of the actual metric family on a compact manifold\nconstructs finite uniform bounds for Ricci, Riemann, and covariant Ricci on any\nclosed time interval contained in its time set. No tensor boundedness is assumed. ",
+   "declaration":
+   "CurveControl.Geometry.CompactAmbientBounds.exists_uniformTensorBoundsOn",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : NormedSpace ℝ E] →\n      {H : Type u_2} →\n        [inst_2 : TopologicalSpace H] →\n          {I : ModelWithCorners ℝ E H} →\n            {M : Type u_3} →\n              [inst_3 : TopologicalSpace M] →\n                [inst_4 : ChartedSpace H M] →\n                  [inst_5 : IsManifold I (↑⊤) M] →\n                    {F : Type u_4} →\n                      [inst_6 : NormedAddCommGroup F] →\n                        [inst_7 : NormedSpace ℝ F] →\n                          {K : Type u_5} →\n                            [inst_8 : TopologicalSpace K] →\n                              {J : ModelWithCorners ℝ F K} →\n                                {N : Type u_6} →\n                                  [inst_9 : TopologicalSpace N] →\n                                    [inst_10 : ChartedSpace K N] →\n                                      [inst_11 : IsManifold J (↑⊤) N] →\n                                        [FiniteDimensional ℝ E] →\n                                          [FiniteDimensional ℝ F] →\n                                            Riemannian.RiemannianMetric I M →\n                                              Riemannian.RiemannianMetric J N →\n                                                Riemannian.RiemannianMetric (I.prod J) (M × N)",
+   "module": "CurveControl.Geometry.ProductMetric",
+   "line": 42,
+   "docstring":
+   "**Math.** The smooth positive-definite metric on the real product manifold. ",
+   "declaration": "CurveControl.Geometry.productMetric",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : NormedSpace ℝ E] {H : Type u_2} [inst_2 : TopologicalSpace H]\n  {I : ModelWithCorners ℝ E H} {M : Type u_3} [inst_3 : TopologicalSpace M] [inst_4 : ChartedSpace H M]\n  [inst_5 : IsManifold I (↑⊤) M] {F : Type u_4} [inst_6 : NormedAddCommGroup F] [inst_7 : NormedSpace ℝ F]\n  {K : Type u_5} [inst_8 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_6} [inst_9 : TopologicalSpace N]\n  [inst_10 : ChartedSpace K N] [inst_11 : IsManifold J (↑⊤) N] [inst_12 : FiniteDimensional ℝ E]\n  [inst_13 : FiniteDimensional ℝ F] (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N)\n  (p : M × N) (u v : TangentSpace (I.prod J) p),\n  (CurveControl.Geometry.productMetric g h).metricInner p u v = g.metricInner p.1 u.1 v.1 + h.metricInner p.2 u.2 v.2",
+   "module": "CurveControl.Geometry.ProductMetric",
+   "line": 46,
+   "docstring":
+   "**Math.** Metric splitting evaluated on the genuine product tangent space. ",
+   "declaration": "CurveControl.Geometry.productMetric_inner",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  {F : Type u_2} →\n    [inst : NormedAddCommGroup E] →\n      [inst_1 : InnerProductSpace ℝ E] →\n        [inst_2 : NormedAddCommGroup F] →\n          [inst_3 : InnerProductSpace ℝ F] →\n            {H : Type u_3} →\n              {K : Type u_4} →\n                [inst_4 : TopologicalSpace H] →\n                  [inst_5 : TopologicalSpace K] →\n                    ModelWithCorners ℝ E H →\n                      ModelWithCorners ℝ F K → ModelWithCorners ℝ (WithLp 2 (E × F)) (ModelProd H K)",
+   "module": "CurveControl.Geometry.ProductModel",
+   "line": 23,
+   "docstring":
+   "**Math.** L2 model with the same chart-target space as the ordinary product. ",
+   "declaration": "CurveControl.Geometry.productL2Model",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  {F : Type u_2} →\n    [inst : NormedAddCommGroup E] →\n      [inst_1 : InnerProductSpace ℝ E] →\n        [inst_2 : NormedAddCommGroup F] →\n          [inst_3 : InnerProductSpace ℝ F] →\n            {H : Type u_3} →\n              {K : Type u_4} →\n                [inst_4 : TopologicalSpace H] →\n                  [inst_5 : TopologicalSpace K] →\n                    (I : ModelWithCorners ℝ E H) →\n                      (J : ModelWithCorners ℝ F K) →\n                        {M : Type u_5} →\n                          {N : Type u_6} →\n                            [inst_6 : TopologicalSpace M] →\n                              [inst_7 : ChartedSpace H M] →\n                                [inst_8 : IsManifold I (↑⊤) M] →\n                                  [inst_9 : TopologicalSpace N] →\n                                    [inst_10 : ChartedSpace K N] →\n                                      [inst_11 : IsManifold J (↑⊤) N] →\n                                        [FiniteDimensional ℝ E] →\n                                          [FiniteDimensional ℝ F] →\n                                            Riemannian.RiemannianMetric I M →\n                                              Riemannian.RiemannianMetric J N →\n                                                Riemannian.RiemannianMetric (CurveControl.Geometry.productL2Model I J)\n                                                  (M × N)",
+   "module": "CurveControl.Geometry.ProductModel",
+   "line": 67,
+   "docstring":
+   "**Math.** The actual product metric transported to the Hilbert model. ",
+   "declaration": "CurveControl.Geometry.productL2Metric",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{E : Type u_1} →\n  [inst : NormedAddCommGroup E] →\n    [inst_1 : InnerProductSpace ℝ E] →\n      [inst_2 : FiniteDimensional ℝ E] →\n        [NeZero (Module.finrank ℝ E)] →\n          {H : Type u_2} →\n            [inst_4 : TopologicalSpace H] →\n              {I : ModelWithCorners ℝ E H} →\n                [I.Boundaryless] →\n                  {M : Type u_3} →\n                    [inst_6 : TopologicalSpace M] →\n                      [inst_7 : ChartedSpace H M] →\n                        [inst_8 : IsManifold I (↑⊤) M] →\n                          [SigmaCompactSpace M] →\n                            [T2Space M] →\n                              {F : Type u_4} →\n                                [inst_11 : NormedAddCommGroup F] →\n                                  [inst_12 : InnerProductSpace ℝ F] →\n                                    [inst_13 : FiniteDimensional ℝ F] →\n                                      [NeZero (Module.finrank ℝ F)] →\n                                        {K : Type u_5} →\n                                          [inst_15 : TopologicalSpace K] →\n                                            {J : ModelWithCorners ℝ F K} →\n                                              [J.Boundaryless] →\n                                                {N : Type u_6} →\n                                                  [inst_17 : TopologicalSpace N] →\n                                                    [inst_18 : ChartedSpace K N] →\n                                                      [inst_19 : IsManifold J (↑⊤) N] →\n                                                        [SigmaCompactSpace N] →\n                                                          [T2Space N] →\n                                                            (g : Riemannian.RiemannianMetric I M) →\n                                                              (h : Riemannian.RiemannianMetric J N) →\n                                                                (p : M × N) →\n                                                                  TangentSpace\n                                                                      (CurveControl.Geometry.productL2Model I J)\n                                                                      p ≃ₗᵢ[ℝ]\n                                                                    WithLp 2 (TangentSpace I p.1 × TangentSpace J p.2)",
+   "module": "CurveControl.Geometry.ProductIntrinsicCurvature",
+   "line": 92,
+   "docstring":
+   "**Math.** A genuine isometry for the product Riemannian tangent metric,\nincluding the metric-dependent norms on all three fibers. ",
+   "declaration": "CurveControl.Geometry.productTangentIsometry",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : CompleteSpace E]\n  [inst_3 : FiniteDimensional ℝ E] [inst_4 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]\n  {I : ModelWithCorners ℝ E H} [I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M] [inst_8 : ChartedSpace H M]\n  [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M],\n  Module.finrank ℝ E = 1 →\n    ∀ (g : Riemannian.RiemannianMetric I M) (p : M) (x y z w : TangentSpace I p),\n      g.leviCivitaConnection.curvatureFormAt g p x y z w = 0",
+   "module": "CurveControl.Geometry.OneDimensionalCurvature",
+   "line": 98,
+   "docstring":
+   "**Math.** The canonical curvature tensor in the do Carmo convention vanishes. ",
+   "declaration":
+   "CurveControl.Geometry.canonicalCurvatureFormAt_eq_zero_of_finrank_one",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : CompleteSpace E]\n  [inst_3 : FiniteDimensional ℝ E] [inst_4 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]\n  {I : ModelWithCorners ℝ E H} [inst_6 : I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M]\n  [inst_8 : ChartedSpace H M] [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M],\n  Module.finrank ℝ E = 1 →\n    ∀ (g : Riemannian.RiemannianMetric I M) (p : M) (x y : TangentSpace I p),\n      ((MorganTianLib.ricciTensorAt g p) x) y = 0",
+   "module": "CurveControl.Geometry.OneDimensionalCurvature",
+   "line": 62,
+   "docstring":
+   "**Math.** The canonical Ricci tensor used by the Ricci-flow equation vanishes. ",
+   "declaration": "CurveControl.Geometry.ricciTensorAt_eq_zero_of_finrank_one",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [CompleteSpace E]\n  [inst_3 : FiniteDimensional ℝ E] [NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]\n  {I : ModelWithCorners ℝ E H} [inst_6 : I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M]\n  [inst_8 : ChartedSpace H M] [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M],\n  Module.finrank ℝ E = 1 →\n    ∀ (g : Riemannian.RiemannianMetric I M) (nabla : Riemannian.AffineConnection I M)\n      (hLC : Riemannian.AffineConnection.IsLeviCivita g nabla) (p : M) (u x y : TangentSpace I p),\n      MorganTianLib.covRicciAt g nabla hLC p u x y = 0",
+   "module": "CurveControl.Geometry.OneDimensionalCurvature",
+   "line": 91,
+   "docstring":
+   "**Math.** Pointwise covariant Ricci tensor vanishes for arbitrary tangent inputs. ",
+   "declaration": "CurveControl.Geometry.covRicciAt_eq_zero_of_finrank_one",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]\n  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] {H : Type u_3} {K : Type u_4}\n  [inst_4 : TopologicalSpace H] [inst_5 : TopologicalSpace K] (I : ModelWithCorners ℝ E H) (J : ModelWithCorners ℝ F K)\n  {M : Type u_5} {N : Type u_6} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M] [inst_8 : IsManifold I (↑⊤) M]\n  [inst_9 : TopologicalSpace N] [inst_10 : ChartedSpace K N] [inst_11 : IsManifold J (↑⊤) N] [I.Boundaryless]\n  [J.Boundaryless] [inst_14 : FiniteDimensional ℝ E] [inst_15 : FiniteDimensional ℝ F]\n  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (a : M × N) (y x u : WithLp 2 (E × F)),\n  y ∈ (extChartAt (CurveControl.Geometry.productL2Model I J) a).target →\n    Riemannian.Geodesic.chartChristoffelContraction (CurveControl.Geometry.productL2Metric I J g h) a x u y =\n      CurveControl.Geometry.productL2Equiv\n        (Riemannian.Geodesic.chartChristoffelContraction g a.1 (CurveControl.Geometry.productL2Equiv.symm x).1\n            (CurveControl.Geometry.productL2Equiv.symm u).1 (CurveControl.Geometry.productL2Equiv.symm y).1,\n          Riemannian.Geodesic.chartChristoffelContraction h a.2 (CurveControl.Geometry.productL2Equiv.symm x).2\n            (CurveControl.Geometry.productL2Equiv.symm u).2 (CurveControl.Geometry.productL2Equiv.symm y).2)",
+   "module": "CurveControl.Geometry.ProductL2Connection",
+   "line": 94,
+   "docstring":
+   "**Math.** The legitimate Hilbert-model product connection splits into its two factors. ",
+   "declaration": "CurveControl.Geometry.chartChristoffelContraction_productL2",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]\n  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] {H : Type u_3} {K : Type u_4}\n  [inst_4 : TopologicalSpace H] [inst_5 : TopologicalSpace K] (I : ModelWithCorners ℝ E H) (J : ModelWithCorners ℝ F K)\n  {M : Type u_5} {N : Type u_6} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M] [inst_8 : IsManifold I (↑⊤) M]\n  [inst_9 : TopologicalSpace N] [inst_10 : ChartedSpace K N] [inst_11 : IsManifold J (↑⊤) N] [I.Boundaryless]\n  [J.Boundaryless] [inst_14 : FiniteDimensional ℝ E] [inst_15 : FiniteDimensional ℝ F]\n  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (a : M × N) (y x u v : WithLp 2 (E × F)),\n  y ∈ (extChartAt (CurveControl.Geometry.productL2Model I J) a).target →\n    Riemannian.Jacobi.chartCurvature (CurveControl.Geometry.productL2Metric I J g h) a y x u v =\n      CurveControl.Geometry.productL2Equiv\n        (Riemannian.Jacobi.chartCurvature g a.1 (CurveControl.Geometry.productL2Equiv.symm y).1\n            (CurveControl.Geometry.productL2Equiv.symm x).1 (CurveControl.Geometry.productL2Equiv.symm u).1\n            (CurveControl.Geometry.productL2Equiv.symm v).1,\n          Riemannian.Jacobi.chartCurvature h a.2 (CurveControl.Geometry.productL2Equiv.symm y).2\n            (CurveControl.Geometry.productL2Equiv.symm x).2 (CurveControl.Geometry.productL2Equiv.symm u).2\n            (CurveControl.Geometry.productL2Equiv.symm v).2)",
+   "module": "CurveControl.Geometry.ProductL2Connection",
+   "line": 163,
+   "docstring":
+   "**Math.** Actual curvature in the legitimate L2 model splits into factor curvatures. ",
+   "declaration": "CurveControl.Geometry.chartCurvature_productL2",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M] {F : Type u_4}\n  [inst_11 : NormedAddCommGroup F] [inst_12 : InnerProductSpace ℝ F] [inst_13 : FiniteDimensional ℝ F]\n  [inst_14 : NeZero (Module.finrank ℝ F)] {K : Type u_5} [inst_15 : TopologicalSpace K] {J : ModelWithCorners ℝ F K}\n  [J.Boundaryless] {N : Type u_6} [inst_17 : TopologicalSpace N] [inst_18 : ChartedSpace K N]\n  [inst_19 : IsManifold J (↑⊤) N] [inst_20 : SigmaCompactSpace N] [inst_21 : T2Space N]\n  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (p : M × N)\n  (x y z w : TangentSpace (CurveControl.Geometry.productL2Model I J) p),\n  (CurveControl.Geometry.productL2Metric I J g h).leviCivitaConnection.curvatureFormAt\n      (CurveControl.Geometry.productL2Metric I J g h) p x y z w =\n    g.leviCivitaConnection.curvatureFormAt g p.1 (CurveControl.Geometry.productL2Equiv.symm x).1\n        (CurveControl.Geometry.productL2Equiv.symm y).1 (CurveControl.Geometry.productL2Equiv.symm z).1\n        (CurveControl.Geometry.productL2Equiv.symm w).1 +\n      h.leviCivitaConnection.curvatureFormAt h p.2 (CurveControl.Geometry.productL2Equiv.symm x).2\n        (CurveControl.Geometry.productL2Equiv.symm y).2 (CurveControl.Geometry.productL2Equiv.symm z).2\n        (CurveControl.Geometry.productL2Equiv.symm w).2",
+   "module": "CurveControl.Geometry.ProductIntrinsicCurvature",
+   "line": 111,
+   "docstring":
+   "**Math.** The canonical intrinsic curvature four-form of the actual L2\nproduct metric is the sum of the two factor curvature four-forms. ",
+   "declaration": "CurveControl.Geometry.canonicalCurvatureFormAt_productL2",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]\n  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}\n  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]\n  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M] {F : Type u_4}\n  [inst_11 : NormedAddCommGroup F] [inst_12 : InnerProductSpace ℝ F] [inst_13 : FiniteDimensional ℝ F]\n  [inst_14 : NeZero (Module.finrank ℝ F)] {K : Type u_5} [inst_15 : TopologicalSpace K] {J : ModelWithCorners ℝ F K}\n  [inst_16 : J.Boundaryless] {N : Type u_6} [inst_17 : TopologicalSpace N] [inst_18 : ChartedSpace K N]\n  [inst_19 : IsManifold J (↑⊤) N] [inst_20 : SigmaCompactSpace N] [inst_21 : T2Space N]\n  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (p : M × N)\n  (x y : TangentSpace (CurveControl.Geometry.productL2Model I J) p),\n  ((MorganTianLib.ricciTensorAt (CurveControl.Geometry.productL2Metric I J g h) p) x) y =\n    ((MorganTianLib.ricciTensorAt g p.1) (CurveControl.Geometry.productL2Equiv.symm x).1)\n        (CurveControl.Geometry.productL2Equiv.symm y).1 +\n      ((MorganTianLib.ricciTensorAt h p.2) (CurveControl.Geometry.productL2Equiv.symm x).2)\n        (CurveControl.Geometry.productL2Equiv.symm y).2",
+   "module": "CurveControl.Geometry.ProductIntrinsicCurvature",
+   "line": 134,
+   "docstring":
+   "**Math.** The actual Ricci tensor of the product metric is the sum of the\nactual factor Ricci tensors, tracing through the genuine tangent isometry. ",
+   "declaration": "CurveControl.Geometry.ricciTensorAt_productL2",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]\n  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]\n  [inst_5 : FiniteDimensional ℝ F] [inst_6 : NeZero (Module.finrank ℝ E)] [inst_7 : NeZero (Module.finrank ℝ F)]\n  {H : Type u_3} {K : Type u_4} [inst_8 : TopologicalSpace H] [inst_9 : TopologicalSpace K] {I : ModelWithCorners ℝ E H}\n  {J : ModelWithCorners ℝ F K} [inst_10 : I.Boundaryless] [inst_11 : J.Boundaryless] {M : Type u_5} {N : Type u_6}\n  [inst_12 : TopologicalSpace M] [inst_13 : ChartedSpace H M] [inst_14 : IsManifold I (↑⊤) M]\n  [inst_15 : TopologicalSpace N] [inst_16 : ChartedSpace K N] [inst_17 : IsManifold J (↑⊤) N]\n  [inst_18 : SigmaCompactSpace M] [inst_19 : T2Space M] [inst_20 : SigmaCompactSpace N] [inst_21 : T2Space N]\n  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (p : M × N)\n  (U V W : TangentSpace (CurveControl.Geometry.productL2Model I J) p),\n  CurveControl.Geometry.AmbientBounds.covRic (CurveControl.Geometry.productL2Metric I J g h) p U V W =\n    CurveControl.Geometry.AmbientBounds.covRic g p.1 (CurveControl.Geometry.productL2Equiv.symm U).1\n        (CurveControl.Geometry.productL2Equiv.symm V).1 (CurveControl.Geometry.productL2Equiv.symm W).1 +\n      CurveControl.Geometry.AmbientBounds.covRic h p.2 (CurveControl.Geometry.productL2Equiv.symm U).2\n        (CurveControl.Geometry.productL2Equiv.symm V).2 (CurveControl.Geometry.productL2Equiv.symm W).2",
+   "module": "CurveControl.Geometry.ProductCovRicci",
+   "line": 298,
+   "docstring":
+   "**Math.** Actual covariant Ricci derivatives split under the Hilbert product metric. ",
+   "declaration": "CurveControl.Geometry.ProductCovRicci.covRic_productL2",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]\n  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]\n  [inst_5 : FiniteDimensional ℝ F] {H : Type u_3} {K : Type u_4} [inst_6 : TopologicalSpace H]\n  [inst_7 : TopologicalSpace K] (I : ModelWithCorners ℝ E H) (J : ModelWithCorners ℝ F K) {M : Type u_5} {N : Type u_6}\n  [inst_8 : TopologicalSpace M] [inst_9 : ChartedSpace H M] [inst_10 : IsManifold I (↑⊤) M]\n  [inst_11 : TopologicalSpace N] [inst_12 : ChartedSpace K N] [inst_13 : IsManifold J (↑⊤) N]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {T : Set ℝ},\n  MorganTianLib.IsSmoothMetricFamilyOn g T →\n    ∀ (h : Riemannian.RiemannianMetric J N),\n      MorganTianLib.IsSmoothMetricFamilyOn (fun t => CurveControl.Geometry.productL2Metric I J (g t) h) T",
+   "module": "CurveControl.Geometry.ProductFlow",
+   "line": 228,
+   "docstring":
+   "**Math.** Joint smoothness of the genuine L2 product metric follows from\nthe given base family and the static factor metric, by smooth pullback and sum. ",
+   "declaration": "CurveControl.Geometry.isSmoothMetricFamilyOn_productL2",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]\n  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]\n  [inst_5 : FiniteDimensional ℝ F] {H : Type u_3} {K : Type u_4} [inst_6 : TopologicalSpace H]\n  [inst_7 : TopologicalSpace K] (I : ModelWithCorners ℝ E H) (J : ModelWithCorners ℝ F K) {M : Type u_5} {N : Type u_6}\n  [inst_8 : TopologicalSpace M] [inst_9 : ChartedSpace H M] [inst_10 : IsManifold I (↑⊤) M]\n  [inst_11 : TopologicalSpace N] [inst_12 : ChartedSpace K N] [inst_13 : IsManifold J (↑⊤) N]\n  [inst_14 : NeZero (Module.finrank ℝ E)] [inst_15 : I.Boundaryless] [inst_16 : SigmaCompactSpace M]\n  [inst_17 : T2Space M] [NeZero (Module.finrank ℝ F)] [inst_19 : J.Boundaryless] [inst_20 : SigmaCompactSpace N]\n  [inst_21 : T2Space N] {g : ℝ → Riemannian.RiemannianMetric I M} {T : Set ℝ},\n  MorganTianLib.IsRicciFlowOn g T →\n    ∀ (h : Riemannian.RiemannianMetric J N),\n      Module.finrank ℝ F = 1 →\n        MorganTianLib.IsRicciFlowOn (fun t => CurveControl.Geometry.productL2Metric I J (g t) h) T",
+   "module": "CurveControl.Geometry.ProductFlow",
+   "line": 269,
+   "docstring":
+   "**Math.** Product with any static one-dimensional Riemannian metric is\nan actual jointly smooth Ricci flow, including the within equations at time\nendpoints. Product Ricci splitting and one-dimensional Ricci vanishing are\nproved dependencies, not assumptions of this theorem. ",
+   "declaration":
+   "CurveControl.Geometry.isRicciFlowOn_productL2_oneDimensional",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]\n  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]\n  [inst_5 : FiniteDimensional ℝ F] [inst_6 : NeZero (Module.finrank ℝ E)] [NeZero (Module.finrank ℝ F)] {H : Type u_3}\n  {K : Type u_4} [inst_8 : TopologicalSpace H] [inst_9 : TopologicalSpace K] (I : ModelWithCorners ℝ E H)\n  (J : ModelWithCorners ℝ F K) [inst_10 : I.Boundaryless] [inst_11 : J.Boundaryless] {M : Type u_5} {N : Type u_6}\n  [inst_12 : TopologicalSpace M] [inst_13 : ChartedSpace H M] [inst_14 : IsManifold I (↑⊤) M]\n  [inst_15 : TopologicalSpace N] [inst_16 : ChartedSpace K N] [inst_17 : IsManifold J (↑⊤) N]\n  [inst_18 : SigmaCompactSpace M] [inst_19 : T2Space M] [inst_20 : SigmaCompactSpace N] [inst_21 : T2Space N]\n  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (p : M × N) {B R D : ℝ},\n  CurveControl.Geometry.AmbientBounds.TensorBoundsAt g p.1 B R D →\n    Module.finrank ℝ F = 1 →\n      CurveControl.Geometry.AmbientBounds.TensorBoundsAt (CurveControl.Geometry.productL2Metric I J g h) p B R D",
+   "module": "CurveControl.Geometry.UniformProductEstimates",
+   "line": 85,
+   "docstring":
+   "**Math.** All ambient tensor bounds of a genuine product with any static\none-dimensional metric are inherited from the base with unchanged constants.\nThe product curvature and covariant-Ricci splittings are proved, not assumed. ",
+   "declaration": "CurveControl.Geometry.productL2_tensorBounds_of_finrank_one",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]\n  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]\n  [inst_5 : FiniteDimensional ℝ F] [inst_6 : NeZero (Module.finrank ℝ E)] [NeZero (Module.finrank ℝ F)] {H : Type u_3}\n  {K : Type u_4} [inst_8 : TopologicalSpace H] [inst_9 : TopologicalSpace K] (I : ModelWithCorners ℝ E H)\n  (J : ModelWithCorners ℝ F K) [inst_10 : I.Boundaryless] [inst_11 : J.Boundaryless] {M : Type u_5} {N : Type u_6}\n  [inst_12 : TopologicalSpace M] [inst_13 : ChartedSpace H M] [inst_14 : IsManifold I (↑⊤) M]\n  [inst_15 : TopologicalSpace N] [inst_16 : ChartedSpace K N] [inst_17 : IsManifold J (↑⊤) N]\n  [inst_18 : SigmaCompactSpace M] [inst_19 : T2Space M] [inst_20 : SigmaCompactSpace N] [inst_21 : T2Space N]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {T : Set ℝ} {B R D : ℝ},\n  CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn g T B R D →\n    ∀ (h : Riemannian.RiemannianMetric J N),\n      Module.finrank ℝ F = 1 →\n        CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn\n          (fun t => CurveControl.Geometry.productL2Metric I J (g t) h) T B R D",
+   "module": "CurveControl.Geometry.UniformProductEstimates",
+   "line": 96,
+   "docstring":
+   "**Math.** The same three constants control the product over the entire\nbase time set, independently of the chosen static one-dimensional metric. ",
+   "declaration":
+   "CurveControl.Geometry.uniformTensorBoundsOn_productL2_oneDimensional",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]\n  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]\n  [inst_5 : FiniteDimensional ℝ F] [inst_6 : NeZero (Module.finrank ℝ E)] [NeZero (Module.finrank ℝ F)] {H : Type u_3}\n  {K : Type u_4} [inst_8 : TopologicalSpace H] [inst_9 : TopologicalSpace K] (I : ModelWithCorners ℝ E H)\n  (J : ModelWithCorners ℝ F K) [inst_10 : I.Boundaryless] [J.Boundaryless] {M : Type u_5} {N : Type u_6}\n  [inst_12 : TopologicalSpace M] [inst_13 : ChartedSpace H M] [inst_14 : IsManifold I (↑⊤) M]\n  [inst_15 : TopologicalSpace N] [inst_16 : ChartedSpace K N] [inst_17 : IsManifold J (↑⊤) N]\n  [inst_18 : SigmaCompactSpace M] [inst_19 : T2Space M] [SigmaCompactSpace N] [T2Space N] [CompactSpace M]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {a b : ℝ},\n  MorganTianLib.IsRicciFlowOn g (Set.Icc a b) →\n    a ≤ b →\n      Module.finrank ℝ F = 1 →\n        ∃ B C,\n          0 ≤ B ∧\n            0 ≤ C ∧\n              ∀ (Λ : Type u_7) (ι : Type u_8) (h : Λ → Riemannian.RiemannianMetric J N) (c : Λ → ι → ℝ → ℝ → M × N),\n                (∀ (ℓ : Λ) (i : ι),\n                    CurveControl.Geometry.IsCurveShorteningFlowOn\n                      (fun t => CurveControl.Geometry.productL2Metric I J (g t) (h ℓ)) (c ℓ i) (Set.Icc a b)) →\n                  ∀ (L₀ Θ₀ : ℝ),\n                    (∀ (ℓ : Λ) (i : ι),\n                        CurveControl.Geometry.curveLength (CurveControl.Geometry.productL2Metric I J (g a) (h ℓ))\n                            (c ℓ i a) ≤\n                          L₀) →\n                      (∀ (ℓ : Λ) (i : ι),\n                          CurveControl.Geometry.totalCurvature (CurveControl.Geometry.productL2Metric I J (g a) (h ℓ))\n                              (c ℓ i a) ≤\n                            Θ₀) →\n                        ∀ (ℓ : Λ) (i : ι),\n                          ∀ t ∈ Set.Icc a b,\n                            CurveControl.Geometry.curveLength (CurveControl.Geometry.productL2Metric I J (g t) (h ℓ))\n                                  (c ℓ i t) ≤\n                                L₀ * Real.exp (B * (t - a)) ∧\n                              CurveControl.Geometry.totalCurvature\n                                  (CurveControl.Geometry.productL2Metric I J (g t) (h ℓ)) (c ℓ i t) ≤\n                                (Θ₀ + L₀) * Real.exp (C * (t - a))",
+   "module": "CurveControl.Geometry.UniformProductEstimates",
+   "line": 143,
+   "docstring":
+   "**Math.** Compact-base uniform product estimate. The constants are chosen\nbefore the arbitrary external metric index, all static factor metrics, all\ncurve indices and the initial bounds. Thus neither shrinking/scaling the\nfactor metric nor selecting another curve changes the exponential constants.\nThe one-dimensional factor is genuine supplied manifold geometry, not an\nassumed circle atlas. ",
+   "declaration":
+   "CurveControl.Geometry.exists_uniform_static_product_family_estimate",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]\n  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]\n  [inst_5 : FiniteDimensional ℝ F] [inst_6 : NeZero (Module.finrank ℝ E)] [NeZero (Module.finrank ℝ F)] {H : Type u_3}\n  {K : Type u_4} [inst_8 : TopologicalSpace H] [inst_9 : TopologicalSpace K] (I : ModelWithCorners ℝ E H)\n  (J : ModelWithCorners ℝ F K) [inst_10 : I.Boundaryless] [J.Boundaryless] {M : Type u_5} {N : Type u_6}\n  [inst_12 : TopologicalSpace M] [inst_13 : ChartedSpace H M] [inst_14 : IsManifold I (↑⊤) M]\n  [inst_15 : TopologicalSpace N] [inst_16 : ChartedSpace K N] [inst_17 : IsManifold J (↑⊤) N]\n  [inst_18 : SigmaCompactSpace M] [inst_19 : T2Space M] [SigmaCompactSpace N] [T2Space N] [CompactSpace M]\n  {g : ℝ → Riemannian.RiemannianMetric I M} {a b : ℝ},\n  MorganTianLib.IsRicciFlowOn g (Set.Icc a b) →\n    a ≤ b →\n      Module.finrank ℝ F = 1 →\n        ∃ B C,\n          0 ≤ B ∧\n            0 ≤ C ∧\n              ∀ (ι : Type u_7) (h : { ℓ // 0 < ℓ } → Riemannian.RiemannianMetric J N)\n                (c : { ℓ // 0 < ℓ } → ι → ℝ → ℝ → M × N),\n                (∀ (ℓ : { ℓ // 0 < ℓ }) (i : ι),\n                    CurveControl.Geometry.IsCurveShorteningFlowOn\n                      (fun t => CurveControl.Geometry.productL2Metric I J (g t) (h ℓ)) (c ℓ i) (Set.Icc a b)) →\n                  ∀ (L₀ Θ₀ : ℝ),\n                    (∀ (ℓ : { ℓ // 0 < ℓ }) (i : ι),\n                        CurveControl.Geometry.curveLength (CurveControl.Geometry.productL2Metric I J (g a) (h ℓ))\n                            (c ℓ i a) ≤\n                          L₀) →\n                      (∀ (ℓ : { ℓ // 0 < ℓ }) (i : ι),\n                          CurveControl.Geometry.totalCurvature (CurveControl.Geometry.productL2Metric I J (g a) (h ℓ))\n                              (c ℓ i a) ≤\n                            Θ₀) →\n                        ∀ (ℓ : { ℓ // 0 < ℓ }) (i : ι),\n                          ∀ t ∈ Set.Icc a b,\n                            CurveControl.Geometry.curveLength (CurveControl.Geometry.productL2Metric I J (g t) (h ℓ))\n                                  (c ℓ i t) ≤\n                                L₀ * Real.exp (B * (t - a)) ∧\n                              CurveControl.Geometry.totalCurvature\n                                  (CurveControl.Geometry.productL2Metric I J (g t) (h ℓ)) (c ℓ i t) ≤\n                                (Θ₀ + L₀) * Real.exp (C * (t - a))",
+   "module": "CurveControl.Geometry.UniformProductEstimates",
+   "line": 174,
+   "docstring":
+   "**Math.** Positive-scale-indexed corollary. The supplied metrics may, for\nexample, be scaled metrics on an independently supplied smooth circle. No\nlower bound on the scale, nor any scale-regularity hypothesis, is required.\nAll exponential coefficients are chosen before the entire metric family. ",
+   "declaration":
+   "CurveControl.Geometry.exists_uniform_positive_scale_product_estimate",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "{F : Type u_1} →\n  [inst : NormedAddCommGroup F] →\n    [inst_1 : InnerProductSpace ℝ F] →\n      [FiniteDimensional ℝ F] →\n        {K : Type u_2} →\n          [inst_3 : TopologicalSpace K] →\n            {J : ModelWithCorners ℝ F K} →\n              {N : Type u_3} →\n                [inst_4 : TopologicalSpace N] →\n                  [inst_5 : ChartedSpace K N] →\n                    [inst_6 : IsManifold J (↑⊤) N] →\n                      Riemannian.RiemannianMetric J N → { r // 0 < r } → Riemannian.RiemannianMetric J N",
+   "module": "CurveControl.Examples.StaticFactorApplication",
+   "line": 28,
+   "docstring":
+   "**Math.** A positive real scale multiplies an actual metric by its square.\nEvery metric-structure field is constructed, not supplied as an assumption. ",
+   "declaration":
+   "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]\n  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]\n  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] (h₀ : Riemannian.RiemannianMetric J N) (ℓ : { r // 0 < r })\n  (p : N) (u v : TangentSpace J p),\n  (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ).metricInner p u v =\n    ↑ℓ ^ 2 * h₀.metricInner p u v",
+   "module": "CurveControl.Examples.StaticFactorApplication",
+   "line": 46,
+   "docstring":
+   "**Math.** The constructed metric has the promised bilinear evaluation. ",
+   "declaration":
+   "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_inner",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]\n  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]\n  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] [NeZero (Module.finrank ℝ F)] [J.Boundaryless]\n  [SigmaCompactSpace N] [T2Space N] (h₀ : Riemannian.RiemannianMetric J N) (ℓ : { r // 0 < r }) (p : N)\n  (v : TangentSpace J p),\n  CurveControl.Geometry.AmbientBounds.metricNorm (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ)\n      p v =\n    ↑ℓ * CurveControl.Geometry.AmbientBounds.metricNorm h₀ p v",
+   "module": "CurveControl.Examples.StaticFactorApplication",
+   "line": 51,
+   "docstring":
+   "**Math.** Scaling the metric by λ² scales actual tangent length by λ. ",
+   "declaration":
+   "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_norm",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]\n  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]\n  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] (h₀ : Riemannian.RiemannianMetric J N) (ℓ : { r // 0 < r })\n  (T : Set ℝ),\n  MorganTianLib.IsSmoothMetricFamilyOn (fun x => CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ)\n    T",
+   "module": "CurveControl.Examples.StaticFactorApplication",
+   "line": 61,
+   "docstring":
+   "**Math.** Each constructed factor metric is static and smoothly constant\nin Ricci-flow time, on any prescribed time set. ",
+   "declaration":
+   "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_static",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]\n  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]\n  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] [NeZero (Module.finrank ℝ F)] [inst_8 : J.Boundaryless]\n  [inst_9 : SigmaCompactSpace N] [inst_10 : T2Space N] {E : Type u_4} [inst_11 : NormedAddCommGroup E]\n  [inst_12 : InnerProductSpace ℝ E] [inst_13 : FiniteDimensional ℝ E] [inst_14 : NeZero (Module.finrank ℝ E)]\n  {H : Type u_5} [inst_15 : TopologicalSpace H] {I : ModelWithCorners ℝ E H} [inst_16 : I.Boundaryless] {M : Type u_6}\n  [inst_17 : TopologicalSpace M] [inst_18 : ChartedSpace H M] [inst_19 : IsManifold I (↑⊤) M]\n  [inst_20 : SigmaCompactSpace M] [inst_21 : T2Space M] {g : ℝ → Riemannian.RiemannianMetric I M} {T : Set ℝ},\n  MorganTianLib.IsRicciFlowOn g T →\n    Module.finrank ℝ F = 1 →\n      ∀ (h₀ : Riemannian.RiemannianMetric J N) (ℓ : { r // 0 < r }),\n        MorganTianLib.IsRicciFlowOn\n          (fun t =>\n            CurveControl.Geometry.productL2Metric I J (g t)\n              (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n          T",
+   "module": "CurveControl.Examples.StaticFactorApplication",
+   "line": 76,
+   "docstring":
+   "**Math.** The explicitly constructed scaled factor produces a genuine\nRicci-flow product whenever its real dimension is one. ",
+   "declaration":
+   "CurveControl.Examples.StaticFactorApplication.scaledProduct_isRicciFlow",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]\n  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]\n  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] [NeZero (Module.finrank ℝ F)] [J.Boundaryless]\n  [SigmaCompactSpace N] [T2Space N] {E : Type u_4} [inst_11 : NormedAddCommGroup E] [inst_12 : InnerProductSpace ℝ E]\n  [inst_13 : FiniteDimensional ℝ E] [inst_14 : NeZero (Module.finrank ℝ E)] {H : Type u_5}\n  [inst_15 : TopologicalSpace H] {I : ModelWithCorners ℝ E H} [inst_16 : I.Boundaryless] {M : Type u_6}\n  [inst_17 : TopologicalSpace M] [inst_18 : ChartedSpace H M] [inst_19 : IsManifold I (↑⊤) M]\n  [inst_20 : SigmaCompactSpace M] [inst_21 : T2Space M] [CompactSpace M] {g : ℝ → Riemannian.RiemannianMetric I M}\n  {a b : ℝ},\n  MorganTianLib.IsRicciFlowOn g (Set.Icc a b) →\n    a ≤ b →\n      Module.finrank ℝ F = 1 →\n        ∃ B C,\n          0 ≤ B ∧\n            0 ≤ C ∧\n              ∀ (h₀ : Riemannian.RiemannianMetric J N) (ι : Type u_7) (c : { r // 0 < r } → ι → ℝ → ℝ → M × N),\n                (∀ (ℓ : { r // 0 < r }) (i : ι),\n                    CurveControl.Geometry.IsCurveShorteningFlowOn\n                      (fun t =>\n                        CurveControl.Geometry.productL2Metric I J (g t)\n                          (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n                      (c ℓ i) (Set.Icc a b)) →\n                  ∀ (L₀ Θ₀ : ℝ),\n                    (∀ (ℓ : { r // 0 < r }) (i : ι),\n                        CurveControl.Geometry.curveLength\n                            (CurveControl.Geometry.productL2Metric I J (g a)\n                              (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n                            (c ℓ i a) ≤\n                          L₀) →\n                      (∀ (ℓ : { r // 0 < r }) (i : ι),\n                          CurveControl.Geometry.totalCurvature\n                              (CurveControl.Geometry.productL2Metric I J (g a)\n                                (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n                              (c ℓ i a) ≤\n                            Θ₀) →\n                        ∀ (ℓ : { r // 0 < r }) (i : ι),\n                          ∀ t ∈ Set.Icc a b,\n                            CurveControl.Geometry.curveLength\n                                  (CurveControl.Geometry.productL2Metric I J (g t)\n                                    (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n                                  (c ℓ i t) ≤\n                                L₀ * Real.exp (B * (t - a)) ∧\n                              CurveControl.Geometry.totalCurvature\n                                  (CurveControl.Geometry.productL2Metric I J (g t)\n                                    (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n                                  (c ℓ i t) ≤\n                                (Θ₀ + L₀) * Real.exp (C * (t - a))",
+   "module": "CurveControl.Examples.StaticFactorApplication",
+   "line": 85,
+   "docstring":
+   "**Math.** Concrete scaled-metric application. Exponential constants are\nchosen from the compact base flow before h₀, the positive scale, curve indices\nor initial bounds. Smooth immersed closed product-flow existence and the two\ncommon initial bounds are the caller's only curve inputs. ",
+   "declaration":
+   "CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_curve_bounds",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]},
+  {"type":
+   "∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]\n  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]\n  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] [NeZero (Module.finrank ℝ F)] [J.Boundaryless]\n  [SigmaCompactSpace N] [T2Space N] {E : Type u_4} [inst_11 : NormedAddCommGroup E] [inst_12 : InnerProductSpace ℝ E]\n  [inst_13 : FiniteDimensional ℝ E] [inst_14 : NeZero (Module.finrank ℝ E)] {H : Type u_5}\n  [inst_15 : TopologicalSpace H] {I : ModelWithCorners ℝ E H} [inst_16 : I.Boundaryless] {M : Type u_6}\n  [inst_17 : TopologicalSpace M] [inst_18 : ChartedSpace H M] [inst_19 : IsManifold I (↑⊤) M]\n  [inst_20 : SigmaCompactSpace M] [inst_21 : T2Space M] [CompactSpace M] {g : ℝ → Riemannian.RiemannianMetric I M}\n  {a b : ℝ},\n  MorganTianLib.IsRicciFlowOn g (Set.Icc a b) →\n    a ≤ b →\n      Module.finrank ℝ F = 1 →\n        ∃ B C,\n          0 ≤ B ∧\n            0 ≤ C ∧\n              ∀ (h₀ : Riemannian.RiemannianMetric J N) (ι : Type u_7) (c : { r // 0 < r } → ι → ℝ → ℝ → M × N),\n                (∀ (ℓ : { r // 0 < r }) (i : ι),\n                    CurveControl.Geometry.IsCurveShorteningFlowOn\n                      (fun t =>\n                        CurveControl.Geometry.productL2Metric I J (g t)\n                          (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n                      (c ℓ i) (Set.Icc a b)) →\n                  ∀ (L₀ Θ₀ : ℝ),\n                    (∀ (ℓ : { r // 0 < r }) (i : ι),\n                        CurveControl.Geometry.curveLength\n                            (CurveControl.Geometry.productL2Metric I J (g a)\n                              (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n                            (c ℓ i a) ≤\n                          L₀) →\n                      (∀ (ℓ : { r // 0 < r }) (i : ι),\n                          CurveControl.Geometry.totalCurvature\n                              (CurveControl.Geometry.productL2Metric I J (g a)\n                                (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n                              (c ℓ i a) ≤\n                            Θ₀) →\n                        ∀ (ℓ : { r // 0 < r }) (i : ι),\n                          ∀ t ∈ Set.Icc a b,\n                            CurveControl.Geometry.curveLength\n                                  (CurveControl.Geometry.productL2Metric I J (g t)\n                                    (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n                                  (c ℓ i t) ≤\n                                L₀ * Real.exp (B * (b - a)) ∧\n                              CurveControl.Geometry.totalCurvature\n                                  (CurveControl.Geometry.productL2Metric I J (g t)\n                                    (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))\n                                  (c ℓ i t) ≤\n                                (Θ₀ + L₀) * Real.exp (C * (b - a))",
+   "module": "CurveControl.Examples.StaticFactorApplication",
+   "line": 113,
+   "docstring":
+   "**Math.** A downstream full-interval bound suitable for a later ramp\nargument: one finite length bound and one finite total-curvature bound hold\nsimultaneously for all t, all curves and every positive scale, even as λ→0.\nThis is an estimate only; it does not assert ramp or curve-flow existence. ",
+   "declaration":
+   "CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_fullInterval_bounds",
+   "axioms": ["propext", "Classical.choice", "Quot.sound"]}],
+ "extra_axioms": [],
+ "checked_declarations": 62}

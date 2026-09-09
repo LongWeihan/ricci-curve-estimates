@@ -1,0 +1,43 @@
+'CurveControl.Geometry.CompactAmbientBounds.exists_bound_finite_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.abs_sum_mul_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.abs_sum_mul₂_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.abs_sum_mul₃_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.abs_sum_mul₄_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.contDiffOn_chartRiemannCoefOnE_timeSpace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.exists_inverseGram_bound_on_compact_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.exists_ricci_bound_on_compact_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.exists_riemann_bound_on_compact_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.exists_covRicci_bound_on_compact_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.sum_abs_chartBasis_repr_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.tensorBoundsAt_of_chart_coefficients' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.exists_tensorBounds_on_compact_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.exists_finite_compact_chart_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.tensorBoundsAt_mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.uniformTensorBoundsOn_of_finite_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CompactAmbientBounds.exists_uniformTensorBoundsOn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

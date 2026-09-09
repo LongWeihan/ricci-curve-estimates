@@ -1,0 +1,21 @@
+'CurveControl.Geometry.CurveEvolution.covArc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.tangent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.normal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.scalarArc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.covDerivAlong_congr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.covDerivAlong_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.covDerivAlong_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.inverse_speed_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.tangent_evolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.tangent_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.coefficients_contDiffAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CurveEvolution.covSpace_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.normal_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.curvature_smul_second' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.covTime_covArc_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.CurveEvolution.covSpace_differentiableAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.CurveEvolution.normal_evolution' depends on axioms: [propext, Classical.choice, Quot.sound]

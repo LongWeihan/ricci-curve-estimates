@@ -1,0 +1,71 @@
+{
+  "source": "CurveControl/Geometry/AmbientTensorRegularity.lean",
+  "source_sha256": "328287fa2da56e3a8b9551276bd9d047834775c939ba84e2c34f52b601f20596",
+  "checked_at": "2026-09-09T09:14:20+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 10,
+  "printed_declarations": 10,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.AmbientTensorRegularity.contDiffOn_spatialFDeriv_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorRegularity.contDiffOn_chartCovRicciOnE_timeSpace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorRegularity.continuousOn_chartCovRicciOnE_timeSpace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorRegularity.actualCovRicci": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorRegularity.actualCovRicciChartCoef": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorRegularity.actualCovRicciChartCoef_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorRegularity.contDiffOn_actualCovRicciChartCoef": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorRegularity.actualRicciChartCoef": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorRegularity.contDiffOn_actualRicciChartCoef": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorRegularity.continuousOn_actualCovRicciChartCoef": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

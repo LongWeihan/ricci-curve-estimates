@@ -1,0 +1,45 @@
+{
+  "source": "CurveControl/Geometry/ChartBridge.lean",
+  "source_sha256": "d596420944d25d466852646a92b74f076bb630e84cc991de58daf22395a7dbe1",
+  "checked_at": "2026-09-09T08:36:23+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "compile_exit_code": 0,
+  "public_declarations": 6,
+  "printed_declarations": 6,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.chartCurveFamily": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contMDiff_curve": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contMDiffAt_family": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_chartCurveFamily": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chartVelocity_eq_spatialFDeriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chartCurvature_eq_timeFDeriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

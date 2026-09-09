@@ -1,0 +1,48 @@
+CurveControl
+GPT-6 Astra and Juii-hang Leung
+
+The project is distributed with the Apache License, Version 2.0, in LICENSE.
+Upstream copyright and license notices remain with their sources.
+
+Direct proof dependencies
+
+1. mathlib4, maintained by the mathlib community
+   https://github.com/leanprover-community/mathlib4
+   Pinned revision: 520045ab14e26149ee970e2e617ca04b09bde5d6
+   License: Apache-2.0.
+   Preserved text: third_party/licenses/mathlib-LICENSE.txt
+   Supplies general Lean mathematics, including manifold, calculus, integration,
+   and linear-algebra infrastructure.
+
+2. frenzymath/Poincare-Conjecture
+   https://github.com/frenzymath/Poincare-Conjecture
+   Pinned revision: bb91a091f0b968f8bbe8d861e025a88d82b161be
+   License: Apache-2.0, from the root of the upstream source archive.
+   Preserved text: third_party/licenses/geometry-LICENSE.txt
+   The project imports formalized-sources/MorganTian, which depends on the
+   accompanying DoCarmo geometry library; the Shared package is retained in
+   the upstream relative layout. These are reused upstream sources, not new
+   work claimed by this project. Its curve-shrinking blueprint also informs
+   the mathematical decomposition.
+
+Primary dependencies are used as pinned external source trees rather than
+represented as original CurveControl source. The reproduction instructions
+and dependency fingerprints describe their required layout and identity.
+Transitive dependencies retain their own upstream notices.
+
+Build-time document component
+
+3. KaTeX 0.16.22
+   https://github.com/KaTeX/KaTeX
+   License: MIT, preserved at third_party/katex/LICENSE.
+   The preserved SOURCE.json records the exact fetched files, origins and
+   hashes. KaTeX is used at build time for LaTeX-to-MathML conversion; it is
+   not a Lean proof dependency.
+
+Mathematical attribution
+
+The estimate module follows the Perelman finite extinction route and the
+Morgan–Tian account with its 2015 correction. The technical report bibliography
+and docs/contribution-map.md distinguish mathematical sources, reused Lean
+infrastructure, and new formalization and integration. This notice makes no
+new-mathematics, priority, or upstream-endorsement claim.

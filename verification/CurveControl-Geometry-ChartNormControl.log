@@ -1,0 +1,6 @@
+'CurveControl.Geometry.chartMetricDual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartMetricDual_pairing_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartMetricDual_pairing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartMetricDual_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartInvGramMatrix_diagonal_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.abs_chartBasis_repr_le' depends on axioms: [propext, Classical.choice, Quot.sound]

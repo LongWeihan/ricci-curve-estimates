@@ -1,0 +1,56 @@
+{
+  "source": "CurveControl/Analysis/SmoothIntegral.lean",
+  "source_sha256": "1d5e76244c2432774910741e146fead17d000e4e0953babafcac393626259194",
+  "checked_at": "2026-09-09T09:04:10+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 7,
+  "printed_declarations": 7,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Analysis.continuousOn_space_slice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.continuousOn_weightedIntegral_of_rectangle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.movingWeightData_of_rectangle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.hasDerivAt_time_slice_of_contDiffOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.continuousOn_time_deriv_of_contDiffOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.movingWeightData_of_contDiffOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.hasDerivAt_weightedIntegral_of_contDiffOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

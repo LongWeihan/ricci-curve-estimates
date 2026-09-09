@@ -1,0 +1,96 @@
+{
+  "source": "CurveControl/Geometry/ProductCovRicci.lean",
+  "source_sha256": "d2ca15f00afde27cda82869329513b267f2de3b86a94a93a56c1f62f4adcb82a",
+  "checked_at": "2026-09-09T09:39:17+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 15,
+  "printed_declarations": 15,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.ProductCovRicci.covBilinDerivative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.bilin_line_hasDerivAt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.fderiv_bilin_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.covBilinDerivative_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.coordinatePair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.chartRicciBilin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.chartRicciBilin_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.contDiffAt_chartRicciBilin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.chartRicciBilin_eq_intrinsic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.fderiv_chartRicciBilin_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.covBilinDerivative_chartRicci_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.covBilinDerivative_chartRicci_eq_intrinsic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.readback_productL2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.chartRicciBilin_productL2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ProductCovRicci.covRic_productL2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

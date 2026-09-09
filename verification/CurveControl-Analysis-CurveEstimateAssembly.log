@@ -1,0 +1,38 @@
+'CurveControl.Analysis.ScalarCurveHypotheses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.contDiff_space_slice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.continuous_space_slice_of_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.periodic_deriv_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.contDiff_arcDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.regularized_smooth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.length_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.length_deriv_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.regularized_deriv_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.regularized_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.curve_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.contDiff_space_slice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.continuous_space_slice_of_strip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.periodic_deriv_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.contDiff_arcDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.regularized_smooth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.length_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.length_deriv_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.regularized_deriv_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.regularized_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.ScalarCurveHypotheses.curve_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]

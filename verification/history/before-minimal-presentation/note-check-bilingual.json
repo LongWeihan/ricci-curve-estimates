@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-09T12:16:03.232945+00:00",
+  "pages": 8,
+  "compiler": "Tectonic 0.17.0",
+  "compile_exit_code": 0,
+  "command": "tectonic --only-cached --keep-logs --keep-intermediates --outdir work/postprocess-bilingual/pdf-build outputs/poincare-curve-control/paper/curve-estimates.tex",
+  "working_directory": "/Users/bytedance/Documents/Codex/2026-09-09/wo",
+  "initial_resource_acquisition": "Initial only-cached attempt found xeCJK.sty missing. Tectonic fetched only needed bundle resources, including xeCJK and FandolSong-Regular.otf. The final compile succeeded using --only-cached. No full TeX distribution or machine-specific font path was used.",
+  "font_configuration": [
+    "xeCJK",
+    "FandolSong-Regular.otf (Tectonic/TeX bundle)",
+    "Latin Modern"
+  ],
+  "render_command": "pdftoppm -r 95 -png work/postprocess-bilingual/pdf-build/curve-estimates.pdf work/postprocess-bilingual/pdf-build/page",
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "visual_findings": "All eight final page PNGs re-inspected after the nonmathematical prose edit. Page 1 has the exact byline order and visible Chinese name 龙维汉. Page 7 now states only AI development and independent AI-review facts, with no conversational attribution or missing-affiliation statement. All pages remain free of clipping, overlap, missing glyphs and layout defects. Mathematical content unchanged.",
+  "text_checks": {
+    "requested_name": "Juii-hang Leung (龙维汉)",
+    "byline_order": [
+      "GPT-6 Astra (AI model)",
+      "Juii-hang Leung (龙维汉)"
+    ],
+    "visible_version_or_unsigned_text": false
+  },
+  "layout_warnings": [],
+  "sha256": {
+    "paper/curve-estimates.tex": "23b79bc2ef76de978412ab43fc70620013f38959430e195c425b79492f055bc8",
+    "paper/curve-estimates.pdf": "9568de05373b767b4c2acb394e7845e7a1f7eabeae586d4c808e055e3a569129",
+    "paper/references.bib": "a8fa44c3327e713be446f9b7962a2d9ab2b4e5432282fa9bfb7f4c0e0f87358e"
+  },
+  "render_evidence": [
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-bilingual/pdf-build/page-1.png",
+      "sha256": "0f730d200709bd61445b0c6ae3d076982b9118ba7993ce83d39bca0617270947"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-bilingual/pdf-build/page-2.png",
+      "sha256": "546fd9cf5a3e370df8b36911c3f84554210887f12f23091712b5fb92773b7bb5"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-bilingual/pdf-build/page-3.png",
+      "sha256": "087c78a6f112c2d4560222dfcc1bcf0a3d586e272a743a4bd5552b2e31962d2d"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-bilingual/pdf-build/page-4.png",
+      "sha256": "bd45a94354c65c2aa8ae3169e95c7c0aa91544dc842416dfc26faa421a5dc8a5"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-bilingual/pdf-build/page-5.png",
+      "sha256": "28318497a17a19775b289b25e3fa3ac4906e7bff848915605171bbdc7c818f32"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-bilingual/pdf-build/page-6.png",
+      "sha256": "5d2c2a4f05f1febeb6bd4d45c3ea56098bfd0d1f5c9e6cffcf0fafa92715c719"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-bilingual/pdf-build/page-7.png",
+      "sha256": "c19f4d833fb8ebcecc7116dd5ab2e9e504d18770880c3b923b3ee6b6483e3962"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-bilingual/pdf-build/page-8.png",
+      "sha256": "218067b54e2be6493e01f9a3966d6b32378dfe5c8bd0941f05c9dbc258cc6800"
+    }
+  ],
+  "compile_log": "verification/note-check-bilingual.log",
+  "previous_record_preserved": "verification/history/before-bilingual-presentation/note-check.json"
+}

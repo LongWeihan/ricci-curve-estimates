@@ -1,0 +1,22 @@
+'CurveControl.Analysis.continuousOn_space_slice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.continuousOn_weightedIntegral_of_rectangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.movingWeightData_of_rectangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.hasDerivAt_time_slice_of_contDiffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.continuousOn_time_deriv_of_contDiffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.movingWeightData_of_contDiffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.hasDerivAt_weightedIntegral_of_contDiffOn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.continuousOn_space_slice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.continuousOn_weightedIntegral_of_rectangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Analysis.movingWeightData_of_rectangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.hasDerivAt_time_slice_of_contDiffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.continuousOn_time_deriv_of_contDiffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.movingWeightData_of_contDiffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.hasDerivAt_weightedIntegral_of_contDiffOn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

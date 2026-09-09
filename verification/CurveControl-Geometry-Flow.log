@@ -1,0 +1,19 @@
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-Flow.lean:30:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "A genuine smooth immersed closed curve-s…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-Flow.lean:58:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_timeChart`:
+  [NeZero (Module.finrank ℝ E)]
+  [I.Boundaryless]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero (Module.finrank ℝ E)] [I.Boundaryless] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'CurveControl.Geometry.IsCurveShorteningFlowOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.speed_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.tangent_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_timeChart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.timeVelocity_eq_curvatureVector' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

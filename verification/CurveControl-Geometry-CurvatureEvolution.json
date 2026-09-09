@@ -1,0 +1,176 @@
+{
+  "source": "CurveControl/Geometry/CurvatureEvolution.lean",
+  "source_sha256": "036bd50e689616d79ba89130aedf81dc8c5c588e1a25946af913cfe2263adb14",
+  "checked_at": "2026-09-09T09:16:41+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 31,
+  "printed_declarations": 31,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.chartFieldCoord_eq_tangentCoordChange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.covDerivAlong_eq_riemannian": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.chartFieldCoord_covDerivAlong": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.hasCovDerivAlongAt_of_chartDifferentiable": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.curveSpeedDecay": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.chartMetricInner_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.chartCurvature_pairing_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.tangentReadback_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.timeVariation_pairing_canonical": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chartUnitTangent_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.eventually_interior_chart_at": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chart_covSpace_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chartCurvature_eq_normal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_chartCurvatureField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_curvature_time": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_curvature_space": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.fderiv_curveSpeed_time": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.differentiableAt_curveSpeedDecay": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curvatureSq_time_covariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.normal_evolution_in_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chart_covTime_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chart_covArc_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_normal_in_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chart_covArcCurvature_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_covArcNormal_in_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.chart_covArc_covArcCurvature_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_chartCovArcCurvatureField": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_covArcCurvature_space": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.arcDeriv_arcDeriv_curvatureSq_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureVector_evolution_canonicalChart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curvatureSq_time": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

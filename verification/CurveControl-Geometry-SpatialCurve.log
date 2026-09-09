@@ -1,0 +1,192 @@
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:20:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.contDiffAt_chartLocalCurve`:
+  [InnerProductSpace ℝ E]
+  [Module.Finite ℝ E]
+  [FiniteDimensional ℝ E]
+  [NeZero (Module.finrank ℝ E)]
+  [IsManifold I ∞ M]
+  [I.Boundaryless]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [InnerProductSpace ℝ
+  E] [Module.Finite ℝ
+  E] [FiniteDimensional ℝ E] [NeZero (Module.finrank ℝ E)] [IsManifold I ∞ M] [I.Boundaryless] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:20:8: warning: Overlapping instance parameters in `contDiffAt_chartLocalCurve`:
+
+⚠️ `[NormedSpace ℝ E]` and `[InnerProductSpace ℝ E]` can be used to infer conflicting versions of `[SMul ℝ E]`.
+💡️ Of these, `[NormedSpace ℝ E]` may be removed.
+⚠️ `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` each imply `[Module.Finite ℝ E]`.
+💡️ Of these, `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` may be removed.
+
+When a data-carrying type class has multiple potential instances coming from different instance parameters, then these potential instances are incompatible. This is an example of an "instance diamond", which leads to unexpected unification failures.
+
+Delete or combine some of your instance parameters to avoid this.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:19:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "A smooth curve has a smooth representati…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:25:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Continuity keeps the curve in the anchor…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:33:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.hasCovDerivAlongAt_covDerivAlong`:
+  [InnerProductSpace ℝ E]
+  [Module.Finite ℝ E]
+  [NeZero (Module.finrank ℝ E)]
+  [I.Boundaryless]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [InnerProductSpace ℝ E] [Module.Finite ℝ E] [NeZero (Module.finrank ℝ E)] [I.Boundaryless] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:33:8: warning: Overlapping instance parameters in `hasCovDerivAlongAt_covDerivAlong`:
+
+⚠️ `[NormedSpace ℝ E]` and `[InnerProductSpace ℝ E]` can be used to infer conflicting versions of `[SMul ℝ E]`.
+💡️ Of these, `[NormedSpace ℝ E]` may be removed.
+⚠️ `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` each imply `[Module.Finite ℝ E]`.
+💡️ Of these, `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` may be removed.
+
+When a data-carrying type class has multiple potential instances coming from different instance parameters, then these potential instances are incompatible. This is an example of an "instance diamond", which leads to unexpected unification failures.
+
+Delete or combine some of your instance parameters to avoid this.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:31:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Differentiability of the actual chart re…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:43:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.contDiffAt_chartFieldCoord_velocity`:
+  [Module.Finite ℝ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module.Finite ℝ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:43:8: warning: Overlapping instance parameters in `contDiffAt_chartFieldCoord_velocity`:
+
+⚠️ `[NormedSpace ℝ E]` and `[InnerProductSpace ℝ E]` can be used to infer conflicting versions of `[SMul ℝ E]`.
+💡️ Of these, `[NormedSpace ℝ E]` may be removed.
+⚠️ `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` each imply `[Module.Finite ℝ E]`.
+💡️ Of these, `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` may be removed.
+
+When a data-carrying type class has multiple potential instances coming from different instance parameters, then these potential instances are incompatible. This is an example of an "instance diamond", which leads to unexpected unification failures.
+
+Delete or combine some of your instance parameters to avoid this.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:41:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "The velocity field has smooth coordinate…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:60:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.hasCovDerivAlongAt_velocity`:
+  [Module.Finite ℝ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module.Finite ℝ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:60:8: warning: Overlapping instance parameters in `hasCovDerivAlongAt_velocity`:
+
+⚠️ `[NormedSpace ℝ E]` and `[InnerProductSpace ℝ E]` can be used to infer conflicting versions of `[SMul ℝ E]`.
+💡️ Of these, `[NormedSpace ℝ E]` may be removed.
+⚠️ `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` each imply `[Module.Finite ℝ E]`.
+💡️ Of these, `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` may be removed.
+
+When a data-carrying type class has multiple potential instances coming from different instance parameters, then these potential instances are incompatible. This is an example of an "instance diamond", which leads to unexpected unification failures.
+
+Delete or combine some of your instance parameters to avoid this.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:59:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Smoothness of the curve supplies the act…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:72:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.hasDerivAt_curveSpeed`:
+  [Module.Finite ℝ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module.Finite ℝ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:72:8: warning: Overlapping instance parameters in `hasDerivAt_curveSpeed`:
+
+⚠️ `[NormedSpace ℝ E]` and `[InnerProductSpace ℝ E]` can be used to infer conflicting versions of `[SMul ℝ E]`.
+💡️ Of these, `[NormedSpace ℝ E]` may be removed.
+⚠️ `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` each imply `[Module.Finite ℝ E]`.
+💡️ Of these, `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` may be removed.
+
+When a data-carrying type class has multiple potential instances coming from different instance parameters, then these potential instances are incompatible. This is an example of an "instance diamond", which leads to unexpected unification failures.
+
+Delete or combine some of your instance parameters to avoid this.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:69:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Spatial speed derivative in a fixed ambi…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:84:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.curvatureVector_orthogonal`:
+  [Module.Finite ℝ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module.Finite ℝ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:84:8: warning: Overlapping instance parameters in `curvatureVector_orthogonal`:
+
+⚠️ `[NormedSpace ℝ E]` and `[InnerProductSpace ℝ E]` can be used to infer conflicting versions of `[SMul ℝ E]`.
+💡️ Of these, `[NormedSpace ℝ E]` may be removed.
+⚠️ `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` each imply `[Module.Finite ℝ E]`.
+💡️ Of these, `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` may be removed.
+
+When a data-carrying type class has multiple potential instances coming from different instance parameters, then these potential instances are incompatible. This is an example of an "instance diamond", which leads to unexpected unification failures.
+
+Delete or combine some of your instance parameters to avoid this.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:82:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Curvature is orthogonal to the unit tang…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:104:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.hasCovDerivAlongAt_unitTangent`:
+  [Module.Finite ℝ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module.Finite ℝ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:104:8: warning: Overlapping instance parameters in `hasCovDerivAlongAt_unitTangent`:
+
+⚠️ `[NormedSpace ℝ E]` and `[InnerProductSpace ℝ E]` can be used to infer conflicting versions of `[SMul ℝ E]`.
+💡️ Of these, `[NormedSpace ℝ E]` may be removed.
+⚠️ `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` each imply `[Module.Finite ℝ E]`.
+💡️ Of these, `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` may be removed.
+
+When a data-carrying type class has multiple potential instances coming from different instance parameters, then these potential instances are incompatible. This is an example of an "instance diamond", which leads to unexpected unification failures.
+
+Delete or combine some of your instance parameters to avoid this.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:103:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Unit tangent covariant differentiability…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:119:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.curvatureVector_orthogonal_of_contMDiff`:
+  [Module.Finite ℝ E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module.Finite ℝ E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:119:8: warning: Overlapping instance parameters in `curvatureVector_orthogonal_of_contMDiff`:
+
+⚠️ `[NormedSpace ℝ E]` and `[InnerProductSpace ℝ E]` can be used to infer conflicting versions of `[SMul ℝ E]`.
+💡️ Of these, `[NormedSpace ℝ E]` may be removed.
+⚠️ `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` each imply `[Module.Finite ℝ E]`.
+💡️ Of these, `[Module.Finite ℝ E]` and `[FiniteDimensional ℝ E]` may be removed.
+
+When a data-carrying type class has multiple potential instances coming from different instance parameters, then these potential instances are incompatible. This is an example of an "instance diamond", which leads to unexpected unification failures.
+
+Delete or combine some of your instance parameters to avoid this.
+
+Note: This linter can be disabled with `set_option linter.overlappingInstances false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-SpatialCurve.lean:117:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Orthogonality for a smooth immersed curv…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+'CurveControl.Geometry.contDiffAt_chartLocalCurve' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.eventually_mem_chartSource' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.hasCovDerivAlongAt_covDerivAlong' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.contDiffAt_chartFieldCoord_velocity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.hasCovDerivAlongAt_velocity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.hasDerivAt_curveSpeed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curvatureVector_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.hasCovDerivAlongAt_unitTangent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curvatureVector_orthogonal_of_contMDiff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,14 @@
+'CurveControl.Geometry.covArcDeriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.normalCurvatureGradient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.metricInner_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.hasDerivAt_curvatureSq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.arcDeriv_curvatureSq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.normalCurvatureGradient_inner_curvature' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.curvatureSq_kato' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.covArcDeriv_curvature_inner_tangent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curvatureGradient_norm_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.normalCurvatureGradient_orthogonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curvatureSq_kato_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.arcDeriv_arcDeriv_curvatureSq' depends on axioms: [propext, Classical.choice, Quot.sound]

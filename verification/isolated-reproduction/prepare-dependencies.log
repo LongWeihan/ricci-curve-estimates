@@ -1,0 +1,6 @@
+Reusing mathlib: /Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-deps/mathlib4-520045ab
+Reusing geometry: /Users/bytedance/Documents/Codex/2026-09-09/wo/work/poincare-duplicate-audit/sources/frenzymath__Poincare-Conjecture
+Configured existing dependencies. Run lake update, then lake build CurveControl.
+info: toolchain not updated; already up-to-date
+info: mathlib: running post-update hooks
+Prepared. Run python3 scripts/verify.py with the same Lean toolchain.

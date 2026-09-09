@@ -1,0 +1,56 @@
+{
+  "source": "CurveControl/Examples/StaticFactorApplication.lean",
+  "source_sha256": "4f282888c9e432a824dd6bed822e73359fb6c70623a44cd7049edc9987e4b141",
+  "checked_at": "2026-09-09T11:15:18+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 7,
+  "printed_declarations": 7,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_inner": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_norm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_static": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Examples.StaticFactorApplication.scaledProduct_isRicciFlow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_curve_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_fullInterval_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

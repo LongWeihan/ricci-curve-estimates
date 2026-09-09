@@ -1,0 +1,61 @@
+# 交付验收记录
+
+日期：2026-09-09。范围：Perelman–Morgan–Tian 有限消失路线中，Ricci 流下曲线族一致长度与总曲率估计模块。
+
+**结论：在约定的输入和模块范围内验收通过。** 几何演化、曲率零点处理、积分估计、曲线族传播、紧致环境常数及静态一维辅助因子的统一估计均已连接。最终根没有遗留需调用方提供的曲率演化、Kato、张量分裂、积分求导或目标比较假设。
+
+## 真实运行证据
+
+最终完整验证于 **2026-09-09 09:53:32 UTC（北京时间 17:53:32）** 完成：
+
+| 检查 | 结果 |
+|---|---|
+| 实际运行的 Lean | 4.32.1，commit `f054605aea4b840552cca2e725580bffd1e1b704` |
+| 依赖源码指纹 | mathlib / MorganTianLib / DoCarmoLib / Shared 全部匹配 |
+| `lake build CurveControl` | exit 0；完整目标构建成功 |
+| `lake env lean Audit.lean` | exit 0；757 个项目声明 |
+| 覆盖 | 43 个数学源码模块及根模块；含私有、实例及生成声明 |
+| 可达公理 | 仅 `propext`、`Classical.choice`、`Quot.sound`；无 `sorryAx` 或其他公理 |
+| 冻结性 | 验证前后源码及配置哈希相同 |
+
+这是实际库构建与环境级审计；757 不是定理数量。构建使用已复用的依赖缓存，并非在新电脑或清空所有缓存后的重建。缓存以外的源版本另有指纹记录。
+
+- [机器可读发布记录及源码哈希](../verification/release-check.json)
+- [完整构建日志](../verification/full-build.log)
+- [环境级可达公理明细](../verification/reachable-axioms.json)
+- [依赖指纹](../verification/dependency-fingerprints.json)
+
+发布记录同时绑定 Audit.lean、Lake 配置/manifest/toolchain、全部数学源码、三个发布脚本及依赖指纹基线。逐文件 JSON 提供更细的编译和公开声明检查记录。
+
+## 独立语义复核
+
+复核由未编写对应待审证明的 Astra 子代理完成。它与 Lean 检查分开，也与外部人类同行评审分开。
+
+| 验收部分 | 审核证据 |
+|---|---|
+| 真实几何定义、输入条件 | [定义规范](geometry-definition-review.md) |
+| 速度及弧长演化 | [弧长审核](arclength-semantic-review.md) |
+| 修正曲率演化与实际曲线估计根 | [曲率根审核](curvature-root-semantic-review.md) |
+| 正则性、移动积分与分析集成 | [积分正则性](regularity-and-integral-semantic-review.md)、[估计集成](estimate-assembly-semantic-review.md) |
+| 紧致基底的真实环境常数 | [环境常数审核](ambient-bounds-foundations-review.md) |
+| 实际产品几何与最终统一量词 | [最终统一估计审核](final-uniformity-semantic-review.md) |
+| 复现工具与全部声明覆盖 | [发布复现审核](reproducibility-review.md) |
+
+历史审核保留当时尚未完成的事项；最终统一估计审核关闭了产品分裂与产品流的剩余几何接口。发布复现审核建议的三项增强也已落实，并通过上述最后一次实际运行。
+
+## 可接入接口与边界
+
+最终文件 [UniformProductEstimates.lean](../CurveControl/Geometry/UniformProductEstimates.lean) 的 SHA-256：
+
+`b0ab134707b559ef04f8288f19987e5d6cd4e201caf7c1cc3d115d349d975bda`
+
+两条最终声明在选取所有辅助因子度量、曲线与初始界之前选取非负 B,C，输出
+
+\[
+L_{\lambda,i}(t)\le L_0e^{B(t-a)},\qquad
+\Theta_{\lambda,i}(t)\le(\Theta_0+L_0)e^{C(t-a)}.
+\]
+
+辅助因子是上游提供的真实一维光滑流形与静态度量；正尺度版本不要求尺度有统一正下界。光滑流存在和共同初始界保持为允许输入。未构造具体 AddCircle 图册、ramp 或其存在/延拓定理。一般几何根另提供 Θ+L 界和曲率能量积分界。
+
+数学出处、复用基础和新增形式化的对应见 [贡献地图](contribution-map.md)。这项验收仅覆盖本模块，不表示整个有限消失论证或庞加莱猜想的形式化已完成，也不表示任何私有团队已经接受接入。

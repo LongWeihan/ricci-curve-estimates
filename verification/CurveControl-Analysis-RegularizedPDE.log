@@ -1,0 +1,5 @@
+'CurveControl.Analysis.arcDeriv_regularizedNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.arcDeriv_arcDeriv_regularizedNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.regularized_kato_cancellation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.regularized_pde_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.deriv_regularizedNorm_le' depends on axioms: [propext, Classical.choice, Quot.sound]

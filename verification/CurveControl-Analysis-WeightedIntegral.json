@@ -1,0 +1,50 @@
+{
+  "source": "CurveControl/Analysis/WeightedIntegral.lean",
+  "source_sha256": "2c481dc1d03f9600cf9a1018205172b44986c0116f9e732a7134d15970348adc",
+  "checked_at": "2026-09-09T08:33:44+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "compile_exit_code": 0,
+  "public_declarations": 7,
+  "printed_declarations": 7,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Analysis.hasDerivAt_weightedIntegral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.hasDerivAt_weightedIntegral_of_densityEvolution": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.continuousOn_weightedIntegral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.hasDerivAt_weightedIntegral_interior": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.arcDeriv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.integral_deriv_eq_zero_of_endpoints": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.integral_arcDeriv_arcDeriv_eq_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

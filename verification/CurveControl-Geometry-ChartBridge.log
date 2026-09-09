@@ -1,0 +1,33 @@
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-ChartBridge.lean:24:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Representation of the family in one fixe…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-ChartBridge.lean:35:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.IsCurveShorteningFlowOn.contMDiff_curve`:
+  [NeZero (Module.finrank ℝ E)]
+  [I.Boundaryless]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero (Module.finrank ℝ E)] [I.Boundaryless] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-ChartBridge.lean:41:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.IsCurveShorteningFlowOn.contMDiffAt_family`:
+  [NeZero (Module.finrank ℝ E)]
+  [I.Boundaryless]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero (Module.finrank ℝ E)] [I.Boundaryless] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'CurveControl.Geometry.chartCurveFamily' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contMDiff_curve' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contMDiffAt_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_chartCurveFamily' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chartVelocity_eq_spatialFDeriv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chartCurvature_eq_timeFDeriv' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

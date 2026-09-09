@@ -1,0 +1,81 @@
+{
+  "source": "CurveControl/Geometry/LengthEstimates.lean",
+  "source_sha256": "ca3c30b9aae5e51cf1dcb4838fff60d61acf935760aceb08b7dfcb3a5f795689",
+  "checked_at": "2026-09-09T09:10:38+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 12,
+  "printed_declarations": 12,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.lengthRate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffOn_curveSpeed_interior": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.continuousOn_curveLength": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.continuousOn_curvatureEnergy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curveLength": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.intervalIntegrable_lengthDensity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureEnergy_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.lengthRate_le_growth_sub_energy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.curveLength_le_exp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.curveLength_le_exp_on": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.weighted_curvatureEnergy_integral_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureEnergy_integral_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

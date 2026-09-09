@@ -1,0 +1,14 @@
+'CurveControl.Geometry.productL2_target_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_connection_metric_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartChristoffelContraction_productL2_transport' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.chartChristoffelContraction_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartChristoffelBilin_productL2_transport' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.fderiv_chartChristoffelBilin_productL2_transport' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.chartCurvature_productL2_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartCurvature_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]

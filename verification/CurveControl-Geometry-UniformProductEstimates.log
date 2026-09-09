@@ -1,0 +1,38 @@
+'CurveControl.Geometry.ambientCovRic_eq_zero_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_covRic_bound_of_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_tensorBounds_of_covRic_split' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.static_product_family_estimate_of_tensorBounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.compact_base_uniform_coefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_tensorBounds_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.uniformTensorBoundsOn_productL2_oneDimensional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.exists_uniform_static_product_family_estimate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.exists_uniform_positive_scale_product_estimate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.ambientCovRic_eq_zero_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_covRic_bound_of_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_tensorBounds_of_covRic_split' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.productL2_tensorBounds_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.uniformTensorBoundsOn_productL2_oneDimensional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.static_product_family_estimate_of_tensorBounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.compact_base_uniform_coefficients' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.exists_uniform_static_product_family_estimate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.exists_uniform_positive_scale_product_estimate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

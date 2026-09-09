@@ -1,0 +1,35 @@
+{
+  "source": "CurveControl/Analysis/CoupledComparison.lean",
+  "source_sha256": "0d4ed7fe141644e6edc57db156bbae828b572d08e540688ac9da865e96b4ff4c",
+  "checked_at": "2026-09-09T08:33:20+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "compile_exit_code": 0,
+  "public_declarations": 4,
+  "printed_declarations": 4,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Analysis.le_exp_of_deriv_right_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.coupled_exp_comparison_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.coupled_exp_comparison": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Analysis.family_coupled_exp_comparison_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-09T13:38:51+00:00",
+  "baseline_git_commit": "a37e827f81fcf9be10268145eaee10e821c6c190",
+  "check": "Verbatim TeX comparison from abstract to end, excluding the two explicitly identified old/new AI-development paragraphs. Font and byline changes precede this interval.",
+  "sha256": {
+    "paper/curve-estimates.tex": "5ff18b348797882d9bd4b44ed9864c3e86a325044251a7e2ba40080b3a7d5f32"
+  },
+  "unchanged_body_sha256": "3bb6b890a7709d6da10e347e2e6959c38a750fd765687091aca825935577f565"
+}

@@ -1,0 +1,32 @@
+'CurveControl.Geometry.curve_ambient_error_le_max' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_kato_closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.scalarCurveHypotheses_of_squaredPDE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_time_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curve_estimate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.curve_family_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curve_family_uniform_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.normalCurvatureGradientNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.tangentRicci' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curve_ambient_error_le_max' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_kato_closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.scalarCurveHypotheses_of_squaredPDE' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_time_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curve_estimate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.curve_family_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curve_family_uniform_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]

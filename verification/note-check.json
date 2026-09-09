@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-09T13:32:44.565926+00:00",
+  "pages": 8,
+  "compiler": "Tectonic 0.17.0",
+  "compile_exit_code": 0,
+  "command": "tectonic --only-cached --keep-logs --keep-intermediates --outdir work/postprocess-minimal/pdf-build outputs/poincare-curve-control/paper/curve-estimates.tex",
+  "working_directory": "/Users/bytedance/Documents/Codex/2026-09-09/wo",
+  "render": "pdftoppm -r 90 -png work/postprocess-minimal/pdf-build/curve-estimates.pdf work/postprocess-minimal/pdf-build/page",
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "visual_findings": "All eight final rendered pages inspected. Page 1 shows GPT-6 Astra and Juii-hang Leung without parenthetical labels or Chinese. Page 7 retains a brief factual AI-development/review disclosure. Equations, declaration names, paragraphs and references show no clipping, overlap, missing glyphs or visible layout defects.",
+  "layout_warnings": [],
+  "presentation_changes": [
+    "Simplified byline",
+    "Removed xeCJK and Chinese font settings; cache-only English LaTeX build",
+    "Shortened nonmathematical AI disclosure"
+  ],
+  "math_body_comparison": {
+    "reference_commit": "a37e827f81fcf9be10268145eaee10e821c6c190",
+    "method": "Compare verbatim from begin{abstract} to end of TeX after removing only the old/new AI disclosure paragraph; preamble/byline outside comparison.",
+    "equal": true,
+    "sha256": "3bb6b890a7709d6da10e347e2e6959c38a750fd765687091aca825935577f565"
+  },
+  "sha256": {
+    "paper/curve-estimates.tex": "5ff18b348797882d9bd4b44ed9864c3e86a325044251a7e2ba40080b3a7d5f32",
+    "paper/curve-estimates.pdf": "557a97b64fc1f3ef239c1dd333b34b731f086862add8a952eca79f8d8140e497",
+    "paper/references.bib": "a8fa44c3327e713be446f9b7962a2d9ab2b4e5432282fa9bfb7f4c0e0f87358e"
+  },
+  "render_evidence": [
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-minimal/pdf-build/page-1.png",
+      "sha256": "7e7da2833111a555630edad25f53574d9ded9f0e7e3b16c765b9e7f44d9b8f26"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-minimal/pdf-build/page-2.png",
+      "sha256": "54e395bff5efa8915ddc9a0da7c73f4ab9aadd2eb06a4dad995780273ba3f86a"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-minimal/pdf-build/page-3.png",
+      "sha256": "fee960f6eebde57c5387b01841d22ed6577c5d3edc6c3cb0edf879e3055b4b02"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-minimal/pdf-build/page-4.png",
+      "sha256": "1d649fcce2eac3e349f961f1690117d53929fca1676a6ba5ebd6b4aa06beb8a2"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-minimal/pdf-build/page-5.png",
+      "sha256": "c5d932631d8c7f41e3bddce2360474416d0c331f276ccf2cca8b16aa8ad37b81"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-minimal/pdf-build/page-6.png",
+      "sha256": "f7f2b98a832aacbcbcba34b3e94e338054cedd9902be048680668cc8a1ff5e9b"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-minimal/pdf-build/page-7.png",
+      "sha256": "9c4966158d7076aafe2ff04303bd80edb8b7414627ff6bd334e2f49b5e78e36e"
+    },
+    {
+      "path": "/Users/bytedance/Documents/Codex/2026-09-09/wo/work/postprocess-minimal/pdf-build/page-8.png",
+      "sha256": "f6443e4cd46a92966d0764e45d3ef5486fa4cf5ab42702fe63da3c21bbb27c09"
+    }
+  ],
+  "compile_log": "verification/note-check-minimal-presentation.log"
+}

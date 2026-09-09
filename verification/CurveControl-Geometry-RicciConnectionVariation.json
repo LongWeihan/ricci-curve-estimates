@@ -1,0 +1,96 @@
+{
+  "source": "CurveControl/Geometry/RicciConnectionVariation.lean",
+  "source_sha256": "1e6aed39247d16e9a39f9185da6eddb29e3411d41d341bae03833101a2baba32",
+  "checked_at": "2026-09-09T09:03:59+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 15,
+  "printed_declarations": 15,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.RicciConnectionVariation.ricciVariationCoef": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.hasDerivAt_chartChristoffel_ricci": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.coordinateBilin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.ricciVariationBilin": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.contDiffOn_chartChristoffelBilin_timeSpace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.contDiffAt_chartChristoffelBilin_timeSpace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.contDiffAt_two_chartChristoffelBilin_timeSpace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.hasDerivAt_chartChristoffelBilin_ricci": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffelBilin_ricci": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.hasDerivAt_chartChristoffelContraction_ricci": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.ricciVariationBilin_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.ricciVariationCoef_lower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.ricciVariationBilin_lower_basis": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffel_lower_intrinsic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffelBilin_lower_intrinsic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

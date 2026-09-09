@@ -1,0 +1,45 @@
+{
+  "source": "CurveControl/Analysis/RegularizedIntegral.lean",
+  "source_sha256": "05a400fc656d1d4feeddbf1f87834568b52381a5d8a9699158e6da5707966041",
+  "checked_at": "2026-09-09T08:33:55+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "compile_exit_code": 0,
+  "public_declarations": 6,
+  "printed_declarations": 6,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.weightedCurvature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.regularizedWeightedCurvature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.regularizedWeightedCurvature_sub_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.tendsto_regularizedWeightedCurvature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.exp_bound_of_regularized_limits": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.weightedCurvature_exp_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

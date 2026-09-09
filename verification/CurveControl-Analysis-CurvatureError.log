@@ -1,0 +1,12 @@
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Analysis-CurvatureError.lean:26:5: warning: Variable name `hk` is not explicitly referenced.
+
+The binding can be removed (if unused) or named `_` (if used implicitly).
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'CurveControl.Analysis.curvatureErrorCoefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.curvatureErrorCoefficient_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.corrected_curvature_error_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.corrected_curvature_error_abs_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.corrected_curvature_error_le_coefficient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

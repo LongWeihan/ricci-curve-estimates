@@ -1,0 +1,29 @@
+'CurveControl.Geometry.ProductCovRicci.covBilinDerivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.bilin_line_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.fderiv_bilin_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.covBilinDerivative_split' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.coordinatePair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.chartRicciBilin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.chartRicciBilin_basis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.contDiffAt_chartRicciBilin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.chartRicciBilin_eq_intrinsic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.fderiv_chartRicciBilin_basis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.covBilinDerivative_chartRicci_basis' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.covBilinDerivative_chartRicci_eq_intrinsic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.readback_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.chartRicciBilin_productL2' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.ProductCovRicci.covRic_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,43 @@
+'CurveControl.Geometry.AmbientBounds.curve_evaluations' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.TensorBoundsAt.quadratic_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientBounds.TensorBoundsAt.linear_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientBounds.curve_ambient_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.metricNorm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.metricNorm_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.metricNorm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.metricNorm_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.covRic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.rm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.TensorBoundsAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.TensorBoundsAt.ricci_unit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientBounds.TensorBoundsAt.ricci_diagonal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientBounds.TensorBoundsAt.rm_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.TensorBoundsAt.covRic_unit_unit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientBounds.TensorBoundsAt.covRic_unit_last' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientBounds.TensorBoundsAt.quadratic_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientBounds.TensorBoundsAt.linear_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientBounds.metricNorm_curvatureVector' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientBounds.curve_evaluations' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.curve_ambient_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn.mono' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

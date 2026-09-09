@@ -1,0 +1,7 @@
+.lake/
+.dependencies/
+*.olean
+*.ilean
+*.c
+__pycache__/
+*.pyc

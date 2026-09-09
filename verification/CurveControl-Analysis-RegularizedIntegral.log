@@ -1,0 +1,6 @@
+'CurveControl.weightedCurvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.regularizedWeightedCurvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.regularizedWeightedCurvature_sub_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.tendsto_regularizedWeightedCurvature' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.exp_bound_of_regularized_limits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.weightedCurvature_exp_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

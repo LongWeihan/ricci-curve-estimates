@@ -1,0 +1,33 @@
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorExpansion.lean:85:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Currying of the actual covariant derivat…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorExpansion.lean:104:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Works for every finite basis, in particu…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-AmbientTensorExpansion.lean:114:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Currying of the intrinsic Morgan–Tian cu…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+'CurveControl.Geometry.AmbientTensorExpansion.trilinear_basis_expand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorExpansion.quadrilinear_basis_expand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorExpansion.covRicciTrilinear' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorExpansion.covRicciTrilinear_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorExpansion.covRicciAt_basis_expand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorExpansion.curvatureQuadrilinear' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorExpansion.curvatureQuadrilinear_apply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.AmbientTensorExpansion.curvatureFormAt_basis_expand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

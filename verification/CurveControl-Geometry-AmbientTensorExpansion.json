@@ -1,0 +1,61 @@
+{
+  "source": "CurveControl/Geometry/AmbientTensorExpansion.lean",
+  "source_sha256": "d061b5f32e90581d464ca63acac1c90f1a74cb54cf3cdb7f394e2cc13db79c83",
+  "checked_at": "2026-09-09T09:28:30+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 8,
+  "printed_declarations": 8,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.AmbientTensorExpansion.trilinear_basis_expand": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorExpansion.quadrilinear_basis_expand": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorExpansion.covRicciTrilinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorExpansion.covRicciTrilinear_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorExpansion.covRicciAt_basis_expand": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorExpansion.curvatureQuadrilinear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorExpansion.curvatureQuadrilinear_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.AmbientTensorExpansion.curvatureFormAt_basis_expand": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

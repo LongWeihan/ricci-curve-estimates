@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="对给定的光滑曲线流，使用 Lean 形式化证明 Ricci 流下曲线长度与总曲率的一致估计。">
+  <title>Lean 声明 · Ricci 流下的曲线估计</title>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script defer src="../assets/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳至正文</a>
+<header class="site-header"><div class="header-inner">
+  <a class="wordmark" href="index.html">Ricci 流下的曲线估计</a>
+  <div class="navigation-group"><nav aria-label="主导航"><a href="index.html">概览</a><a href="blueprint.html">数学蓝图</a><a href="declarations.html" aria-current="page">Lean 声明</a><a href="sources.html">源码</a></nav>
+  <a class="language-switch" data-language-switch="en" hreflang="en" aria-label="语言：切换至英文" title="语言：切换至英文" href="../declarations.html"><svg class="globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6.5h14M5 17.5h14"/></svg><span class="language-label">语言</span></a></div>
+</div></header>
+<main id="main" class=""><p class="kicker">由 Lean 导出</p><h1>声明目录</h1><p>下列签名来自验证工具导出的真实 Lean 声明元数据。数学蓝图提供相应的数学阐述；这里保留 Lean 打印的完整类型。</p><p>Lean 类型、源码及文档字符串保持原始语言，通常为英文。</p><div class="search-box"><label class="search-label" for="declaration-search">按声明名、类型、文件或文档字符串筛选</label><input type="search" id="declaration-search" data-search=".declaration" data-count="declaration-count" data-count-template="显示 {total} 项中的 {visible} 项" placeholder="例如：uniform_product、RicciFlow、ε" autocomplete="off"><div id="declaration-count" class="search-count" aria-live="polite">共 62 项</div></div><noscript>当前显示全部声明，也可使用浏览器自带的查找功能。</noscript><article class="declaration" id="decl-CurveControl.Analysis.ScalarCurveHypotheses.regularized_comparison"><h2>CurveControl.Analysis.ScalarCurveHypotheses.regularized_comparison</h2><p class="meta"><a href="source/CurveControl/Analysis/CurveEstimateAssembly.lean.html#L172">CurveControl/Analysis/CurveEstimateAssembly.lean · 第 172 行</a></p><pre class="signature" lang="en"><code>∀ {q v r P : ℝ → ℝ → ℝ} {a b A B ε : ℝ},
+  CurveControl.Analysis.ScalarCurveHypotheses q v r P a b A B →
+    0 &lt; ε →
+      ∀ t ∈ Set.Icc a b,
+        ∫ (x : ℝ) in 0..1, v t x ≤ (∫ (x : ℝ) in 0..1, v a x) * Real.exp (B * (t - a)) ∧
+          CurveControl.regularizedWeightedCurvature (q t) (v t) ε + ∫ (x : ℝ) in 0..1, v t x ≤
+            (CurveControl.regularizedWeightedCurvature (q a) (v a) ε + ∫ (x : ℝ) in 0..1, v a x) *
+              Real.exp ((A / 2 + B) * (t - a))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#interior_comparison">由内点导数与闭区间连续性得到比较</a></p></article><article class="declaration" id="decl-CurveControl.Analysis.ScalarCurveHypotheses.regularized_deriv_le"><h2>CurveControl.Analysis.ScalarCurveHypotheses.regularized_deriv_le</h2><p class="meta"><a href="source/CurveControl/Analysis/CurveEstimateAssembly.lean.html#L113">CurveControl/Analysis/CurveEstimateAssembly.lean · 第 113 行</a></p><pre class="signature" lang="en"><code>∀ {q v r P : ℝ → ℝ → ℝ} {a b A B t ε : ℝ},
+  CurveControl.Analysis.ScalarCurveHypotheses q v r P a b A B →
+    t ∈ Set.Ioo a b →
+      0 &lt; ε →
+        deriv (fun u =&gt; CurveControl.regularizedWeightedCurvature (q u) (v u) ε) t ≤
+          (A / 2 + B) * CurveControl.regularizedWeightedCurvature (q t) (v t) ε + A / 2 * ∫ (x : ℝ) in 0..1, v t x</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#moving_integrals">移动弧长积分与周期项消去</a></p></article><article class="declaration" id="decl-CurveControl.Analysis.coupled_exp_comparison_interior_on"><h2>CurveControl.Analysis.coupled_exp_comparison_interior_on</h2><p class="meta"><a href="source/CurveControl/Analysis/InteriorComparison.lean.html#L57">CurveControl/Analysis/InteriorComparison.lean · 第 57 行</a></p><pre class="signature" lang="en"><code>∀ {L Q L&#x27; Q&#x27; : ℝ → ℝ} {a b c₁ c₂ : ℝ},
+  ContinuousOn L (Set.Icc a b) →
+    ContinuousOn Q (Set.Icc a b) →
+      (∀ t ∈ Set.Ioo a b, HasDerivWithinAt L (L&#x27; t) (Set.Ioi t) t) →
+        (∀ t ∈ Set.Ioo a b, HasDerivWithinAt Q (Q&#x27; t) (Set.Ioi t) t) →
+          (∀ t ∈ Set.Ioo a b, L&#x27; t ≤ c₂ * L t) →
+            (∀ t ∈ Set.Ioo a b, Q&#x27; t ≤ (c₁ + c₂) * Q t + c₁ * L t) →
+              ∀ t ∈ Set.Icc a b,
+                L t ≤ L a * Real.exp (c₂ * (t - a)) ∧ Q t + L t ≤ (Q a + L a) * Real.exp ((c₁ + c₂) * (t - a))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#interior_comparison">由内点导数与闭区间连续性得到比较</a></p></article><article class="declaration" id="decl-CurveControl.Analysis.deriv_length_le"><h2>CurveControl.Analysis.deriv_length_le</h2><p class="meta"><a href="source/CurveControl/Analysis/IntegralEstimates.lean.html#L125">CurveControl/Analysis/IntegralEstimates.lean · 第 125 行</a></p><pre class="signature" lang="en"><code>∀ {q r v vt : ℝ → ℝ → ℝ} {t B : ℝ}
+  (D : CurveControl.Analysis.MovingWeightData (fun x x_1 =&gt; 1) v (fun x x_1 =&gt; 0) vt t),
+  (∀ x ∈ Set.Icc 0 1, vt t x = -(q t x + r t x) * v t x) →
+    (∀ x ∈ Set.Icc 0 1, 0 ≤ v t x) →
+      (∀ x ∈ Set.Icc 0 1, |r t x| ≤ B) →
+        IntervalIntegrable (fun x =&gt; -(q t x + r t x) * v t x) MeasureTheory.volume 0 1 →
+          IntervalIntegrable (v t) MeasureTheory.volume 0 1 →
+            IntervalIntegrable (fun x =&gt; q t x * v t x) MeasureTheory.volume 0 1 →
+              deriv (fun u =&gt; ∫ (x : ℝ) in 0..1, v u x) t ≤
+                (B * ∫ (x : ℝ) in 0..1, v t x) - ∫ (x : ℝ) in 0..1, q t x * v t x</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#moving_integrals">移动弧长积分与周期项消去</a></p></article><article class="declaration" id="decl-CurveControl.Analysis.deriv_regularizedNorm_le"><h2>CurveControl.Analysis.deriv_regularizedNorm_le</h2><p class="meta"><a href="source/CurveControl/Analysis/RegularizedPDE.lean.html#L90">CurveControl/Analysis/RegularizedPDE.lean · 第 90 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">Actual time differentiation followed by the scalar comparison. The
+spatial chain rule is already proved above; the PDE and Kato inputs must be
+discharged by the geometry layer. </div><pre class="signature" lang="en"><code>∀ {q : ℝ → ℝ → ℝ} {v : ℝ → ℝ} {t x ε P A : ℝ},
+  DifferentiableAt ℝ (fun u =&gt; q u x) t →
+    Differentiable ℝ (q t) →
+      DifferentiableAt ℝ (deriv (q t)) x →
+        DifferentiableAt ℝ v x →
+          0 &lt; v x →
+            (∀ (y : ℝ), 0 ≤ q t y) →
+              0 &lt; ε →
+                0 ≤ A →
+                  CurveControl.Analysis.arcDeriv v (q t) x ^ 2 ≤ 4 * q t x * P ^ 2 →
+                    deriv (fun u =&gt; q u x) t ≤
+                        CurveControl.Analysis.arcDeriv v (CurveControl.Analysis.arcDeriv v (q t)) x - 2 * P ^ 2 +
+                            2 * q t x ^ 2 +
+                          A * (q t x + √(q t x)) →
+                      deriv (fun u =&gt; CurveControl.regularizedNorm (q u x) ε) t ≤
+                        CurveControl.Analysis.arcDeriv v
+                              (CurveControl.Analysis.arcDeriv v fun y =&gt; CurveControl.regularizedNorm (q t y) ε) x +
+                            √(q t x) ^ 3 +
+                          A / 2 * (CurveControl.regularizedNorm (q t x) ε + 1)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#regularized_pde">正参数正则化与标量偏微分不等式</a></p></article><article class="declaration" id="decl-CurveControl.Analysis.deriv_regularizedTotal_le"><h2>CurveControl.Analysis.deriv_regularizedTotal_le</h2><p class="meta"><a href="source/CurveControl/Analysis/IntegralEstimates.lean.html#L138">CurveControl/Analysis/IntegralEstimates.lean · 第 138 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">A genuine derivative inequality for the regularized weighted integral.
+Its derivative is obtained from local time derivatives, and its diffusion
+term is removed using the actual periodic first arclength derivative. </div><pre class="signature" lang="en"><code>∀ {q r v ht vt : ℝ → ℝ → ℝ} {t ε B C : ℝ}
+  (D : CurveControl.Analysis.MovingWeightData (fun u x =&gt; CurveControl.regularizedNorm (q u x) ε) v ht vt t),
+  (∀ x ∈ Set.Icc 0 1, vt t x = -(q t x + r t x) * v t x) →
+    (∀ x ∈ Set.Icc 0 1, 0 ≤ q t x) →
+      (∀ x ∈ Set.Icc 0 1, 0 &lt; v t x) →
+        (∀ x ∈ Set.Icc 0 1, |r t x| ≤ B) →
+          (∀ x ∈ Set.Icc 0 1,
+              ht t x ≤
+                CurveControl.Analysis.arcDeriv (v t)
+                      (CurveControl.Analysis.arcDeriv (v t) fun y =&gt; CurveControl.regularizedNorm (q t y) ε) x +
+                    √(q t x) ^ 3 +
+                  C * (CurveControl.regularizedNorm (q t x) ε + 1)) →
+            IntervalIntegrable (fun x =&gt; (ht t x - CurveControl.regularizedNorm (q t x) ε * (q t x + r t x)) * v t x)
+                MeasureTheory.volume 0 1 →
+              IntervalIntegrable
+                  (fun x =&gt;
+                    CurveControl.Analysis.arcDeriv (v t)
+                        (CurveControl.Analysis.arcDeriv (v t) fun y =&gt; CurveControl.regularizedNorm (q t y) ε) x *
+                      v t x)
+                  MeasureTheory.volume 0 1 →
+                IntervalIntegrable (fun x =&gt; CurveControl.regularizedNorm (q t x) ε * v t x) MeasureTheory.volume 0 1 →
+                  IntervalIntegrable (v t) MeasureTheory.volume 0 1 →
+                    (∀ x ∈ Set.Icc 0 1,
+                        DifferentiableAt ℝ
+                          (CurveControl.Analysis.arcDeriv (v t) fun y =&gt; CurveControl.regularizedNorm (q t y) ε) x) →
+                      IntervalIntegrable
+                          (deriv (CurveControl.Analysis.arcDeriv (v t) fun y =&gt; CurveControl.regularizedNorm (q t y) ε))
+                          MeasureTheory.volume 0 1 →
+                        CurveControl.Analysis.arcDeriv (v t) (fun y =&gt; CurveControl.regularizedNorm (q t y) ε) 1 =
+                            CurveControl.Analysis.arcDeriv (v t) (fun y =&gt; CurveControl.regularizedNorm (q t y) ε) 0 →
+                          deriv (fun u =&gt; ∫ (x : ℝ) in 0..1, CurveControl.regularizedNorm (q u x) ε * v u x) t ≤
+                            ((C + B) * ∫ (x : ℝ) in 0..1, CurveControl.regularizedNorm (q t x) ε * v t x) +
+                              C * ∫ (x : ℝ) in 0..1, v t x</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#moving_integrals">移动弧长积分与周期项消去</a></p></article><article class="declaration" id="decl-CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_curve_bounds"><h2>CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_curve_bounds</h2><p class="meta"><a href="source/CurveControl/Examples/StaticFactorApplication.lean.html#L85">CurveControl/Examples/StaticFactorApplication.lean · 第 85 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Concrete scaled-metric application. Exponential constants are
+chosen from the compact base flow before h₀, the positive scale, curve indices
+or initial bounds. Smooth immersed closed product-flow existence and the two
+common initial bounds are the caller&#x27;s only curve inputs. </div><pre class="signature" lang="en"><code>∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]
+  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]
+  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] [NeZero (Module.finrank ℝ F)] [J.Boundaryless]
+  [SigmaCompactSpace N] [T2Space N] {E : Type u_4} [inst_11 : NormedAddCommGroup E] [inst_12 : InnerProductSpace ℝ E]
+  [inst_13 : FiniteDimensional ℝ E] [inst_14 : NeZero (Module.finrank ℝ E)] {H : Type u_5}
+  [inst_15 : TopologicalSpace H] {I : ModelWithCorners ℝ E H} [inst_16 : I.Boundaryless] {M : Type u_6}
+  [inst_17 : TopologicalSpace M] [inst_18 : ChartedSpace H M] [inst_19 : IsManifold I (↑⊤) M]
+  [inst_20 : SigmaCompactSpace M] [inst_21 : T2Space M] [CompactSpace M] {g : ℝ → Riemannian.RiemannianMetric I M}
+  {a b : ℝ},
+  MorganTianLib.IsRicciFlowOn g (Set.Icc a b) →
+    a ≤ b →
+      Module.finrank ℝ F = 1 →
+        ∃ B C,
+          0 ≤ B ∧
+            0 ≤ C ∧
+              ∀ (h₀ : Riemannian.RiemannianMetric J N) (ι : Type u_7) (c : { r // 0 &lt; r } → ι → ℝ → ℝ → M × N),
+                (∀ (ℓ : { r // 0 &lt; r }) (i : ι),
+                    CurveControl.Geometry.IsCurveShorteningFlowOn
+                      (fun t =&gt;
+                        CurveControl.Geometry.productL2Metric I J (g t)
+                          (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+                      (c ℓ i) (Set.Icc a b)) →
+                  ∀ (L₀ Θ₀ : ℝ),
+                    (∀ (ℓ : { r // 0 &lt; r }) (i : ι),
+                        CurveControl.Geometry.curveLength
+                            (CurveControl.Geometry.productL2Metric I J (g a)
+                              (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+                            (c ℓ i a) ≤
+                          L₀) →
+                      (∀ (ℓ : { r // 0 &lt; r }) (i : ι),
+                          CurveControl.Geometry.totalCurvature
+                              (CurveControl.Geometry.productL2Metric I J (g a)
+                                (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+                              (c ℓ i a) ≤
+                            Θ₀) →
+                        ∀ (ℓ : { r // 0 &lt; r }) (i : ι),
+                          ∀ t ∈ Set.Icc a b,
+                            CurveControl.Geometry.curveLength
+                                  (CurveControl.Geometry.productL2Metric I J (g t)
+                                    (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+                                  (c ℓ i t) ≤
+                                L₀ * Real.exp (B * (t - a)) ∧
+                              CurveControl.Geometry.totalCurvature
+                                  (CurveControl.Geometry.productL2Metric I J (g t)
+                                    (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+                                  (c ℓ i t) ≤
+                                (Θ₀ + L₀) * Real.exp (C * (t - a))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#scaled_factor_application">构造缩放度量及其全时间区间应用</a></p></article><article class="declaration" id="decl-CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_fullInterval_bounds"><h2>CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_fullInterval_bounds</h2><p class="meta"><a href="source/CurveControl/Examples/StaticFactorApplication.lean.html#L113">CurveControl/Examples/StaticFactorApplication.lean · 第 113 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** A downstream full-interval bound suitable for a later ramp
+argument: one finite length bound and one finite total-curvature bound hold
+simultaneously for all t, all curves and every positive scale, even as λ→0.
+This is an estimate only; it does not assert ramp or curve-flow existence. </div><pre class="signature" lang="en"><code>∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]
+  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]
+  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] [NeZero (Module.finrank ℝ F)] [J.Boundaryless]
+  [SigmaCompactSpace N] [T2Space N] {E : Type u_4} [inst_11 : NormedAddCommGroup E] [inst_12 : InnerProductSpace ℝ E]
+  [inst_13 : FiniteDimensional ℝ E] [inst_14 : NeZero (Module.finrank ℝ E)] {H : Type u_5}
+  [inst_15 : TopologicalSpace H] {I : ModelWithCorners ℝ E H} [inst_16 : I.Boundaryless] {M : Type u_6}
+  [inst_17 : TopologicalSpace M] [inst_18 : ChartedSpace H M] [inst_19 : IsManifold I (↑⊤) M]
+  [inst_20 : SigmaCompactSpace M] [inst_21 : T2Space M] [CompactSpace M] {g : ℝ → Riemannian.RiemannianMetric I M}
+  {a b : ℝ},
+  MorganTianLib.IsRicciFlowOn g (Set.Icc a b) →
+    a ≤ b →
+      Module.finrank ℝ F = 1 →
+        ∃ B C,
+          0 ≤ B ∧
+            0 ≤ C ∧
+              ∀ (h₀ : Riemannian.RiemannianMetric J N) (ι : Type u_7) (c : { r // 0 &lt; r } → ι → ℝ → ℝ → M × N),
+                (∀ (ℓ : { r // 0 &lt; r }) (i : ι),
+                    CurveControl.Geometry.IsCurveShorteningFlowOn
+                      (fun t =&gt;
+                        CurveControl.Geometry.productL2Metric I J (g t)
+                          (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+                      (c ℓ i) (Set.Icc a b)) →
+                  ∀ (L₀ Θ₀ : ℝ),
+                    (∀ (ℓ : { r // 0 &lt; r }) (i : ι),
+                        CurveControl.Geometry.curveLength
+                            (CurveControl.Geometry.productL2Metric I J (g a)
+                              (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+                            (c ℓ i a) ≤
+                          L₀) →
+                      (∀ (ℓ : { r // 0 &lt; r }) (i : ι),
+                          CurveControl.Geometry.totalCurvature
+                              (CurveControl.Geometry.productL2Metric I J (g a)
+                                (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+                              (c ℓ i a) ≤
+                            Θ₀) →
+                        ∀ (ℓ : { r // 0 &lt; r }) (i : ι),
+                          ∀ t ∈ Set.Icc a b,
+                            CurveControl.Geometry.curveLength
+                                  (CurveControl.Geometry.productL2Metric I J (g t)
+                                    (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+                                  (c ℓ i t) ≤
+                                L₀ * Real.exp (B * (b - a)) ∧
+                              CurveControl.Geometry.totalCurvature
+                                  (CurveControl.Geometry.productL2Metric I J (g t)
+                                    (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+                                  (c ℓ i t) ≤
+                                (Θ₀ + L₀) * Real.exp (C * (b - a))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#scaled_factor_application">构造缩放度量及其全时间区间应用</a></p></article><article class="declaration" id="decl-CurveControl.Examples.StaticFactorApplication.scaledFactorMetric"><h2>CurveControl.Examples.StaticFactorApplication.scaledFactorMetric</h2><p class="meta"><a href="source/CurveControl/Examples/StaticFactorApplication.lean.html#L28">CurveControl/Examples/StaticFactorApplication.lean · 第 28 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** A positive real scale multiplies an actual metric by its square.
+Every metric-structure field is constructed, not supplied as an assumption. </div><pre class="signature" lang="en"><code>{F : Type u_1} →
+  [inst : NormedAddCommGroup F] →
+    [inst_1 : InnerProductSpace ℝ F] →
+      [FiniteDimensional ℝ F] →
+        {K : Type u_2} →
+          [inst_3 : TopologicalSpace K] →
+            {J : ModelWithCorners ℝ F K} →
+              {N : Type u_3} →
+                [inst_4 : TopologicalSpace N] →
+                  [inst_5 : ChartedSpace K N] →
+                    [inst_6 : IsManifold J (↑⊤) N] →
+                      Riemannian.RiemannianMetric J N → { r // 0 &lt; r } → Riemannian.RiemannianMetric J N</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#scaled_factor_application">构造缩放度量及其全时间区间应用</a></p></article><article class="declaration" id="decl-CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_inner"><h2>CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_inner</h2><p class="meta"><a href="source/CurveControl/Examples/StaticFactorApplication.lean.html#L46">CurveControl/Examples/StaticFactorApplication.lean · 第 46 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The constructed metric has the promised bilinear evaluation. </div><pre class="signature" lang="en"><code>∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]
+  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]
+  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] (h₀ : Riemannian.RiemannianMetric J N) (ℓ : { r // 0 &lt; r })
+  (p : N) (u v : TangentSpace J p),
+  (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ).metricInner p u v =
+    ↑ℓ ^ 2 * h₀.metricInner p u v</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#scaled_factor_application">构造缩放度量及其全时间区间应用</a></p></article><article class="declaration" id="decl-CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_norm"><h2>CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_norm</h2><p class="meta"><a href="source/CurveControl/Examples/StaticFactorApplication.lean.html#L51">CurveControl/Examples/StaticFactorApplication.lean · 第 51 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Scaling the metric by λ² scales actual tangent length by λ. </div><pre class="signature" lang="en"><code>∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]
+  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]
+  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] [NeZero (Module.finrank ℝ F)] [J.Boundaryless]
+  [SigmaCompactSpace N] [T2Space N] (h₀ : Riemannian.RiemannianMetric J N) (ℓ : { r // 0 &lt; r }) (p : N)
+  (v : TangentSpace J p),
+  CurveControl.Geometry.AmbientBounds.metricNorm (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ)
+      p v =
+    ↑ℓ * CurveControl.Geometry.AmbientBounds.metricNorm h₀ p v</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#scaled_factor_application">构造缩放度量及其全时间区间应用</a></p></article><article class="declaration" id="decl-CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_static"><h2>CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_static</h2><p class="meta"><a href="source/CurveControl/Examples/StaticFactorApplication.lean.html#L61">CurveControl/Examples/StaticFactorApplication.lean · 第 61 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Each constructed factor metric is static and smoothly constant
+in Ricci-flow time, on any prescribed time set. </div><pre class="signature" lang="en"><code>∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]
+  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]
+  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] (h₀ : Riemannian.RiemannianMetric J N) (ℓ : { r // 0 &lt; r })
+  (T : Set ℝ),
+  MorganTianLib.IsSmoothMetricFamilyOn (fun x =&gt; CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ)
+    T</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#scaled_factor_application">构造缩放度量及其全时间区间应用</a></p></article><article class="declaration" id="decl-CurveControl.Examples.StaticFactorApplication.scaledProduct_isRicciFlow"><h2>CurveControl.Examples.StaticFactorApplication.scaledProduct_isRicciFlow</h2><p class="meta"><a href="source/CurveControl/Examples/StaticFactorApplication.lean.html#L76">CurveControl/Examples/StaticFactorApplication.lean · 第 76 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The explicitly constructed scaled factor produces a genuine
+Ricci-flow product whenever its real dimension is one. </div><pre class="signature" lang="en"><code>∀ {F : Type u_1} [inst : NormedAddCommGroup F] [inst_1 : InnerProductSpace ℝ F] [inst_2 : FiniteDimensional ℝ F]
+  {K : Type u_2} [inst_3 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_3} [inst_4 : TopologicalSpace N]
+  [inst_5 : ChartedSpace K N] [inst_6 : IsManifold J (↑⊤) N] [NeZero (Module.finrank ℝ F)] [inst_8 : J.Boundaryless]
+  [inst_9 : SigmaCompactSpace N] [inst_10 : T2Space N] {E : Type u_4} [inst_11 : NormedAddCommGroup E]
+  [inst_12 : InnerProductSpace ℝ E] [inst_13 : FiniteDimensional ℝ E] [inst_14 : NeZero (Module.finrank ℝ E)]
+  {H : Type u_5} [inst_15 : TopologicalSpace H] {I : ModelWithCorners ℝ E H} [inst_16 : I.Boundaryless] {M : Type u_6}
+  [inst_17 : TopologicalSpace M] [inst_18 : ChartedSpace H M] [inst_19 : IsManifold I (↑⊤) M]
+  [inst_20 : SigmaCompactSpace M] [inst_21 : T2Space M] {g : ℝ → Riemannian.RiemannianMetric I M} {T : Set ℝ},
+  MorganTianLib.IsRicciFlowOn g T →
+    Module.finrank ℝ F = 1 →
+      ∀ (h₀ : Riemannian.RiemannianMetric J N) (ℓ : { r // 0 &lt; r }),
+        MorganTianLib.IsRicciFlowOn
+          (fun t =&gt;
+            CurveControl.Geometry.productL2Metric I J (g t)
+              (CurveControl.Examples.StaticFactorApplication.scaledFactorMetric h₀ ℓ))
+          T</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#scaled_factor_application">构造缩放度量及其全时间区间应用</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.AmbientBounds.TensorBoundsAt"><h2>CurveControl.Geometry.AmbientBounds.TensorBoundsAt</h2><p class="meta"><a href="source/CurveControl/Geometry/AmbientBounds.lean.html#L53">CurveControl/Geometry/AmbientBounds.lean · 第 53 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Intrinsic multilinear tensor evaluation bounds at one point.
+Every slot is measured with `g`, not with the model inner product. These are
+ambient hypotheses only; none of the curve evolution conclusions is a field. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : InnerProductSpace ℝ E] →
+      [CompleteSpace E] →
+        [FiniteDimensional ℝ E] →
+          [NeZero (Module.finrank ℝ E)] →
+            {H : Type u_2} →
+              [inst_5 : TopologicalSpace H] →
+                {I : ModelWithCorners ℝ E H} →
+                  [I.Boundaryless] →
+                    {M : Type u_3} →
+                      [inst_7 : TopologicalSpace M] →
+                        [inst_8 : ChartedSpace H M] →
+                          [inst_9 : IsManifold I (↑⊤) M] →
+                            [SigmaCompactSpace M] → [T2Space M] → Riemannian.RiemannianMetric I M → M → ℝ → ℝ → ℝ → Prop</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#ambient_error">一致的环境误差系数</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn"><h2>CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn</h2><p class="meta"><a href="source/CurveControl/Geometry/AmbientBounds.lean.html#L70">CurveControl/Geometry/AmbientBounds.lean · 第 70 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** A single set of constants controls all spatial points and times. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : InnerProductSpace ℝ E] →
+      [CompleteSpace E] →
+        [FiniteDimensional ℝ E] →
+          [NeZero (Module.finrank ℝ E)] →
+            {H : Type u_2} →
+              [inst_5 : TopologicalSpace H] →
+                {I : ModelWithCorners ℝ E H} →
+                  [I.Boundaryless] →
+                    {M : Type u_3} →
+                      [inst_7 : TopologicalSpace M] →
+                        [inst_8 : ChartedSpace H M] →
+                          [inst_9 : IsManifold I (↑⊤) M] →
+                            [SigmaCompactSpace M] →
+                              [T2Space M] → (ℝ → Riemannian.RiemannianMetric I M) → Set ℝ → ℝ → ℝ → ℝ → Prop</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#ambient_error">一致的环境误差系数</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.AmbientBounds.curve_ambient_error"><h2>CurveControl.Geometry.AmbientBounds.curve_ambient_error</h2><p class="meta"><a href="source/CurveControl/Geometry/AmbientBounds.lean.html#L168">CurveControl/Geometry/AmbientBounds.lean · 第 168 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The actual curve&#x27;s ambient q-evolution error, with constants
+independent of the selected curve whenever the ambient tensor bounds are. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : CompleteSpace E]
+  [inst_3 : FiniteDimensional ℝ E] [inst_4 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]
+  {I : ModelWithCorners ℝ E H} [inst_6 : I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M]
+  [inst_8 : ChartedSpace H M] [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M]
+  {g : Riemannian.RiemannianMetric I M} (γ : ℝ → M) (x : ℝ) {B K D : ℝ},
+  CurveControl.Geometry.AmbientBounds.TensorBoundsAt g (γ x) B K D →
+    MorganTianLib.curveVelocity γ x ≠ 0 →
+      have S := CurveControl.Geometry.unitTangent g γ x;
+      have V := CurveControl.Geometry.curvatureVector g γ x;
+      |4 * CurveControl.Geometry.curvatureSq g γ x * ((MorganTianLib.ricciTensorAt g (γ x)) S) S -
+                2 * ((MorganTianLib.ricciTensorAt g (γ x)) V) V +
+              2 * CurveControl.Geometry.AmbientBounds.rm g (γ x) V S V S +
+            (-4 * CurveControl.Geometry.AmbientBounds.covRic g (γ x) S S V +
+              2 * CurveControl.Geometry.AmbientBounds.covRic g (γ x) V S S)| ≤
+        (6 * B + 2 * K) * CurveControl.Geometry.curvatureSq g γ x + 6 * D * CurveControl.Geometry.curvature g γ x</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#ambient_error">一致的环境误差系数</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.CompactAmbientBounds.exists_uniformTensorBoundsOn"><h2>CurveControl.Geometry.CompactAmbientBounds.exists_uniformTensorBoundsOn</h2><p class="meta"><a href="source/CurveControl/Geometry/CompactAmbientBounds.lean.html#L339">CurveControl/Geometry/CompactAmbientBounds.lean · 第 339 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Smoothness of the actual metric family on a compact manifold
+constructs finite uniform bounds for Ricci, Riemann, and covariant Ricci on any
+closed time interval contained in its time set. No tensor boundedness is assumed. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : CompleteSpace E]
+  [inst_3 : FiniteDimensional ℝ E] [inst_4 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]
+  {I : ModelWithCorners ℝ E H} [inst_6 : I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M]
+  [inst_8 : ChartedSpace H M] [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M]
+  [CompactSpace M] {g : ℝ → Riemannian.RiemannianMetric I M} {J : Set ℝ},
+  MorganTianLib.IsSmoothMetricFamilyOn g J →
+    ∀ {a b : ℝ},
+      Set.Icc a b ⊆ J →
+        ∃ B K D, 0 ≤ B ∧ 0 ≤ K ∧ 0 ≤ D ∧ CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn g (Set.Icc a b) B K D</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#compact_tensor_bounds">由紧致基底几何得到环境界</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.IsCurveShorteningFlowOn"><h2>CurveControl.Geometry.IsCurveShorteningFlowOn</h2><p class="meta"><a href="source/CurveControl/Geometry/Flow.lean.html#L30">CurveControl/Geometry/Flow.lean · 第 30 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">A genuine smooth immersed closed curve-shortening flow in a metric family.
+The Ricci-flow equation for the metric is a separate upstream predicate. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : InnerProductSpace ℝ E] →
+      [FiniteDimensional ℝ E] →
+        {H : Type u_2} →
+          [inst_3 : TopologicalSpace H] →
+            {I : ModelWithCorners ℝ E H} →
+              {M : Type u_3} →
+                [inst_4 : TopologicalSpace M] →
+                  [inst_5 : ChartedSpace H M] →
+                    [inst_6 : IsManifold I (↑⊤) M] → (ℝ → Riemannian.RiemannianMetric I M) → (ℝ → ℝ → M) → Set ℝ → Prop</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#flow_input">实际 Ricci 流与浸入闭曲线流</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureEnergy_integral_le"><h2>CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureEnergy_integral_le</h2><p class="meta"><a href="source/CurveControl/Geometry/LengthEstimates.lean.html#L162">CurveControl/Geometry/LengthEstimates.lean · 第 162 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Unweighted accumulated curvature energy under a nonnegative
+ambient Ricci-bound constant. All integrability follows from smooth flow. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},
+  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →
+    MorganTianLib.IsRicciFlowOn g J →
+      ∀ {a b B : ℝ},
+        a ≤ b →
+          0 ≤ B →
+            Set.Icc a b ⊆ J →
+              (∀ t ∈ Set.Icc a b,
+                  ∀ (p : M) (V : TangentSpace I p),
+                    (g t).metricInner p V V = 1 → -B ≤ ((MorganTianLib.ricciTensorAt (g t) p) V) V) →
+                ∫ (t : ℝ) in a..b, CurveControl.Geometry.curvatureEnergy (g t) (c t) ≤
+                  Real.exp (B * (b - a)) * CurveControl.Geometry.curveLength (g a) (c a) -
+                    CurveControl.Geometry.curveLength (g b) (c b)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#length_energy">加权曲率能量控制</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_kato_closed"><h2>CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_kato_closed</h2><p class="meta"><a href="source/CurveControl/Geometry/CurveEstimates.lean.html#L57">CurveControl/Geometry/CurveEstimates.lean · 第 57 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Genuine Kato inequality from the actual smooth immersed flow.
+The mixed-derivative theorem supplies the required covariant differentiability. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},
+  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →
+    ∀ {t : ℝ},
+      t ∈ interior J →
+        ∀ (x : ℝ),
+          CurveControl.Analysis.arcDeriv (CurveControl.Geometry.curveSpeed (g t) (c t))
+                (CurveControl.Geometry.curvatureSq (g t) (c t)) x ^
+              2 ≤
+            4 * CurveControl.Geometry.curvatureSq (g t) (c t) x *
+              CurveControl.Geometry.normalCurvatureGradientNorm (g t) (c t) x ^ 2</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#spatial_kato">空间 Kato 不等式</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_time_le"><h2>CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_time_le</h2><p class="meta"><a href="source/CurveControl/Geometry/CurveEstimates.lean.html#L114">CurveControl/Geometry/CurveEstimates.lean · 第 114 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The actual squared-curvature PDE with a uniform ambient
+coefficient. Its evolution, normal-gradient dissipation, and tensor error all
+come from proved geometric identities. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},
+  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →
+    MorganTianLib.IsRicciFlowOn g J →
+      ∀ {B K D : ℝ},
+        CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn g J B K D →
+          ∀ {t : ℝ},
+            t ∈ interior J →
+              ∀ (x : ℝ),
+                deriv (fun u =&gt; CurveControl.Geometry.curvatureSq (g u) (c u) x) t ≤
+                  CurveControl.Analysis.arcDeriv (CurveControl.Geometry.curveSpeed (g t) (c t))
+                          (CurveControl.Analysis.arcDeriv (CurveControl.Geometry.curveSpeed (g t) (c t))
+                            (CurveControl.Geometry.curvatureSq (g t) (c t)))
+                          x -
+                        2 * CurveControl.Geometry.normalCurvatureGradientNorm (g t) (c t) x ^ 2 +
+                      2 * CurveControl.Geometry.curvatureSq (g t) (c t) x ^ 2 +
+                    max (6 * B + 2 * K) (6 * D) *
+                      (CurveControl.Geometry.curvatureSq (g t) (c t) x +
+                        √(CurveControl.Geometry.curvatureSq (g t) (c t) x))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#ambient_error">一致的环境误差系数</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.IsCurveShorteningFlowOn.curve_estimate"><h2>CurveControl.Geometry.IsCurveShorteningFlowOn.curve_estimate</h2><p class="meta"><a href="source/CurveControl/Geometry/CurveEstimates.lean.html#L136">CurveControl/Geometry/CurveEstimates.lean · 第 136 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The complete actual length and total-curvature estimate. The
+same ambient constants work for every immersed closed curve-shortening flow.
+Only smooth existence, the Ricci/curve-flow equations and ambient tensor bounds
+are inputs; there are no curvature-PDE, Kato, regularization or integral inputs. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},
+  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →
+    MorganTianLib.IsRicciFlowOn g J →
+      ∀ {a b B K D : ℝ},
+        a ≤ b →
+          Set.Icc a b ⊆ J →
+            CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn g J B K D →
+              ∀ t ∈ Set.Icc a b,
+                CurveControl.Geometry.curveLength (g t) (c t) ≤
+                    CurveControl.Geometry.curveLength (g a) (c a) * Real.exp (B * (t - a)) ∧
+                  CurveControl.Geometry.totalCurvature (g t) (c t) + CurveControl.Geometry.curveLength (g t) (c t) ≤
+                    (CurveControl.Geometry.totalCurvature (g a) (c a) + CurveControl.Geometry.curveLength (g a) (c a)) *
+                      Real.exp ((max (6 * B + 2 * K) (6 * D) / 2 + B) * (t - a))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#actual_curve_estimate">实际几何中的长度与总曲率界</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_unitTangent_time"><h2>CurveControl.Geometry.IsCurveShorteningFlowOn.hasCovDerivAt_unitTangent_time</h2><p class="meta"><a href="source/CurveControl/Geometry/SpeedEvolution.lean.html#L141">CurveControl/Geometry/SpeedEvolution.lean · 第 141 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Actual unit-tangent time evolution under curve shortening and
+Ricci flow, obtained by differentiating speed inverse times spatial velocity. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},
+  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →
+    MorganTianLib.IsRicciFlowOn g J →
+      ∀ {t : ℝ},
+        t ∈ interior J →
+          ∀ (x : ℝ),
+            MorganTianLib.HasCovDerivAlongAt (g t) (fun s =&gt; c s x)
+              (fun s =&gt; CurveControl.Geometry.unitTangent (g s) (c s) x) t
+              ((CurveControl.Geometry.curveSpeed (g t) (c t) x)⁻¹ •
+                  CurveControl.Geometry.covDerivAlong (g t) (c t) (CurveControl.Geometry.curvatureVector (g t) (c t))
+                    x +
+                (CurveControl.Geometry.curvatureSq (g t) (c t) x +
+                    ((MorganTianLib.ricciTensorAt (g t) (c t x)) (CurveControl.Geometry.unitTangent (g t) (c t) x))
+                      (CurveControl.Geometry.unitTangent (g t) (c t) x)) •
+                  CurveControl.Geometry.unitTangent (g t) (c t) x)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#speed_evolution">速度与单位切向量的演化</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curvatureSq_time"><h2>CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curvatureSq_time</h2><p class="meta"><a href="source/CurveControl/Geometry/CurvatureEvolution.lean.html#L555">CurveControl/Geometry/CurvatureEvolution.lean · 第 555 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The full intrinsic squared-curvature evolution for genuine curve
+shortening in a genuine Ricci flow. No scalar or vector evolution equation,
+connection variation, mixed-derivative identity or curvature-gradient identity
+is assumed as extra input. The normal projection is the spatial one. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},
+  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →
+    ∀ [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M],
+      MorganTianLib.IsRicciFlowOn g J →
+        ∀ {t : ℝ},
+          t ∈ interior J →
+            ∀ (x : ℝ),
+              have S := CurveControl.Geometry.unitTangent (g t) (c t) x;
+              have N := CurveControl.Geometry.curvatureVector (g t) (c t) x;
+              have P := CurveControl.Geometry.normalCurvatureGradient (g t) (c t) x;
+              HasDerivAt (fun s =&gt; CurveControl.Geometry.curvatureSq (g s) (c s) x)
+                (CurveControl.Analysis.arcDeriv (CurveControl.Geometry.curveSpeed (g t) (c t))
+                        (CurveControl.Analysis.arcDeriv (CurveControl.Geometry.curveSpeed (g t) (c t))
+                          (CurveControl.Geometry.curvatureSq (g t) (c t)))
+                        x -
+                      2 * (g t).metricInner (c t x) P P +
+                    2 * CurveControl.Geometry.curvatureSq (g t) (c t) x ^ 2 +
+                  (4 * CurveControl.Geometry.curvatureSq (g t) (c t) x *
+                          ((MorganTianLib.ricciTensorAt (g t) (c t x)) S) S -
+                        2 * ((MorganTianLib.ricciTensorAt (g t) (c t x)) N) N +
+                      2 * CurveControl.Geometry.AmbientBounds.rm (g t) (c t x) N S N S +
+                    (-4 * CurveControl.Geometry.AmbientBounds.covRic (g t) (c t x) S S N +
+                      2 * CurveControl.Geometry.AmbientBounds.covRic (g t) (c t x) N S S)))
+                t</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curvature_evolution">修正后的曲率平方演化</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curveSpeed_time"><h2>CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivAt_curveSpeed_time</h2><p class="meta"><a href="source/CurveControl/Geometry/SpeedEvolution.lean.html#L124">CurveControl/Geometry/SpeedEvolution.lean · 第 124 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Arc-length density evolution for an actual smooth immersed
+curve-shortening flow in an actual Ricci flow. Mixed covariant derivatives are
+proved equal through a fixed local chart; no speed evolution is an input. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},
+  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →
+    MorganTianLib.IsRicciFlowOn g J →
+      ∀ {t : ℝ},
+        t ∈ interior J →
+          ∀ (x : ℝ),
+            HasDerivAt (fun s =&gt; CurveControl.Geometry.curveSpeed (g s) (c s) x)
+              (-(CurveControl.Geometry.curvatureSq (g t) (c t) x +
+                    ((MorganTianLib.ricciTensorAt (g t) (c t x)) (CurveControl.Geometry.unitTangent (g t) (c t) x))
+                      (CurveControl.Geometry.unitTangent (g t) (c t) x)) *
+                CurveControl.Geometry.curveSpeed (g t) (c t) x)
+              t</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#speed_evolution">速度与单位切向量的演化</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.IsCurveShorteningFlowOn.weighted_curvatureEnergy_integral_le"><h2>CurveControl.Geometry.IsCurveShorteningFlowOn.weighted_curvatureEnergy_integral_le</h2><p class="meta"><a href="source/CurveControl/Geometry/LengthEstimates.lean.html#L144">CurveControl/Geometry/LengthEstimates.lean · 第 144 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The weighted time integral of the actual curvature energy is
+bounded by the integrating-factor loss of actual curve length. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ℝ → ℝ → M} {J : Set ℝ},
+  CurveControl.Geometry.IsCurveShorteningFlowOn g c J →
+    MorganTianLib.IsRicciFlowOn g J →
+      ∀ {a b B : ℝ},
+        a ≤ b →
+          Set.Icc a b ⊆ J →
+            (∀ t ∈ Set.Icc a b,
+                ∀ (p : M) (V : TangentSpace I p),
+                  (g t).metricInner p V V = 1 → -B ≤ ((MorganTianLib.ricciTensorAt (g t) p) V) V) →
+              ∫ (t : ℝ) in a..b, Real.exp (-B * (t - a)) * CurveControl.Geometry.curvatureEnergy (g t) (c t) ≤
+                CurveControl.Geometry.curveLength (g a) (c a) -
+                  Real.exp (-B * (b - a)) * CurveControl.Geometry.curveLength (g b) (c b)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#length_energy">加权曲率能量控制</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.ProductCovRicci.covRic_productL2"><h2>CurveControl.Geometry.ProductCovRicci.covRic_productL2</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductCovRicci.lean.html#L298">CurveControl/Geometry/ProductCovRicci.lean · 第 298 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Actual covariant Ricci derivatives split under the Hilbert product metric. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]
+  [inst_5 : FiniteDimensional ℝ F] [inst_6 : NeZero (Module.finrank ℝ E)] [inst_7 : NeZero (Module.finrank ℝ F)]
+  {H : Type u_3} {K : Type u_4} [inst_8 : TopologicalSpace H] [inst_9 : TopologicalSpace K] {I : ModelWithCorners ℝ E H}
+  {J : ModelWithCorners ℝ F K} [inst_10 : I.Boundaryless] [inst_11 : J.Boundaryless] {M : Type u_5} {N : Type u_6}
+  [inst_12 : TopologicalSpace M] [inst_13 : ChartedSpace H M] [inst_14 : IsManifold I (↑⊤) M]
+  [inst_15 : TopologicalSpace N] [inst_16 : ChartedSpace K N] [inst_17 : IsManifold J (↑⊤) N]
+  [inst_18 : SigmaCompactSpace M] [inst_19 : T2Space M] [inst_20 : SigmaCompactSpace N] [inst_21 : T2Space N]
+  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (p : M × N)
+  (U V W : TangentSpace (CurveControl.Geometry.productL2Model I J) p),
+  CurveControl.Geometry.AmbientBounds.covRic (CurveControl.Geometry.productL2Metric I J g h) p U V W =
+    CurveControl.Geometry.AmbientBounds.covRic g p.1 (CurveControl.Geometry.productL2Equiv.symm U).1
+        (CurveControl.Geometry.productL2Equiv.symm V).1 (CurveControl.Geometry.productL2Equiv.symm W).1 +
+      CurveControl.Geometry.AmbientBounds.covRic h p.2 (CurveControl.Geometry.productL2Equiv.symm U).2
+        (CurveControl.Geometry.productL2Equiv.symm V).2 (CurveControl.Geometry.productL2Equiv.symm W).2</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_covricci">实际 Ricci 协变导数的分裂</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffelBilin_lower_intrinsic"><h2>CurveControl.Geometry.RicciConnectionVariation.deriv_chartChristoffelBilin_lower_intrinsic</h2><p class="meta"><a href="source/CurveControl/Geometry/RicciConnectionVariation.lean.html#L256">CurveControl/Geometry/RicciConnectionVariation.lean · 第 256 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Arbitrary-vector intrinsic metric lowering of the actual time derivative of
+Levi-Civita&#x27;s bilinear coefficient field, using the fixed chart readback. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : CompleteSpace E]
+  [inst_3 : FiniteDimensional ℝ E] [inst_4 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]
+  {I : ModelWithCorners ℝ E H} [inst_6 : I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M]
+  [inst_8 : ChartedSpace H M] [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {J : Set ℝ},
+  MorganTianLib.IsRicciFlowOn g J →
+    ∀ (α : M) (U V W : E) {t : ℝ},
+      t ∈ interior J →
+        ∀ {y : E},
+          y ∈ (extChartAt I α).target →
+            have p := ↑(extChartAt I α).symm y;
+            have R := (trivializationAt E (TangentSpace I) α).symm p;
+            have A := deriv (fun s =&gt; MorganTianLib.chartChristoffelBilin (g s) α y) t;
+            have hLC :=
+              Riemannian.AffineConnection.isLeviCivita_of_koszulDual (g t) (g t).leviCivitaConnection fun X Y W q =&gt;
+                Riemannian.RiemannianMetric.koszulDualSection_dual (g t) X Y W q;
+            (g t).metricInner p (R ((A U) V)) (R W) =
+              -MorganTianLib.covRicciAt (g t) (g t).leviCivitaConnection hLC p (R U) (R V) (R W) -
+                  MorganTianLib.covRicciAt (g t) (g t).leviCivitaConnection hLC p (R V) (R U) (R W) +
+                MorganTianLib.covRicciAt (g t) (g t).leviCivitaConnection hLC p (R W) (R U) (R V)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#connection_variation">Levi-Civita 联络的时间变分</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.canonicalCurvatureFormAt_eq_zero_of_finrank_one"><h2>CurveControl.Geometry.canonicalCurvatureFormAt_eq_zero_of_finrank_one</h2><p class="meta"><a href="source/CurveControl/Geometry/OneDimensionalCurvature.lean.html#L98">CurveControl/Geometry/OneDimensionalCurvature.lean · 第 98 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The canonical curvature tensor in the do Carmo convention vanishes. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : CompleteSpace E]
+  [inst_3 : FiniteDimensional ℝ E] [inst_4 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]
+  {I : ModelWithCorners ℝ E H} [I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M] [inst_8 : ChartedSpace H M]
+  [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M],
+  Module.finrank ℝ E = 1 →
+    ∀ (g : Riemannian.RiemannianMetric I M) (p : M) (x y z w : TangentSpace I p),
+      g.leviCivitaConnection.curvatureFormAt g p x y z w = 0</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#one_dimensional_flatness">每个真实一维因子都是平坦的</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.canonicalCurvatureFormAt_productL2"><h2>CurveControl.Geometry.canonicalCurvatureFormAt_productL2</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductIntrinsicCurvature.lean.html#L111">CurveControl/Geometry/ProductIntrinsicCurvature.lean · 第 111 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The canonical intrinsic curvature four-form of the actual L2
+product metric is the sum of the two factor curvature four-forms. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M] {F : Type u_4}
+  [inst_11 : NormedAddCommGroup F] [inst_12 : InnerProductSpace ℝ F] [inst_13 : FiniteDimensional ℝ F]
+  [inst_14 : NeZero (Module.finrank ℝ F)] {K : Type u_5} [inst_15 : TopologicalSpace K] {J : ModelWithCorners ℝ F K}
+  [J.Boundaryless] {N : Type u_6} [inst_17 : TopologicalSpace N] [inst_18 : ChartedSpace K N]
+  [inst_19 : IsManifold J (↑⊤) N] [inst_20 : SigmaCompactSpace N] [inst_21 : T2Space N]
+  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (p : M × N)
+  (x y z w : TangentSpace (CurveControl.Geometry.productL2Model I J) p),
+  (CurveControl.Geometry.productL2Metric I J g h).leviCivitaConnection.curvatureFormAt
+      (CurveControl.Geometry.productL2Metric I J g h) p x y z w =
+    g.leviCivitaConnection.curvatureFormAt g p.1 (CurveControl.Geometry.productL2Equiv.symm x).1
+        (CurveControl.Geometry.productL2Equiv.symm y).1 (CurveControl.Geometry.productL2Equiv.symm z).1
+        (CurveControl.Geometry.productL2Equiv.symm w).1 +
+      h.leviCivitaConnection.curvatureFormAt h p.2 (CurveControl.Geometry.productL2Equiv.symm x).2
+        (CurveControl.Geometry.productL2Equiv.symm y).2 (CurveControl.Geometry.productL2Equiv.symm z).2
+        (CurveControl.Geometry.productL2Equiv.symm w).2</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_curvature_ricci">实际产品曲率与 Ricci 张量的分裂</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.chartChristoffelContraction_productL2"><h2>CurveControl.Geometry.chartChristoffelContraction_productL2</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductL2Connection.lean.html#L94">CurveControl/Geometry/ProductL2Connection.lean · 第 94 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The legitimate Hilbert-model product connection splits into its two factors. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] {H : Type u_3} {K : Type u_4}
+  [inst_4 : TopologicalSpace H] [inst_5 : TopologicalSpace K] (I : ModelWithCorners ℝ E H) (J : ModelWithCorners ℝ F K)
+  {M : Type u_5} {N : Type u_6} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M] [inst_8 : IsManifold I (↑⊤) M]
+  [inst_9 : TopologicalSpace N] [inst_10 : ChartedSpace K N] [inst_11 : IsManifold J (↑⊤) N] [I.Boundaryless]
+  [J.Boundaryless] [inst_14 : FiniteDimensional ℝ E] [inst_15 : FiniteDimensional ℝ F]
+  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (a : M × N) (y x u : WithLp 2 (E × F)),
+  y ∈ (extChartAt (CurveControl.Geometry.productL2Model I J) a).target →
+    Riemannian.Geodesic.chartChristoffelContraction (CurveControl.Geometry.productL2Metric I J g h) a x u y =
+      CurveControl.Geometry.productL2Equiv
+        (Riemannian.Geodesic.chartChristoffelContraction g a.1 (CurveControl.Geometry.productL2Equiv.symm x).1
+            (CurveControl.Geometry.productL2Equiv.symm u).1 (CurveControl.Geometry.productL2Equiv.symm y).1,
+          Riemannian.Geodesic.chartChristoffelContraction h a.2 (CurveControl.Geometry.productL2Equiv.symm x).2
+            (CurveControl.Geometry.productL2Equiv.symm u).2 (CurveControl.Geometry.productL2Equiv.symm y).2)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_curvature_ricci">实际产品曲率与 Ricci 张量的分裂</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.chartCurvature_pairing_canonical"><h2>CurveControl.Geometry.chartCurvature_pairing_canonical</h2><p class="meta"><a href="source/CurveControl/Geometry/CurvatureEvolution.lean.html#L83">CurveControl/Geometry/CurvatureEvolution.lean · 第 83 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The intrinsic curvature term with the Morgan–Tian slot convention;
+the do Carmo coordinate sign is canceled by antisymmetry in the last pair. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]
+  (g : Riemannian.RiemannianMetric I M) (p : M) (U V : E),
+  g.metricInner p (MorganTianLib.chartCurvature g p (↑(extChartAt I p) p) U V V) U =
+    MorganTianLib.curvatureFormAt g g.leviCivitaConnection p U V U V</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curvature_evolution">修正后的曲率平方演化</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.chartCurvature_productL2"><h2>CurveControl.Geometry.chartCurvature_productL2</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductL2Connection.lean.html#L163">CurveControl/Geometry/ProductL2Connection.lean · 第 163 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Actual curvature in the legitimate L2 model splits into factor curvatures. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] {H : Type u_3} {K : Type u_4}
+  [inst_4 : TopologicalSpace H] [inst_5 : TopologicalSpace K] (I : ModelWithCorners ℝ E H) (J : ModelWithCorners ℝ F K)
+  {M : Type u_5} {N : Type u_6} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M] [inst_8 : IsManifold I (↑⊤) M]
+  [inst_9 : TopologicalSpace N] [inst_10 : ChartedSpace K N] [inst_11 : IsManifold J (↑⊤) N] [I.Boundaryless]
+  [J.Boundaryless] [inst_14 : FiniteDimensional ℝ E] [inst_15 : FiniteDimensional ℝ F]
+  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (a : M × N) (y x u v : WithLp 2 (E × F)),
+  y ∈ (extChartAt (CurveControl.Geometry.productL2Model I J) a).target →
+    Riemannian.Jacobi.chartCurvature (CurveControl.Geometry.productL2Metric I J g h) a y x u v =
+      CurveControl.Geometry.productL2Equiv
+        (Riemannian.Jacobi.chartCurvature g a.1 (CurveControl.Geometry.productL2Equiv.symm y).1
+            (CurveControl.Geometry.productL2Equiv.symm x).1 (CurveControl.Geometry.productL2Equiv.symm u).1
+            (CurveControl.Geometry.productL2Equiv.symm v).1,
+          Riemannian.Jacobi.chartCurvature h a.2 (CurveControl.Geometry.productL2Equiv.symm y).2
+            (CurveControl.Geometry.productL2Equiv.symm x).2 (CurveControl.Geometry.productL2Equiv.symm u).2
+            (CurveControl.Geometry.productL2Equiv.symm v).2)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_curvature_ricci">实际产品曲率与 Ricci 张量的分裂</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.covDerivAlong"><h2>CurveControl.Geometry.covDerivAlong</h2><p class="meta"><a href="source/CurveControl/Geometry/Basic.lean.html#L41">CurveControl/Geometry/Basic.lean · 第 41 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">Actual covariant derivative in the moving-foot chart. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : NormedSpace ℝ E] →
+      [FiniteDimensional ℝ E] →
+        {H : Type u_2} →
+          [inst_3 : TopologicalSpace H] →
+            {I : ModelWithCorners ℝ E H} →
+              {M : Type u_3} →
+                [inst_4 : TopologicalSpace M] →
+                  [inst_5 : ChartedSpace H M] →
+                    [inst_6 : IsManifold I (↑⊤) M] →
+                      Riemannian.RiemannianMetric I M →
+                        (γ : ℝ → M) → ((x : ℝ) → TangentSpace I (γ x)) → (x : ℝ) → TangentSpace I (γ x)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curve_geometry">内蕴曲线几何与移动测度</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.covRicciAt_eq_zero_of_finrank_one"><h2>CurveControl.Geometry.covRicciAt_eq_zero_of_finrank_one</h2><p class="meta"><a href="source/CurveControl/Geometry/OneDimensionalCurvature.lean.html#L91">CurveControl/Geometry/OneDimensionalCurvature.lean · 第 91 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Pointwise covariant Ricci tensor vanishes for arbitrary tangent inputs. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [CompleteSpace E]
+  [inst_3 : FiniteDimensional ℝ E] [NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]
+  {I : ModelWithCorners ℝ E H} [inst_6 : I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M]
+  [inst_8 : ChartedSpace H M] [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M],
+  Module.finrank ℝ E = 1 →
+    ∀ (g : Riemannian.RiemannianMetric I M) (nabla : Riemannian.AffineConnection I M)
+      (hLC : Riemannian.AffineConnection.IsLeviCivita g nabla) (p : M) (u x y : TangentSpace I p),
+      MorganTianLib.covRicciAt g nabla hLC p u x y = 0</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#one_dimensional_flatness">每个真实一维因子都是平坦的</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.curvatureEnergy"><h2>CurveControl.Geometry.curvatureEnergy</h2><p class="meta"><a href="source/CurveControl/Geometry/Basic.lean.html#L88">CurveControl/Geometry/Basic.lean · 第 88 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">Integral of squared curvature against arc length. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : NormedSpace ℝ E] →
+      [FiniteDimensional ℝ E] →
+        {H : Type u_2} →
+          [inst_3 : TopologicalSpace H] →
+            {I : ModelWithCorners ℝ E H} →
+              {M : Type u_3} →
+                [inst_4 : TopologicalSpace M] →
+                  [inst_5 : ChartedSpace H M] →
+                    [inst_6 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curve_geometry">内蕴曲线几何与移动测度</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.curvatureGradient_norm_decomposition"><h2>CurveControl.Geometry.curvatureGradient_norm_decomposition</h2><p class="meta"><a href="source/CurveControl/Geometry/CurvatureGradient.lean.html#L136">CurveControl/Geometry/CurvatureGradient.lean · 第 136 行</a></p><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H} {M : Type u_3}
+  [inst_5 : TopologicalSpace M] [inst_6 : ChartedSpace H M] [inst_7 : IsManifold I (↑⊤) M] [I.Boundaryless]
+  (g : Riemannian.RiemannianMetric I M) (γ : ℝ → M),
+  ContMDiff (modelWithCornersSelf ℝ ℝ) I (↑⊤) γ →
+    (∀ (y : ℝ), MorganTianLib.curveVelocity γ y ≠ 0) →
+      ∀ (x : ℝ),
+        MorganTianLib.HasCovDerivAlongAt g γ (CurveControl.Geometry.curvatureVector g γ) x
+            (CurveControl.Geometry.covDerivAlong g γ (CurveControl.Geometry.curvatureVector g γ) x) →
+          g.metricInner (γ x) (CurveControl.Geometry.covArcDeriv g γ (CurveControl.Geometry.curvatureVector g γ) x)
+              (CurveControl.Geometry.covArcDeriv g γ (CurveControl.Geometry.curvatureVector g γ) x) =
+            g.metricInner (γ x) (CurveControl.Geometry.normalCurvatureGradient g γ x)
+                (CurveControl.Geometry.normalCurvatureGradient g γ x) +
+              CurveControl.Geometry.curvatureSq g γ x ^ 2</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#spatial_kato">空间 Kato 不等式</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.curvatureSq"><h2>CurveControl.Geometry.curvatureSq</h2><p class="meta"><a href="source/CurveControl/Geometry/Basic.lean.html#L64">CurveControl/Geometry/Basic.lean · 第 64 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">Squared norm of the curvature vector. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : NormedSpace ℝ E] →
+      [FiniteDimensional ℝ E] →
+        {H : Type u_2} →
+          [inst_3 : TopologicalSpace H] →
+            {I : ModelWithCorners ℝ E H} →
+              {M : Type u_3} →
+                [inst_4 : TopologicalSpace M] →
+                  [inst_5 : ChartedSpace H M] →
+                    [inst_6 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ → ℝ</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curve_geometry">内蕴曲线几何与移动测度</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.curvatureVector"><h2>CurveControl.Geometry.curvatureVector</h2><p class="meta"><a href="source/CurveControl/Geometry/Basic.lean.html#L59">CurveControl/Geometry/Basic.lean · 第 59 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">Curvature vector `∇ₛS = speed⁻¹ ∇ₓS`. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : NormedSpace ℝ E] →
+      [FiniteDimensional ℝ E] →
+        {H : Type u_2} →
+          [inst_3 : TopologicalSpace H] →
+            {I : ModelWithCorners ℝ E H} →
+              {M : Type u_3} →
+                [inst_4 : TopologicalSpace M] →
+                  [inst_5 : ChartedSpace H M] →
+                    [inst_6 : IsManifold I (↑⊤) M] →
+                      Riemannian.RiemannianMetric I M → (γ : ℝ → M) → (x : ℝ) → TangentSpace I (γ x)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curve_geometry">内蕴曲线几何与移动测度</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.curveLength"><h2>CurveControl.Geometry.curveLength</h2><p class="meta"><a href="source/CurveControl/Geometry/Basic.lean.html#L75">CurveControl/Geometry/Basic.lean · 第 75 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">Length over one parameter period; integrability follows later from smoothness. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : NormedSpace ℝ E] →
+      {H : Type u_2} →
+        [inst_2 : TopologicalSpace H] →
+          {I : ModelWithCorners ℝ E H} →
+            {M : Type u_3} →
+              [inst_3 : TopologicalSpace M] →
+                [inst_4 : ChartedSpace H M] →
+                  [inst_5 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curve_geometry">内蕴曲线几何与移动测度</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.curveSpeed"><h2>CurveControl.Geometry.curveSpeed</h2><p class="meta"><a href="source/CurveControl/Geometry/Basic.lean.html#L31">CurveControl/Geometry/Basic.lean · 第 31 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">Speed for the actual Riemannian metric and intrinsic curve velocity. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : NormedSpace ℝ E] →
+      {H : Type u_2} →
+        [inst_2 : TopologicalSpace H] →
+          {I : ModelWithCorners ℝ E H} →
+            {M : Type u_3} →
+              [inst_3 : TopologicalSpace M] →
+                [inst_4 : ChartedSpace H M] →
+                  [inst_5 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ → ℝ</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curve_geometry">内蕴曲线几何与移动测度</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.curve_ambient_error_le_max"><h2>CurveControl.Geometry.curve_ambient_error_le_max</h2><p class="meta"><a href="source/CurveControl/Geometry/CurveEstimates.lean.html#L29">CurveControl/Geometry/CurveEstimates.lean · 第 29 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The corrected ambient contribution admits one coefficient
+multiplying q plus square root q; that coefficient is independent of the curve. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M]
+  {g : Riemannian.RiemannianMetric I M} (γ : ℝ → M) (x : ℝ) {B K D : ℝ},
+  CurveControl.Geometry.AmbientBounds.TensorBoundsAt g (γ x) B K D →
+    MorganTianLib.curveVelocity γ x ≠ 0 →
+      have S := CurveControl.Geometry.unitTangent g γ x;
+      have V := CurveControl.Geometry.curvatureVector g γ x;
+      4 * CurveControl.Geometry.curvatureSq g γ x * ((MorganTianLib.ricciTensorAt g (γ x)) S) S -
+              2 * ((MorganTianLib.ricciTensorAt g (γ x)) V) V +
+            2 * CurveControl.Geometry.AmbientBounds.rm g (γ x) V S V S +
+          (-4 * CurveControl.Geometry.AmbientBounds.covRic g (γ x) S S V +
+            2 * CurveControl.Geometry.AmbientBounds.covRic g (γ x) V S S) ≤
+        max (6 * B + 2 * K) (6 * D) *
+          (CurveControl.Geometry.curvatureSq g γ x + √(CurveControl.Geometry.curvatureSq g γ x))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#ambient_error">一致的环境误差系数</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.curve_family_uniform_estimate"><h2>CurveControl.Geometry.curve_family_uniform_estimate</h2><p class="meta"><a href="source/CurveControl/Geometry/CurveEstimates.lean.html#L170">CurveControl/Geometry/CurveEstimates.lean · 第 170 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Uniform initial length and total-curvature bounds propagate
+uniformly across the family with coefficients depending only on the ambient
+metric bounds. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M] {ι : Type u_4}
+  {g : ℝ → Riemannian.RiemannianMetric I M} {c : ι → ℝ → ℝ → M} {J : Set ℝ},
+  (∀ (i : ι), CurveControl.Geometry.IsCurveShorteningFlowOn g (c i) J) →
+    MorganTianLib.IsRicciFlowOn g J →
+      ∀ {a b B K D L₀ Q₀ : ℝ},
+        a ≤ b →
+          Set.Icc a b ⊆ J →
+            CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn g J B K D →
+              (∀ (i : ι), CurveControl.Geometry.curveLength (g a) (c i a) ≤ L₀) →
+                (∀ (i : ι),
+                    CurveControl.Geometry.totalCurvature (g a) (c i a) +
+                        CurveControl.Geometry.curveLength (g a) (c i a) ≤
+                      Q₀) →
+                  ∀ (i : ι),
+                    ∀ t ∈ Set.Icc a b,
+                      CurveControl.Geometry.curveLength (g t) (c i t) ≤ L₀ * Real.exp (B * (t - a)) ∧
+                        CurveControl.Geometry.totalCurvature (g t) (c i t) +
+                            CurveControl.Geometry.curveLength (g t) (c i t) ≤
+                          Q₀ * Real.exp ((max (6 * B + 2 * K) (6 * D) / 2 + B) * (t - a))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#actual_curve_estimate">实际几何中的长度与总曲率界</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.exists_uniform_positive_scale_product_estimate"><h2>CurveControl.Geometry.exists_uniform_positive_scale_product_estimate</h2><p class="meta"><a href="source/CurveControl/Geometry/UniformProductEstimates.lean.html#L174">CurveControl/Geometry/UniformProductEstimates.lean · 第 174 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Positive-scale-indexed corollary. The supplied metrics may, for
+example, be scaled metrics on an independently supplied smooth circle. No
+lower bound on the scale, nor any scale-regularity hypothesis, is required.
+All exponential coefficients are chosen before the entire metric family. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]
+  [inst_5 : FiniteDimensional ℝ F] [inst_6 : NeZero (Module.finrank ℝ E)] [NeZero (Module.finrank ℝ F)] {H : Type u_3}
+  {K : Type u_4} [inst_8 : TopologicalSpace H] [inst_9 : TopologicalSpace K] (I : ModelWithCorners ℝ E H)
+  (J : ModelWithCorners ℝ F K) [inst_10 : I.Boundaryless] [J.Boundaryless] {M : Type u_5} {N : Type u_6}
+  [inst_12 : TopologicalSpace M] [inst_13 : ChartedSpace H M] [inst_14 : IsManifold I (↑⊤) M]
+  [inst_15 : TopologicalSpace N] [inst_16 : ChartedSpace K N] [inst_17 : IsManifold J (↑⊤) N]
+  [inst_18 : SigmaCompactSpace M] [inst_19 : T2Space M] [SigmaCompactSpace N] [T2Space N] [CompactSpace M]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {a b : ℝ},
+  MorganTianLib.IsRicciFlowOn g (Set.Icc a b) →
+    a ≤ b →
+      Module.finrank ℝ F = 1 →
+        ∃ B C,
+          0 ≤ B ∧
+            0 ≤ C ∧
+              ∀ (ι : Type u_7) (h : { ℓ // 0 &lt; ℓ } → Riemannian.RiemannianMetric J N)
+                (c : { ℓ // 0 &lt; ℓ } → ι → ℝ → ℝ → M × N),
+                (∀ (ℓ : { ℓ // 0 &lt; ℓ }) (i : ι),
+                    CurveControl.Geometry.IsCurveShorteningFlowOn
+                      (fun t =&gt; CurveControl.Geometry.productL2Metric I J (g t) (h ℓ)) (c ℓ i) (Set.Icc a b)) →
+                  ∀ (L₀ Θ₀ : ℝ),
+                    (∀ (ℓ : { ℓ // 0 &lt; ℓ }) (i : ι),
+                        CurveControl.Geometry.curveLength (CurveControl.Geometry.productL2Metric I J (g a) (h ℓ))
+                            (c ℓ i a) ≤
+                          L₀) →
+                      (∀ (ℓ : { ℓ // 0 &lt; ℓ }) (i : ι),
+                          CurveControl.Geometry.totalCurvature (CurveControl.Geometry.productL2Metric I J (g a) (h ℓ))
+                              (c ℓ i a) ≤
+                            Θ₀) →
+                        ∀ (ℓ : { ℓ // 0 &lt; ℓ }) (i : ι),
+                          ∀ t ∈ Set.Icc a b,
+                            CurveControl.Geometry.curveLength (CurveControl.Geometry.productL2Metric I J (g t) (h ℓ))
+                                  (c ℓ i t) ≤
+                                L₀ * Real.exp (B * (t - a)) ∧
+                              CurveControl.Geometry.totalCurvature
+                                  (CurveControl.Geometry.productL2Metric I J (g t) (h ℓ)) (c ℓ i t) ≤
+                                (Θ₀ + L₀) * Real.exp (C * (t - a))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#uniform_product_estimate">紧致基底上的一致产品估计：覆盖所有正尺度</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.exists_uniform_static_product_family_estimate"><h2>CurveControl.Geometry.exists_uniform_static_product_family_estimate</h2><p class="meta"><a href="source/CurveControl/Geometry/UniformProductEstimates.lean.html#L143">CurveControl/Geometry/UniformProductEstimates.lean · 第 143 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Compact-base uniform product estimate. The constants are chosen
+before the arbitrary external metric index, all static factor metrics, all
+curve indices and the initial bounds. Thus neither shrinking/scaling the
+factor metric nor selecting another curve changes the exponential constants.
+The one-dimensional factor is genuine supplied manifold geometry, not an
+assumed circle atlas. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]
+  [inst_5 : FiniteDimensional ℝ F] [inst_6 : NeZero (Module.finrank ℝ E)] [NeZero (Module.finrank ℝ F)] {H : Type u_3}
+  {K : Type u_4} [inst_8 : TopologicalSpace H] [inst_9 : TopologicalSpace K] (I : ModelWithCorners ℝ E H)
+  (J : ModelWithCorners ℝ F K) [inst_10 : I.Boundaryless] [J.Boundaryless] {M : Type u_5} {N : Type u_6}
+  [inst_12 : TopologicalSpace M] [inst_13 : ChartedSpace H M] [inst_14 : IsManifold I (↑⊤) M]
+  [inst_15 : TopologicalSpace N] [inst_16 : ChartedSpace K N] [inst_17 : IsManifold J (↑⊤) N]
+  [inst_18 : SigmaCompactSpace M] [inst_19 : T2Space M] [SigmaCompactSpace N] [T2Space N] [CompactSpace M]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {a b : ℝ},
+  MorganTianLib.IsRicciFlowOn g (Set.Icc a b) →
+    a ≤ b →
+      Module.finrank ℝ F = 1 →
+        ∃ B C,
+          0 ≤ B ∧
+            0 ≤ C ∧
+              ∀ (Λ : Type u_7) (ι : Type u_8) (h : Λ → Riemannian.RiemannianMetric J N) (c : Λ → ι → ℝ → ℝ → M × N),
+                (∀ (ℓ : Λ) (i : ι),
+                    CurveControl.Geometry.IsCurveShorteningFlowOn
+                      (fun t =&gt; CurveControl.Geometry.productL2Metric I J (g t) (h ℓ)) (c ℓ i) (Set.Icc a b)) →
+                  ∀ (L₀ Θ₀ : ℝ),
+                    (∀ (ℓ : Λ) (i : ι),
+                        CurveControl.Geometry.curveLength (CurveControl.Geometry.productL2Metric I J (g a) (h ℓ))
+                            (c ℓ i a) ≤
+                          L₀) →
+                      (∀ (ℓ : Λ) (i : ι),
+                          CurveControl.Geometry.totalCurvature (CurveControl.Geometry.productL2Metric I J (g a) (h ℓ))
+                              (c ℓ i a) ≤
+                            Θ₀) →
+                        ∀ (ℓ : Λ) (i : ι),
+                          ∀ t ∈ Set.Icc a b,
+                            CurveControl.Geometry.curveLength (CurveControl.Geometry.productL2Metric I J (g t) (h ℓ))
+                                  (c ℓ i t) ≤
+                                L₀ * Real.exp (B * (t - a)) ∧
+                              CurveControl.Geometry.totalCurvature
+                                  (CurveControl.Geometry.productL2Metric I J (g t) (h ℓ)) (c ℓ i t) ≤
+                                (Θ₀ + L₀) * Real.exp (C * (t - a))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#uniform_product_estimate">紧致基底上的一致产品估计：覆盖所有正尺度</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.isRicciFlowOn_productL2_oneDimensional"><h2>CurveControl.Geometry.isRicciFlowOn_productL2_oneDimensional</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductFlow.lean.html#L269">CurveControl/Geometry/ProductFlow.lean · 第 269 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Product with any static one-dimensional Riemannian metric is
+an actual jointly smooth Ricci flow, including the within equations at time
+endpoints. Product Ricci splitting and one-dimensional Ricci vanishing are
+proved dependencies, not assumptions of this theorem. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]
+  [inst_5 : FiniteDimensional ℝ F] {H : Type u_3} {K : Type u_4} [inst_6 : TopologicalSpace H]
+  [inst_7 : TopologicalSpace K] (I : ModelWithCorners ℝ E H) (J : ModelWithCorners ℝ F K) {M : Type u_5} {N : Type u_6}
+  [inst_8 : TopologicalSpace M] [inst_9 : ChartedSpace H M] [inst_10 : IsManifold I (↑⊤) M]
+  [inst_11 : TopologicalSpace N] [inst_12 : ChartedSpace K N] [inst_13 : IsManifold J (↑⊤) N]
+  [inst_14 : NeZero (Module.finrank ℝ E)] [inst_15 : I.Boundaryless] [inst_16 : SigmaCompactSpace M]
+  [inst_17 : T2Space M] [NeZero (Module.finrank ℝ F)] [inst_19 : J.Boundaryless] [inst_20 : SigmaCompactSpace N]
+  [inst_21 : T2Space N] {g : ℝ → Riemannian.RiemannianMetric I M} {T : Set ℝ},
+  MorganTianLib.IsRicciFlowOn g T →
+    ∀ (h : Riemannian.RiemannianMetric J N),
+      Module.finrank ℝ F = 1 →
+        MorganTianLib.IsRicciFlowOn (fun t =&gt; CurveControl.Geometry.productL2Metric I J (g t) h) T</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_ricci_flow">与静态一维因子的产品满足 Ricci 流</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.isSmoothMetricFamilyOn_productL2"><h2>CurveControl.Geometry.isSmoothMetricFamilyOn_productL2</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductFlow.lean.html#L228">CurveControl/Geometry/ProductFlow.lean · 第 228 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Joint smoothness of the genuine L2 product metric follows from
+the given base family and the static factor metric, by smooth pullback and sum. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]
+  [inst_5 : FiniteDimensional ℝ F] {H : Type u_3} {K : Type u_4} [inst_6 : TopologicalSpace H]
+  [inst_7 : TopologicalSpace K] (I : ModelWithCorners ℝ E H) (J : ModelWithCorners ℝ F K) {M : Type u_5} {N : Type u_6}
+  [inst_8 : TopologicalSpace M] [inst_9 : ChartedSpace H M] [inst_10 : IsManifold I (↑⊤) M]
+  [inst_11 : TopologicalSpace N] [inst_12 : ChartedSpace K N] [inst_13 : IsManifold J (↑⊤) N]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {T : Set ℝ},
+  MorganTianLib.IsSmoothMetricFamilyOn g T →
+    ∀ (h : Riemannian.RiemannianMetric J N),
+      MorganTianLib.IsSmoothMetricFamilyOn (fun t =&gt; CurveControl.Geometry.productL2Metric I J (g t) h) T</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_ricci_flow">与静态一维因子的产品满足 Ricci 流</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.productL2Metric"><h2>CurveControl.Geometry.productL2Metric</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductModel.lean.html#L67">CurveControl/Geometry/ProductModel.lean · 第 67 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The actual product metric transported to the Hilbert model. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  {F : Type u_2} →
+    [inst : NormedAddCommGroup E] →
+      [inst_1 : InnerProductSpace ℝ E] →
+        [inst_2 : NormedAddCommGroup F] →
+          [inst_3 : InnerProductSpace ℝ F] →
+            {H : Type u_3} →
+              {K : Type u_4} →
+                [inst_4 : TopologicalSpace H] →
+                  [inst_5 : TopologicalSpace K] →
+                    (I : ModelWithCorners ℝ E H) →
+                      (J : ModelWithCorners ℝ F K) →
+                        {M : Type u_5} →
+                          {N : Type u_6} →
+                            [inst_6 : TopologicalSpace M] →
+                              [inst_7 : ChartedSpace H M] →
+                                [inst_8 : IsManifold I (↑⊤) M] →
+                                  [inst_9 : TopologicalSpace N] →
+                                    [inst_10 : ChartedSpace K N] →
+                                      [inst_11 : IsManifold J (↑⊤) N] →
+                                        [FiniteDimensional ℝ E] →
+                                          [FiniteDimensional ℝ F] →
+                                            Riemannian.RiemannianMetric I M →
+                                              Riemannian.RiemannianMetric J N →
+                                                Riemannian.RiemannianMetric (CurveControl.Geometry.productL2Model I J)
+                                                  (M × N)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_metric">Hilbert 模型中的真实产品度量</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.productL2Model"><h2>CurveControl.Geometry.productL2Model</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductModel.lean.html#L23">CurveControl/Geometry/ProductModel.lean · 第 23 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** L2 model with the same chart-target space as the ordinary product. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  {F : Type u_2} →
+    [inst : NormedAddCommGroup E] →
+      [inst_1 : InnerProductSpace ℝ E] →
+        [inst_2 : NormedAddCommGroup F] →
+          [inst_3 : InnerProductSpace ℝ F] →
+            {H : Type u_3} →
+              {K : Type u_4} →
+                [inst_4 : TopologicalSpace H] →
+                  [inst_5 : TopologicalSpace K] →
+                    ModelWithCorners ℝ E H →
+                      ModelWithCorners ℝ F K → ModelWithCorners ℝ (WithLp 2 (E × F)) (ModelProd H K)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_metric">Hilbert 模型中的真实产品度量</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.productL2_tensorBounds_of_finrank_one"><h2>CurveControl.Geometry.productL2_tensorBounds_of_finrank_one</h2><p class="meta"><a href="source/CurveControl/Geometry/UniformProductEstimates.lean.html#L85">CurveControl/Geometry/UniformProductEstimates.lean · 第 85 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** All ambient tensor bounds of a genuine product with any static
+one-dimensional metric are inherited from the base with unchanged constants.
+The product curvature and covariant-Ricci splittings are proved, not assumed. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]
+  [inst_5 : FiniteDimensional ℝ F] [inst_6 : NeZero (Module.finrank ℝ E)] [NeZero (Module.finrank ℝ F)] {H : Type u_3}
+  {K : Type u_4} [inst_8 : TopologicalSpace H] [inst_9 : TopologicalSpace K] (I : ModelWithCorners ℝ E H)
+  (J : ModelWithCorners ℝ F K) [inst_10 : I.Boundaryless] [inst_11 : J.Boundaryless] {M : Type u_5} {N : Type u_6}
+  [inst_12 : TopologicalSpace M] [inst_13 : ChartedSpace H M] [inst_14 : IsManifold I (↑⊤) M]
+  [inst_15 : TopologicalSpace N] [inst_16 : ChartedSpace K N] [inst_17 : IsManifold J (↑⊤) N]
+  [inst_18 : SigmaCompactSpace M] [inst_19 : T2Space M] [inst_20 : SigmaCompactSpace N] [inst_21 : T2Space N]
+  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (p : M × N) {B R D : ℝ},
+  CurveControl.Geometry.AmbientBounds.TensorBoundsAt g p.1 B R D →
+    Module.finrank ℝ F = 1 →
+      CurveControl.Geometry.AmbientBounds.TensorBoundsAt (CurveControl.Geometry.productL2Metric I J g h) p B R D</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_tensor_bounds">任意静态因子度量均保留基底系数</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.productMetric"><h2>CurveControl.Geometry.productMetric</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductMetric.lean.html#L42">CurveControl/Geometry/ProductMetric.lean · 第 42 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The smooth positive-definite metric on the real product manifold. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : NormedSpace ℝ E] →
+      {H : Type u_2} →
+        [inst_2 : TopologicalSpace H] →
+          {I : ModelWithCorners ℝ E H} →
+            {M : Type u_3} →
+              [inst_3 : TopologicalSpace M] →
+                [inst_4 : ChartedSpace H M] →
+                  [inst_5 : IsManifold I (↑⊤) M] →
+                    {F : Type u_4} →
+                      [inst_6 : NormedAddCommGroup F] →
+                        [inst_7 : NormedSpace ℝ F] →
+                          {K : Type u_5} →
+                            [inst_8 : TopologicalSpace K] →
+                              {J : ModelWithCorners ℝ F K} →
+                                {N : Type u_6} →
+                                  [inst_9 : TopologicalSpace N] →
+                                    [inst_10 : ChartedSpace K N] →
+                                      [inst_11 : IsManifold J (↑⊤) N] →
+                                        [FiniteDimensional ℝ E] →
+                                          [FiniteDimensional ℝ F] →
+                                            Riemannian.RiemannianMetric I M →
+                                              Riemannian.RiemannianMetric J N →
+                                                Riemannian.RiemannianMetric (I.prod J) (M × N)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_metric">Hilbert 模型中的真实产品度量</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.productMetric_inner"><h2>CurveControl.Geometry.productMetric_inner</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductMetric.lean.html#L46">CurveControl/Geometry/ProductMetric.lean · 第 46 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** Metric splitting evaluated on the genuine product tangent space. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : NormedSpace ℝ E] {H : Type u_2} [inst_2 : TopologicalSpace H]
+  {I : ModelWithCorners ℝ E H} {M : Type u_3} [inst_3 : TopologicalSpace M] [inst_4 : ChartedSpace H M]
+  [inst_5 : IsManifold I (↑⊤) M] {F : Type u_4} [inst_6 : NormedAddCommGroup F] [inst_7 : NormedSpace ℝ F]
+  {K : Type u_5} [inst_8 : TopologicalSpace K] {J : ModelWithCorners ℝ F K} {N : Type u_6} [inst_9 : TopologicalSpace N]
+  [inst_10 : ChartedSpace K N] [inst_11 : IsManifold J (↑⊤) N] [inst_12 : FiniteDimensional ℝ E]
+  [inst_13 : FiniteDimensional ℝ F] (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N)
+  (p : M × N) (u v : TangentSpace (I.prod J) p),
+  (CurveControl.Geometry.productMetric g h).metricInner p u v = g.metricInner p.1 u.1 v.1 + h.metricInner p.2 u.2 v.2</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_metric">Hilbert 模型中的真实产品度量</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.productTangentIsometry"><h2>CurveControl.Geometry.productTangentIsometry</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductIntrinsicCurvature.lean.html#L92">CurveControl/Geometry/ProductIntrinsicCurvature.lean · 第 92 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** A genuine isometry for the product Riemannian tangent metric,
+including the metric-dependent norms on all three fibers. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : InnerProductSpace ℝ E] →
+      [inst_2 : FiniteDimensional ℝ E] →
+        [NeZero (Module.finrank ℝ E)] →
+          {H : Type u_2} →
+            [inst_4 : TopologicalSpace H] →
+              {I : ModelWithCorners ℝ E H} →
+                [I.Boundaryless] →
+                  {M : Type u_3} →
+                    [inst_6 : TopologicalSpace M] →
+                      [inst_7 : ChartedSpace H M] →
+                        [inst_8 : IsManifold I (↑⊤) M] →
+                          [SigmaCompactSpace M] →
+                            [T2Space M] →
+                              {F : Type u_4} →
+                                [inst_11 : NormedAddCommGroup F] →
+                                  [inst_12 : InnerProductSpace ℝ F] →
+                                    [inst_13 : FiniteDimensional ℝ F] →
+                                      [NeZero (Module.finrank ℝ F)] →
+                                        {K : Type u_5} →
+                                          [inst_15 : TopologicalSpace K] →
+                                            {J : ModelWithCorners ℝ F K} →
+                                              [J.Boundaryless] →
+                                                {N : Type u_6} →
+                                                  [inst_17 : TopologicalSpace N] →
+                                                    [inst_18 : ChartedSpace K N] →
+                                                      [inst_19 : IsManifold J (↑⊤) N] →
+                                                        [SigmaCompactSpace N] →
+                                                          [T2Space N] →
+                                                            (g : Riemannian.RiemannianMetric I M) →
+                                                              (h : Riemannian.RiemannianMetric J N) →
+                                                                (p : M × N) →
+                                                                  TangentSpace
+                                                                      (CurveControl.Geometry.productL2Model I J)
+                                                                      p ≃ₗᵢ[ℝ]
+                                                                    WithLp 2 (TangentSpace I p.1 × TangentSpace J p.2)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_metric">Hilbert 模型中的真实产品度量</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.regularizedTotalCurvature"><h2>CurveControl.Geometry.regularizedTotalCurvature</h2><p class="meta"><a href="source/CurveControl/Geometry/Basic.lean.html#L83">CurveControl/Geometry/Basic.lean · 第 83 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">Regularized total curvature with the actual arc-length density. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : NormedSpace ℝ E] →
+      [FiniteDimensional ℝ E] →
+        {H : Type u_2} →
+          [inst_3 : TopologicalSpace H] →
+            {I : ModelWithCorners ℝ E H} →
+              {M : Type u_3} →
+                [inst_4 : TopologicalSpace M] →
+                  [inst_5 : ChartedSpace H M] →
+                    [inst_6 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ → ℝ</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curve_geometry">内蕴曲线几何与移动测度</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.ricciTensorAt_eq_zero_of_finrank_one"><h2>CurveControl.Geometry.ricciTensorAt_eq_zero_of_finrank_one</h2><p class="meta"><a href="source/CurveControl/Geometry/OneDimensionalCurvature.lean.html#L62">CurveControl/Geometry/OneDimensionalCurvature.lean · 第 62 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The canonical Ricci tensor used by the Ricci-flow equation vanishes. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : CompleteSpace E]
+  [inst_3 : FiniteDimensional ℝ E] [inst_4 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_5 : TopologicalSpace H]
+  {I : ModelWithCorners ℝ E H} [inst_6 : I.Boundaryless] {M : Type u_3} [inst_7 : TopologicalSpace M]
+  [inst_8 : ChartedSpace H M] [inst_9 : IsManifold I (↑⊤) M] [inst_10 : SigmaCompactSpace M] [inst_11 : T2Space M],
+  Module.finrank ℝ E = 1 →
+    ∀ (g : Riemannian.RiemannianMetric I M) (p : M) (x y : TangentSpace I p),
+      ((MorganTianLib.ricciTensorAt g p) x) y = 0</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#one_dimensional_flatness">每个真实一维因子都是平坦的</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.ricciTensorAt_productL2"><h2>CurveControl.Geometry.ricciTensorAt_productL2</h2><p class="meta"><a href="source/CurveControl/Geometry/ProductIntrinsicCurvature.lean.html#L134">CurveControl/Geometry/ProductIntrinsicCurvature.lean · 第 134 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The actual Ricci tensor of the product metric is the sum of the
+actual factor Ricci tensors, tracing through the genuine tangent isometry. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E] [inst_2 : FiniteDimensional ℝ E]
+  [inst_3 : NeZero (Module.finrank ℝ E)] {H : Type u_2} [inst_4 : TopologicalSpace H] {I : ModelWithCorners ℝ E H}
+  [inst_5 : I.Boundaryless] {M : Type u_3} [inst_6 : TopologicalSpace M] [inst_7 : ChartedSpace H M]
+  [inst_8 : IsManifold I (↑⊤) M] [inst_9 : SigmaCompactSpace M] [inst_10 : T2Space M] {F : Type u_4}
+  [inst_11 : NormedAddCommGroup F] [inst_12 : InnerProductSpace ℝ F] [inst_13 : FiniteDimensional ℝ F]
+  [inst_14 : NeZero (Module.finrank ℝ F)] {K : Type u_5} [inst_15 : TopologicalSpace K] {J : ModelWithCorners ℝ F K}
+  [inst_16 : J.Boundaryless] {N : Type u_6} [inst_17 : TopologicalSpace N] [inst_18 : ChartedSpace K N]
+  [inst_19 : IsManifold J (↑⊤) N] [inst_20 : SigmaCompactSpace N] [inst_21 : T2Space N]
+  (g : Riemannian.RiemannianMetric I M) (h : Riemannian.RiemannianMetric J N) (p : M × N)
+  (x y : TangentSpace (CurveControl.Geometry.productL2Model I J) p),
+  ((MorganTianLib.ricciTensorAt (CurveControl.Geometry.productL2Metric I J g h) p) x) y =
+    ((MorganTianLib.ricciTensorAt g p.1) (CurveControl.Geometry.productL2Equiv.symm x).1)
+        (CurveControl.Geometry.productL2Equiv.symm y).1 +
+      ((MorganTianLib.ricciTensorAt h p.2) (CurveControl.Geometry.productL2Equiv.symm x).2)
+        (CurveControl.Geometry.productL2Equiv.symm y).2</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_curvature_ricci">实际产品曲率与 Ricci 张量的分裂</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.totalCurvature"><h2>CurveControl.Geometry.totalCurvature</h2><p class="meta"><a href="source/CurveControl/Geometry/Basic.lean.html#L79">CurveControl/Geometry/Basic.lean · 第 79 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">Total curvature with the actual arc-length density. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : NormedSpace ℝ E] →
+      [FiniteDimensional ℝ E] →
+        {H : Type u_2} →
+          [inst_3 : TopologicalSpace H] →
+            {I : ModelWithCorners ℝ E H} →
+              {M : Type u_3} →
+                [inst_4 : TopologicalSpace M] →
+                  [inst_5 : ChartedSpace H M] →
+                    [inst_6 : IsManifold I (↑⊤) M] → Riemannian.RiemannianMetric I M → (ℝ → M) → ℝ</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curve_geometry">内蕴曲线几何与移动测度</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.uniformTensorBoundsOn_productL2_oneDimensional"><h2>CurveControl.Geometry.uniformTensorBoundsOn_productL2_oneDimensional</h2><p class="meta"><a href="source/CurveControl/Geometry/UniformProductEstimates.lean.html#L96">CurveControl/Geometry/UniformProductEstimates.lean · 第 96 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">**Math.** The same three constants control the product over the entire
+base time set, independently of the chosen static one-dimensional metric. </div><pre class="signature" lang="en"><code>∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℝ E]
+  [inst_2 : NormedAddCommGroup F] [inst_3 : InnerProductSpace ℝ F] [inst_4 : FiniteDimensional ℝ E]
+  [inst_5 : FiniteDimensional ℝ F] [inst_6 : NeZero (Module.finrank ℝ E)] [NeZero (Module.finrank ℝ F)] {H : Type u_3}
+  {K : Type u_4} [inst_8 : TopologicalSpace H] [inst_9 : TopologicalSpace K] (I : ModelWithCorners ℝ E H)
+  (J : ModelWithCorners ℝ F K) [inst_10 : I.Boundaryless] [inst_11 : J.Boundaryless] {M : Type u_5} {N : Type u_6}
+  [inst_12 : TopologicalSpace M] [inst_13 : ChartedSpace H M] [inst_14 : IsManifold I (↑⊤) M]
+  [inst_15 : TopologicalSpace N] [inst_16 : ChartedSpace K N] [inst_17 : IsManifold J (↑⊤) N]
+  [inst_18 : SigmaCompactSpace M] [inst_19 : T2Space M] [inst_20 : SigmaCompactSpace N] [inst_21 : T2Space N]
+  {g : ℝ → Riemannian.RiemannianMetric I M} {T : Set ℝ} {B R D : ℝ},
+  CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn g T B R D →
+    ∀ (h : Riemannian.RiemannianMetric J N),
+      Module.finrank ℝ F = 1 →
+        CurveControl.Geometry.AmbientBounds.UniformTensorBoundsOn
+          (fun t =&gt; CurveControl.Geometry.productL2Metric I J (g t) h) T B R D</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#product_tensor_bounds">任意静态因子度量均保留基底系数</a></p></article><article class="declaration" id="decl-CurveControl.Geometry.unitTangent"><h2>CurveControl.Geometry.unitTangent</h2><p class="meta"><a href="source/CurveControl/Geometry/Basic.lean.html#L36">CurveControl/Geometry/Basic.lean · 第 36 行</a></p><p class="doc-label">原始 Lean 文档字符串</p><div class="docstring">Unit spatial tangent, meaningful when the spatial velocity is nonzero. </div><pre class="signature" lang="en"><code>{E : Type u_1} →
+  [inst : NormedAddCommGroup E] →
+    [inst_1 : NormedSpace ℝ E] →
+      {H : Type u_2} →
+        [inst_2 : TopologicalSpace H] →
+          {I : ModelWithCorners ℝ E H} →
+            {M : Type u_3} →
+              [inst_3 : TopologicalSpace M] →
+                [inst_4 : ChartedSpace H M] →
+                  [inst_5 : IsManifold I (↑⊤) M] →
+                    Riemannian.RiemannianMetric I M → (γ : ℝ → M) → (x : ℝ) → TangentSpace I (γ x)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#curve_geometry">内蕴曲线几何与移动测度</a></p></article><article class="declaration" id="decl-CurveControl.regularizedWeightedCurvature_sub_bounds"><h2>CurveControl.regularizedWeightedCurvature_sub_bounds</h2><p class="meta"><a href="source/CurveControl/Analysis/RegularizedIntegral.lean.html#L25">CurveControl/Analysis/RegularizedIntegral.lean · 第 25 行</a></p><pre class="signature" lang="en"><code>∀ {q v : ℝ → ℝ} {ε : ℝ},
+  ContinuousOn q (Set.Icc 0 1) →
+    ContinuousOn v (Set.Icc 0 1) →
+      (∀ s ∈ Set.Icc 0 1, 0 ≤ q s) →
+        (∀ s ∈ Set.Icc 0 1, 0 ≤ v s) →
+          0 ≤ ε →
+            0 ≤ CurveControl.regularizedWeightedCurvature q v ε - CurveControl.weightedCurvature q v ∧
+              CurveControl.regularizedWeightedCurvature q v ε - CurveControl.weightedCurvature q v ≤
+                ε * ∫ (s : ℝ) in 0..1, v s</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#epsilon_limit">比较之后去除正则化</a></p></article><article class="declaration" id="decl-CurveControl.tendsto_regularizedWeightedCurvature"><h2>CurveControl.tendsto_regularizedWeightedCurvature</h2><p class="meta"><a href="source/CurveControl/Analysis/RegularizedIntegral.lean.html#L56">CurveControl/Analysis/RegularizedIntegral.lean · 第 56 行</a></p><pre class="signature" lang="en"><code>∀ {q v : ℝ → ℝ},
+  ContinuousOn q (Set.Icc 0 1) →
+    ContinuousOn v (Set.Icc 0 1) →
+      (∀ s ∈ Set.Icc 0 1, 0 ≤ q s) →
+        (∀ s ∈ Set.Icc 0 1, 0 ≤ v s) →
+          Filter.Tendsto (CurveControl.regularizedWeightedCurvature q v) (nhdsWithin 0 (Set.Ioi 0))
+            (nhds (CurveControl.weightedCurvature q v))</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#epsilon_limit">比较之后去除正则化</a></p></article><article class="declaration" id="decl-CurveControl.weightedCurvature_exp_bound"><h2>CurveControl.weightedCurvature_exp_bound</h2><p class="meta"><a href="source/CurveControl/Analysis/RegularizedIntegral.lean.html#L85">CurveControl/Analysis/RegularizedIntegral.lean · 第 85 行</a></p><pre class="signature" lang="en"><code>∀ {q v q₀ v₀ : ℝ → ℝ} {C t : ℝ},
+  ContinuousOn q (Set.Icc 0 1) →
+    ContinuousOn v (Set.Icc 0 1) →
+      (∀ s ∈ Set.Icc 0 1, 0 ≤ q s) →
+        (∀ s ∈ Set.Icc 0 1, 0 ≤ v s) →
+          ContinuousOn q₀ (Set.Icc 0 1) →
+            ContinuousOn v₀ (Set.Icc 0 1) →
+              (∀ s ∈ Set.Icc 0 1, 0 ≤ q₀ s) →
+                (∀ s ∈ Set.Icc 0 1, 0 ≤ v₀ s) →
+                  (∀ ε &gt; 0,
+                      CurveControl.regularizedWeightedCurvature q v ε + ∫ (s : ℝ) in 0..1, v s ≤
+                        (CurveControl.regularizedWeightedCurvature q₀ v₀ ε + ∫ (s : ℝ) in 0..1, v₀ s) *
+                          Real.exp (C * t)) →
+                    CurveControl.weightedCurvature q v + ∫ (s : ℝ) in 0..1, v s ≤
+                      (CurveControl.weightedCurvature q₀ v₀ + ∫ (s : ℝ) in 0..1, v₀ s) * Real.exp (C * t)</code></pre><p class="axioms">公理: propext, Classical.choice, Quot.sound</p><p class="tagline">数学蓝图: <a href="blueprint.html#epsilon_limit">比较之后去除正则化</a></p></article></main>
+</body>
+</html>

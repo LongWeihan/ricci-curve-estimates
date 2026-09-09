@@ -1,0 +1,146 @@
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:20:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Fixed-chart squared metric norm of a dir…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:27:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Differentiation preserves period one, ev…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:35:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.curveVelocity_periodic`:
+  [FiniteDimensional ℝ E]
+  [NeZero (Module.finrank ℝ E)]
+  [IsManifold I ∞ M]
+  [I.Boundaryless]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [FiniteDimensional ℝ E] [NeZero (Module.finrank ℝ E)] [IsManifold I ∞ M] [I.Boundaryless] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:64:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.covDerivAlong_periodic`:
+  [NeZero (Module.finrank ℝ E)]
+  [I.Boundaryless]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero (Module.finrank ℝ E)] [I.Boundaryless] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:118:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Squared norm using the spacetime derivat…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:125:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Nondegenerate Ricci-flow time intervals …")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:224:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_chartCurveFamily`:
+  [NeZero (Module.finrank ℝ E)]
+  [I.Boundaryless]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero (Module.finrank ℝ E)] [I.Boundaryless] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:223:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Joint coordinate regularity within the t…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:267:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "The fixed-chart spatial velocity equals …")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:285:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivWithinAt_timeChart_in_chart`:
+  [NeZero (Module.finrank ℝ E)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero (Module.finrank ℝ E)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:284:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Time-chart change for the actual endpoin…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:311:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Curvature is a time derivative within th…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:348:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.IsCurveShorteningFlowOn.eventually_within_chart`:
+  [NeZero (Module.finrank ℝ E)]
+  [I.Boundaryless]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero (Module.finrank ℝ E)] [I.Boundaryless] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:359:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Actual speed is jointly smooth within th…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:374:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Actual squared curvature is jointly smoo…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-CurveRegularity.lean:391:0: warning: docstring should start with **Math.**, **Eng.**, or **Mixed.** (got: "Compact rectangles inherit continuity, i…")
+
+Note: This linter can be disabled with `set_option linter.shared.mathTag false`
+'CurveControl.Geometry.chartDirectionalNormSq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.periodic_deriv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curveVelocity_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curveSpeed_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.unitTangent_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.covDerivAlong_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curvatureVector_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curvatureSq_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.regularizedCurvature_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartDirectionalNormSqWithin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.uniqueDiffOn_ricciTime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_chartDirectionalNormSq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curveSpeed_sq_eq_chartDirectionalNormSq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_eq_chartDirectionalNormSq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.eventually_interior_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_curveSpeed_sq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_curveSpeed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_curvatureSq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffAt_regularizedCurvature' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_chartCurveFamily' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_chartDirectionalNormSqWithin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chartVelocity_eq_spatialFDerivWithin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.hasDerivWithinAt_timeChart_in_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.chartCurvature_eq_timeFDerivWithin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curveSpeed_sq_eq_chartDirectionalNormSqWithin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.curvatureSq_eq_chartDirectionalNormSqWithin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.eventually_within_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_curveSpeed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_curvatureSq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.contDiffWithinAt_regularizedCurvature' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.continuousOn_curveSpeed_rectangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.continuousOn_curvatureSq_rectangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.IsCurveShorteningFlowOn.continuousOn_regularizedCurvature_rectangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,3 @@
+'CurveControl.Analysis.le_exp_of_deriv_interior_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.coupled_exp_comparison_interior' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Analysis.coupled_exp_comparison_interior_on' depends on axioms: [propext, Classical.choice, Quot.sound]

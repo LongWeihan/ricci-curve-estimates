@@ -1,0 +1,42 @@
+'CurveControl.Examples.StaticFactorApplication.scaledFactorMetric' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_inner' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_norm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_static' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.scaledProduct_isRicciFlow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_curve_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_fullInterval_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.scaledFactorMetric' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_inner' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_norm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.scaledFactorMetric_static' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.scaledProduct_isRicciFlow' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_curve_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Examples.StaticFactorApplication.exists_scaledFactor_fullInterval_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

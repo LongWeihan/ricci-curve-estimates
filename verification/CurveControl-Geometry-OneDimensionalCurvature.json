@@ -1,0 +1,71 @@
+{
+  "source": "CurveControl/Geometry/OneDimensionalCurvature.lean",
+  "source_sha256": "43c48163eb8e6d2d198b9188372af587edb6c59f5260263d3b463b3bd64ed5d8",
+  "checked_at": "2026-09-09T08:53:58+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 10,
+  "printed_declarations": 10,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.algebraicCurvature_eq_zero_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.algebraicRicci_eq_zero_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.curvatureFormAt_eq_zero_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ricciAt_eq_zero_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ricciTensorAt_eq_zero_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.ricciField_eq_zero_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.covRicci_eq_zero_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.covRicciAt_eq_zero_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.canonicalCurvatureFormAt_eq_zero_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.canonicalCurvatureOperatorAt_eq_zero_of_finrank_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

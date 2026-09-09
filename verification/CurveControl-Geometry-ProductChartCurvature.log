@@ -1,0 +1,22 @@
+'CurveControl.Geometry.chartChristoffelBilin_apply_normed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.contDiffOn_chartChristoffelBilin_normed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.differentiableAt_chartChristoffelBilin_normed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.chartChristoffelBilin_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartChristoffelBilin_line_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.fderiv_chartChristoffelBilin_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartCurvature_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartChristoffelBilin_apply_normed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.contDiffOn_chartChristoffelBilin_normed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.differentiableAt_chartChristoffelBilin_normed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.chartChristoffelBilin_line_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartChristoffelBilin_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.fderiv_chartChristoffelBilin_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.chartCurvature_product' depends on axioms: [propext, Classical.choice, Quot.sound]

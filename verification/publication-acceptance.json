@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "checked_at": "2026-09-09T13:46:08+00:00",
+  "authors": [
+    "GPT-6 Astra",
+    "Juii-hang Leung"
+  ],
+  "languages": [
+    "en",
+    "zh-CN"
+  ],
+  "paper_pages": 8,
+  "math_sources_unchanged": true,
+  "full_build_and_axiom_audit": "passed",
+  "scope": "Local research artifact with bilingual exposition and reproducible Lean source.",
+  "evidence_sha256": {
+    "verification/release-check.json": "7c827ac8892e4b69fca888e0b8e532f263c8bb40956a06c88bd0e0224e8cd04d",
+    "verification/note-check.json": "dd5a3c1b1ce7114bb2dfd03fd704305ac33c4615bb7b6e427d139870f2a757f6",
+    "verification/paper-content-preservation.json": "f03e790e4019b08214bde61bf8095d2891949357b4f7a3638699415657e3c971",
+    "verification/presentation-math-preservation.json": "24b340866e19809e68d57e661c8caf4a3003f6ef62bf226b97219b198c710487",
+    "verification/blueprint-check.json": "d7fcb40deb78d140c5cafc2e6417fa0c378fbfdd6b2523a79630fc25ac7f9b8f",
+    "verification/bilingual-presentation-check.json": "2b1efffbb2ff6befa8a5ce8b91fd00876c6f9738949e61c1e08a862234d6b756",
+    "verification/isolated-reproduction/reproduction-check.json": "d720cace36c6db3c4c2adc5dd465422c54d3193a703722f6d674c38f232457b6",
+    "website/build-manifest.json": "51251ae74427c80d54ef0c69f27dfc91f68ac8405b49556c680ecccf3b37c96a",
+    "docs/release-acceptance.md": "aedbc09850bb7a139bfcb1b0008822c4d2c293545b74d68cd07146151545d7ad",
+    "docs/minimal-exposition-review.md": "c8d3e84f52e274e0a5ce9f3236c797c0dedd4fd3a705377ee8f40b0d97b384fd",
+    "docs/bilingual-tooling-review.md": "1f5a7a20fb400e07b0ba43a1a5a373342bce05c3fc0371271d721b2b4ba42b04",
+    "README.md": "eefc3b57afcf9d3d151a737ebeff9af3b548f155006bbe405b25416006695787",
+    "README.zh-CN.md": "f73943e502ee8436843195cb487655edd3eb1ae6ded3a4532ede38a7b7b657c5",
+    "AUTHORS.md": "58b31dd87b20cbede83e11b4074d76a5d683a31958db62706deaa1615f277485",
+    "CITATION.bib": "850b595754d3e05e9fb94810332e3ccbb33b8571fa1ba21c16e1585183ca9921",
+    "NOTICE": "32ba50735cdb9912bcfb4e98d99c186a1a524cd57c8e17b3af5a4526a0e74329",
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  }
+}

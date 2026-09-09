@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "reviewed_in": "Codex in-app browser at local loopback server",
+  "checks": [
+    "Homepage typography and main formula visually inspected",
+    "Blueprint graph link to scaled-factor application navigated to matching statement",
+    "Search input narrowed catalogue to one of 62 entries for scaledFactorMetric_norm",
+    "Declaration source link navigated to #L51 and corresponding source line highlighted",
+    "Application formula and scope visually inspected",
+    "Site build checked all local links and anchors",
+    "Final energy-node caveat inspected in DOM and screenshot after semantic correction; ambient unit-vector lower bound is displayed in full"
+  ],
+  "viewport_scope": "Default desktop viewport; no mobile-device claim.",
+  "sha256": {
+    "website/build-manifest.json": "8c72a2bc45f045a5e2b4b47161e0894e35f9b42c460547cf4e3ccba939b77be7",
+    "blueprint/blueprint.json": "a50e6ca7f6cef9a042b062fef4e11ad8d646fde766e9053bd6aec2d30bce6e84",
+    "verification/blueprint-declarations.json": "6bde2b1e36866c42f9f8c9fad011aedb589e0a1bcb9f708bcbe001bf4c54dcf5"
+  }
+}

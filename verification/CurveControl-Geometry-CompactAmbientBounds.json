@@ -1,0 +1,106 @@
+{
+  "source": "CurveControl/Geometry/CompactAmbientBounds.lean",
+  "source_sha256": "5df639fb3f8fb7743219102ad67efb1ea767b3001d295db2cb910757cf255e89",
+  "checked_at": "2026-09-09T09:26:08+00:00",
+  "lean_version": "4.32.1",
+  "mathlib_commit": "520045ab14e26149ee970e2e617ca04b09bde5d6",
+  "lean_options": [
+    "-DautoImplicit=false",
+    "-Dpp.unicode.fun=true",
+    "-Dbackward.isDefEq.respectTransparency=false",
+    "-DsynthInstance.maxHeartbeats=400000"
+  ],
+  "compile_exit_code": 0,
+  "public_declarations": 17,
+  "printed_declarations": 17,
+  "extra_axioms": [],
+  "compilation_and_axiom_check_passed": true,
+  "axioms": {
+    "CurveControl.Geometry.CompactAmbientBounds.exists_bound_finite_family": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.abs_sum_mul_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.abs_sum_mul₂_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.abs_sum_mul₃_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.abs_sum_mul₄_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.contDiffOn_chartRiemannCoefOnE_timeSpace": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.exists_inverseGram_bound_on_compact_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.exists_ricci_bound_on_compact_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.exists_riemann_bound_on_compact_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.exists_covRicci_bound_on_compact_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.sum_abs_chartBasis_repr_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.tensorBoundsAt_of_chart_coefficients": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.exists_tensorBounds_on_compact_chart": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.exists_finite_compact_chart_cover": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.tensorBoundsAt_mono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.uniformTensorBoundsOn_of_finite_cover": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CurveControl.Geometry.CompactAmbientBounds.exists_uniformTensorBoundsOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "separate; not implied by this result"
+}

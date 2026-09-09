@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "html_pages_checked": 98,
+  "public_version_label_absent": true,
+  "public_completion_dashboard_absent": true,
+  "authorship_on_every_page": true,
+  "remote_runtime_assets_absent": true,
+  "browser_checks": [
+    "English to Chinese homepage switch with correct author names",
+    "Chinese declaration search then English switch retains query and single result",
+    "Deep source language switch retains #L51 and highlighted line",
+    "Chinese DAG visual check: labels fit boxes",
+    "Chinese homepage typography and author names visibly correct"
+  ],
+  "sha256": {
+    "website/build-manifest.json": "c0e358ebb6548222716de1b341c3070ae3a80f38d6983efe7ddc65db37732c88",
+    "website-template/ui.json": "a5a08903441026436364e5428677c22c42481e2a096097b94907e08519ba9bb3",
+    "website-template/zh-CN-blueprint.json": "d0ff17b00497866bde3c63af1665e1ae42a60bb36762eae2be41ca756e7f7822",
+    "paper/curve-estimates.pdf": "9568de05373b767b4c2acb394e7845e7a1f7eabeae586d4c808e055e3a569129",
+    "README.md": "3342440a6babb765da3d8b86001059a3608d457c2c793916b4d2252f9769f904",
+    "README.zh-CN.md": "1595677625c4be5f037efb39fb447a36ab71b66e487549bf279860df0113e23b",
+    "CITATION.bib": "b3c0d65dea3685f227f2ef901a3ca2a629079b059c32546200f45011538a9a04",
+    "AUTHORS.md": "d00a42eb8c86c06b4eb0e11a061ed0cde4a45cfe2fecd407783ff7260cb336e4"
+  }
+}

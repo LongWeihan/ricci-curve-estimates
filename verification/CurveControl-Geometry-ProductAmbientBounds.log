@@ -1,0 +1,16 @@
+'CurveControl.Geometry.ambientRm_eq_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_metricNorm_fst_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_metricNorm_snd_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ambientRm_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_ricci_bound_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_curvature_bound_of_finrank_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.ambientRm_eq_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_metricNorm_fst_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_metricNorm_snd_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ambientRm_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_ricci_bound_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_curvature_bound_of_finrank_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,24 @@
+/Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-start/audits/CurveControl-Geometry-OneDimensionalCurvature.lean:92:0: warning: automatically included section variable(s) unused in theorem `CurveControl.Geometry.covRicciAt_eq_zero_of_finrank_one`:
+  [NeZero (Module.finrank ℝ E)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NeZero (Module.finrank ℝ E)] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'CurveControl.Geometry.algebraicCurvature_eq_zero_of_finrank_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.algebraicRicci_eq_zero_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.curvatureFormAt_eq_zero_of_finrank_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.ricciAt_eq_zero_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ricciTensorAt_eq_zero_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ricciField_eq_zero_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.covRicci_eq_zero_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.covRicciAt_eq_zero_of_finrank_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.canonicalCurvatureFormAt_eq_zero_of_finrank_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.canonicalCurvatureOperatorAt_eq_zero_of_finrank_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

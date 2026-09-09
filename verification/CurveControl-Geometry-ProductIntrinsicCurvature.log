@@ -1,0 +1,22 @@
+'CurveControl.Geometry.canonicalCurvatureFormAt_eq_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productTangentEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productTangentEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2_finrank_neZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2Metric_metricInner_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productTangentIsometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.canonicalCurvatureFormAt_eq_metric_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.canonicalCurvatureFormAt_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ricciTensorAt_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.canonicalCurvatureFormAt_eq_chart' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.canonicalCurvatureFormAt_eq_metric_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CurveControl.Geometry.productL2_finrank_neZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productTangentEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productTangentEquiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productL2Metric_metricInner_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.productTangentIsometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.canonicalCurvatureFormAt_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurveControl.Geometry.ricciTensorAt_productL2' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "pages": 8,
+  "compiler": "Tectonic 0.17.0",
+  "compile_exit_code": 0,
+  "command": "tectonic --only-cached --keep-logs --keep-intermediates --outdir <build-dir> curve-estimates.tex",
+  "layout_warnings": [],
+  "render": "pdftoppm -r 110 -png",
+  "visually_reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "visual_findings": "All eight pages inspected as rendered PNGs. Mathematical displays, reference blocks and body text remain within page margins; no overlap, missing glyphs, clipping or stranded headings observed.",
+  "sha256": {
+    "paper/curve-estimates.tex": "67102496624ce37882d1c43f16b61094b152a7b55ed06fa35d944b7501257020",
+    "paper/references.bib": "a8fa44c3327e713be446f9b7962a2d9ab2b4e5432282fa9bfb7f4c0e0f87358e",
+    "paper/curve-estimates.pdf": "17e2d4c1b1910d83c4c35d0e7e91381ff1387650a6b3d7de8fa0e6f4d15110aa",
+    "docs/publication-semantic-review.md": "e19f7c390196e5c5faf5947120c4e50676f366dbb274bb5ca2a1a90d0cc0fa81"
+  }
+}
