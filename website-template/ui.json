@@ -82,7 +82,9 @@
     },
     "application": "Application",
     "switch_language": "Language: switch to Chinese",
-    "language_label": "Language"
+    "language_label": "Language",
+    "download_report": "Download PDF",
+    "download_report_title": "Download the technical report (PDF, English)"
   },
   "zh-CN": {
     "site_title": "Ricci 流下的曲线估计",
@@ -167,6 +169,8 @@
     },
     "application": "应用",
     "switch_language": "语言：切换至英文",
-    "language_label": "语言"
+    "language_label": "语言",
+    "download_report": "下载报告 PDF",
+    "download_report_title": "下载技术报告（PDF，英文）"
   }
 }

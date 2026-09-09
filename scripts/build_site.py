@@ -71,7 +71,7 @@ def external_link(url, title):
     return f'<a href="{esc(url)}">{esc(title)}</a>'
 
 
-def page(title, body, filename, section, lang, css_class=""):
+def page(title, body, filename, section, lang, css_class="", *, include_pdf=True):
     ui = UI[lang]
     prefix = "../" * (len(Path(filename).parts) - 1)
     nav = []
@@ -83,6 +83,14 @@ def page(title, body, filename, section, lang, css_class=""):
         nav.append(f'<a href="{prefix}{target}"{current}>{esc(label)}</a>')
     result = (TEMPLATE / "page.html").read_text(encoding="utf-8")
     site_root = prefix + ("../" if lang == "zh-CN" else "")
+    if include_pdf:
+        nav.append(
+            f'<a class="report-download" href="{site_root}note.pdf" '
+            'download="ricci-curve-estimates.pdf" '
+            f'title="{esc(ui["download_report_title"])}">'
+            '<svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+            '<path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>'
+            f'<span>{esc(ui["download_report"])}</span></a>')
     locale, subdir = ("zh-CN", "zh/") if lang == "en" else ("en", "")
     label = ui["switch_language"]
     switch = (f'<a class="language-switch" data-language-switch="{locale}" hreflang="{locale}" '
@@ -368,7 +376,7 @@ def render_language(bp, records, sources, maths, args, lang):
     for ref in refs.values():
         body += '<li>' + external_link(ref["url"], ref["title"]) + '<br>' + esc(ref.get("role", "")) + '</li>'
     body += '</ul>'
-    pages['index.html'] = page(ui['overview'], body, 'index.html', 'index', lang, 'home')
+    pages['index.html'] = page(ui['overview'], body, 'index.html', 'index', lang, 'home', include_pdf=not args.without_pdf)
 
     body = f'<p class="kicker">{esc(ui["exposition"])}</p><h1>{esc(ui["blueprint"])}</h1>' + paragraphs(bp.get('dependency_semantics', ''))
     body += f'<details class="graph-shell" open><summary>{esc(ui["diagram_summary"])}</summary><div class="graph-scroll">' + graph(nodes, lang) + '</div></details>'
@@ -407,7 +415,7 @@ def render_language(bp, records, sources, maths, args, lang):
             ref = refs[ref_id]
             node_refs.append(external_link(ref['url'], ref['title']))
         body += '; '.join(node_refs) + '</dd></dl></article>'
-    pages['blueprint.html'] = page(ui['blueprint_title'], body, 'blueprint.html', 'blueprint', lang)
+    pages['blueprint.html'] = page(ui['blueprint_title'], body, 'blueprint.html', 'blueprint', lang, include_pdf=not args.without_pdf)
 
     body = f'<p class="kicker">{esc(ui["exported"])}</p><h1>{esc(ui["catalogue_title"])}</h1>'
     body += paragraphs(ui['catalogue_intro']) + paragraphs(ui['original_language'])
@@ -436,7 +444,7 @@ def render_language(bp, records, sources, maths, args, lang):
         if node_membership[name]:
             body += f'<p class="tagline">{esc(ui["blueprint"])}: ' + '; '.join(f'<a href="blueprint.html#{esc(n["id"])}">{esc(n["title"])}</a>' for n in node_membership[name]) + '</p>'
         body += '</article>'
-    pages['declarations.html'] = page(ui['declarations'], body, 'declarations.html', 'declarations', lang)
+    pages['declarations.html'] = page(ui['declarations'], body, 'declarations.html', 'declarations', lang, include_pdf=not args.without_pdf)
 
     body = f'<p class="kicker">{esc(ui["lean_source"])}</p><h1>{esc(ui["source_title"])}</h1>' + paragraphs(ui['source_intro']) + '<ul class="file-list">'
     for file, text in sorted(sources.items()):
@@ -452,8 +460,8 @@ def render_language(bp, records, sources, maths, args, lang):
         for line, value in enumerate(text.splitlines(), 1):
             source_body += f'<div class="source-line" id="L{line}"><a class="line-no" href="#L{line}" aria-label="{esc(ui["line"].format(line=line))}">{line}</a><code>{esc(value) or " "}</code></div>'
         source_body += '</div>'
-        pages[filename] = page(file, source_body, filename, 'sources', lang, 'source-page')
-    pages['sources.html'] = page(ui['source_title'], body + '</ul>', 'sources.html', 'sources', lang)
+        pages[filename] = page(file, source_body, filename, 'sources', lang, 'source-page', include_pdf=not args.without_pdf)
+    pages['sources.html'] = page(ui['source_title'], body + '</ul>', 'sources.html', 'sources', lang, include_pdf=not args.without_pdf)
     return pages
 
 

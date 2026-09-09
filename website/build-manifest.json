@@ -5,7 +5,7 @@
   "source_files": 45,
   "mathml_formulas": 22,
   "html_pages": 98,
-  "checked_local_links": 17692,
+  "checked_local_links": 17790,
   "languages": [
     "en",
     "zh-CN"
@@ -20,7 +20,7 @@
     "zh-CN": "GPT-6 Astra \u00b7 Juii-hang Leung\uff08\u9f99\u7ef4\u6c49\uff09"
   },
   "chinese_blueprint_sha256": "f31199b3553c7a308257d041134a4d4c46f0cd9c9553c866c08ee7ff770855bc",
-  "ui_sha256": "a6f6988ec920b7c1bd1c67395d30a2c350dd36902122a6f6f2634ecdef5fbe35",
+  "ui_sha256": "eda0006912173dc2976773c062cb8ee357243468a591accf4b57852245a7f37d",
   "checked_declarations": 62,
   "blueprint_sha256": "e5f208da45b9c2cccadccda88f6a71b85d339228d1615329c772cb23027cebe8",
   "metadata_sha256": "6bde2b1e36866c42f9f8c9fad011aedb589e0a1bcb9f708bcbe001bf4c54dcf5",
