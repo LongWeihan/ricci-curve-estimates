@@ -8,7 +8,7 @@
 
 <p align="center">
   <strong>GPT-6 Astra · Juii-hang Leung</strong><br>
-  Length and total-curvature estimates for the Perelman–Morgan–Tian finite extinction argument.
+  Length and total-curvature estimates for Perelman’s finite extinction argument.
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@ L(t)\leq L_0 e^{B(t-a)},\qquad
 \Theta(t)\leq (\Theta_0+L_0)e^{C(t-a)},\qquad a\leq t\leq b.
 $$
 
-Here $L$ is length and $\Theta$ is total curvature, both measured using the evolving metric. The initial-length term is part of the corrected Morgan–Tian estimate.
+Here $L$ is length and $\Theta$ is total curvature, both measured using the evolving metric. The corrected estimate includes the initial-length term.
 
 The auxiliary factor is any supplied genuine one-dimensional smooth Riemannian manifold with a metric static in Ricci-flow time. The application constructs **$h_\lambda=\lambda^2h_0$ for every $\lambda>0$**, with no uniform positive lower bound on the scale, and derives bounds valid over the full time interval.
 
@@ -97,6 +97,6 @@ Semantic reviews were performed by separate Astra AI agents; they are distinct f
 
 ## Sources and citation
 
-The development follows [Perelman’s finite extinction paper](https://arxiv.org/abs/math/0307245) and the [Morgan–Tian 2015 correction](https://arxiv.org/abs/1512.00699), and reuses pinned **mathlib** and **frenzymath DoCarmoLib/MorganTianLib** sources. The [contribution map](docs/contribution-map.md) distinguishes reused infrastructure from the formalization and integration supplied here.
+The development follows [Perelman’s finite extinction paper](https://arxiv.org/abs/math/0307245) and [Correction to Section 19.2 of Ricci Flow and the Poincaré Conjecture](https://arxiv.org/abs/1512.00699), and reuses pinned **mathlib** and **frenzymath geometric libraries**. The [contribution map](docs/contribution-map.md) distinguishes reused infrastructure from the formalization and integration supplied here.
 
 Distributed under the [Apache License 2.0](LICENSE). See [NOTICE](NOTICE) for dependency provenance, [CITATION.bib](CITATION.bib) for the citation draft, and [CHANGELOG](CHANGELOG.md) for the project history. No new mathematical result, DOI, or formal publication is claimed.

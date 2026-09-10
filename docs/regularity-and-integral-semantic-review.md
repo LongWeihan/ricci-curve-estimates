@@ -110,7 +110,7 @@ v 的空间变化已经包含在 Dₛ²q 中，不缺 v′ 项。所需 q 全域
 
 MovingWeightData 的字段只包装局部 integrand 导数、可测性、可积支配，不把整个 integral derivative 作为字段。SmoothIntegral 现在可以从实际 scalar joint regularity 构造这类数据，因此最终几何调用无需外部 domination 假设。
 
-cubic cancellation √q³−hεq≤0 正确，允许任意 ε，因为只用 hε≥√q；需要 ε>0 的 division/PDE 部分已在 RegularizedPDE 层处理。regularized density inequality 保留 +C L forcing，未误删 Morgan–Tian 修正引入的长度依赖。
+cubic cancellation √q³−hεq≤0 正确，允许任意 ε，因为只用 hε≥√q；需要 ε>0 的 division/PDE 部分已在 RegularizedPDE 层处理。regularized density inequality 保留 +C L forcing，未误删 第 19.2 节更正引入的长度依赖。
 
 `deriv_length_le` 输出 BL−∫qds，负 energy 没有丢失。`deriv_regularizedTotal_le` 对实际 arcDeriv²hε 的 weighted diffusion 通过 FTC 消项：flux derivative 的 integrability、实际 differentiability 与端点 flux equality 均为明确输入，零积分是结论。它没有直接假设 diffusion integral=0。
 

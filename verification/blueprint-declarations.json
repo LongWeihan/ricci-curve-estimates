@@ -115,7 +115,7 @@
    "module": "CurveControl.Geometry.CurvatureEvolution",
    "line": 83,
    "docstring":
-   "**Math.** The intrinsic curvature term with the Morgan–Tian slot convention;\nthe do Carmo coordinate sign is canceled by antisymmetry in the last pair. ",
+   "**Math.** The intrinsic curvature term with the upstream slot convention;\nthe do Carmo coordinate sign is canceled by antisymmetry in the last pair. ",
    "declaration": "CurveControl.Geometry.chartCurvature_pairing_canonical",
    "axioms": ["propext", "Classical.choice", "Quot.sound"]},
   {"type":

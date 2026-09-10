@@ -13,7 +13,7 @@
 
 对看板现有“几何定义与流方程规范验收”节点（定义及基础性质编译、文献语义核对、无隐藏目标估计），当前范围足够进入验收：本静态语义审核支持该节点；仍须主代理取得相同版本实际编译与可达公理证据后才可标记 verified。此建议不表示 SpatialCurve 的正交性、速度演化、曲率演化或任何后续节点已完成。
 
-Flow 必须与上游 `MorganTianLib.IsRicciFlowOn g J` 联合使用，不能把独立 `IsCurveShorteningFlowOn` 宣称成完整 Ricci 环境。根估计还须加入有限时间区间/环境张量界或紧性，不是定义节点的欠缺。
+Flow 必须与上游 `IsRicciFlowOn g J` 联合使用，不能把独立 `IsCurveShorteningFlowOn` 宣称成完整 Ricci 环境。根估计还须加入有限时间区间/环境张量界或紧性，不是定义节点的欠缺。
 
 ## 实际切向量与 chart 识别
 

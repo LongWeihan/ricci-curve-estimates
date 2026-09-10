@@ -10,7 +10,7 @@
   <g font-family="Arial, Helvetica, 'Noto Sans CJK SC', 'PingFang SC', sans-serif">
     <text x="60" y="126" fill="#f3f7fc" font-size="48" font-weight="700">Uniform curve estimates</text>
     <text x="61" y="183" fill="#bdccd9" font-size="34">under Ricci flow</text>
-    <text x="62" y="261" fill="#83a8b9" font-size="15" letter-spacing="2">A LEAN FORMALIZATION · PERELMAN–MORGAN–TIAN</text>
+    <text x="62" y="261" fill="#83a8b9" font-size="15" letter-spacing="2">A LEAN FORMALIZATION · RICCI FLOW</text>
   </g>
   <g fill="none" stroke="url(#curve)" stroke-width="1.7" transform="translate(1040 160)">
     <path d="M-145-25C-124-114 12-151 111-90S175 56 78 112S-161 100-145-25Z" opacity=".38"/>

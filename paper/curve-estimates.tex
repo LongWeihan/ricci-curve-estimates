@@ -16,7 +16,7 @@
 \newcommand{\ip}[2]{\langle #1,#2\rangle}
 \newcommand{\leanref}[2]{\par\smallskip\noindent{\small\textit{Lean declaration.}\ \path{#1}\par\noindent\textit{Module.}\ \path{#2}}\par\smallskip}
 \title{A Lean Formalization of Uniform Curve Estimates under Ricci Flow\\[0.5em]
-\large A module for the Perelman--Morgan--Tian finite extinction argument}
+\large A module for Perelman's finite extinction argument}
 \author{GPT-6 Astra \and Juii-hang Leung}
 \date{September 9, 2026}
 \begin{document}
@@ -32,17 +32,18 @@ products with every supplied static one-dimensional Riemannian metric. The
 constants are chosen before the factor metrics, curve families, and initial
 bounds. The result is an interface for the finite extinction argument, conditional
 on existence of the smooth flows and on uniform initial data. It does not prove
-flow existence or finite extinction. We explain the relation to the 2015
-Morgan--Tian correction, the use of a spatial time-dependent connection, the
+flow existence or finite extinction. We explain the corrected curvature
+estimate, the use of a spatial time-dependent connection, the
 precise library interfaces, and the scope of the checked artifact.
 \end{abstract}
 
 \section{Scope and mathematical setting}
 Perelman's finite extinction argument uses controlled curve families in an
-ambient Ricci flow \cite{perelman2003}. The relevant estimates were developed in
-Chapter 19 of Morgan and Tian's account \cite{morgantian2007}; their correction
-\cite{morgantian2015} changes the curvature evolution and the dependence on initial
-data. The formalization reported here concerns this estimate module. It supplies
+ambient Ricci flow \cite{perelman2003}. The relevant estimates are detailed in
+Chapter 19 of \emph{Ricci Flow and the Poincar\'e Conjecture} \cite{ricciflow2007};
+the subsequent correction \cite{curveestimates2015} changes the curvature
+evolution and the dependence on initial data. The formalization reported here
+concerns this estimate module. It supplies
 neither the surrounding topological argument nor the analytic existence theory.
 
 All metrics and connections below are genuine smooth Riemannian objects. Curves
@@ -127,10 +128,10 @@ $(\Theta_0+L_0)e^{C(b-a)}$.
 The proof of Theorem~\ref{thm:main} is the combination of the following sections.
 
 \section{The corrected local evolution}
-The correction of Morgan and Tian identifies the omitted time variation of the
-ambient connection. It produces an error linear in $k$, as well as quadratic
-terms, and consequently a total-curvature estimate involving initial length
-\cite{morgantian2015}. The implementation retains this contribution but uses a
+The correction to Section 19.2 \cite{curveestimates2015} identifies the omitted
+time variation of the ambient connection. It produces an error linear in $k$,
+as well as quadratic terms, and consequently a total-curvature estimate
+involving initial length. The implementation retains this term but uses a
 spatial formulation instead of constructing the full space-time metric.
 
 Fix a valid spatial chart near the point of computation. For a vector field
@@ -370,8 +371,8 @@ $\Theta+L$ is $\Theta_0+L_0$, and $L(t)\ge0$ yields \eqref{eq:main}.
 The dependency base is mathlib at commit
 \path{520045ab14e26149ee970e2e617ca04b09bde5d6} and the frenzymath source tree
 at commit \path{bb91a091f0b968f8bbe8d861e025a88d82b161be}
-\cite{mathlib,frenzymath}. The project directly imports MorganTianLib, which
-in turn imports DoCarmoLib. These libraries provide the smooth Riemannian
+\cite{mathlib,frenzymath}. The project imports the upstream Ricci-flow
+and Riemannian geometry libraries. These libraries provide the smooth Riemannian
 metric, canonical Levi--Civita connection, chart tensor, and Ricci-flow
 infrastructure. mathlib provides the general manifold, calculus, linear
 algebra, and integration framework. The newly supplied development consists
@@ -410,7 +411,8 @@ have been supplied.
 
 \appendix
 \section{Exact interface assumptions}\label{app:interfaces}
-All declaration names in this report are fully qualified. The main product
+Project declaration names in this report are fully qualified; the upstream
+Ricci-flow predicate is written as \path{IsRicciFlowOn}. The main product
 roots use the following context; symbols are printed in ASCII to keep the
 inventory independent of a Lean font setup.
 \begin{quote}\small\ttfamily
@@ -431,7 +433,7 @@ SigmaCompactSpace N; T2Space N; CompactSpace M
 \end{quote}
 The explicit arguments are a metric family $g$ of type
 \path{Real -> Riemannian.RiemannianMetric I M},
-$a,b:\R$, \path{MorganTianLib.IsRicciFlowOn g (Set.Icc a b)}, $a\le b$, and
+$a,b:\R$, \path{IsRicciFlowOn g (Set.Icc a b)}, $a\le b$, and
 \path{Module.finrank Real F = 1}. In the inventory, \texttt{Real} and
 \texttt{infinity} stand for Lean's real type and smoothness order $\infty$.
 The base estimate uses only the $E,H,I,M$ part of the context, without
@@ -440,7 +442,7 @@ The compact-bound theorem also lists \path{CompleteSpace E}; this instance
 is available from finite dimensionality over the complete real field, and is
 inferred when the final product root calls it.
 
-\path{MorganTianLib.IsRicciFlowOn} has four fields: order-connectedness and
+\path{IsRicciFlowOn} has four fields: order-connectedness and
 nontriviality of the time set, joint smoothness of the metric as a horizontal
 bilinear-form section, and the within-time equation evaluated on every point
 and pair of tangent vectors. Hence its specialization to $[a,b]$ rules out a

@@ -80,7 +80,7 @@ theorem chartMetricInner_canonical (g : Riemannian.RiemannianMetric I M)
   simpa only [chartFiberCoord_mk] using
     (metricInner_eq_chartMetricInner (I := I) g p (mem_chart_source H p) U V).symm
 
-/-- **Math.** The intrinsic curvature term with the Morgan–Tian slot convention;
+/-- **Math.** The intrinsic curvature term with the upstream slot convention;
 the do Carmo coordinate sign is canceled by antisymmetry in the last pair. -/
 theorem chartCurvature_pairing_canonical [SigmaCompactSpace M] [T2Space M]
     (g : Riemannian.RiemannianMetric I M) (p : M) (U V : E) :

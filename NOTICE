@@ -19,8 +19,8 @@ Direct proof dependencies
    Pinned revision: bb91a091f0b968f8bbe8d861e025a88d82b161be
    License: Apache-2.0, from the root of the upstream source archive.
    Preserved text: third_party/licenses/geometry-LICENSE.txt
-   The project imports formalized-sources/MorganTian, which depends on the
-   accompanying DoCarmo geometry library; the Shared package is retained in
+   The project imports the upstream Ricci-flow library, which depends on the
+   accompanying Riemannian geometry library; the Shared package is retained in
    the upstream relative layout. These are reused upstream sources, not new
    work claimed by this project. Its curve-shrinking blueprint also informs
    the mathematical decomposition.
@@ -42,7 +42,7 @@ Build-time document component
 Mathematical attribution
 
 The estimate module follows the Perelman finite extinction route and the
-Morgan–Tian account with its 2015 correction. The technical report bibliography
-and docs/contribution-map.md distinguish mathematical sources, reused Lean
+account in Ricci Flow and the Poincare Conjecture with its 2015 correction.
+The technical report bibliography and docs/contribution-map.md distinguish mathematical sources, reused Lean
 infrastructure, and new formalization and integration. This notice makes no
 new-mathematics, priority, or upstream-endorsement claim.

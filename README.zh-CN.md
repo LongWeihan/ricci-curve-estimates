@@ -8,7 +8,7 @@
 
 <p align="center">
   <strong>GPT-6 Astra · Juii-hang Leung（龙维汉）</strong><br>
-  Perelman–Morgan–Tian 有限消失路线中的曲线长度与总曲率估计。
+  Perelman 有限时间消失论证中的曲线长度与总曲率估计。
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@ L(t)\leq L_0 e^{B(t-a)},\qquad
 \Theta(t)\leq (\Theta_0+L_0)e^{C(t-a)},\qquad a\leq t\leq b.
 $$
 
-其中 $L$ 为长度，$\Theta$ 为总曲率，均由演化中的实际度量定义。初始长度项是 Morgan–Tian 修正估计的一部分。
+其中 $L$ 为长度，$\Theta$ 为总曲率，均由演化中的实际度量定义。修正后的估计包含初始长度项。
 
 辅助因子可以是任意供给的真实一维光滑 Riemannian 流形，其度量在 Ricci 时间上静态。应用模块实际构造 **$h_\lambda=\lambda^2h_0$（所有 $\lambda>0$）**，正尺度无需统一正下界，并得到整个闭时间区间上的统一界。
 
@@ -97,6 +97,6 @@ python3 scripts/verify.py
 
 ## 来源与引用
 
-项目遵循 [Perelman 有限消失论文](https://arxiv.org/abs/math/0307245)及 [Morgan–Tian 2015 修正](https://arxiv.org/abs/1512.00699)，复用固定版本的 **mathlib** 和 **frenzymath DoCarmoLib/MorganTianLib**。[贡献地图](docs/contribution-map.md)区分上游基础设施与本项目的形式化和集成工作。
+项目遵循 [Perelman 有限消失论文](https://arxiv.org/abs/math/0307245)及 [《Ricci Flow and the Poincaré Conjecture》第 19.2 节更正](https://arxiv.org/abs/1512.00699)，复用固定版本的 **mathlib** 和 **frenzymath 几何库**。[贡献地图](docs/contribution-map.md)区分上游基础设施与本项目的形式化和集成工作。
 
 采用 [Apache License 2.0](LICENSE)。依赖来源见 [NOTICE](NOTICE)，引用草案见 [CITATION.bib](CITATION.bib)，版本记录见 [CHANGELOG](CHANGELOG.md)。本项目不主张新的数学结论、DOI 或正式发表。

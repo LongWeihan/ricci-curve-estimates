@@ -2,7 +2,7 @@
 
 日期：2026-09-09。结论：主代理提出的公式正确，可作为显式路线适配，不缩减目标模块范围。以下是数学审核及推导，非 Lean 编译或公理验收证据。
 
-来源核对：联络一般变分公式见 [Danny Calegari, Ricci Flow, §3.2，PDF 第19–20页](https://math.uchicago.edu/~dannyc/courses/ricci_2019/ricci_flow.pdf)。完整时空公式对照 [Morgan–Tian 修正 Lemma 0.2](https://arxiv.org/html/1512.00699)；估计目标对照 [Perelman §2.1](https://arxiv.org/pdf/math/0307245)。这里对纯空间路线作独立推导，并显式计算它与时空表达的转换。
+来源核对：联络一般变分公式见 [Danny Calegari, Ricci Flow, §3.2，PDF 第19–20页](https://math.uchicago.edu/~dannyc/courses/ricci_2019/ricci_flow.pdf)。完整时空公式对照 [第 19.2 节更正 Lemma 0.2](https://arxiv.org/html/1512.00699)；估计目标对照 [Perelman §2.1](https://arxiv.org/pdf/math/0307245)。这里对纯空间路线作独立推导，并显式计算它与时空表达的转换。
 
 ## 1. 定义与不可混用的约定
 
@@ -60,7 +60,7 @@ Ricci 流的联络变分公式为
 
 该式每个系数、正负号均与主代理所提一致。尤其 −2Ric(H,H) 不能从 DₜH 中“自动包含”而忘记 metric variation。
 
-## 3. 与 Morgan–Tian 时空公式的显式转换
+## 3. 与更正文献中的时空公式的显式转换
 
 设 ĝ=g(t)+dt²，T=∂ₜ，∇̂ 为其 Levi–Civita 联络；这里只作纸面等价性审计，纯空间实现不需要先构造 ĝ。写 α=Ric(S,S)、β=Ric(S,H)、δ=Ric(H,H)。
 
@@ -76,7 +76,7 @@ Ricci 流的联络变分公式为
 
 第二式也可由其水平曲率算子写作 A(S,S)+(∇_S Ric)♯S，再与 H 取内积验证。
 
-把 Ĥ=H+T 与这些公式代入 Morgan–Tian 的完整修正式：
+把 Ĥ=H+T 与这些公式代入更正文献中的完整公式：
 
 - 投影平方中的 −2β² 与纯水平曲率中的 +2β² 抵消。
 - 纯水平曲率中的 −2αδ 与显式 +2Ric(S,S)Ric(H,H) 抵消。
@@ -99,7 +99,7 @@ Ricci 流的联络变分公式为
 
 ## 5. 作为 Lean 路线适配的验收要求
 
-可采用，但须在进度/来源说明中明确“适配：时空投影版本改写为纯空间联络变分版本”，并记录上面的等价转换，不要称直接复用 Morgan–Tian 公式。
+可采用，但须在进度/来源说明中明确“适配：时空投影版本改写为纯空间联络变分版本”，并记录上面的等价转换，不要称直接复用更正文献的公式。
 
 必须实际证明 A 的变分式、pullback 的 Dₜ/Dₓ 交换式以及时变内积律，不能把它们包装成 curve data 的未经证明字段。这替代的是 ĝ 构造和其混合曲率桥，仍有实质几何证明负担。
 

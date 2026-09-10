@@ -71,8 +71,10 @@ or with `\forall\ell\;\forall i\;\forall t\in[a,b]` after explicitly specifying 
 
 ## Bibliography check
 
-Primary metadata checked against [Perelman's arXiv entry](https://arxiv.org/abs/math/0307245), [the Morgan–Tian correction entry](https://arxiv.org/abs/1512.00699), and [the book's title/copyright pages](https://www.claymath.org/library/monographs/cmim03.pdf): titles, authors, 17 July 2003 / 2 December 2015 submission dates, book year 2007 and Clay Mathematics Monographs volume 3 agree. The institutional publisher description is reasonable. Repository citations explicitly identify their pinned commits and do not claim a publication priority. No bibliography correction is required. Rendering of URLs by the chosen BibTeX style is a separate typesetting check.
+Primary metadata checked against [Perelman's arXiv entry](https://arxiv.org/abs/math/0307245), [the correction to Section 19.2 entry](https://arxiv.org/abs/1512.00699), and [the book's title/copyright pages](https://www.claymath.org/library/monographs/cmim03.pdf): titles, authors, 17 July 2003 / 2 December 2015 submission dates, book year 2007 and Clay Mathematics Monographs volume 3 agree. The institutional publisher description is reasonable. Repository citations explicitly identify their pinned commits and do not claim a publication priority. No bibliography correction is required. Rendering of URLs by the chosen BibTeX style is a separate typesetting check.
 
 ## Acceptance scope after R1–R2
 
 Accept the mathematical exposition after those two textual corrections and a final updated snapshot check. New StaticFactorApplication proof acceptance remains with its separately assigned reviewer; this review only establishes how its supplied statement changes the paper's claims. Rendering, bibliography layout, new environment audit coverage and release hashes remain the main agent's publication checks.
+
+Presentation update (2026-09-10): the report now cites the exposition and correction by publication title and source identifier. The bibliographic metadata check above records the earlier review; this wording update does not change the mathematical source documents.

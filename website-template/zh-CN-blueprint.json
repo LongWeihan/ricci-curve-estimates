@@ -15,7 +15,7 @@
   "references": [
     {
       "id": "mt2015",
-      "title": "Morgan–Tian 修正，引理 0.1–0.4",
+      "title": "《Ricci Flow and the Poincaré Conjecture》第 19.2 节更正，引理 0.1–0.4",
       "url": "https://arxiv.org/html/1512.00699",
       "role": "修正后的数学来源；空间联络路线属于适配。"
     },
@@ -29,7 +29,7 @@
       "id": "upstream",
       "title": "frenzymath/Poincare-Conjecture，固定提交的几何库",
       "url": "https://github.com/frenzymath/Poincare-Conjecture/tree/bb91a091f0b968f8bbe8d861e025a88d82b161be",
-      "role": "复用 DoCarmoLib 和 MorganTianLib 的度量、联络及 Ricci 流基础设施。"
+      "role": "复用上游几何库中的度量、联络及 Ricci 流基础设施。"
     },
     {
       "id": "target_blueprint",

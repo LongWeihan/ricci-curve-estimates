@@ -6,7 +6,7 @@ import Mathlib.Tactic.Ring
 # Absorbing the corrected curvature error
 
 This is the scalar contraction estimate for the spatial-connection version of
-the Morgan--Tian correction. The geometric caller must supply bounds on the
+the correction to Section 19.2. The geometric caller must supply bounds on the
 actual Ricci, curvature and covariant-Ricci contractions. These assumptions are
 not a substitute for proving their occurrence in the geometric evolution law.
 -/

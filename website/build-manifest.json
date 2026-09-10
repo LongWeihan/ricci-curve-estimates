@@ -19,11 +19,11 @@
     "en": "GPT-6 Astra \u00b7 Juii-hang Leung",
     "zh-CN": "GPT-6 Astra \u00b7 Juii-hang Leung\uff08\u9f99\u7ef4\u6c49\uff09"
   },
-  "chinese_blueprint_sha256": "f31199b3553c7a308257d041134a4d4c46f0cd9c9553c866c08ee7ff770855bc",
+  "chinese_blueprint_sha256": "64570bab25a4ba513d8d1b28f3b1c234d0cff8fa6ce703c8acc122a2a24f47a0",
   "ui_sha256": "eda0006912173dc2976773c062cb8ee357243468a591accf4b57852245a7f37d",
   "checked_declarations": 62,
-  "blueprint_sha256": "e5f208da45b9c2cccadccda88f6a71b85d339228d1615329c772cb23027cebe8",
-  "metadata_sha256": "6bde2b1e36866c42f9f8c9fad011aedb589e0a1bcb9f708bcbe001bf4c54dcf5",
+  "blueprint_sha256": "033f59280268847ed95395095e990facd3a5a2282df5ad35312588af9d6bc7fa",
+  "metadata_sha256": "e2a56a67236e57ca783b7909b627108162bc504f67f74167ce110b5619e64a49",
   "math_renderer": "KaTeX 0.16.22; build-time MathML; strict errors",
   "pdf_included": true
 }

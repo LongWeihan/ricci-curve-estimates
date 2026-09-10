@@ -20,7 +20,7 @@ The final product interfaces use real finite-dimensional inner-product model spa
 
 Supply:
 
-1. `hg : MorganTianLib.IsRicciFlowOn g (Set.Icc a b)` and `hab : a ≤ b`. The flow predicate includes joint within-smoothness, the actual Ricci equation, order-connectedness and nontriviality of the interval; thus the final root's interval is nondegenerate.
+1. `hg : IsRicciFlowOn g (Set.Icc a b)` and `hab : a ≤ b`. The flow predicate includes joint within-smoothness, the actual Ricci equation, order-connectedness and nontriviality of the interval; thus the final root's interval is nondegenerate.
 2. A genuine static factor metric, a family of such metrics, or the starting metric `h₀` for the scaled application. Supply the factor manifold and atlas independently.
 3. The actual curves and `IsCurveShorteningFlowOn` for each. This predicate requires joint within-smoothness, period-one closedness, immersion, and the actual within-time equation `cₜ=H`. It is an existing solution, not an existence theorem.
 4. Common initial bounds `L(a)≤L₀` and `Θ(a)≤Θ₀` for every scale and curve. The module does not construct these bounds from ramps or compact parameter families.

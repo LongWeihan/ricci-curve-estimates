@@ -111,7 +111,7 @@ theorem covRicciAt_basis_expand (g : Riemannian.RiemannianMetric I M)
         covRicciAt g nabla hLC p (b i) (b j) (b k) :=
   trilinear_basis_expand (covRicciTrilinear g nabla hLC p) b u v w
 
-/-- Currying of the intrinsic Morgan–Tian curvature form in its four slots. -/
+/-- Currying of the intrinsic upstream curvature form in its four slots. -/
 def curvatureQuadrilinear (g : Riemannian.RiemannianMetric I M)
     (nabla : AffineConnection I M) (p : M) :
     TangentSpace I p →ₗ[ℝ] TangentSpace I p →ₗ[ℝ]

@@ -9,11 +9,11 @@
 | 层次 | 固定来源 | 实际复用内容 |
 |---|---|---|
 | Lean / mathlib | Lean 4.32.1；mathlib `520045ab14e26149ee970e2e617ca04b09bde5d6` | 流形、切丛、模型变换、Fréchet/within 微分、有限维线性代数、积分换序与参数积分、FTC、指数比较等通用基础。我们没有重建这些基础，也没有把 mathlib 描述为已包含整条目标曲线估计。 |
-| frenzymath 几何库 | [Poincare-Conjecture，固定提交 bb91a091f0b968f8bbe8d861e025a88d82b161be](https://github.com/frenzymath/Poincare-Conjecture/tree/bb91a091f0b968f8bbe8d861e025a88d82b161be) | `formalized-sources/DoCarmo` 的真实 RiemannianMetric、canonical Levi–Civita、chart Gram/Christoffel/curvature、诱导与产品度量；`formalized-sources/MorganTian` 的沿曲线协变导数、Ricci 与协变 Ricci、时变度量及 Ricci 流坐标接口。 |
+| frenzymath 几何库 | [Poincare-Conjecture，固定提交 bb91a091f0b968f8bbe8d861e025a88d82b161be](https://github.com/frenzymath/Poincare-Conjecture/tree/bb91a091f0b968f8bbe8d861e025a88d82b161be) | `formalized-sources/DoCarmo` 的真实 RiemannianMetric、canonical Levi–Civita、chart Gram/Christoffel/curvature、诱导与产品度量；上游 Ricci 流库 的沿曲线协变导数、Ricci 与协变 Ricci、时变度量及 Ricci 流坐标接口。 |
 | 数学目标 | 同提交的 `PoincareConjecture/blueprint/src/chapters/curve-shrinking-estimates.tex` | 给出分解与目标陈述；相关标签在冻结蓝图中标记 `notready`，不是现成 Lean 定理可直接导入。 |
-| 修正后的数学路线 | [Morgan–Tian，2015-12-02 修正](https://arxiv.org/html/1512.00699)，Lemma 0.1–0.4 | 漏掉联络时间导数会损失线性曲率误差；总曲率最终常数必须同时依赖初始总曲率与初始长度。本实现保留这一修正。 |
+| 修正后的数学路线 | [第 19.2 节更正（2015-12-02）](https://arxiv.org/html/1512.00699)，Lemma 0.1–0.4 | 漏掉联络时间导数会损失线性曲率误差；总曲率最终常数必须同时依赖初始总曲率与初始长度。本实现保留这一修正。 |
 
-本项目的 [lakefile.lean](../lakefile.lean) 直接引用本机固定 mathlib checkout 与 MorganTianLib 源目录；MorganTianLib 再直接依赖同源 DoCarmoLib。新证明位于 `CurveControl/`，并非修改上游蓝图后把其标记视为证明。冻结 frenzymath 上游 archive 根目录实际带有 Apache-2.0 LICENSE；此前选择性抽取遗漏该文件，导致旧版文档误写“未发现”。本版纠正这一记录，保留 [geometry-LICENSE.txt](../third_party/licenses/geometry-LICENSE.txt) 与 [mathlib-LICENSE.txt](../third_party/licenses/mathlib-LICENSE.txt)。项目根 [LICENSE](../LICENSE) 为 Apache-2.0；构建文档使用的 KaTeX 0.16.22 另保留 MIT [许可证](../third_party/katex/LICENSE) 和 [来源记录](../third_party/katex/SOURCE.json)。准确归属见 [NOTICE](../NOTICE)。
+本项目的 [lakefile.lean](../lakefile.lean) 直接引用本机固定 mathlib checkout 与上游 Ricci 流库源目录；上游 Ricci 流库再直接依赖同源 DoCarmoLib。新证明位于 `CurveControl/`，并非修改上游蓝图后把其标记视为证明。冻结 frenzymath 上游 archive 根目录实际带有 Apache-2.0 LICENSE；此前选择性抽取遗漏该文件，导致旧版文档误写“未发现”。本版纠正这一记录，保留 [geometry-LICENSE.txt](../third_party/licenses/geometry-LICENSE.txt) 与 [mathlib-LICENSE.txt](../third_party/licenses/mathlib-LICENSE.txt)。项目根 [LICENSE](../LICENSE) 为 Apache-2.0；构建文档使用的 KaTeX 0.16.22 另保留 MIT [许可证](../third_party/katex/LICENSE) 和 [来源记录](../third_party/katex/SOURCE.json)。准确归属见 [NOTICE](../NOTICE)。
 
 ## 从蓝图标签到实际声明
 
@@ -42,7 +42,7 @@ q_t = Dₛ²q − 2|P|² + 2q²
       − 4(∇S Ric)(S,H) + 2(∇H Ric)(S,S).
 ```
 
-`rm` 的槽顺序和上游 do Carmo 曲率符号经过显式转换；空间 P 也没有被当成时空正交投影。与 Morgan–Tian 时空写法的纸面等价性核对见 [spatial-connection-route](spatial-connection-route.md)，实际 Lean 根审核见 [curvature-root-semantic-review](curvature-root-semantic-review.md)。这是证明路线与库接口的适配，不是重新发现该数学估计。
+`rm` 的槽顺序和上游 do Carmo 曲率符号经过显式转换；空间 P 也没有被当成时空正交投影。与更正文献中的时空写法的纸面等价性核对见 [spatial-connection-route](spatial-connection-route.md)，实际 Lean 根审核见 [curvature-root-semantic-review](curvature-root-semantic-review.md)。这是证明路线与库接口的适配，不是重新发现该数学估计。
 
 **端点。** [Flow](../CurveControl/Geometry/Flow.lean) 的真实曲线流条件以 `HasDerivWithinAt … J t` 表达时间方程。高阶演化在 `interior J` 上证明；闭区间连续性负责初值与终点传递。不把初值端点擅自当成有双侧高阶导数的内点，也不要求流提前延拓到负时间。
 

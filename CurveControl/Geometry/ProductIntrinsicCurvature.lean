@@ -10,7 +10,7 @@ import DoCarmoLib.Riemannian.Jacobi.ChartCurvatureNaturality
 
 The fiber isometry uses each actual Riemannian metric, never the original model
 norm. Intrinsic curvature is linked to the actual chart curvature with the
-upstream do Carmo / Morgan--Tian sign convention made explicit.
+upstream geometric-library sign convention made explicit.
 -/
 
 open Set Riemannian Riemannian.Geodesic Riemannian.Jacobi

@@ -6,7 +6,7 @@ Date: 2026-09-09. Read-only audit of existing sources; this report is the only f
 
 - Mathlib root `L = /Users/bytedance/Documents/Codex/2026-09-09/wo/work/lean-deps/mathlib4-520045ab/Mathlib` (the requested pinned source directory).
 - Existing frenzy source root `F = /Users/bytedance/Documents/Codex/2026-09-09/wo/work/poincare-duplicate-audit/sources/frenzymath__Poincare-Conjecture/formalized-sources`.
-- Below, `D = F/DoCarmo/DoCarmoLib`, `M = F/MorganTian/MorganTianLib`. Paths and line numbers refer to this local snapshot, not live GitHub.
+- Below, `D = F/DoCarmo/DoCarmoLib`, `M` is the upstream Ricci-flow library root. Paths and line numbers refer to this local snapshot, not live GitHub.
 - “Source proof present” means the declaration body was inspected and is a definition or actual proof. It does NOT mean this audit compiled the declaration or checked its transitive axioms. No item below is newly verified by Lean in this audit.
 - Conclusion: useful metric, connection, Ricci/covRicci, coordinate smoothness, tensor norm, compactness and circle-topology building blocks exist. I did not locate an end-to-end theorem deriving all three ambient bounds from a smooth compact base flow, nor an intrinsic product-metric/LC/Rm/Ric/covRic splitting API for `M × AddCircle λ`. These remain mathematical construction tasks, not configuration tasks.
 
@@ -38,7 +38,7 @@ For the requested short smooth compact time interval, the economical route is co
 - `M/Ch01/PointwiseCurvature.lean:248`: another `curvatureFormAt` via global extensions. Avoid mixing these similarly named interfaces without the actual bridge theorem.
 - `M/Ch01/RicciDivergence.lean:116`: `covRicci g nabla hLC U X Y`, the covariant derivative, not an arbitrary supplied tensor. :554 proves extension invariance, :583 defines `covRicciAt`, :588 relates it to smooth fields; :595/:607/:619/:631 provide pointwise linearity. Assumptions include boundaryless, finite nonzero-dimensional smooth manifold, sigma-compact/Hausdorff context. These are usable building blocks for a covariant 3-tensor norm.
 
-Search found no actual constructor named/product-equivalent to `RiemannianMetric.prod` / `productMetric` / `prodMetric`, nor the requested LC/Rm/Ric/covRic splitting in the audited DoCarmo/MorganTian sources. This is a bounded search finding, not a theorem that no differently named API exists.
+Search found no actual constructor named/product-equivalent to `RiemannianMetric.prod` / `productMetric` / `prodMetric`, nor the requested LC/Rm/Ric/covRic splitting in the audited Riemannian geometry and Ricci-flow sources. This is a bounded search finding, not a theorem that no differently named API exists.
 
 False friend: `M/Ch03/RicciFlow/GeneralizedProduct.lean:107` is `ProductGeneralizedRicciFlow g J`, a PROP recording the SAME ordinary flow smoothness/equation on horizontal tangent fibres of `M × ℝ`. The :118 conversion merely copies `hflow` fields; :176 returns `h.ricci_equation`. It does not equip the full product tangent bundle with `g ⊕ ds²`, and proves no spatial product curvature splitting. “Product” here is time-space packaging, not the auxiliary-circle product.
 
@@ -50,7 +50,7 @@ False friend: `M/Ch03/RicciFlow/GeneralizedProduct.lean:107` is `ProductGenerali
 - `L/Topology/Instances/AddCircle/Real.lean:33`: `AddCircle.compactSpace` under `[Fact (0 < p)]`.
 - `L/Topology/Covering/AddCircle.lean:28,32,35`: quotient covering map and local homeomorphism under discrete topology on `zmultiples p`; the real positive-period specialization must instantiate that hypothesis.
 
-No `AddCircle` occurrence was found in pinned `Mathlib/Geometry`, or in the audited DoCarmo/MorganTian Lean files. Thus the located evidence does not establish a smooth one-dimensional `AddCircle λ` Riemannian metric, its LC formula, or vanishing curvature. Building an atlas from local quotient lifts with translation transitions and the induced metric is a genuine outstanding step. A metric-space quotient and compactness alone do not provide these objects.
+No `AddCircle` occurrence was found in pinned `Mathlib/Geometry`, or in the audited Riemannian geometry and Ricci-flow Lean files. Thus the located evidence does not establish a smooth one-dimensional `AddCircle λ` Riemannian metric, its LC formula, or vanishing curvature. Building an atlas from local quotient lifts with translation transitions and the induced metric is a genuine outstanding step. A metric-space quotient and compactness alone do not provide these objects.
 
 Convention must be explicit: `AddCircle λ` uses period/circumference λ. A circle of radius λ instead has circumference `2πλ`, or uses a fixed circle with a scaled metric. Do not silently interchange the parameter conventions.
 

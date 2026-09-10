@@ -17,7 +17,7 @@ python3 scripts/prepare_dependencies.py \
 python3 scripts/verify.py
 ```
 
-The default mode is `reuse`. It checks the saved fingerprints for mathlib, MorganTianLib, DoCarmoLib and Shared before invoking `configure.py` and `lake update`. A missing or different source tree causes a failure, never an implicit source download or replacement. `lake update` may still obtain missing **transitive Lake packages**; this step is distinct from fetching the two primary source archives. The geometric repository must retain `formalized-sources/MorganTian`, `formalized-sources/DoCarmo`, and `shared` in their original relative positions.
+The default mode is `reuse`. It checks the saved fingerprints for mathlib, the Ricci-flow library, DoCarmoLib and Shared before invoking `configure.py` and `lake update`. A missing or different source tree causes a failure, never an implicit source download or replacement. `lake update` may still obtain missing **transitive Lake packages**; this step is distinct from fetching the two primary source archives. The geometric repository must retain the Ricci-flow, Riemannian geometry, and shared source directories in their original relative positions.
 
 Pass `--lake /path/to/lean-4.32.1/bin/lake` to both scripts if the toolchain is not on PATH. The preparation script checks that executable before configuring Lake. The verifier additionally checks the actual `lake env lean --version` result, repeats the dependency fingerprint check using the resolved Lake manifest, builds the library, and audits project declarations and their reachable axioms.
 
@@ -55,7 +55,7 @@ Local dependency paths in the new `lakefile.lean` and manifest will differ from 
 
 ## Source provenance checked for this release
 
-The reviewed mathlib checkout has the exact fixed HEAD above and no tracked modifications. The original geometry archive has top directory `Poincare-Conjecture-bb91a091f0b968f8bbe8d861e025a88d82b161be`. Its 573 MorganTianLib, 293 DoCarmoLib, and 12 Shared nonhidden Lean files were compared directly with the working snapshot: no differences were found, and all three archive-derived fingerprints match the released baseline.
+The reviewed mathlib checkout has the exact fixed HEAD above and no tracked modifications. The original geometry archive has top directory `Poincare-Conjecture-bb91a091f0b968f8bbe8d861e025a88d82b161be`. Its 573 Ricci-flow, 293 Riemannian geometry, and 12 shared nonhidden Lean files were compared directly with the working snapshot: no differences were found, and all three archive-derived fingerprints match the released baseline.
 
 The earlier task-local geometry extraction omitted the repository's root `LICENSE`; the original archive contains it at its root, not under a different package. Its actual text is Apache License 2.0 and SHA256 is `cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30`. Fresh extraction by this script preserves that file. Reusing the earlier extraction does not silently rewrite it; the exact Lean-source fingerprint remains the source identity check. Attribution and license information in the project distribution should be read together with the original dependency notices.
 

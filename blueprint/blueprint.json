@@ -15,7 +15,7 @@
   "references": [
     {
       "id": "mt2015",
-      "title": "Morgan–Tian correction, Lemmas 0.1–0.4",
+      "title": "Correction to Section 19.2 of Ricci Flow and the Poincaré Conjecture, Lemmas 0.1–0.4",
       "url": "https://arxiv.org/html/1512.00699",
       "role": "Corrected mathematical source; spatial connection route is an adaptation."
     },
@@ -29,7 +29,7 @@
       "id": "upstream",
       "title": "frenzymath/Poincare-Conjecture, pinned geometric libraries",
       "url": "https://github.com/frenzymath/Poincare-Conjecture/tree/bb91a091f0b968f8bbe8d861e025a88d82b161be",
-      "role": "Reused DoCarmoLib and MorganTianLib metric, connection and Ricci-flow infrastructure."
+      "role": "Reused upstream Riemannian geometry and Ricci-flow infrastructure."
     },
     {
       "id": "target_blueprint",

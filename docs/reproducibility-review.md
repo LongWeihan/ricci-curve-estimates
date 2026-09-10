@@ -8,7 +8,7 @@ Date: 2026-09-09. Scope: read-only review of configure.py, verify.py, fingerprin
 - The tree contains 43 mathematical `.lean` modules plus the root. All 44 module names occur in the audit, and every mathematical source is included in the release source hash map.
 - `reachable-axioms.json` contains exactly **757 distinct records**, no duplicate declaration names and no axiom outside `propext`, `Classical.choice`, `Quot.sound`.
 - The source has three explicitly private theorems; all three appear under their mangled `_private...` names in the recorded audit. Generated declarations and instances are selected by defining module, not by a theorem-name regex or namespace heuristic.
-- I independently ran the read-only dependency fingerprint `--check` against the current pinned mathlib/geometry directories. It returned **Dependency source fingerprints match** for mathlib (8795 Lean files), MorganTianLib (573), DoCarmoLib (293), and Shared (12).
+- I independently ran the read-only dependency fingerprint `--check` against the current pinned mathlib/geometry directories. It returned **Dependency source fingerprints match** for mathlib (8795 Lean files), the Ricci-flow library (573), DoCarmoLib (293), and Shared (12).
 
 ## Audit mechanism
 
@@ -20,7 +20,7 @@ The verifier separately compares all discovered project source-module names with
 
 ## Configuration and reproduction
 
-The package's Lean options agree with the configuration template: autoImplicit=false, the established transparency setting, and increased synthesis heartbeats. `lean-toolchain` pins 4.32.1. The root manifest records the two local path dependencies, their relative sibling dependencies, and fixed transitive Git revisions. README correctly instructs preserving the geometry repository's MorganTian/DoCarmo/shared layout, rerunning configure and `lake update`, and using the same external toolchain's lake for update and verification. Reconfiguration necessarily changes local-path configuration hashes; an independently reproduced release record should bind the new configuration rather than match the original machine's path bytes.
+The package's Lean options agree with the configuration template: autoImplicit=false, the established transparency setting, and increased synthesis heartbeats. `lean-toolchain` pins 4.32.1. The root manifest records the two local path dependencies, their relative sibling dependencies, and fixed transitive Git revisions. README correctly instructs preserving the geometry repository's original relative layout of the geometry libraries and shared package, rerunning configure and `lake update`, and using the same external toolchain's lake for update and verification. Reconfiguration necessarily changes local-path configuration hashes; an independently reproduced release record should bind the new configuration rather than match the original machine's path bytes.
 
 The fingerprint algorithm deterministically hashes sorted relative Lean-source paths and file contents, excluding hidden/cache trees. Its advertised scope is exact external Lean source trees, not every auxiliary file in the repositories or every transitive package. This matches its implementation.
 
@@ -45,7 +45,7 @@ Reviewed `scripts/verify.py` SHA256:
 **Source-review verdict: pass; all three earlier publication suggestions are resolved.**
 
 - The verifier runs the actual `lake env lean --version`, requires the exact 4.32.1 version token (not a 4.32.10 prefix match), and records the complete stdout version string.
-- It reads the actual Lake manifest, requires local path packages for mathlib, MorganTianLib, DoCarmoLib and Shared, and checks the geometry siblings against the resolved MorganTian repository layout. The fingerprint command therefore checks the dependencies selected by this project rather than independent user-supplied lookalike directories. A failed mandatory `--check` exits before building.
+- It reads the actual Lake manifest, requires local path packages for mathlib, the Ricci-flow library, DoCarmoLib and Shared, and checks the geometry siblings against the resolved upstream repository layout. The fingerprint command therefore checks the dependencies selected by this project rather than independent user-supplied lookalike directories. A failed mandatory `--check` exits before building.
 - The release hash set now includes every existing release `.py` script and the dependency fingerprint baseline as well as the prior mathematics, audit, toolchain and Lake files. It compares those bytes before and after the build/audit and refuses to issue a passing new release record if they changed. Expected source-module coverage is still checked after the audit.
 - README now accurately states that configure validates layout/toolchain labels but does not itself verify Git revisions; verification enforces the saved source fingerprints. The inaccurate lakefile bootstrap comment was replaced with the correct verifier description.
 

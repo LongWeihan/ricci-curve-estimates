@@ -45,7 +45,7 @@ The general trilinear and quadrilinear lemmas are exact expansions in an arbitra
 
 `covRicciTrilinear` is built from the existing actual covariant Ricci bilinear tensor and the proved additivity/homogeneity in its direction slot. Its application theorem is definitional. The resulting expansion is therefore for `(∇_u Ric)(v,w)`, not an auxiliary scalar function.
 
-`curvatureQuadrilinear` curries the actual Morgan–Tian `curvatureFormAt` using its proved linearity in all four slots. Its application theorem is also definitional. The expansion preserves that source's curvature convention; no sign conversion or curvature symmetry is silently assumed. It accepts any connection because multilinearity itself does not require Levi-Civita; the later actual ambient-bound application must supply the canonical metric connection.
+`curvatureQuadrilinear` curries the actual upstream `curvatureFormAt` using its proved linearity in all four slots. Its application theorem is also definitional. The expansion preserves that source's curvature convention; no sign conversion or curvature symmetry is silently assumed. It accepts any connection because multilinearity itself does not require Levi-Civita; the later actual ambient-bound application must supply the canonical metric connection.
 
 These are expansion equalities, not norm estimates. Neither a model-space operator norm nor a presumed bound on any projection occurs.
 

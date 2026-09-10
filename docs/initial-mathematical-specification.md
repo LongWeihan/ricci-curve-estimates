@@ -4,7 +4,7 @@
 
 ## 1. 来源核对及范围
 
-一手来源：[Morgan–Tian 修正](https://arxiv.org/html/1512.00699)，特别是 Lemma 0.1–0.4 及后续对 19.24、19.59–19.62 的说明；[Perelman, math/0307245](https://arxiv.org/pdf/math/0307245)，§2.1、§3.3–3.4。本地蓝图 `blueprint/src/chapters/curve-shrinking-estimates.tex` 的 747–929 行与修正后的整体路线一致，但尚标记 `notready`。
+一手来源：[第 19.2 节更正](https://arxiv.org/html/1512.00699)，特别是 Lemma 0.1–0.4 及后续对 19.24、19.59–19.62 的说明；[Perelman, math/0307245](https://arxiv.org/pdf/math/0307245)，§2.1、§3.3–3.4。本地蓝图 `blueprint/src/chapters/curve-shrinking-estimates.tex` 的 747–929 行与修正后的整体路线一致，但尚标记 `notready`。
 
 源文核对摘要：时间演化环境引入线性曲率误差，因此总曲率估计含初始长度。正则化用于跨越曲率为零的点。全局积分控制用于后续局部估计与参数族。以下是拟实现的精确规格与证明接口，而非声称文献中的简略证明已经形式化。
 

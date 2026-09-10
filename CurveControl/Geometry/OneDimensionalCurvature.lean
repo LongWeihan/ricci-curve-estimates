@@ -39,7 +39,7 @@ variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
   [SigmaCompactSpace M] [T2Space M]
 
 omit [NeZero (Module.finrank ℝ E)] in
-/-- **Math.** Actual LC curvature, in the Morgan--Tian pointwise convention. -/
+/-- **Math.** Actual LC curvature, in the upstream pointwise convention. -/
 theorem curvatureFormAt_eq_zero_of_finrank_one
     (hdim : Module.finrank ℝ E = 1) (g : Riemannian.RiemannianMetric I M)
     (nabla : AffineConnection I M) (hLC : nabla.IsLeviCivita g)

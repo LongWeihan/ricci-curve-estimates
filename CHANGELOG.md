@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-09-10
+
+- Clarified the finite-extinction attribution and switched related references to publication titles throughout the bilingual presentation and technical report. Lean proof bodies and declaration interfaces are unchanged.
+
 ## 2026-09-09
 
 - Added bilingual presentation with a single homepage byline, a globe language control, and concise mathematical exposition. Git history and source hashes retain the change record.
